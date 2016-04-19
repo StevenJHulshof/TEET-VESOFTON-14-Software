@@ -1,6 +1,6 @@
  /*******************************************************************************
  * Begin of file source_example.c
- * Author: Steven Hulshof
+ * @author: Steven Hulshof
  * @version: 1.0
  * Created: 19/04/2016 
  *
