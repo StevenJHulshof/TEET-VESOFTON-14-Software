@@ -29,7 +29,14 @@ int main(void) {
 	UB_VGA_Screen_Init(); 
 
 	UB_VGA_FillScreen(VGA_COL_BLACK);
-	UB_VGA_SetPixel(10,10,10);
+	int x, y, c = 0;
+	for(y=0; y<280; y++) {
+		for(x=0; x<320; x++, c++) {
+			if(c > 255) c=0;
+			UB_VGA_SetPixel(x, y, c);
+		}
+	}
+
 
   while(1) {
 
