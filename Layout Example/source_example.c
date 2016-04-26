@@ -18,8 +18,8 @@
 /*******************************************************************************
  * Functions
  ******************************************************************************/
-void SPI_config(SPI_InitStructure *spiInitStructure) {     
-    
+void SPI_config(SPI_InitStructure *spiInitStructure) 
+{       
 	// Random variable 1
 	uint8_t		exampleOne = 0x00;
 	
