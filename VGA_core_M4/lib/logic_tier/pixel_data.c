@@ -24,8 +24,8 @@ status_t setPixelData(sPosition_t* position, color_t color) {
 	VGA_RAM1[position->y*(VGA_DISPLAY_X+1)+position->x] = color;
 
 	// Report status
-	if(VGA_RAM1[position->y*(VGA_DISPLAY_X+1)+position->x] != color) {
-		return VGA_FB_COLOR_NOT_SET;
+	if(getPixelData(position) != color) {
+		return VGA_COLOR_NOT_SET;
 	}
 
 	return VGA_SUCCESS;
@@ -34,7 +34,7 @@ status_t setPixelData(sPosition_t* position, color_t color) {
 color_t getPixelData(sPosition_t* position) {
 
 	// Get pixel data
-	return VGA_RAM1[position->y*(VGA_DISPLAY_X+1)+position->x];
+	return VGA_RAM1[(position->y*(VGA_DISPLAY_X+1))+position->x];
 }
 
 status_t processScreenData(color_t color) {
@@ -43,11 +43,6 @@ status_t processScreenData(color_t color) {
 	uint16_t x;
 	sPosition_t sPos;
 	status_t status;
-
-	// Validate arguments
-	if(color < VGA_COL_BLACK || color > VGA_COL_WHITE) {
-		return VGA_ERROR_ARGUMENT_OUT_OF_BOUNDS;
-	}
 
 	// Fill screen with color
 	for(y = 0; y < VGA_DISPLAY_Y; y++) {

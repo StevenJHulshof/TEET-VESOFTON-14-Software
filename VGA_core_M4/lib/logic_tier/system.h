@@ -42,7 +42,7 @@ typedef struct {
 typedef enum {
 
 	VGA_SUCCESS,
-	VGA_FB_COLOR_NOT_SET,
+	VGA_COLOR_NOT_SET,
 	VGA_ERROR_ARGUMENT_OUT_OF_BOUNDS
 } status_t;
 
