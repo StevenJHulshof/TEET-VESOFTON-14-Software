@@ -37,4 +37,37 @@ color_t getPixelData(sPosition_t* position) {
 	return VGA_RAM1[position->y*(VGA_DISPLAY_X+1)+position->x];
 }
 
+status_t processScreenData(color_t color) {
+
+	uint8_t y;
+	uint16_t x;
+	sPosition_t sPos;
+	status_t status;
+
+	// Validate arguments
+	if(color < VGA_COL_BLACK || color > VGA_COL_WHITE) {
+		return VGA_ERROR_ARGUMENT_OUT_OF_BOUNDS;
+	}
+
+	// Fill screen with color
+	for(y = 0; y < VGA_DISPLAY_Y; y++) {
+		for(x = 0; x < VGA_DISPLAY_X; x++) {
+
+			// Set coordinates
+			sPos.x = x;
+			sPos.y = y;
+
+			// Set pixel
+			status = setPixelData(&sPos, color);
+
+			// Report status
+			if(status != VGA_SUCCESS) {
+				return status;
+			}
+		}
+	}
+
+	return status;
+}
+
 /* End of file pixel_data.c */

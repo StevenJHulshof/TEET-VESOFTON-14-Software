@@ -28,7 +28,7 @@
  * @param color		Color of the pixel.
  * @return	Status of operation.
  */
-extern status_t setPixelData(sPosition_t* position, color_t color);
+status_t setPixelData(sPosition_t* position, color_t color);
 
 /**
  * @brief	Get pixel data from frame buffer.
@@ -36,7 +36,15 @@ extern status_t setPixelData(sPosition_t* position, color_t color);
  * @param position	Position structure containing X and Y coordinates.
  * @return color	Color of the pixel.
  */
-extern color_t getPixelData(sPosition_t* position);
+color_t getPixelData(sPosition_t* position);
+
+/**
+ * @brief	Fills screen with the input color.
+ *
+ * @param color	Color of the pixel.
+ * @return	Status of operation.
+ */
+status_t processScreenData(color_t color);
 
 #endif /* PIXEL_DATA_H */
 /* End of file pixel_data.h */
