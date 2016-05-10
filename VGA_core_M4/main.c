@@ -24,9 +24,9 @@
  ******************************************************************************/
 int main(void) {
 	
-	sPosition_t sPos = {0,0};
+	sPosition_t sPos = {1, 1};
 
-	setPixelData(&sPos, 0);
+	setPixelData(&sPos, VGA_COL_BLUE);
 
 	while(1) {
 

@@ -1,4 +1,4 @@
- /*******************************************************************************
+/*******************************************************************************
  * Begin of file pixel_data.c
  *
  * @author: Steven Hulshof
@@ -15,30 +15,26 @@
  ******************************************************************************/
 #include "pixel_data.h"
 
-// TODO add real framebuffer
-color_t frameBuffer[10][10];
-
 /*******************************************************************************
  * Functions
  ******************************************************************************/
-/**
- * @brief	Set pixel color into frame buffer.
- *
- * @param position	Position structure containing X and Y coördinates.
- * @param color		Color of the pixel.
- * @return	Status of operation.
- */
 status_t setPixelData(sPosition_t* position, color_t color) {
 
-	// Set color to frame buffer.
-	frameBuffer[position->x][position->y] = color;
+	// Set color to frame buffer
+	VGA_RAM1[position->y*(VGA_DISPLAY_X+1)+position->x] = color;
 
 	// Report status
-	if(frameBuffer[position->x][position->y] != color) {
+	if(VGA_RAM1[position->y*(VGA_DISPLAY_X+1)+position->x] != color) {
 		return VGA_FB_COLOR_NOT_SET;
 	}
 
 	return VGA_SUCCESS;
+}
+
+color_t getPixelData(sPosition_t* position) {
+
+	// Get pixel data
+	return VGA_RAM1[position->y*(VGA_DISPLAY_X+1)+position->x];
 }
 
 /* End of file pixel_data.c */

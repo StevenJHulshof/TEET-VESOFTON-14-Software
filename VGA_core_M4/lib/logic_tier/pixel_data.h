@@ -1,4 +1,4 @@
- /*******************************************************************************
+/*******************************************************************************
  * Begin of file pixel_data.h
  *
  * @author: Steven Hulshof
@@ -19,9 +19,24 @@
 #include "system.h"
 
 /*******************************************************************************
- * Prototypes
+ * Function prototypes
  ******************************************************************************/
+/**
+ * @brief	Set pixel color into frame buffer.
+ *
+ * @param position	Position structure containing X and Y coordinates.
+ * @param color		Color of the pixel.
+ * @return	Status of operation.
+ */
 extern status_t setPixelData(sPosition_t* position, color_t color);
+
+/**
+ * @brief	Get pixel data from frame buffer.
+ *
+ * @param position	Position structure containing X and Y coordinates.
+ * @return color	Color of the pixel.
+ */
+extern color_t getPixelData(sPosition_t* position);
 
 #endif /* PIXEL_DATA_H */
 /* End of file pixel_data.h */
