@@ -1,36 +1,27 @@
  /*******************************************************************************
- * Begin of file main.c
+ * Begin of file pixel_data.h
  *
- * @author: Lukas ten Hove, Steven Hulshof, Niek Klaverstijn.
- * @version: 1.0
- * Created: 19/04/2016 
+ * @author: Steven Hulshof
+ * Created: 10/05/2016
  *
  *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~**/
 /** @file
- * @brief Main file of VGA_core project.
- * 
+ * @brief Functions for manipulating the frame buffer.
+ *
  ******************************************************************************/
+
+#ifndef PIXEL_DATA_H_
+#define PIXEL_DATA_H_
 
 /*******************************************************************************
  * Includes
  ******************************************************************************/
-#include "main.h"
 #include "system.h"
-#include "pixel_data.h"
-#include <math.h>
 
 /*******************************************************************************
- * Main
+ * Prototypes
  ******************************************************************************/
-int main(void) {
-	
-	sPosition_t sPos = {0,0};
+extern status_t setPixelData(sPosition_t* position, color_t color);
 
-	setPixelData(&sPos, 0);
-
-	while(1) {
-
-	}
-}
-/* End of file main.c */
-
+#endif /* PIXEL_DATA_H */
+/* End of file pixel_data.h */
