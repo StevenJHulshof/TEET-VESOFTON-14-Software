@@ -17,6 +17,7 @@
 #include "main.h"
 #include "system.h"
 #include "pixel_data.h"
+#include "shapes_data.h"
 #include <math.h>
 
 /*******************************************************************************
@@ -27,36 +28,14 @@ int main(void) {
 	SystemInit();
 	UB_VGA_Screen_Init();
 
-	sPosition_t sPos;
-//
-//		VGA_setPixelData(&sPos, VGA_COL_BLUE);
-	VGA_processScreenData(VGA_COL_RED);
+	VGA_processScreenData(VGA_COL_CYAN);
 
+	sPosition_t center = {100, 100};
+	sRadii_t radii = {60, 30};
 
-	int x,y;
-	for(x = 100, y = 100; x < 200; x++, y++) {
-			sPos.x = x;
-			sPos.y = y;
-			VGA_setPixelData(&sPos, VGA_COL_BLUE);
+	VGA_calculateEllipseData(&center, &radii, 0, VGA_COL_RED, VGA_COL_BLACK, 0);
 
-	}
-
-	sPosition_t sPos2 = {100, 100};
-	color_t clr = VGA_getPixelData(&sPos2);
-	for(x = 200, y = 100; x < 300; x++, y++) {
-				sPos.x = x;
-				sPos.y = y;
-				VGA_setPixelData(&sPos, clr);
-
-		}
-
-	while(1) {
-
-
-
-
-
-	}
+	while(1);
 }
 /* End of file main.c */
 

@@ -1,0 +1,58 @@
+\hypertarget{shapes__data_8h}{}\section{lib/logic\+\_\+tier/shapes\+\_\+data.h File Reference}
+\label{shapes__data_8h}\index{lib/logic\+\_\+tier/shapes\+\_\+data.\+h@{lib/logic\+\_\+tier/shapes\+\_\+data.\+h}}
+
+
+Functions for processing the shapes \mbox{[}primitive, line, ellipse\mbox{]}.  
+
+
+{\ttfamily \#include \char`\"{}system.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pixel\+\_\+data.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{system_8h_af9bff8ff1154a04a899276af806b8586}{status\+\_\+t} \hyperlink{shapes__data_8h_af7336280ce200e2e8064a11907559398}{V\+G\+A\+\_\+calculate\+Ellipse\+Data} (\hyperlink{structs_position__t}{s\+Position\+\_\+t} $\ast$center\+Point\+Pos, \hyperlink{structs_radii__t}{s\+Radii\+\_\+t} $\ast$radii, int rotation\+Degrees, \hyperlink{system_8h_a0a8ef1b5e1941b7257e545cc33405ff1}{color\+\_\+t} line\+Color, \hyperlink{system_8h_a0a8ef1b5e1941b7257e545cc33405ff1}{color\+\_\+t} fill\+Color, uint8\+\_\+t line\+Weight)
+\begin{DoxyCompactList}\small\item\em Calculates pixel positions of the ellipse. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Functions for processing the shapes \mbox{[}primitive, line, ellipse\mbox{]}. 
+
+
+
+\subsection{Function Documentation}
+\index{shapes\+\_\+data.\+h@{shapes\+\_\+data.\+h}!V\+G\+A\+\_\+calculate\+Ellipse\+Data@{V\+G\+A\+\_\+calculate\+Ellipse\+Data}}
+\index{V\+G\+A\+\_\+calculate\+Ellipse\+Data@{V\+G\+A\+\_\+calculate\+Ellipse\+Data}!shapes\+\_\+data.\+h@{shapes\+\_\+data.\+h}}
+\subsubsection[{\texorpdfstring{V\+G\+A\+\_\+calculate\+Ellipse\+Data(s\+Position\+\_\+t $\ast$center\+Point\+Pos, s\+Radii\+\_\+t $\ast$radii, int rotation\+Degrees, color\+\_\+t line\+Color, color\+\_\+t fill\+Color, uint8\+\_\+t line\+Weight)}{VGA_calculateEllipseData(sPosition_t *centerPointPos, sRadii_t *radii, int rotationDegrees, color_t lineColor, color_t fillColor, uint8_t lineWeight)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf status\+\_\+t} V\+G\+A\+\_\+calculate\+Ellipse\+Data (
+\begin{DoxyParamCaption}
+\item[{{\bf s\+Position\+\_\+t} $\ast$}]{center\+Point\+Pos, }
+\item[{{\bf s\+Radii\+\_\+t} $\ast$}]{radii, }
+\item[{int}]{rotation\+Degrees, }
+\item[{{\bf color\+\_\+t}}]{line\+Color, }
+\item[{{\bf color\+\_\+t}}]{fill\+Color, }
+\item[{uint8\+\_\+t}]{line\+Weight}
+\end{DoxyParamCaption}
+)}\hypertarget{shapes__data_8h_af7336280ce200e2e8064a11907559398}{}\label{shapes__data_8h_af7336280ce200e2e8064a11907559398}
+
+
+Calculates pixel positions of the ellipse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center\+Point\+Pos} & Center position of the ellipse. \\
+\hline
+{\em radii} & Radii a and b are used for determining the shape of the ellipse. \\
+\hline
+{\em rotation\+Degrees} & Rotation of the ellipse in degrees. \\
+\hline
+{\em line\+Color} & Line color of the ellipse. \\
+\hline
+{\em fill\+Color} & Fill color of the ellipse. \\
+\hline
+{\em line\+Weight} & Line weight of the ellipse. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status of operation. 
+\end{DoxyReturn}

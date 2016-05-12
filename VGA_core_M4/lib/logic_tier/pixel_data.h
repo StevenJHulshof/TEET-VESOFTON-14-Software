@@ -6,7 +6,7 @@
  *
  *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~**/
 /** @file
- * @brief Functions for manipulating the frame buffer.
+ * @brief Functions for manipulating the VGA_RAM.
  *
  ******************************************************************************/
 

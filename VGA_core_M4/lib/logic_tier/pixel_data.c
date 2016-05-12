@@ -6,7 +6,7 @@
  *
  *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~**/
 /** @file
- * @brief Functions for manipulating the frame buffer.
+ * @brief Functions for manipulating the VGA_RAM.
  *
  ******************************************************************************/
 
@@ -25,7 +25,7 @@ status_t VGA_setPixelData(sPosition_t* position, color_t color) {
 
 	// Report status
 	if(VGA_getPixelData(position) != color) {
-		return VGA_COLOR_NOT_SET;
+		return VGA_PIXEL_NOT_SET;
 	}
 
 	return VGA_SUCCESS;
