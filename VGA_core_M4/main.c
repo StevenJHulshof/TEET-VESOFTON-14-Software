@@ -29,24 +29,24 @@ int main(void) {
 
 	sPosition_t sPos;
 //
-//		setPixelData(&sPos, VGA_COL_BLUE);
+//		VGA_setPixelData(&sPos, VGA_COL_BLUE);
+	VGA_processScreenData(VGA_COL_RED);
 
-	processScreenData(VGA_COL_RED);
 
 	int x,y;
 	for(x = 100, y = 100; x < 200; x++, y++) {
 			sPos.x = x;
 			sPos.y = y;
-			setPixelData(&sPos, VGA_COL_BLUE);
+			VGA_setPixelData(&sPos, VGA_COL_BLUE);
 
 	}
 
 	sPosition_t sPos2 = {100, 100};
-	color_t clr = getPixelData(&sPos2);
+	color_t clr = VGA_getPixelData(&sPos2);
 	for(x = 200, y = 100; x < 300; x++, y++) {
 				sPos.x = x;
 				sPos.y = y;
-				setPixelData(&sPos, clr);
+				VGA_setPixelData(&sPos, clr);
 
 		}
 

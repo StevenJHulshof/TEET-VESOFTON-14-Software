@@ -499,15 +499,15 @@ Linker script and memory map
  .text.DMA_ClearITPendingBit
                 0x080009d8       0x5c ..\obj\stm32f4xx_dma.o
                 0x080009d8                DMA_ClearITPendingBit
- .text.setPixelData
+ .text.VGA_setPixelData
                 0x08000a34       0x4c ..\obj\pixel_data.o
-                0x08000a34                setPixelData
- .text.getPixelData
+                0x08000a34                VGA_setPixelData
+ .text.VGA_getPixelData
                 0x08000a80       0x34 ..\obj\pixel_data.o
-                0x08000a80                getPixelData
- .text.processScreenData
+                0x08000a80                VGA_getPixelData
+ .text.VGA_processScreenData
                 0x08000ab4       0x60 ..\obj\pixel_data.o
-                0x08000ab4                processScreenData
+                0x08000ab4                VGA_processScreenData
  .text.UB_VGA_Screen_Init
                 0x08000b14       0x80 ..\obj\stm32_ub_vga_screen.o
                 0x08000b14                UB_VGA_Screen_Init
@@ -750,7 +750,7 @@ OUTPUT(VGA_Core.elf elf32-littlearm)
  .debug_line    0x000018a5      0x281 ..\obj\misc.o
  .debug_line    0x00001b26      0xaa6 ..\obj\stm32f4xx_tim.o
 
-.debug_str      0x00000000     0x26e0
+.debug_str      0x00000000     0x26ec
  .debug_str     0x00000000      0x154 ..\obj\startup_stm32f4xx.o
                                 0x166 (size before relaxing)
  .debug_str     0x00000154      0x1a9 ..\obj\main.o
@@ -763,13 +763,13 @@ OUTPUT(VGA_Core.elf elf32-littlearm)
                                 0x3c9 (size before relaxing)
  .debug_str     0x00000e46      0x3b6 ..\obj\stm32f4xx_dma.o
                                 0x561 (size before relaxing)
- .debug_str     0x000011fc       0xe6 ..\obj\pixel_data.o
-                                0x306 (size before relaxing)
- .debug_str     0x000012e2      0x861 ..\obj\stm32_ub_vga_screen.o
+ .debug_str     0x000011fc       0xf2 ..\obj\pixel_data.o
+                                0x312 (size before relaxing)
+ .debug_str     0x000012ee      0x861 ..\obj\stm32_ub_vga_screen.o
                                 0xd0a (size before relaxing)
- .debug_str     0x00001b43      0x180 ..\obj\misc.o
+ .debug_str     0x00001b4f      0x180 ..\obj\misc.o
                                 0x3ed (size before relaxing)
- .debug_str     0x00001cc3      0xa1d ..\obj\stm32f4xx_tim.o
+ .debug_str     0x00001ccf      0xa1d ..\obj\stm32f4xx_tim.o
                                 0xdef (size before relaxing)
 
 .comment        0x00000000       0x70

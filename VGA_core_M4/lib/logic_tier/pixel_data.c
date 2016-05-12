@@ -18,26 +18,26 @@
 /*******************************************************************************
  * Functions
  ******************************************************************************/
-status_t setPixelData(sPosition_t* position, color_t color) {
+status_t VGA_setPixelData(sPosition_t* position, color_t color) {
 
 	// Set color to frame buffer
 	VGA_RAM1[position->y*(VGA_DISPLAY_X+1)+position->x] = color;
 
 	// Report status
-	if(getPixelData(position) != color) {
+	if(VGA_getPixelData(position) != color) {
 		return VGA_COLOR_NOT_SET;
 	}
 
 	return VGA_SUCCESS;
 }
 
-color_t getPixelData(sPosition_t* position) {
+color_t VGA_getPixelData(sPosition_t* position) {
 
 	// Get pixel data
 	return VGA_RAM1[(position->y*(VGA_DISPLAY_X+1))+position->x];
 }
 
-status_t processScreenData(color_t color) {
+status_t VGA_processScreenData(color_t color) {
 
 	uint8_t y;
 	uint16_t x;
@@ -53,7 +53,7 @@ status_t processScreenData(color_t color) {
 			sPos.y = y;
 
 			// Set pixel
-			status = setPixelData(&sPos, color);
+			status = VGA_setPixelData(&sPos, color);
 
 			// Report status
 			if(status != VGA_SUCCESS) {
