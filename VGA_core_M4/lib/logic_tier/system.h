@@ -39,10 +39,10 @@ typedef struct {
 typedef struct {
 
 	/** @brief Radius a length. */
-	uint8_t a;
+	float a;
 
 	/** @brief Radius b length. */
-	uint8_t b;
+	float b;
 } sRadii_t;
 
 /*******************************************************************************
@@ -66,7 +66,8 @@ typedef enum {
 	VGA_COL_WHITE = 0xFF,
 	VGA_COL_CYAN = 0x1F,
 	VGA_COL_MAGENTA = 0xE3,
-	VGA_COL_YELLOW = 0xFC
+	VGA_COL_YELLOW = 0xFC,
+	VGA_COL_TRANSPARANT = -0x01
 } color_t;
 
 #endif /* SYSTEM_H_ */

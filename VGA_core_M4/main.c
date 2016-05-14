@@ -20,6 +20,20 @@
 #include "shapes_data.h"
 #include <math.h>
 
+void testEllipseShape() {
+	sPosition_t center = {50, 120};
+	sRadii_t radii = {20, 80};
+
+	int p;
+	for(p=0; p < 360; p+=5) {
+		center.x+=3;
+		radii.b-=1;
+
+		VGA_calculateEllipseData(&center, &radii, p, VGA_COL_BLACK, VGA_COL_TRANSPARANT, 0);
+	}
+}
+
+
 /*******************************************************************************
  * Main
  ******************************************************************************/
@@ -29,13 +43,15 @@ int main(void) {
 	UB_VGA_Screen_Init();
 
 	VGA_processScreenData(VGA_COL_CYAN);
+	testEllipseShape();
 
-	sPosition_t center = {100, 100};
-	sRadii_t radii = {60, 30};
+	while(1){
+	//	int p;
+			//for(p = 0; p < 30; p++) {
 
-	VGA_calculateEllipseData(&center, &radii, 0, VGA_COL_RED, VGA_COL_BLACK, 0);
-
-	while(1);
+		//		while(i--); i = 10000000;
+		//	}
+	}
 }
 /* End of file main.c */
 
