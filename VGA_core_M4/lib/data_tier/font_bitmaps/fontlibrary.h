@@ -24,7 +24,6 @@ typedef struct
     uint8_t const *GlyphBitmaps;
 } fontStyle_t;
 
-
 extern fontStyle_t FontStyle_Roboto18;
 extern fontStyle_t FontStyle_Roboto18Bold;
 
