@@ -1,5 +1,5 @@
-\hypertarget{shapes__data_8c}{}\section{lib/logic\+\_\+tier/shapes\+\_\+data.c File Reference}
-\label{shapes__data_8c}\index{lib/logic\+\_\+tier/shapes\+\_\+data.\+c@{lib/logic\+\_\+tier/shapes\+\_\+data.\+c}}
+\hypertarget{shapes__data_8c}{}\section{V\+G\+A\+\_\+core\+\_\+\+M4/lib/logic\+\_\+tier/shapes\+\_\+data.c File Reference}
+\label{shapes__data_8c}\index{V\+G\+A\+\_\+core\+\_\+\+M4/lib/logic\+\_\+tier/shapes\+\_\+data.\+c@{V\+G\+A\+\_\+core\+\_\+\+M4/lib/logic\+\_\+tier/shapes\+\_\+data.\+c}}
 
 
 Functions for processing the shapes \mbox{[}primitive, line, ellipse\mbox{]}.  
@@ -9,6 +9,14 @@ Functions for processing the shapes \mbox{[}primitive, line, ellipse\mbox{]}.
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{structs_position__t}{s\+Position\+\_\+t} \hyperlink{shapes__data_8c_aec1db8abcbbb0727f705b9abd59c8c33}{V\+G\+A\+\_\+translate\+Ellipse\+Pixel\+Pos} (\hyperlink{structs_position__t}{s\+Position\+\_\+t} $\ast$center\+Point\+Pos, \hyperlink{structs_radii__t}{s\+Radii\+\_\+t} $\ast$radii, float cos\+Angle, float sin\+Angle, float theta)
+\begin{DoxyCompactList}\small\item\em Translates pixel position based on rotation. \end{DoxyCompactList}\item 
+\hyperlink{system_8h_af9bff8ff1154a04a899276af806b8586}{status\+\_\+t} \hyperlink{shapes__data_8c_a441b7c855a2fb008de171ec43f427249}{V\+G\+A\+\_\+draw\+Ellipse\+Frame} (\hyperlink{structs_position__t}{s\+Position\+\_\+t} $\ast$center\+Point\+Pos, \hyperlink{structs_radii__t}{s\+Radii\+\_\+t} $\ast$radii, \hyperlink{system_8h_a0a8ef1b5e1941b7257e545cc33405ff1}{color\+\_\+t} line\+Color, float cos\+Angle, float sin\+Angle)
+\begin{DoxyCompactList}\small\item\em Draw ellipse pixel frame. \end{DoxyCompactList}\item 
+\hyperlink{system_8h_af9bff8ff1154a04a899276af806b8586}{status\+\_\+t} \hyperlink{shapes__data_8c_a13cb04e8907bf146d6760608bb3fc687}{V\+G\+A\+\_\+draw\+Ellipse\+Fill} (\hyperlink{structs_position__t}{s\+Position\+\_\+t} $\ast$center\+Point\+Pos, \hyperlink{structs_radii__t}{s\+Radii\+\_\+t} $\ast$radii, \hyperlink{system_8h_a0a8ef1b5e1941b7257e545cc33405ff1}{color\+\_\+t} line\+Color, float cos\+Angle, float sin\+Angle)
+\begin{DoxyCompactList}\small\item\em Draw ellipse fill. \end{DoxyCompactList}\item 
+\hyperlink{system_8h_af9bff8ff1154a04a899276af806b8586}{status\+\_\+t} \hyperlink{shapes__data_8c_afd0273a64796ee510eb9ffdfbc36f2fc}{V\+G\+A\+\_\+draw\+Ellipse\+Line\+Fill} (\hyperlink{structs_position__t}{s\+Position\+\_\+t} $\ast$center\+Point\+Pos, \hyperlink{structs_radii__t}{s\+Radii\+\_\+t} $\ast$radii, \hyperlink{system_8h_a0a8ef1b5e1941b7257e545cc33405ff1}{color\+\_\+t} line\+Color, float cos\+Angle, float sin\+Angle, float half\+Weight)
+\begin{DoxyCompactList}\small\item\em Draw ellipse fill. \end{DoxyCompactList}\item 
 \hyperlink{system_8h_af9bff8ff1154a04a899276af806b8586}{status\+\_\+t} \hyperlink{shapes__data_8c_af7336280ce200e2e8064a11907559398}{V\+G\+A\+\_\+calculate\+Ellipse\+Data} (\hyperlink{structs_position__t}{s\+Position\+\_\+t} $\ast$center\+Point\+Pos, \hyperlink{structs_radii__t}{s\+Radii\+\_\+t} $\ast$radii, int rotation\+Degrees, \hyperlink{system_8h_a0a8ef1b5e1941b7257e545cc33405ff1}{color\+\_\+t} line\+Color, \hyperlink{system_8h_a0a8ef1b5e1941b7257e545cc33405ff1}{color\+\_\+t} fill\+Color, uint8\+\_\+t line\+Weight)
 \begin{DoxyCompactList}\small\item\em Calculates pixel positions of the ellipse. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -52,4 +60,131 @@ Calculates pixel positions of the ellipse.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Status of operation. 
+\end{DoxyReturn}
+\index{shapes\+\_\+data.\+c@{shapes\+\_\+data.\+c}!V\+G\+A\+\_\+draw\+Ellipse\+Fill@{V\+G\+A\+\_\+draw\+Ellipse\+Fill}}
+\index{V\+G\+A\+\_\+draw\+Ellipse\+Fill@{V\+G\+A\+\_\+draw\+Ellipse\+Fill}!shapes\+\_\+data.\+c@{shapes\+\_\+data.\+c}}
+\subsubsection[{\texorpdfstring{V\+G\+A\+\_\+draw\+Ellipse\+Fill(s\+Position\+\_\+t $\ast$center\+Point\+Pos, s\+Radii\+\_\+t $\ast$radii, color\+\_\+t line\+Color, float cos\+Angle, float sin\+Angle)}{VGA_drawEllipseFill(sPosition_t *centerPointPos, sRadii_t *radii, color_t lineColor, float cosAngle, float sinAngle)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf status\+\_\+t} V\+G\+A\+\_\+draw\+Ellipse\+Fill (
+\begin{DoxyParamCaption}
+\item[{{\bf s\+Position\+\_\+t} $\ast$}]{center\+Point\+Pos, }
+\item[{{\bf s\+Radii\+\_\+t} $\ast$}]{radii, }
+\item[{{\bf color\+\_\+t}}]{line\+Color, }
+\item[{float}]{cos\+Angle, }
+\item[{float}]{sin\+Angle}
+\end{DoxyParamCaption}
+)}\hypertarget{shapes__data_8c_a13cb04e8907bf146d6760608bb3fc687}{}\label{shapes__data_8c_a13cb04e8907bf146d6760608bb3fc687}
+
+
+Draw ellipse fill. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center\+Point\+Pos} & Center position of the ellipse. \\
+\hline
+{\em radii} & Radii a and b are used for determining the shape of the ellipse. \\
+\hline
+{\em line\+Color} & Line color of the ellipse. \\
+\hline
+{\em cos\+Angle} & Cosine of the rotation angle. \\
+\hline
+{\em sin\+Angle} & Sine of the rotation angle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status of operation 
+\end{DoxyReturn}
+\index{shapes\+\_\+data.\+c@{shapes\+\_\+data.\+c}!V\+G\+A\+\_\+draw\+Ellipse\+Frame@{V\+G\+A\+\_\+draw\+Ellipse\+Frame}}
+\index{V\+G\+A\+\_\+draw\+Ellipse\+Frame@{V\+G\+A\+\_\+draw\+Ellipse\+Frame}!shapes\+\_\+data.\+c@{shapes\+\_\+data.\+c}}
+\subsubsection[{\texorpdfstring{V\+G\+A\+\_\+draw\+Ellipse\+Frame(s\+Position\+\_\+t $\ast$center\+Point\+Pos, s\+Radii\+\_\+t $\ast$radii, color\+\_\+t line\+Color, float cos\+Angle, float sin\+Angle)}{VGA_drawEllipseFrame(sPosition_t *centerPointPos, sRadii_t *radii, color_t lineColor, float cosAngle, float sinAngle)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf status\+\_\+t} V\+G\+A\+\_\+draw\+Ellipse\+Frame (
+\begin{DoxyParamCaption}
+\item[{{\bf s\+Position\+\_\+t} $\ast$}]{center\+Point\+Pos, }
+\item[{{\bf s\+Radii\+\_\+t} $\ast$}]{radii, }
+\item[{{\bf color\+\_\+t}}]{line\+Color, }
+\item[{float}]{cos\+Angle, }
+\item[{float}]{sin\+Angle}
+\end{DoxyParamCaption}
+)}\hypertarget{shapes__data_8c_a441b7c855a2fb008de171ec43f427249}{}\label{shapes__data_8c_a441b7c855a2fb008de171ec43f427249}
+
+
+Draw ellipse pixel frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center\+Point\+Pos} & Center position of the ellipse. \\
+\hline
+{\em radii} & Radii a and b are used for determining the shape of the ellipse. \\
+\hline
+{\em line\+Color} & Line color of the ellipse. \\
+\hline
+{\em cos\+Angle} & Cosine of the rotation angle. \\
+\hline
+{\em sin\+Angle} & Sine of the rotation angle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status of operation 
+\end{DoxyReturn}
+\index{shapes\+\_\+data.\+c@{shapes\+\_\+data.\+c}!V\+G\+A\+\_\+draw\+Ellipse\+Line\+Fill@{V\+G\+A\+\_\+draw\+Ellipse\+Line\+Fill}}
+\index{V\+G\+A\+\_\+draw\+Ellipse\+Line\+Fill@{V\+G\+A\+\_\+draw\+Ellipse\+Line\+Fill}!shapes\+\_\+data.\+c@{shapes\+\_\+data.\+c}}
+\subsubsection[{\texorpdfstring{V\+G\+A\+\_\+draw\+Ellipse\+Line\+Fill(s\+Position\+\_\+t $\ast$center\+Point\+Pos, s\+Radii\+\_\+t $\ast$radii, color\+\_\+t line\+Color, float cos\+Angle, float sin\+Angle, float half\+Weight)}{VGA_drawEllipseLineFill(sPosition_t *centerPointPos, sRadii_t *radii, color_t lineColor, float cosAngle, float sinAngle, float halfWeight)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf status\+\_\+t} V\+G\+A\+\_\+draw\+Ellipse\+Line\+Fill (
+\begin{DoxyParamCaption}
+\item[{{\bf s\+Position\+\_\+t} $\ast$}]{center\+Point\+Pos, }
+\item[{{\bf s\+Radii\+\_\+t} $\ast$}]{radii, }
+\item[{{\bf color\+\_\+t}}]{line\+Color, }
+\item[{float}]{cos\+Angle, }
+\item[{float}]{sin\+Angle, }
+\item[{float}]{half\+Weight}
+\end{DoxyParamCaption}
+)}\hypertarget{shapes__data_8c_afd0273a64796ee510eb9ffdfbc36f2fc}{}\label{shapes__data_8c_afd0273a64796ee510eb9ffdfbc36f2fc}
+
+
+Draw ellipse fill. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center\+Point\+Pos} & Center position of the ellipse. \\
+\hline
+{\em radii} & Radii a and b are used for determining the shape of the ellipse. \\
+\hline
+{\em line\+Color} & Line color of the ellipse. \\
+\hline
+{\em cos\+Angle} & Cosine of the rotation angle. \\
+\hline
+{\em sin\+Angle} & Sine of the rotation angle. \\
+\hline
+{\em half\+Weight} & Half the line weight of the ellipse. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status of operation 
+\end{DoxyReturn}
+\index{shapes\+\_\+data.\+c@{shapes\+\_\+data.\+c}!V\+G\+A\+\_\+translate\+Ellipse\+Pixel\+Pos@{V\+G\+A\+\_\+translate\+Ellipse\+Pixel\+Pos}}
+\index{V\+G\+A\+\_\+translate\+Ellipse\+Pixel\+Pos@{V\+G\+A\+\_\+translate\+Ellipse\+Pixel\+Pos}!shapes\+\_\+data.\+c@{shapes\+\_\+data.\+c}}
+\subsubsection[{\texorpdfstring{V\+G\+A\+\_\+translate\+Ellipse\+Pixel\+Pos(s\+Position\+\_\+t $\ast$center\+Point\+Pos, s\+Radii\+\_\+t $\ast$radii, float cos\+Angle, float sin\+Angle, float theta)}{VGA_translateEllipsePixelPos(sPosition_t *centerPointPos, sRadii_t *radii, float cosAngle, float sinAngle, float theta)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf s\+Position\+\_\+t} V\+G\+A\+\_\+translate\+Ellipse\+Pixel\+Pos (
+\begin{DoxyParamCaption}
+\item[{{\bf s\+Position\+\_\+t} $\ast$}]{center\+Point\+Pos, }
+\item[{{\bf s\+Radii\+\_\+t} $\ast$}]{radii, }
+\item[{float}]{cos\+Angle, }
+\item[{float}]{sin\+Angle, }
+\item[{float}]{theta}
+\end{DoxyParamCaption}
+)}\hypertarget{shapes__data_8c_aec1db8abcbbb0727f705b9abd59c8c33}{}\label{shapes__data_8c_aec1db8abcbbb0727f705b9abd59c8c33}
+
+
+Translates pixel position based on rotation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center\+Point\+Pos} & Center position of the ellipse. \\
+\hline
+{\em radii} & Radii a and b are used for determining the shape of the ellipse. \\
+\hline
+{\em cos\+Angle} & Cosine of the rotation angle. \\
+\hline
+{\em sin\+Angle} & Sine of the rotation angle. \\
+\hline
+{\em theta} & Radial variable (0, 2\+PI). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pixel\+Pos Position of the translated pixel. 
 \end{DoxyReturn}

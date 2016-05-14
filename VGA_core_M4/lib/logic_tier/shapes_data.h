@@ -94,7 +94,7 @@ status_t VGA_drawEllipseLineFill(	sPosition_t*	centerPointPos,
 									color_t			lineColor,
 									float 			cosAngle,
 									float 			sinAngle,
-									float			lineWeight	);
+									float			halfWeight	);
 
 /**
  * @brief	Calculates pixel positions of the ellipse.

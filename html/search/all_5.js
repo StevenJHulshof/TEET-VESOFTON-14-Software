@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['vga_5fcalculateellipsedata',['VGA_calculateEllipseData',['../shapes__data_8c.html#af7336280ce200e2e8064a11907559398',1,'VGA_calculateEllipseData(sPosition_t *centerPointPos, sRadii_t *radii, int rotationDegrees, color_t lineColor, color_t fillColor, uint8_t lineWeight):&#160;shapes_data.c'],['../shapes__data_8h.html#af7336280ce200e2e8064a11907559398',1,'VGA_calculateEllipseData(sPosition_t *centerPointPos, sRadii_t *radii, int rotationDegrees, color_t lineColor, color_t fillColor, uint8_t lineWeight):&#160;shapes_data.c']]],
-  ['vga_5fgetpixeldata',['VGA_getPixelData',['../pixel__data_8c.html#a53814a7a52c74cf8d15462adac549a35',1,'VGA_getPixelData(sPosition_t *position):&#160;pixel_data.c'],['../pixel__data_8h.html#a53814a7a52c74cf8d15462adac549a35',1,'VGA_getPixelData(sPosition_t *position):&#160;pixel_data.c']]],
-  ['vga_5fprocessscreendata',['VGA_processScreenData',['../pixel__data_8c.html#ad8c4a6dae36d42489b11332985e01baa',1,'VGA_processScreenData(color_t color):&#160;pixel_data.c'],['../pixel__data_8h.html#ad8c4a6dae36d42489b11332985e01baa',1,'VGA_processScreenData(color_t color):&#160;pixel_data.c']]],
-  ['vga_5fsetpixeldata',['VGA_setPixelData',['../pixel__data_8c.html#ac6f8d6b5c836239ed791eb3211151226',1,'VGA_setPixelData(sPosition_t *position, color_t color):&#160;pixel_data.c'],['../pixel__data_8h.html#ac6f8d6b5c836239ed791eb3211151226',1,'VGA_setPixelData(sPosition_t *position, color_t color):&#160;pixel_data.c']]],
-  ['vga_5ft',['VGA_t',['../struct_v_g_a__t.html',1,'']]]
+  ['shapes_5fdata_2ec',['shapes_data.c',['../shapes__data_8c.html',1,'']]],
+  ['shapes_5fdata_2eh',['shapes_data.h',['../shapes__data_8h.html',1,'']]],
+  ['sposition_5ft',['sPosition_t',['../structs_position__t.html',1,'']]],
+  ['sradii_5ft',['sRadii_t',['../structs_radii__t.html',1,'']]],
+  ['status_5ft',['status_t',['../system_8h.html#af9bff8ff1154a04a899276af806b8586',1,'system.h']]],
+  ['system_2eh',['system.h',['../system_8h.html',1,'']]]
 ];
