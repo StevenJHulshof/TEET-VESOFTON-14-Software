@@ -18,34 +18,36 @@
 /*******************************************************************************
  * Functions
  ******************************************************************************/
- sChar_t getBitmap(char ascii_char, charSize_t size, charStyle_t style){
+ sBitmap_t getBitmap(char ascii_char, charSize_t size, charStyle_t style){
 
-		fontStyle_t fontStyle;
+		fontStyle_t sFontstyle;
 		uint8_t* bitmapArray;
-		sChar_t bitmapData;
+		sBitmap_t sBitmapdata;
 		uint8_t shift;
 
 		if (style == Regular)
 		{
-			if (size == Size_18) fontStyle = FontStyle_Roboto18;
-			if (size == Size_12) fontStyle = FontStyle_Roboto12;
+			if (size == Size_18) sFontstyle = FontStyle_Roboto18;
+			if (size == Size_12) sFontstyle = FontStyle_Roboto12;
 		}
 		if (style == Bold)
 		{
-			if (size == Size_18) fontStyle = FontStyle_Roboto18Bold;
-			if (size == Size_12) fontStyle = FontStyle_Roboto12;
+			if (size == Size_18) sFontstyle = FontStyle_Roboto18Bold;
+			if (size == Size_12) sFontstyle = FontStyle_Roboto12;
 		}
 
-		//get address from bitmapram
-		bitmapArray = fontStyle.GlyphBitmaps;
+		//get address from bitmap in sram
+		bitmapArray = sFontstyle.GlyphBitmaps;
 		//increment pointer to asked ascii char
-		shift = ascii_char-fontStyle.FirstAsciiCode;
-		bitmapData.FirstByte = bitmapArray+shift;
+		shift = ascii_char-sFontstyle.FirstAsciiCode;
 
-		bitmapData.CharHeight = fontStyle.GlyphHeight;
-		bitmapData.CharWidth = *(fontStyle.GlyphWidth+shift);
+		//get address of first byte by incrementing pointer with shift times size of char bitmap
+		sBitmapdata.FirstByte = bitmapArray+(shift*sFontstyle.GlyphHeight*sFontstyle.GlyphBytesWidth);
 
-		return bitmapData;
+		sBitmapdata.CharHeight = sFontstyle.GlyphHeight;
+		sBitmapdata.CharWidth = *(sFontstyle.GlyphWidth+shift);
+
+		return sBitmapdata;
  }
 
  /* End of file fonts_display.c */

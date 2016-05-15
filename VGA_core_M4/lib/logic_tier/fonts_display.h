@@ -16,10 +16,10 @@
 
 /** @brief Character structure */
 typedef struct {
-	uint8_t * FirstByte;
+	uint8_t* FirstByte;
 	uint8_t CharWidth;
 	uint8_t CharHeight;
-} sChar_t;
+} sBitmap_t;
 
 /*******************************************************************************
  * Enumerators
@@ -42,8 +42,8 @@ typedef struct {
   *
   * @param size	Select font size as defined in enumerated type charSize_t
   * @param styleSelect font style as defined in enumerated type charStyle_t
-  * @return	Structure with chardata according to enumerated type sChar_t
+  * @return	Structure with chardata according to enumerated type sBitmap_t
   */
-sChar_t getBitmap(char ascii_char, charSize_t size, charStyle_t style);
+sBitmap_t getBitmap(char ascii_char, charSize_t size, charStyle_t style);
 
  /* End of file fonts_display.h */
