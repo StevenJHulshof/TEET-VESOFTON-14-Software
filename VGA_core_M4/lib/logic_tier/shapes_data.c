@@ -18,7 +18,8 @@
 /*******************************************************************************
  * Functions
  ******************************************************************************/
-status_t VGA_drawSingleLine(sPosition_t endPointPos[2], color_t lineColor) {
+status_t VGA_drawSingleLine(    sPosition_t endPointPos[2], 
+                                color_t     lineColor   ) {
 
 	status_t 	status = VGA_SUCCESS;
 	sPosition_t startPos;
