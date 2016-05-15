@@ -75,8 +75,13 @@ Temporary Items
 *.x86_64
 *.hex
 
+
+
 # Debug files
 *.dSYM/
+history.xml
+*.bin
+*.map
 
 .tags
 .tags1

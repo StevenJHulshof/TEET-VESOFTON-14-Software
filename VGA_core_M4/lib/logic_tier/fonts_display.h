@@ -38,7 +38,7 @@ typedef struct {
  * Function prototypes
  ******************************************************************************/
  /**
-  * @brief	Get bitmapdata from memory for ASCII character
+  * @brief	Get bitmapdata from gememory for ASCII character
   *
   * @param size	Select font size as defined in enumerated type charSize_t
   * @param styleSelect font style as defined in enumerated type charStyle_t
