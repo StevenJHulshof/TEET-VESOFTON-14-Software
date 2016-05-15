@@ -77,6 +77,9 @@ Temporary Items
 
 # Debug files
 *.dSYM/
+history.xml
+*.bin
+*.map
 
 .tags
 .tags1
