@@ -3,12 +3,12 @@
  *
  * @author: Lukas ten Hove, Steven Hulshof, Niek Klaverstijn.
  * @version: 1.0
- * Created: 19/04/2016 
+ * Created: 19/04/2016
  *
  *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~**/
 /** @file
  * @brief Main file of VGA_core project.
- * 
+ *
  ******************************************************************************/
 
 /*******************************************************************************
@@ -23,11 +23,12 @@
  * Main
  ******************************************************************************/
 int main(void) {
-	
+
 	SystemInit();
 	UB_VGA_Screen_Init();
 
 	sPosition_t sPos;
+	sBitmap_t sTempchar;
 //
 //		VGA_setPixelData(&sPos, VGA_COL_BLUE);
 	VGA_processScreenData(VGA_COL_RED);
@@ -50,13 +51,12 @@ int main(void) {
 
 		}
 
+	sTempchar = getBitmap('$',Size_18,Regular);
+
 	while(1) {
-
-
 
 
 
 	}
 }
 /* End of file main.c */
-
