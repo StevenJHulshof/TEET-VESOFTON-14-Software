@@ -29,10 +29,9 @@ void testEllipseShape() {
 		center.x+=3;
 		radii.b-=1;
 
-		VGA_calculateEllipseData(&center, &radii, p, VGA_COL_BLACK, VGA_COL_TRANSPARANT, 0);
+		VGA_processEllipseData(&center, &radii, p, VGA_COL_BLACK, VGA_COL_TRANSPARENT, 0);
 	}
 }
-
 
 /*******************************************************************************
  * Main
@@ -43,7 +42,21 @@ int main(void) {
 	UB_VGA_Screen_Init();
 
 	VGA_processScreenData(VGA_COL_CYAN);
-	testEllipseShape();
+	//testEllipseShape();
+
+	sPosition_t ellipsePos = {80, 50};
+	sRadii_t radii = {30, 10};
+	VGA_processEllipseData(&ellipsePos, &radii, 0, VGA_COL_BLACK, VGA_COL_TRANSPARENT, 3);
+
+	ellipsePos.x = 240;
+	VGA_processEllipseData(&ellipsePos, &radii, 15, VGA_COL_MAGENTA, VGA_COL_GREEN, 7);
+
+	ellipsePos.x = 80;
+	ellipsePos.y = 190;
+	VGA_processEllipseData(&ellipsePos, &radii, 30, VGA_COL_BLUE, VGA_COL_GREEN, 1);
+
+	ellipsePos.x = 240;
+	VGA_processEllipseData(&ellipsePos, &radii, 45, VGA_COL_MAGENTA, VGA_COL_TRANSPARENT, 1);
 
 	while(1){
 	//	int p;

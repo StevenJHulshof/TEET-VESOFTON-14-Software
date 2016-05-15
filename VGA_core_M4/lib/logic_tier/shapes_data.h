@@ -31,6 +31,15 @@
  * Function prototypes
  ******************************************************************************/
 /**
+ * @brief Draws single line without weight.
+ *
+ * @param endPointPos[2]	End point positions of the line.
+ * @param lineColor			Line color.
+ * @return	Status of operation.
+ */
+status_t VGA_drawSingleLine(sPosition_t endPointPos[2], color_t lineColor);
+
+/**
  * @brief Translates pixel position based on rotation.
  *
  * @param centerPointPos	Center position of the ellipse.
@@ -54,7 +63,7 @@ sPosition_t VGA_translateEllipsePixelPos(	sPosition_t* 	centerPointPos,
  * @param lineColor			Line color of the ellipse.
  * @param cosAngle			Cosine of the rotation angle.
  * @param sinAngle			Sine of the rotation angle.
- * @return	Status of operation
+ * @return	Status of operation.
  */
 status_t VGA_drawEllipseFrame(	sPosition_t*	centerPointPos,
 			   					sRadii_t* 		radii,
@@ -67,14 +76,14 @@ status_t VGA_drawEllipseFrame(	sPosition_t*	centerPointPos,
  *
  * @param centerPointPos	Center position of the ellipse.
  * @param radii				Radii a and b are used for determining the shape of the ellipse.
- * @param lineColor			Line color of the ellipse.
+ * @param color				Color of the ellipse fill.
  * @param cosAngle			Cosine of the rotation angle.
  * @param sinAngle			Sine of the rotation angle.
- * @return	Status of operation
+ * @return	Status of operation.
  */
 status_t VGA_drawEllipseFill(	sPosition_t*	centerPointPos,
 								sRadii_t* 		radii,
-								color_t			lineColor,
+								color_t			color,
 								float 			cosAngle,
 								float 			sinAngle	);
 
@@ -87,7 +96,7 @@ status_t VGA_drawEllipseFill(	sPosition_t*	centerPointPos,
  * @param cosAngle			Cosine of the rotation angle.
  * @param sinAngle			Sine of the rotation angle.
  * @param halfWeight		Half the line weight of the ellipse.
- * @return	Status of operation
+ * @return	Status of operation.
  */
 status_t VGA_drawEllipseLineFill(	sPosition_t*	centerPointPos,
 									sRadii_t* 		radii,
@@ -99,6 +108,8 @@ status_t VGA_drawEllipseLineFill(	sPosition_t*	centerPointPos,
 /**
  * @brief	Calculates pixel positions of the ellipse.
  *
+ * @note	Function will not work of lineColor = VGA_COL_TRANSPARANT.
+ *
  * @param centerPointPos	Center position of the ellipse.
  * @param radii	Radii 		a and b are used for determining the shape of the ellipse.
  * @param rotationDegrees	Rotation of the ellipse in degrees.
@@ -107,7 +118,7 @@ status_t VGA_drawEllipseLineFill(	sPosition_t*	centerPointPos,
  * @param lineWeight		Line weight of the ellipse.
  * @return	Status of operation.
  */
-status_t VGA_calculateEllipseData(	sPosition_t*	centerPointPos,
+status_t VGA_processEllipseData(	sPosition_t*	centerPointPos,
 								  	sRadii_t* 		radii,
 								  	int 			rotationDegrees,
 								  	color_t 		lineColor,

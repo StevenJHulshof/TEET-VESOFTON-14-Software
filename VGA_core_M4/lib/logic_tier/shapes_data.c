@@ -18,6 +18,92 @@
 /*******************************************************************************
  * Functions
  ******************************************************************************/
+status_t VGA_drawSingleLine(sPosition_t endPointPos[2], color_t lineColor) {
+
+	status_t 	status = VGA_SUCCESS;
+	sPosition_t startPos;
+	sPosition_t endPos;
+	sPosition_t pixelPos;
+	uint16_t	x;
+	int			y;
+	float 		a;
+
+	// Specify start position and end position
+	if(endPointPos[0].x > endPointPos[1].x) {
+		startPos = endPointPos[1];
+		endPos = endPointPos[0];
+	} else {
+		startPos = endPointPos[0];
+		endPos = endPointPos[1];
+	}
+
+	// Specify dx and dy
+	sPosition_t deltaPos = {
+		endPos.x - startPos.x,
+		endPos.y - startPos.y
+	};
+
+	// Prevent empty pixels
+	if(fabs(deltaPos.y) < fabs(deltaPos.x)) {
+
+		// Calculate slope
+		a = (float) deltaPos.y / (float) deltaPos.x;
+
+		// Draw line
+		for(x = 0; x < deltaPos.x+1; x++) {
+
+			// Set pixel position
+			pixelPos.x = x + startPos.x;
+			pixelPos.y = a * x + startPos.y;
+			status = VGA_setPixelData(&pixelPos, lineColor);
+
+			// Report status
+			if(status != VGA_SUCCESS) {
+				return status;
+			}
+		}
+	} else {
+
+		// Calculate slope
+		a = (float) deltaPos.x / (float) deltaPos.y;
+
+		// Specify whether line should climb or fall
+		if(deltaPos.y < 0) {
+
+			// Draw line
+			for(y = 0; y > deltaPos.y-1; y--) {
+
+				// Set pixel position
+				pixelPos.x = a * y + startPos.x;
+				pixelPos.y = y + startPos.y;
+				status = VGA_setPixelData(&pixelPos, lineColor);
+
+				// Report status
+				if(status != VGA_SUCCESS) {
+					return status;
+				}
+			}
+		} else {
+
+			// Draw line
+			for(y = 0; y < deltaPos.y+1; y++) {
+
+				// Set pixel position
+				pixelPos.x = a * y + startPos.x;
+				pixelPos.y = y + startPos.y;
+				status = VGA_setPixelData(&pixelPos, lineColor);
+
+				// Report status
+				if(status != VGA_SUCCESS) {
+					return status;
+				}
+			}
+		}
+	}
+
+	return status;
+}
+
 sPosition_t VGA_translateEllipsePixelPos(	sPosition_t* 	centerPointPos,
 							  				sRadii_t* 		radii,
 							  				float 			cosAngle,
@@ -80,7 +166,7 @@ status_t VGA_drawEllipseFrame(	sPosition_t*	centerPointPos,
 
 status_t VGA_drawEllipseFill(	sPosition_t*	centerPointPos,
 								sRadii_t* 		radii,
-								color_t			lineColor,
+								color_t			color,
 								float 			cosAngle,
 								float 			sinAngle	) {
 
@@ -97,7 +183,9 @@ status_t VGA_drawEllipseFill(	sPosition_t*	centerPointPos,
 															sinAngle,
 															theta);
 
-		// TODO: Draw line centerPos to pixelPos.
+		// Draw line from centerPos to pixelPos.
+		sPosition_t line[2] = {*centerPointPos, pixelPos};
+		status = VGA_drawSingleLine(line, color);
 
 		// Report status
 		if(status != VGA_SUCCESS) {
@@ -145,7 +233,9 @@ status_t VGA_drawEllipseLineFill(	sPosition_t*	centerPointPos,
 																sinAngle,
 																theta	);
 
-		// TODO: Draw line pixelPosIn to PixelPosOut.
+		// Draw line from pixelPosIn to PixelPosOut.
+		sPosition_t line[2] = {pixelPosIn, pixelPosOut};
+		status = VGA_drawSingleLine(line, lineColor);
 
 		// Report status
 		if(status != VGA_SUCCESS) {
@@ -156,7 +246,7 @@ status_t VGA_drawEllipseLineFill(	sPosition_t*	centerPointPos,
 	return status;
 }
 
-status_t VGA_calculateEllipseData(	sPosition_t*	centerPointPos,
+status_t VGA_processEllipseData(	sPosition_t*	centerPointPos,
 								  	sRadii_t* 		radii,
 								  	int 			rotationDegrees,
 								  	color_t 		lineColor,
@@ -170,12 +260,20 @@ status_t VGA_calculateEllipseData(	sPosition_t*	centerPointPos,
 	float 		cosAngle		= cosf(rotationRadian);
 	float		halfWeight		= lineWeight * 0.5;
 
+	// Report status
+	if(lineColor == VGA_COL_TRANSPARENT) {
+		return VGA_ERROR_ARGUMENT_OUT_OF_BOUNDS;
+	}
+
 	// Specify ellipse state
 	if(lineWeight > 1) {
 
-		if(fillColor == VGA_COL_TRANSPARANT) {
+		// Line weight = 1 Fill = transparent
+		if(fillColor == VGA_COL_TRANSPARENT) {
 
 			status = VGA_drawEllipseLineFill(centerPointPos, radii, lineColor, cosAngle, sinAngle, halfWeight);
+
+		// Line weight = 1 Fill = not transparent
 		} else {
 
 			// Set outer line ellipse
@@ -191,17 +289,20 @@ status_t VGA_calculateEllipseData(	sPosition_t*	centerPointPos,
 			}
 
 			// Set inner line ellipse
-			radiiBuf.a = radii->a + halfWeight;
-			radiiBuf.b = radii->b + halfWeight;
-			status = VGA_drawEllipseFill(centerPointPos, &radiiBuf, lineColor, cosAngle, sinAngle);
+			radiiBuf.a = radii->a - halfWeight;
+			radiiBuf.b = radii->b - halfWeight;
+			status = VGA_drawEllipseFill(centerPointPos, &radiiBuf, fillColor, cosAngle, sinAngle);
 		}
 	} else {
-		if(fillColor == VGA_COL_TRANSPARANT) {
+		// Line weight > 1 Fill = transparent
+		if(fillColor == VGA_COL_TRANSPARENT) {
 
 			status = VGA_drawEllipseFrame(centerPointPos, radii, lineColor, cosAngle, sinAngle);
+
+		// Line weight > 1 Fill = not transparent
 		} else {
 
-			status = VGA_drawEllipseFill(centerPointPos, radii, lineColor, cosAngle, sinAngle);
+			status = VGA_drawEllipseFill(centerPointPos, radii, fillColor, cosAngle, sinAngle);
 
 			// Report status
 			if(status != VGA_SUCCESS) {

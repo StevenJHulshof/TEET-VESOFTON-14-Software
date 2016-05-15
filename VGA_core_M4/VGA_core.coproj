@@ -85,6 +85,7 @@
     <File name="pixel_data.h" path="lib/logic_tier/pixel_data.h" type="1"/>
     <File name="cmsis_boot" path="" type="2"/>
     <File name="ub_lib" path="" type="2"/>
+    <File name="fontlibrary.h" path="lib/data_tier/font_bitmaps/fontlibrary.h" type="1"/>
     <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="cmsis_boot/stm32f4xx.h" path="cmsis_boot/stm32f4xx.h" type="1"/>
@@ -96,6 +97,7 @@
     <File name="cmsis" path="" type="2"/>
     <File name="shapes_data.c" path="lib/logic_tier/shapes_data.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_tim.h" path="cmsis_lib/include/stm32f4xx_tim.h" type="1"/>
+    <File name="fontlibrary.c" path="lib/data_tier/font_bitmaps/fontlibrary.c" type="1"/>
     <File name="cmsis_lib" path="" type="2"/>
     <File name="cmsis_lib/source" path="" type="2"/>
     <File name="cmsis_lib/include/stm32f4xx_dma.h" path="cmsis_lib/include/stm32f4xx_dma.h" type="1"/>

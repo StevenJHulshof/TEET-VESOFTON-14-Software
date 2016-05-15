@@ -21,6 +21,7 @@
  * Includes
  ******************************************************************************/
 #include "stm32_ub_vga_screen.h"
+#include "fontlibrary.h"
 
 /*******************************************************************************
  * Data structures
@@ -67,7 +68,7 @@ typedef enum {
 	VGA_COL_CYAN = 0x1F,
 	VGA_COL_MAGENTA = 0xE3,
 	VGA_COL_YELLOW = 0xFC,
-	VGA_COL_TRANSPARANT = -0x01
+	VGA_COL_TRANSPARENT = -0x01
 } color_t;
 
 #endif /* SYSTEM_H_ */
