@@ -85,8 +85,8 @@ history.xml
 .tags1
 
 # Coide project files
-VGA_core.cogui
-VGA_core.comarker
-VGA_core.coproj
-project.pbxproj
+*.cogui
+*.comarker
+*.coproj
+*.pbxproj
 *.log
