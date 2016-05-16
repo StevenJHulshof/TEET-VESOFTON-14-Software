@@ -18,8 +18,71 @@
 /*******************************************************************************
  * Functions
  ******************************************************************************/
+uint8_t VGA_pixelInPrimitive(	sPosition_t 	verticePos[],
+								sPosition_t* 	pixelPos,
+								uint16_t 		numberOfVertices	) {
+
+	uint8_t inPrimitive = 0;
+	int   	i;
+	int 	j = numberOfVertices-1 ;
+
+	for(i = 0; i < numberOfVertices; i++) {
+
+		if(((verticePos[i].y < pixelPos->y && verticePos[j].y >= pixelPos->y) ||
+		    (verticePos[j].y < pixelPos->y && verticePos[i].y >= pixelPos->y)) &&
+		    (verticePos[i].x <= pixelPos->x || verticePos[j].x <= pixelPos->x )) {
+
+			inPrimitive ^= (verticePos[i].x + (pixelPos->y - verticePos[i].y) /
+						   (verticePos[j].y + verticePos[i].y) *
+						   (verticePos[j].x - verticePos[i].x) < pixelPos->x);
+		}
+
+		j = i;
+	}
+
+	return inPrimitive;
+}
+
+status_t VGA_processPrimitiveData(	sPosition_t verticePos[],
+									uint16_t	numberOfVertices,
+									color_t		lineColor,
+									color_t		fillColor,
+									uint8_t		lineWeight	) {
+
+	status_t status = VGA_SUCCESS;
+	uint16_t vertice;
+
+
+
+	for(vertice = 0; vertice < numberOfVertices; vertice++) {
+
+		sPosition_t line[2];
+		line[0] = verticePos[vertice];
+
+		if(vertice > numberOfVertices-2) {
+			line[1] = verticePos[0];
+		} else {
+			line[1] = verticePos[vertice+1];
+		}
+
+		VGA_setSingleLine(line, lineColor);
+	}
+
+
+	sPosition_t testPixel = {160, 100};
+	if(VGA_pixelInPrimitive(verticePos, &testPixel, numberOfVertices) != 0) {
+		VGA_setPixelData(&testPixel, fillColor);
+	}
+
+
+
+
+
+	return status;
+}
+
 status_t VGA_setSingleLine(    sPosition_t endPointPos[2],
-                                color_t     lineColor   ) {
+                               color_t     lineColor   ) {
 
 	status_t 	status = VGA_SUCCESS;
 	sPosition_t startPos;
@@ -254,7 +317,6 @@ status_t VGA_processEllipseData(	sPosition_t*	centerPointPos,
 								  	color_t 		fillColor,
 								  	uint8_t			lineWeight	) {
 
-	// Initialize variables
 	status_t 	status			= VGA_SUCCESS;
 	float 		rotationRadian 	= rotationDegrees * M_PI / 180;
 	float 		sinAngle 		= sinf(rotationRadian);
@@ -262,7 +324,7 @@ status_t VGA_processEllipseData(	sPosition_t*	centerPointPos,
 	float		halfWeight		= lineWeight * 0.5;
 
 	// Report status
-	if(lineColor == VGA_COL_TRANSPARENT) {
+	if(lineColor == VGA_COL_TRANSPARENT || lineWeight < 1) {
 		return VGA_ERROR_ARGUMENT_OUT_OF_BOUNDS;
 	}
 

@@ -14,12 +14,6 @@
 #define SHAPES_DATA_H_
 
 /*******************************************************************************
- * Defines
- ******************************************************************************/
-/** @brief Determines ellipse draw resolution. */
-#define ELLIPSE_RESOLUTION	0.005
-
-/*******************************************************************************
  * Includes
  ******************************************************************************/
 #include "system.h"
@@ -30,6 +24,13 @@
 /*******************************************************************************
  * Function prototypes
  ******************************************************************************/
+status_t VGA_processPrimitiveData(	sPosition_t verticePos[],
+									uint16_t	numberOfVertices,
+									color_t		lineColor,
+									color_t		fillColor,
+									uint8_t		lineWeight	);
+
+
 /**
  * @brief Draws single line without weight.
  *

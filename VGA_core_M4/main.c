@@ -44,19 +44,30 @@ int main(void) {
 	VGA_processScreenData(VGA_COL_CYAN);
 	//testEllipseShape();
 
-	sPosition_t ellipsePos = {80, 50};
-	sRadii_t radii = {30, 10};
-	VGA_processEllipseData(&ellipsePos, &radii, 0, VGA_COL_BLACK, VGA_COL_TRANSPARENT, 3);
+//	sPosition_t ellipsePos = {80, 50};
+//	sRadii_t radii = {30, 10};
+//	VGA_processEllipseData(&ellipsePos, &radii, 0, VGA_COL_BLACK, VGA_COL_TRANSPARENT, 3);
+//
+//	ellipsePos.x = 240;
+//	VGA_processEllipseData(&ellipsePos, &radii, 15, VGA_COL_MAGENTA, VGA_COL_GREEN, 7);
+//
+//	ellipsePos.x = 80;
+//	ellipsePos.y = 190;
+//	VGA_processEllipseData(&ellipsePos, &radii, 30, VGA_COL_BLUE, VGA_COL_GREEN, 1);
+//
+//	ellipsePos.x = 240;
+//	VGA_processEllipseData(&ellipsePos, &radii, 45, VGA_COL_MAGENTA, VGA_COL_TRANSPARENT, 1);
 
-	ellipsePos.x = 240;
-	VGA_processEllipseData(&ellipsePos, &radii, 15, VGA_COL_MAGENTA, VGA_COL_GREEN, 7);
+	sPosition_t primitive[6] = {
+			{100, 100},
+			{150, 100},
+			{170, 170},
+			{170, 100},
+			{190, 130},
+			{190, 80}
+	};
 
-	ellipsePos.x = 80;
-	ellipsePos.y = 190;
-	VGA_processEllipseData(&ellipsePos, &radii, 30, VGA_COL_BLUE, VGA_COL_GREEN, 1);
-
-	ellipsePos.x = 240;
-	VGA_processEllipseData(&ellipsePos, &radii, 45, VGA_COL_MAGENTA, VGA_COL_TRANSPARENT, 1);
+	VGA_processPrimitiveData(primitive, 6, VGA_COL_BLACK, VGA_COL_REDS, 1);
 
 	while(1){
 	//	int p;
