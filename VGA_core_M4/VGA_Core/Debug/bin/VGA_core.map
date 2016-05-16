@@ -462,27 +462,27 @@ Linker script and memory map
 
                 0x20020000                _eram = 0x20020000
 
-.text           0x08000000     0x3d44
+.text           0x08000000     0x3d68
  *(.isr_vector)
  .isr_vector    0x08000000      0x188 ..\obj\startup_stm32f4xx.o
                 0x08000000                g_pfnVectors
  *(.text*)
- .text.VGA_drawSingleLine
+ .text.VGA_setSingleLine
                 0x08000188      0x25c ..\obj\shapes_data.o
-                0x08000188                VGA_drawSingleLine
+                0x08000188                VGA_setSingleLine
  .text.VGA_translateEllipsePixelPos
                 0x080003e4      0x100 ..\obj\shapes_data.o
                 0x080003e4                VGA_translateEllipsePixelPos
  *fill*         0x080004e4        0x4 
- .text.VGA_drawEllipseFrame
+ .text.VGA_setEllipseFrame
                 0x080004e8       0xb8 ..\obj\shapes_data.o
-                0x080004e8                VGA_drawEllipseFrame
- .text.VGA_drawEllipseFill
+                0x080004e8                VGA_setEllipseFrame
+ .text.VGA_setEllipseFill
                 0x080005a0       0xe0 ..\obj\shapes_data.o
-                0x080005a0                VGA_drawEllipseFill
- .text.VGA_drawEllipseLineFill
+                0x080005a0                VGA_setEllipseFill
+ .text.VGA_setEllipseLineFill
                 0x08000680      0x138 ..\obj\shapes_data.o
-                0x08000680                VGA_drawEllipseLineFill
+                0x08000680                VGA_setEllipseLineFill
  .text.VGA_processEllipseData
                 0x080007b8      0x1d0 ..\obj\shapes_data.o
                 0x080007b8                VGA_processEllipseData
@@ -621,170 +621,170 @@ Linker script and memory map
                 0x080011f4       0x5c ..\obj\stm32f4xx_dma.o
                 0x080011f4                DMA_ClearITPendingBit
  .text.VGA_setPixelData
-                0x08001250       0x4c ..\obj\pixel_data.o
+                0x08001250       0x70 ..\obj\pixel_data.o
                 0x08001250                VGA_setPixelData
  .text.VGA_getPixelData
-                0x0800129c       0x34 ..\obj\pixel_data.o
-                0x0800129c                VGA_getPixelData
+                0x080012c0       0x34 ..\obj\pixel_data.o
+                0x080012c0                VGA_getPixelData
  .text.VGA_processScreenData
-                0x080012d0       0x60 ..\obj\pixel_data.o
-                0x080012d0                VGA_processScreenData
+                0x080012f4       0x60 ..\obj\pixel_data.o
+                0x080012f4                VGA_processScreenData
  .text.UB_VGA_Screen_Init
-                0x08001330       0x80 ..\obj\stm32_ub_vga_screen.o
-                0x08001330                UB_VGA_Screen_Init
+                0x08001354       0x80 ..\obj\stm32_ub_vga_screen.o
+                0x08001354                UB_VGA_Screen_Init
  .text.P_VGA_InitIO
-                0x080013b0       0xa8 ..\obj\stm32_ub_vga_screen.o
-                0x080013b0                P_VGA_InitIO
+                0x080013d4       0xa8 ..\obj\stm32_ub_vga_screen.o
+                0x080013d4                P_VGA_InitIO
  .text.P_VGA_InitTIM
-                0x08001458       0xc8 ..\obj\stm32_ub_vga_screen.o
-                0x08001458                P_VGA_InitTIM
+                0x0800147c       0xc8 ..\obj\stm32_ub_vga_screen.o
+                0x0800147c                P_VGA_InitTIM
  .text.P_VGA_InitINT
-                0x08001520       0x58 ..\obj\stm32_ub_vga_screen.o
-                0x08001520                P_VGA_InitINT
+                0x08001544       0x58 ..\obj\stm32_ub_vga_screen.o
+                0x08001544                P_VGA_InitINT
  .text.P_VGA_InitDMA
-                0x08001578       0x90 ..\obj\stm32_ub_vga_screen.o
-                0x08001578                P_VGA_InitDMA
+                0x0800159c       0x90 ..\obj\stm32_ub_vga_screen.o
+                0x0800159c                P_VGA_InitDMA
  .text.TIM2_IRQHandler
-                0x08001608       0xb8 ..\obj\stm32_ub_vga_screen.o
-                0x08001608                TIM2_IRQHandler
+                0x0800162c       0xb8 ..\obj\stm32_ub_vga_screen.o
+                0x0800162c                TIM2_IRQHandler
  .text.DMA2_Stream5_IRQHandler
-                0x080016c0       0x4c ..\obj\stm32_ub_vga_screen.o
-                0x080016c0                DMA2_Stream5_IRQHandler
+                0x080016e4       0x4c ..\obj\stm32_ub_vga_screen.o
+                0x080016e4                DMA2_Stream5_IRQHandler
  .text.NVIC_Init
-                0x0800170c       0xc0 ..\obj\misc.o
-                0x0800170c                NVIC_Init
+                0x08001730       0xc0 ..\obj\misc.o
+                0x08001730                NVIC_Init
  .text.TIM_TimeBaseInit
-                0x080017cc       0xd4 ..\obj\stm32f4xx_tim.o
-                0x080017cc                TIM_TimeBaseInit
+                0x080017f0       0xd4 ..\obj\stm32f4xx_tim.o
+                0x080017f0                TIM_TimeBaseInit
  .text.TIM_ARRPreloadConfig
-                0x080018a0       0x40 ..\obj\stm32f4xx_tim.o
-                0x080018a0                TIM_ARRPreloadConfig
- .text.TIM_Cmd  0x080018e0       0x40 ..\obj\stm32f4xx_tim.o
-                0x080018e0                TIM_Cmd
+                0x080018c4       0x40 ..\obj\stm32f4xx_tim.o
+                0x080018c4                TIM_ARRPreloadConfig
+ .text.TIM_Cmd  0x08001904       0x40 ..\obj\stm32f4xx_tim.o
+                0x08001904                TIM_Cmd
  .text.TIM_OC3Init
-                0x08001920      0x10c ..\obj\stm32f4xx_tim.o
-                0x08001920                TIM_OC3Init
+                0x08001944      0x10c ..\obj\stm32f4xx_tim.o
+                0x08001944                TIM_OC3Init
  .text.TIM_OC4Init
-                0x08001a2c       0xcc ..\obj\stm32f4xx_tim.o
-                0x08001a2c                TIM_OC4Init
+                0x08001a50       0xcc ..\obj\stm32f4xx_tim.o
+                0x08001a50                TIM_OC4Init
  .text.TIM_OC3PreloadConfig
-                0x08001af8       0x38 ..\obj\stm32f4xx_tim.o
-                0x08001af8                TIM_OC3PreloadConfig
+                0x08001b1c       0x38 ..\obj\stm32f4xx_tim.o
+                0x08001b1c                TIM_OC3PreloadConfig
  .text.TIM_OC4PreloadConfig
-                0x08001b30       0x3c ..\obj\stm32f4xx_tim.o
-                0x08001b30                TIM_OC4PreloadConfig
+                0x08001b54       0x3c ..\obj\stm32f4xx_tim.o
+                0x08001b54                TIM_OC4PreloadConfig
  .text.TIM_ITConfig
-                0x08001b6c       0x48 ..\obj\stm32f4xx_tim.o
-                0x08001b6c                TIM_ITConfig
+                0x08001b90       0x48 ..\obj\stm32f4xx_tim.o
+                0x08001b90                TIM_ITConfig
  .text.TIM_ClearITPendingBit
-                0x08001bb4       0x20 ..\obj\stm32f4xx_tim.o
-                0x08001bb4                TIM_ClearITPendingBit
+                0x08001bd8       0x20 ..\obj\stm32f4xx_tim.o
+                0x08001bd8                TIM_ClearITPendingBit
  .text.TIM_DMACmd
-                0x08001bd4       0x48 ..\obj\stm32f4xx_tim.o
-                0x08001bd4                TIM_DMACmd
- .text.cosf     0x08001c1c       0x6c d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-sf_cos.o)
-                0x08001c1c                cosf
- .text.sinf     0x08001c88       0x7c d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-sf_sin.o)
-                0x08001c88                sinf
+                0x08001bf8       0x48 ..\obj\stm32f4xx_tim.o
+                0x08001bf8                TIM_DMACmd
+ .text.cosf     0x08001c40       0x6c d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-sf_cos.o)
+                0x08001c40                cosf
+ .text.sinf     0x08001cac       0x7c d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-sf_sin.o)
+                0x08001cac                sinf
  .text.__ieee754_rem_pio2f
-                0x08001d04      0x2e4 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-ef_rem_pio2.o)
-                0x08001d04                __ieee754_rem_pio2f
+                0x08001d28      0x2e4 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-ef_rem_pio2.o)
+                0x08001d28                __ieee754_rem_pio2f
  .text.__kernel_cosf
-                0x08001fe8      0x188 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-kf_cos.o)
-                0x08001fe8                __kernel_cosf
+                0x0800200c      0x188 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-kf_cos.o)
+                0x0800200c                __kernel_cosf
  .text.__kernel_rem_pio2f
-                0x08002170      0x670 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-kf_rem_pio2.o)
-                0x08002170                __kernel_rem_pio2f
+                0x08002194      0x670 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-kf_rem_pio2.o)
+                0x08002194                __kernel_rem_pio2f
  .text.__kernel_sinf
-                0x080027e0       0xec d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-kf_sin.o)
-                0x080027e0                __kernel_sinf
- .text.fabsf    0x080028cc        0x8 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-sf_fabs.o)
-                0x080028cc                fabsf
- .text.floorf   0x080028d4       0x8c d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-sf_floor.o)
-                0x080028d4                floorf
- .text.scalbnf  0x08002960       0xb0 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-sf_scalbn.o)
-                0x08002960                scalbnf
+                0x08002804       0xec d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-kf_sin.o)
+                0x08002804                __kernel_sinf
+ .text.fabsf    0x080028f0        0x8 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-sf_fabs.o)
+                0x080028f0                fabsf
+ .text.floorf   0x080028f8       0x8c d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-sf_floor.o)
+                0x080028f8                floorf
+ .text.scalbnf  0x08002984       0xb0 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-sf_scalbn.o)
+                0x08002984                scalbnf
  .text.copysignf
-                0x08002a10        0xc d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-sf_copysign.o)
-                0x08002a10                copysignf
- .text          0x08002a1c      0x370 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_addsubdf3.o)
-                0x08002a1c                __aeabi_drsub
-                0x08002a24                __aeabi_dsub
-                0x08002a24                __subdf3
-                0x08002a28                __aeabi_dadd
-                0x08002a28                __adddf3
-                0x08002ca0                __floatunsidf
-                0x08002ca0                __aeabi_ui2d
-                0x08002cc0                __floatsidf
-                0x08002cc0                __aeabi_i2d
-                0x08002ce4                __aeabi_f2d
-                0x08002ce4                __extendsfdf2
-                0x08002d20                __floatundidf
-                0x08002d20                __aeabi_ul2d
-                0x08002d30                __floatdidf
-                0x08002d30                __aeabi_l2d
- .text          0x08002d8c      0x424 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_muldivdf3.o)
-                0x08002d8c                __aeabi_dmul
-                0x08002d8c                __muldf3
-                0x08002fe0                __divdf3
-                0x08002fe0                __aeabi_ddiv
- .text          0x080031b0      0x110 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_cmpdf2.o)
-                0x080031b0                __gtdf2
-                0x080031b0                __gedf2
-                0x080031b8                __ltdf2
-                0x080031b8                __ledf2
-                0x080031c0                __nedf2
-                0x080031c0                __eqdf2
-                0x080031c0                __cmpdf2
-                0x0800323c                __aeabi_cdrcmple
-                0x0800324c                __aeabi_cdcmpeq
-                0x0800324c                __aeabi_cdcmple
-                0x0800325c                __aeabi_dcmpeq
-                0x08003270                __aeabi_dcmplt
-                0x08003284                __aeabi_dcmple
-                0x08003298                __aeabi_dcmpge
-                0x080032ac                __aeabi_dcmpgt
- .text          0x080032c0       0xa0 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_truncdfsf2.o)
-                0x080032c0                __truncdfsf2
-                0x080032c0                __aeabi_d2f
- .text          0x08003360      0x21c d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_addsubsf3.o)
-                0x08003360                __aeabi_frsub
-                0x08003368                __subsf3
-                0x08003368                __aeabi_fsub
-                0x0800336c                __aeabi_fadd
-                0x0800336c                __addsf3
-                0x080034cc                __aeabi_ui2f
-                0x080034cc                __floatunsisf
-                0x080034d4                __aeabi_i2f
-                0x080034d4                __floatsisf
-                0x080034f0                __aeabi_ul2f
-                0x080034f0                __floatundisf
-                0x08003500                __aeabi_l2f
-                0x08003500                __floatdisf
- .text          0x0800357c      0x2a0 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_muldivsf3.o)
-                0x0800357c                __mulsf3
-                0x0800357c                __aeabi_fmul
-                0x080036e4                __aeabi_fdiv
-                0x080036e4                __divsf3
- .text          0x0800381c       0xec d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_cmpsf2.o)
-                0x0800381c                __gesf2
-                0x0800381c                __gtsf2
-                0x08003824                __lesf2
-                0x08003824                __ltsf2
-                0x0800382c                __nesf2
-                0x0800382c                __eqsf2
-                0x0800382c                __cmpsf2
-                0x0800388c                __aeabi_cfrcmple
-                0x08003894                __aeabi_cfcmpeq
-                0x08003894                __aeabi_cfcmple
-                0x080038a4                __aeabi_fcmpeq
-                0x080038b8                __aeabi_fcmplt
-                0x080038cc                __aeabi_fcmple
-                0x080038e0                __aeabi_fcmpge
-                0x080038f4                __aeabi_fcmpgt
- .text          0x08003908       0x4c d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_fixsfsi.o)
-                0x08003908                __aeabi_f2iz
-                0x08003908                __fixsfsi
+                0x08002a34        0xc d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-sf_copysign.o)
+                0x08002a34                copysignf
+ .text          0x08002a40      0x370 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_addsubdf3.o)
+                0x08002a40                __aeabi_drsub
+                0x08002a48                __aeabi_dsub
+                0x08002a48                __subdf3
+                0x08002a4c                __aeabi_dadd
+                0x08002a4c                __adddf3
+                0x08002cc4                __floatunsidf
+                0x08002cc4                __aeabi_ui2d
+                0x08002ce4                __floatsidf
+                0x08002ce4                __aeabi_i2d
+                0x08002d08                __aeabi_f2d
+                0x08002d08                __extendsfdf2
+                0x08002d44                __floatundidf
+                0x08002d44                __aeabi_ul2d
+                0x08002d54                __floatdidf
+                0x08002d54                __aeabi_l2d
+ .text          0x08002db0      0x424 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_muldivdf3.o)
+                0x08002db0                __aeabi_dmul
+                0x08002db0                __muldf3
+                0x08003004                __divdf3
+                0x08003004                __aeabi_ddiv
+ .text          0x080031d4      0x110 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_cmpdf2.o)
+                0x080031d4                __gtdf2
+                0x080031d4                __gedf2
+                0x080031dc                __ltdf2
+                0x080031dc                __ledf2
+                0x080031e4                __nedf2
+                0x080031e4                __eqdf2
+                0x080031e4                __cmpdf2
+                0x08003260                __aeabi_cdrcmple
+                0x08003270                __aeabi_cdcmpeq
+                0x08003270                __aeabi_cdcmple
+                0x08003280                __aeabi_dcmpeq
+                0x08003294                __aeabi_dcmplt
+                0x080032a8                __aeabi_dcmple
+                0x080032bc                __aeabi_dcmpge
+                0x080032d0                __aeabi_dcmpgt
+ .text          0x080032e4       0xa0 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_truncdfsf2.o)
+                0x080032e4                __truncdfsf2
+                0x080032e4                __aeabi_d2f
+ .text          0x08003384      0x21c d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_addsubsf3.o)
+                0x08003384                __aeabi_frsub
+                0x0800338c                __subsf3
+                0x0800338c                __aeabi_fsub
+                0x08003390                __aeabi_fadd
+                0x08003390                __addsf3
+                0x080034f0                __aeabi_ui2f
+                0x080034f0                __floatunsisf
+                0x080034f8                __aeabi_i2f
+                0x080034f8                __floatsisf
+                0x08003514                __aeabi_ul2f
+                0x08003514                __floatundisf
+                0x08003524                __aeabi_l2f
+                0x08003524                __floatdisf
+ .text          0x080035a0      0x2a0 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_muldivsf3.o)
+                0x080035a0                __mulsf3
+                0x080035a0                __aeabi_fmul
+                0x08003708                __aeabi_fdiv
+                0x08003708                __divsf3
+ .text          0x08003840       0xec d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_cmpsf2.o)
+                0x08003840                __gesf2
+                0x08003840                __gtsf2
+                0x08003848                __lesf2
+                0x08003848                __ltsf2
+                0x08003850                __nesf2
+                0x08003850                __eqsf2
+                0x08003850                __cmpsf2
+                0x080038b0                __aeabi_cfrcmple
+                0x080038b8                __aeabi_cfcmpeq
+                0x080038b8                __aeabi_cfcmple
+                0x080038c8                __aeabi_fcmpeq
+                0x080038dc                __aeabi_fcmplt
+                0x080038f0                __aeabi_fcmple
+                0x08003904                __aeabi_fcmpge
+                0x08003918                __aeabi_fcmpgt
+ .text          0x0800392c       0x4c d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_fixsfsi.o)
+                0x0800392c                __aeabi_f2iz
+                0x0800392c                __fixsfsi
  *(.init)
  *(.fini)
  *crtbegin.o(.ctors)
@@ -798,45 +798,45 @@ Linker script and memory map
  *(SORT(.dtors.*))
  *(.dtors)
  *(.rodata*)
- .rodata        0x08003954       0x20 ..\obj\main.o
+ .rodata        0x08003978       0x20 ..\obj\main.o
  .rodata.npio2_hw
-                0x08003974       0x80 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-ef_rem_pio2.o)
+                0x08003998       0x80 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-ef_rem_pio2.o)
  .rodata.two_over_pi
-                0x080039f4      0x318 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-ef_rem_pio2.o)
+                0x08003a18      0x318 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-ef_rem_pio2.o)
  .rodata.init_jk
-                0x08003d0c        0xc d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-kf_rem_pio2.o)
- .rodata.PIo2   0x08003d18       0x2c d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-kf_rem_pio2.o)
+                0x08003d30        0xc d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-kf_rem_pio2.o)
+ .rodata.PIo2   0x08003d3c       0x2c d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-kf_rem_pio2.o)
  *(.eh_fram e*)
 
-.glue_7         0x08003d44        0x0
+.glue_7         0x08003d68        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x08003d44        0x0
+.glue_7t        0x08003d68        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x08003d44        0x0
+.vfp11_veneer   0x08003d68        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x08003d44        0x0
+.v4_bx          0x08003d68        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x08003d44        0x0
+.iplt           0x08003d68        0x0
  .iplt          0x00000000        0x0 ..\obj\shapes_data.o
 
-.rel.dyn        0x08003d44        0x0
+.rel.dyn        0x08003d68        0x0
  .rel.iplt      0x00000000        0x0 ..\obj\shapes_data.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x08003d44                __exidx_start = .
+                0x08003d68                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x08003d44                __exidx_end = .
-                0x08003d44                __etext = .
-                0x08003d44                _sidata = __etext
+                0x08003d68                __exidx_end = .
+                0x08003d68                __etext = .
+                0x08003d68                _sidata = __etext
 
-.data           0x20000000        0x0 load address 0x08003d44
+.data           0x20000000        0x0 load address 0x08003d68
                 0x20000000                __data_start__ = .
                 0x20000000                _sdata = __data_start__
  *(vtable)
@@ -976,7 +976,7 @@ OUTPUT(VGA_Core.elf elf32-littlearm)
  .debug_ranges  0x00000378       0x30 ..\obj\misc.o
  .debug_ranges  0x000003a8      0x2e8 ..\obj\stm32f4xx_tim.o
 
-.debug_line     0x00000000     0x28d0
+.debug_line     0x00000000     0x28e3
  .debug_line    0x00000000      0x308 ..\obj\shapes_data.o
  .debug_line    0x00000308       0xc0 ..\obj\startup_stm32f4xx.o
  .debug_line    0x000003c8      0x266 ..\obj\main.o
@@ -984,33 +984,33 @@ OUTPUT(VGA_Core.elf elf32-littlearm)
  .debug_line    0x00000c0b      0x37f ..\obj\stm32f4xx_gpio.o
  .debug_line    0x00000f8a      0x1ec ..\obj\system_stm32f4xx.o
  .debug_line    0x00001176      0x418 ..\obj\stm32f4xx_dma.o
- .debug_line    0x0000158e      0x233 ..\obj\pixel_data.o
- .debug_line    0x000017c1      0x3e8 ..\obj\stm32_ub_vga_screen.o
- .debug_line    0x00001ba9      0x281 ..\obj\misc.o
- .debug_line    0x00001e2a      0xaa6 ..\obj\stm32f4xx_tim.o
+ .debug_line    0x0000158e      0x246 ..\obj\pixel_data.o
+ .debug_line    0x000017d4      0x3e8 ..\obj\stm32_ub_vga_screen.o
+ .debug_line    0x00001bbc      0x281 ..\obj\misc.o
+ .debug_line    0x00001e3d      0xaa6 ..\obj\stm32f4xx_tim.o
 
-.debug_str      0x00000000     0x28e7
- .debug_str     0x00000000      0x3fc ..\obj\shapes_data.o
-                                0x465 (size before relaxing)
- .debug_str     0x000003fc       0xcf ..\obj\startup_stm32f4xx.o
+.debug_str      0x00000000     0x28e3
+ .debug_str     0x00000000      0x3f8 ..\obj\shapes_data.o
+                                0x461 (size before relaxing)
+ .debug_str     0x000003f8       0xcf ..\obj\startup_stm32f4xx.o
                                 0x166 (size before relaxing)
- .debug_str     0x000004cb       0x76 ..\obj\main.o
+ .debug_str     0x000004c7       0x76 ..\obj\main.o
                                 0x2c3 (size before relaxing)
- .debug_str     0x00000541      0x6cb ..\obj\stm32f4xx_rcc.o
+ .debug_str     0x0000053d      0x6cb ..\obj\stm32f4xx_rcc.o
                                 0x86f (size before relaxing)
- .debug_str     0x00000c0c      0x347 ..\obj\stm32f4xx_gpio.o
+ .debug_str     0x00000c08      0x347 ..\obj\stm32f4xx_gpio.o
                                 0x4c2 (size before relaxing)
- .debug_str     0x00000f53      0x137 ..\obj\system_stm32f4xx.o
+ .debug_str     0x00000f4f      0x137 ..\obj\system_stm32f4xx.o
                                 0x3c9 (size before relaxing)
- .debug_str     0x0000108a      0x3b6 ..\obj\stm32f4xx_dma.o
+ .debug_str     0x00001086      0x3b6 ..\obj\stm32f4xx_dma.o
                                 0x561 (size before relaxing)
- .debug_str     0x00001440       0xa9 ..\obj\pixel_data.o
+ .debug_str     0x0000143c       0xa9 ..\obj\pixel_data.o
                                 0x32c (size before relaxing)
- .debug_str     0x000014e9      0x861 ..\obj\stm32_ub_vga_screen.o
+ .debug_str     0x000014e5      0x861 ..\obj\stm32_ub_vga_screen.o
                                 0xd0a (size before relaxing)
- .debug_str     0x00001d4a      0x180 ..\obj\misc.o
+ .debug_str     0x00001d46      0x180 ..\obj\misc.o
                                 0x3ed (size before relaxing)
- .debug_str     0x00001eca      0xa1d ..\obj\stm32f4xx_tim.o
+ .debug_str     0x00001ec6      0xa1d ..\obj\stm32f4xx_tim.o
                                 0xdef (size before relaxing)
 
 .comment        0x00000000       0x70

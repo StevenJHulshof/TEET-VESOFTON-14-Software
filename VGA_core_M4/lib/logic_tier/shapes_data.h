@@ -17,7 +17,7 @@
  * Defines
  ******************************************************************************/
 /** @brief Determines ellipse draw resolution. */
-#define ELLIPSE_RESOLUTION	0.01
+#define ELLIPSE_RESOLUTION	0.005
 
 /*******************************************************************************
  * Includes
@@ -37,7 +37,8 @@
  * @param lineColor			Line color.
  * @return	Status of operation.
  */
-status_t VGA_drawSingleLine(sPosition_t endPointPos[2], color_t lineColor);
+status_t VGA_setSingleLine(	sPosition_t endPointPos[2],
+							color_t 	lineColor);
 
 /**
  * @brief Translates pixel position based on rotation.
@@ -65,7 +66,7 @@ sPosition_t VGA_translateEllipsePixelPos(	sPosition_t* 	centerPointPos,
  * @param sinAngle			Sine of the rotation angle.
  * @return	Status of operation.
  */
-status_t VGA_drawEllipseFrame(	sPosition_t*	centerPointPos,
+status_t VGA_setEllipseFrame(	sPosition_t*	centerPointPos,
 			   					sRadii_t* 		radii,
 			   					color_t			lineColor,
 			   					float 			cosAngle,
@@ -81,7 +82,7 @@ status_t VGA_drawEllipseFrame(	sPosition_t*	centerPointPos,
  * @param sinAngle			Sine of the rotation angle.
  * @return	Status of operation.
  */
-status_t VGA_drawEllipseFill(	sPosition_t*	centerPointPos,
+status_t VGA_setEllipseFill(	sPosition_t*	centerPointPos,
 								sRadii_t* 		radii,
 								color_t			color,
 								float 			cosAngle,
@@ -98,7 +99,7 @@ status_t VGA_drawEllipseFill(	sPosition_t*	centerPointPos,
  * @param halfWeight		Half the line weight of the ellipse.
  * @return	Status of operation.
  */
-status_t VGA_drawEllipseLineFill(	sPosition_t*	centerPointPos,
+status_t VGA_setEllipseLineFill(	sPosition_t*	centerPointPos,
 									sRadii_t* 		radii,
 									color_t			lineColor,
 									float 			cosAngle,
