@@ -83,3 +83,8 @@ history.xml
 
 .tags
 .tags1
+
+# Coide project files
+VGA_core.cogui
+VGA_core.comarker
+VGA_core.coproj
