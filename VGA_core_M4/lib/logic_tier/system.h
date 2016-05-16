@@ -16,6 +16,8 @@
 /*******************************************************************************
  * Defines
  ******************************************************************************/
+/** @brief Determines ellipse draw resolution. */
+#define ELLIPSE_RESOLUTION	0.005
 
 /*******************************************************************************
  * Includes
@@ -31,11 +33,21 @@
 typedef struct {
 
 	/** @brief X coordinate. */
-	uint8_t x;
+	int x;
 
 	/** @brief Y coordinate. */
-	uint8_t y;
+	int y;
 } sPosition_t;
+
+/**	@brief Radii structure. */
+typedef struct {
+
+	/** @brief Radius a length. */
+	float a;
+
+	/** @brief Radius b length. */
+	float b;
+} sRadii_t;
 
 /*******************************************************************************
  * Enumerators
@@ -44,7 +56,7 @@ typedef struct {
 typedef enum {
 
 	VGA_SUCCESS,
-	VGA_COLOR_NOT_SET,
+	VGA_PIXEL_NOT_SET,
 	VGA_ERROR_ARGUMENT_OUT_OF_BOUNDS
 } status_t;
 
@@ -58,7 +70,8 @@ typedef enum {
 	VGA_COL_WHITE = 0xFF,
 	VGA_COL_CYAN = 0x1F,
 	VGA_COL_MAGENTA = 0xE3,
-	VGA_COL_YELLOW = 0xFC
+	VGA_COL_YELLOW = 0xFC,
+	VGA_COL_TRANSPARENT = -0x01
 } color_t;
 
 #endif /* SYSTEM_H_ */
