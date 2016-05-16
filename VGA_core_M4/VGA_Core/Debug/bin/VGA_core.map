@@ -36,6 +36,8 @@ d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_cmpsf2.
                               d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libm.a(lib_a-ef_rem_pio2.o) (__aeabi_fcmpeq)
 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_fixsfsi.o)
                               ..\obj\shapes_data.o (__aeabi_f2iz)
+d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-memcpy.o)
+                              ..\obj\main.o (memcpy)
 
 Allocating common symbols
 Common symbol       size              file
@@ -57,7 +59,7 @@ Discarded input sections
  .text.VGA_setEllipseLineFill
                 0x00000000      0x138 ..\obj\shapes_data.o
  .text.VGA_processEllipseData
-                0x00000000      0x1d0 ..\obj\shapes_data.o
+                0x00000000      0x1d8 ..\obj\shapes_data.o
  .text          0x00000000        0x0 ..\obj\startup_stm32f4xx.o
  .data          0x00000000        0x0 ..\obj\startup_stm32f4xx.o
  .bss           0x00000000        0x0 ..\obj\startup_stm32f4xx.o
@@ -513,13 +515,12 @@ Discarded input sections
  .bss           0x00000000        0x0 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_addsubsf3.o)
  .data          0x00000000        0x0 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_muldivsf3.o)
  .bss           0x00000000        0x0 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_muldivsf3.o)
- .text          0x00000000       0xec d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_cmpsf2.o)
  .data          0x00000000        0x0 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_cmpsf2.o)
  .bss           0x00000000        0x0 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_cmpsf2.o)
- .ARM.attributes
-                0x00000000       0x1e d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_cmpsf2.o)
  .data          0x00000000        0x0 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_fixsfsi.o)
  .bss           0x00000000        0x0 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_fixsfsi.o)
+ .data          0x00000000        0x0 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-memcpy.o)
+ .bss           0x00000000        0x0 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-memcpy.o)
 
 Memory Configuration
 
@@ -533,270 +534,291 @@ Linker script and memory map
 
                 0x20020000                _eram = 0x20020000
 
-.text           0x08000000     0x21d8
+.text           0x08000000     0x258c
  *(.isr_vector)
  .isr_vector    0x08000000      0x188 ..\obj\startup_stm32f4xx.o
                 0x08000000                g_pfnVectors
  *(.text*)
  .text.VGA_pixelInPrimitive
-                0x08000188      0x110 ..\obj\shapes_data.o
+                0x08000188      0x194 ..\obj\shapes_data.o
                 0x08000188                VGA_pixelInPrimitive
+ .text.setPrimitiveFrame
+                0x0800031c       0x94 ..\obj\shapes_data.o
+                0x0800031c                setPrimitiveFrame
  .text.VGA_processPrimitiveData
-                0x08000298       0xcc ..\obj\shapes_data.o
-                0x08000298                VGA_processPrimitiveData
+                0x080003b0      0x138 ..\obj\shapes_data.o
+                0x080003b0                VGA_processPrimitiveData
  .text.VGA_setSingleLine
-                0x08000364      0x25c ..\obj\shapes_data.o
-                0x08000364                VGA_setSingleLine
+                0x080004e8      0x25c ..\obj\shapes_data.o
+                0x080004e8                VGA_setSingleLine
  .text.Default_Reset_Handler
-                0x080005c0       0x58 ..\obj\startup_stm32f4xx.o
-                0x080005c0                Default_Reset_Handler
-                0x080005c0                Reset_Handler
+                0x08000744       0x58 ..\obj\startup_stm32f4xx.o
+                0x08000744                Default_Reset_Handler
+                0x08000744                Reset_Handler
  .text.Default_Handler
-                0x08000618        0x8 ..\obj\startup_stm32f4xx.o
-                0x08000618                RTC_Alarm_IRQHandler
-                0x08000618                HASH_RNG_IRQHandler
-                0x08000618                EXTI2_IRQHandler
-                0x08000618                TIM8_CC_IRQHandler
-                0x08000618                DebugMon_Handler
-                0x08000618                TIM1_CC_IRQHandler
-                0x08000618                HardFault_Handler
-                0x08000618                DMA1_Stream5_IRQHandler
-                0x08000618                SysTick_Handler
-                0x08000618                PVD_IRQHandler
-                0x08000618                SDIO_IRQHandler
-                0x08000618                TAMP_STAMP_IRQHandler
-                0x08000618                PendSV_Handler
-                0x08000618                NMI_Handler
-                0x08000618                CAN2_RX1_IRQHandler
-                0x08000618                EXTI3_IRQHandler
-                0x08000618                TIM8_TRG_COM_TIM14_IRQHandler
-                0x08000618                TIM1_UP_TIM10_IRQHandler
-                0x08000618                TIM8_UP_TIM13_IRQHandler
-                0x08000618                I2C3_ER_IRQHandler
-                0x08000618                EXTI0_IRQHandler
-                0x08000618                I2C2_EV_IRQHandler
-                0x08000618                DMA1_Stream2_IRQHandler
-                0x08000618                CAN1_RX0_IRQHandler
-                0x08000618                FPU_IRQHandler
-                0x08000618                OTG_HS_WKUP_IRQHandler
-                0x08000618                UsageFault_Handler
-                0x08000618                CAN2_SCE_IRQHandler
-                0x08000618                DMA2_Stream2_IRQHandler
-                0x08000618                SPI1_IRQHandler
-                0x08000618                TIM6_DAC_IRQHandler
-                0x08000618                TIM1_BRK_TIM9_IRQHandler
-                0x08000618                DCMI_IRQHandler
-                0x08000618                CAN2_RX0_IRQHandler
-                0x08000618                DMA2_Stream3_IRQHandler
-                0x08000618                USART6_IRQHandler
-                0x08000618                USART3_IRQHandler
-                0x08000618                CRYP_IRQHandler
-                0x08000618                CAN1_RX1_IRQHandler
-                0x08000618                UART5_IRQHandler
-                0x08000618                DMA2_Stream0_IRQHandler
-                0x08000618                TIM4_IRQHandler
-                0x08000618                I2C1_EV_IRQHandler
-                0x08000618                DMA1_Stream6_IRQHandler
-                0x08000618                DMA1_Stream1_IRQHandler
-                0x08000618                UART4_IRQHandler
-                0x08000618                TIM3_IRQHandler
-                0x08000618                RCC_IRQHandler
-                0x08000618                TIM8_BRK_TIM12_IRQHandler
-                0x08000618                EXTI15_10_IRQHandler
-                0x08000618                ADC_IRQHandler
-                0x08000618                DMA1_Stream7_IRQHandler
-                0x08000618                TIM7_IRQHandler
-                0x08000618                CAN2_TX_IRQHandler
-                0x08000618                TIM5_IRQHandler
-                0x08000618                DMA2_Stream7_IRQHandler
-                0x08000618                I2C3_EV_IRQHandler
-                0x08000618                EXTI9_5_IRQHandler
-                0x08000618                RTC_WKUP_IRQHandler
-                0x08000618                ETH_WKUP_IRQHandler
-                0x08000618                SPI2_IRQHandler
-                0x08000618                OTG_HS_EP1_IN_IRQHandler
-                0x08000618                MemManage_Handler
-                0x08000618                DMA1_Stream0_IRQHandler
-                0x08000618                CAN1_TX_IRQHandler
-                0x08000618                SVC_Handler
-                0x08000618                EXTI4_IRQHandler
-                0x08000618                FSMC_IRQHandler
-                0x08000618                ETH_IRQHandler
-                0x08000618                OTG_HS_EP1_OUT_IRQHandler
-                0x08000618                WWDG_IRQHandler
-                0x08000618                OTG_FS_WKUP_IRQHandler
-                0x08000618                TIM1_TRG_COM_TIM11_IRQHandler
-                0x08000618                OTG_HS_IRQHandler
-                0x08000618                EXTI1_IRQHandler
-                0x08000618                USART2_IRQHandler
-                0x08000618                I2C2_ER_IRQHandler
-                0x08000618                DMA2_Stream1_IRQHandler
-                0x08000618                CAN1_SCE_IRQHandler
-                0x08000618                FLASH_IRQHandler
-                0x08000618                DMA2_Stream4_IRQHandler
-                0x08000618                BusFault_Handler
-                0x08000618                USART1_IRQHandler
-                0x08000618                OTG_FS_IRQHandler
-                0x08000618                SPI3_IRQHandler
-                0x08000618                DMA1_Stream4_IRQHandler
-                0x08000618                I2C1_ER_IRQHandler
-                0x08000618                DMA2_Stream6_IRQHandler
-                0x08000618                DMA1_Stream3_IRQHandler
- .text.main     0x08000620       0x44 ..\obj\main.o
-                0x08000620                main
+                0x0800079c        0x8 ..\obj\startup_stm32f4xx.o
+                0x0800079c                RTC_Alarm_IRQHandler
+                0x0800079c                HASH_RNG_IRQHandler
+                0x0800079c                EXTI2_IRQHandler
+                0x0800079c                TIM8_CC_IRQHandler
+                0x0800079c                DebugMon_Handler
+                0x0800079c                TIM1_CC_IRQHandler
+                0x0800079c                HardFault_Handler
+                0x0800079c                DMA1_Stream5_IRQHandler
+                0x0800079c                SysTick_Handler
+                0x0800079c                PVD_IRQHandler
+                0x0800079c                SDIO_IRQHandler
+                0x0800079c                TAMP_STAMP_IRQHandler
+                0x0800079c                PendSV_Handler
+                0x0800079c                NMI_Handler
+                0x0800079c                CAN2_RX1_IRQHandler
+                0x0800079c                EXTI3_IRQHandler
+                0x0800079c                TIM8_TRG_COM_TIM14_IRQHandler
+                0x0800079c                TIM1_UP_TIM10_IRQHandler
+                0x0800079c                TIM8_UP_TIM13_IRQHandler
+                0x0800079c                I2C3_ER_IRQHandler
+                0x0800079c                EXTI0_IRQHandler
+                0x0800079c                I2C2_EV_IRQHandler
+                0x0800079c                DMA1_Stream2_IRQHandler
+                0x0800079c                CAN1_RX0_IRQHandler
+                0x0800079c                FPU_IRQHandler
+                0x0800079c                OTG_HS_WKUP_IRQHandler
+                0x0800079c                UsageFault_Handler
+                0x0800079c                CAN2_SCE_IRQHandler
+                0x0800079c                DMA2_Stream2_IRQHandler
+                0x0800079c                SPI1_IRQHandler
+                0x0800079c                TIM6_DAC_IRQHandler
+                0x0800079c                TIM1_BRK_TIM9_IRQHandler
+                0x0800079c                DCMI_IRQHandler
+                0x0800079c                CAN2_RX0_IRQHandler
+                0x0800079c                DMA2_Stream3_IRQHandler
+                0x0800079c                USART6_IRQHandler
+                0x0800079c                USART3_IRQHandler
+                0x0800079c                CRYP_IRQHandler
+                0x0800079c                CAN1_RX1_IRQHandler
+                0x0800079c                UART5_IRQHandler
+                0x0800079c                DMA2_Stream0_IRQHandler
+                0x0800079c                TIM4_IRQHandler
+                0x0800079c                I2C1_EV_IRQHandler
+                0x0800079c                DMA1_Stream6_IRQHandler
+                0x0800079c                DMA1_Stream1_IRQHandler
+                0x0800079c                UART4_IRQHandler
+                0x0800079c                TIM3_IRQHandler
+                0x0800079c                RCC_IRQHandler
+                0x0800079c                TIM8_BRK_TIM12_IRQHandler
+                0x0800079c                EXTI15_10_IRQHandler
+                0x0800079c                ADC_IRQHandler
+                0x0800079c                DMA1_Stream7_IRQHandler
+                0x0800079c                TIM7_IRQHandler
+                0x0800079c                CAN2_TX_IRQHandler
+                0x0800079c                TIM5_IRQHandler
+                0x0800079c                DMA2_Stream7_IRQHandler
+                0x0800079c                I2C3_EV_IRQHandler
+                0x0800079c                EXTI9_5_IRQHandler
+                0x0800079c                RTC_WKUP_IRQHandler
+                0x0800079c                ETH_WKUP_IRQHandler
+                0x0800079c                SPI2_IRQHandler
+                0x0800079c                OTG_HS_EP1_IN_IRQHandler
+                0x0800079c                MemManage_Handler
+                0x0800079c                DMA1_Stream0_IRQHandler
+                0x0800079c                CAN1_TX_IRQHandler
+                0x0800079c                SVC_Handler
+                0x0800079c                EXTI4_IRQHandler
+                0x0800079c                FSMC_IRQHandler
+                0x0800079c                ETH_IRQHandler
+                0x0800079c                OTG_HS_EP1_OUT_IRQHandler
+                0x0800079c                WWDG_IRQHandler
+                0x0800079c                OTG_FS_WKUP_IRQHandler
+                0x0800079c                TIM1_TRG_COM_TIM11_IRQHandler
+                0x0800079c                OTG_HS_IRQHandler
+                0x0800079c                EXTI1_IRQHandler
+                0x0800079c                USART2_IRQHandler
+                0x0800079c                I2C2_ER_IRQHandler
+                0x0800079c                DMA2_Stream1_IRQHandler
+                0x0800079c                CAN1_SCE_IRQHandler
+                0x0800079c                FLASH_IRQHandler
+                0x0800079c                DMA2_Stream4_IRQHandler
+                0x0800079c                BusFault_Handler
+                0x0800079c                USART1_IRQHandler
+                0x0800079c                OTG_FS_IRQHandler
+                0x0800079c                SPI3_IRQHandler
+                0x0800079c                DMA1_Stream4_IRQHandler
+                0x0800079c                I2C1_ER_IRQHandler
+                0x0800079c                DMA2_Stream6_IRQHandler
+                0x0800079c                DMA1_Stream3_IRQHandler
+ .text.main     0x080007a4       0x3c ..\obj\main.o
+                0x080007a4                main
  .text.RCC_AHB1PeriphClockCmd
-                0x08000664       0x3c ..\obj\stm32f4xx_rcc.o
-                0x08000664                RCC_AHB1PeriphClockCmd
+                0x080007e0       0x3c ..\obj\stm32f4xx_rcc.o
+                0x080007e0                RCC_AHB1PeriphClockCmd
  .text.RCC_APB1PeriphClockCmd
-                0x080006a0       0x3c ..\obj\stm32f4xx_rcc.o
-                0x080006a0                RCC_APB1PeriphClockCmd
+                0x0800081c       0x3c ..\obj\stm32f4xx_rcc.o
+                0x0800081c                RCC_APB1PeriphClockCmd
  .text.RCC_APB2PeriphClockCmd
-                0x080006dc       0x3c ..\obj\stm32f4xx_rcc.o
-                0x080006dc                RCC_APB2PeriphClockCmd
+                0x08000858       0x3c ..\obj\stm32f4xx_rcc.o
+                0x08000858                RCC_APB2PeriphClockCmd
  .text.GPIO_Init
-                0x08000718      0x11c ..\obj\stm32f4xx_gpio.o
-                0x08000718                GPIO_Init
+                0x08000894      0x11c ..\obj\stm32f4xx_gpio.o
+                0x08000894                GPIO_Init
  .text.GPIO_PinAFConfig
-                0x08000834       0x90 ..\obj\stm32f4xx_gpio.o
-                0x08000834                GPIO_PinAFConfig
+                0x080009b0       0x90 ..\obj\stm32f4xx_gpio.o
+                0x080009b0                GPIO_PinAFConfig
  .text.SystemInit
-                0x080008c4       0x58 ..\obj\system_stm32f4xx.o
-                0x080008c4                SystemInit
+                0x08000a40       0x58 ..\obj\system_stm32f4xx.o
+                0x08000a40                SystemInit
  .text.SetSysClock
-                0x0800091c       0xf4 ..\obj\system_stm32f4xx.o
+                0x08000a98       0xf4 ..\obj\system_stm32f4xx.o
  .text.DMA_DeInit
-                0x08000a10      0x1a4 ..\obj\stm32f4xx_dma.o
-                0x08000a10                DMA_DeInit
+                0x08000b8c      0x1a4 ..\obj\stm32f4xx_dma.o
+                0x08000b8c                DMA_DeInit
  .text.DMA_Init
-                0x08000bb4       0xac ..\obj\stm32f4xx_dma.o
-                0x08000bb4                DMA_Init
- .text.DMA_Cmd  0x08000c60       0x38 ..\obj\stm32f4xx_dma.o
-                0x08000c60                DMA_Cmd
+                0x08000d30       0xac ..\obj\stm32f4xx_dma.o
+                0x08000d30                DMA_Init
+ .text.DMA_Cmd  0x08000ddc       0x38 ..\obj\stm32f4xx_dma.o
+                0x08000ddc                DMA_Cmd
  .text.DMA_ITConfig
-                0x08000c98       0x74 ..\obj\stm32f4xx_dma.o
-                0x08000c98                DMA_ITConfig
+                0x08000e14       0x74 ..\obj\stm32f4xx_dma.o
+                0x08000e14                DMA_ITConfig
  .text.DMA_GetITStatus
-                0x08000d0c       0xb0 ..\obj\stm32f4xx_dma.o
-                0x08000d0c                DMA_GetITStatus
+                0x08000e88       0xb0 ..\obj\stm32f4xx_dma.o
+                0x08000e88                DMA_GetITStatus
  .text.DMA_ClearITPendingBit
-                0x08000dbc       0x5c ..\obj\stm32f4xx_dma.o
-                0x08000dbc                DMA_ClearITPendingBit
+                0x08000f38       0x5c ..\obj\stm32f4xx_dma.o
+                0x08000f38                DMA_ClearITPendingBit
  .text.VGA_setPixelData
-                0x08000e18       0x70 ..\obj\pixel_data.o
-                0x08000e18                VGA_setPixelData
+                0x08000f94       0x70 ..\obj\pixel_data.o
+                0x08000f94                VGA_setPixelData
  .text.VGA_getPixelData
-                0x08000e88       0x34 ..\obj\pixel_data.o
-                0x08000e88                VGA_getPixelData
+                0x08001004       0x34 ..\obj\pixel_data.o
+                0x08001004                VGA_getPixelData
  .text.VGA_processScreenData
-                0x08000ebc       0x60 ..\obj\pixel_data.o
-                0x08000ebc                VGA_processScreenData
+                0x08001038       0x60 ..\obj\pixel_data.o
+                0x08001038                VGA_processScreenData
  .text.UB_VGA_Screen_Init
-                0x08000f1c       0x80 ..\obj\stm32_ub_vga_screen.o
-                0x08000f1c                UB_VGA_Screen_Init
+                0x08001098       0x80 ..\obj\stm32_ub_vga_screen.o
+                0x08001098                UB_VGA_Screen_Init
  .text.P_VGA_InitIO
-                0x08000f9c       0xa8 ..\obj\stm32_ub_vga_screen.o
-                0x08000f9c                P_VGA_InitIO
+                0x08001118       0xa8 ..\obj\stm32_ub_vga_screen.o
+                0x08001118                P_VGA_InitIO
  .text.P_VGA_InitTIM
-                0x08001044       0xc8 ..\obj\stm32_ub_vga_screen.o
-                0x08001044                P_VGA_InitTIM
+                0x080011c0       0xc8 ..\obj\stm32_ub_vga_screen.o
+                0x080011c0                P_VGA_InitTIM
  .text.P_VGA_InitINT
-                0x0800110c       0x58 ..\obj\stm32_ub_vga_screen.o
-                0x0800110c                P_VGA_InitINT
+                0x08001288       0x58 ..\obj\stm32_ub_vga_screen.o
+                0x08001288                P_VGA_InitINT
  .text.P_VGA_InitDMA
-                0x08001164       0x90 ..\obj\stm32_ub_vga_screen.o
-                0x08001164                P_VGA_InitDMA
+                0x080012e0       0x90 ..\obj\stm32_ub_vga_screen.o
+                0x080012e0                P_VGA_InitDMA
  .text.TIM2_IRQHandler
-                0x080011f4       0xb8 ..\obj\stm32_ub_vga_screen.o
-                0x080011f4                TIM2_IRQHandler
+                0x08001370       0xb8 ..\obj\stm32_ub_vga_screen.o
+                0x08001370                TIM2_IRQHandler
  .text.DMA2_Stream5_IRQHandler
-                0x080012ac       0x4c ..\obj\stm32_ub_vga_screen.o
-                0x080012ac                DMA2_Stream5_IRQHandler
+                0x08001428       0x4c ..\obj\stm32_ub_vga_screen.o
+                0x08001428                DMA2_Stream5_IRQHandler
  .text.NVIC_Init
-                0x080012f8       0xc0 ..\obj\misc.o
-                0x080012f8                NVIC_Init
+                0x08001474       0xc0 ..\obj\misc.o
+                0x08001474                NVIC_Init
  .text.TIM_TimeBaseInit
-                0x080013b8       0xd4 ..\obj\stm32f4xx_tim.o
-                0x080013b8                TIM_TimeBaseInit
+                0x08001534       0xd4 ..\obj\stm32f4xx_tim.o
+                0x08001534                TIM_TimeBaseInit
  .text.TIM_ARRPreloadConfig
-                0x0800148c       0x40 ..\obj\stm32f4xx_tim.o
-                0x0800148c                TIM_ARRPreloadConfig
- .text.TIM_Cmd  0x080014cc       0x40 ..\obj\stm32f4xx_tim.o
-                0x080014cc                TIM_Cmd
+                0x08001608       0x40 ..\obj\stm32f4xx_tim.o
+                0x08001608                TIM_ARRPreloadConfig
+ .text.TIM_Cmd  0x08001648       0x40 ..\obj\stm32f4xx_tim.o
+                0x08001648                TIM_Cmd
  .text.TIM_OC3Init
-                0x0800150c      0x10c ..\obj\stm32f4xx_tim.o
-                0x0800150c                TIM_OC3Init
+                0x08001688      0x10c ..\obj\stm32f4xx_tim.o
+                0x08001688                TIM_OC3Init
  .text.TIM_OC4Init
-                0x08001618       0xcc ..\obj\stm32f4xx_tim.o
-                0x08001618                TIM_OC4Init
+                0x08001794       0xcc ..\obj\stm32f4xx_tim.o
+                0x08001794                TIM_OC4Init
  .text.TIM_OC3PreloadConfig
-                0x080016e4       0x38 ..\obj\stm32f4xx_tim.o
-                0x080016e4                TIM_OC3PreloadConfig
+                0x08001860       0x38 ..\obj\stm32f4xx_tim.o
+                0x08001860                TIM_OC3PreloadConfig
  .text.TIM_OC4PreloadConfig
-                0x0800171c       0x3c ..\obj\stm32f4xx_tim.o
-                0x0800171c                TIM_OC4PreloadConfig
+                0x08001898       0x3c ..\obj\stm32f4xx_tim.o
+                0x08001898                TIM_OC4PreloadConfig
  .text.TIM_ITConfig
-                0x08001758       0x48 ..\obj\stm32f4xx_tim.o
-                0x08001758                TIM_ITConfig
+                0x080018d4       0x48 ..\obj\stm32f4xx_tim.o
+                0x080018d4                TIM_ITConfig
  .text.TIM_ClearITPendingBit
-                0x080017a0       0x20 ..\obj\stm32f4xx_tim.o
-                0x080017a0                TIM_ClearITPendingBit
+                0x0800191c       0x20 ..\obj\stm32f4xx_tim.o
+                0x0800191c                TIM_ClearITPendingBit
  .text.TIM_DMACmd
-                0x080017c0       0x48 ..\obj\stm32f4xx_tim.o
-                0x080017c0                TIM_DMACmd
- .text          0x08001808      0x370 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_addsubdf3.o)
-                0x08001808                __aeabi_drsub
-                0x08001810                __aeabi_dsub
-                0x08001810                __subdf3
-                0x08001814                __aeabi_dadd
-                0x08001814                __adddf3
-                0x08001a8c                __floatunsidf
-                0x08001a8c                __aeabi_ui2d
-                0x08001aac                __floatsidf
-                0x08001aac                __aeabi_i2d
-                0x08001ad0                __aeabi_f2d
-                0x08001ad0                __extendsfdf2
-                0x08001b0c                __floatundidf
-                0x08001b0c                __aeabi_ul2d
-                0x08001b1c                __floatdidf
-                0x08001b1c                __aeabi_l2d
- .text          0x08001b78      0x110 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_cmpdf2.o)
-                0x08001b78                __gtdf2
-                0x08001b78                __gedf2
-                0x08001b80                __ltdf2
-                0x08001b80                __ledf2
-                0x08001b88                __nedf2
-                0x08001b88                __eqdf2
-                0x08001b88                __cmpdf2
-                0x08001c04                __aeabi_cdrcmple
-                0x08001c14                __aeabi_cdcmpeq
-                0x08001c14                __aeabi_cdcmple
-                0x08001c24                __aeabi_dcmpeq
-                0x08001c38                __aeabi_dcmplt
-                0x08001c4c                __aeabi_dcmple
-                0x08001c60                __aeabi_dcmpge
-                0x08001c74                __aeabi_dcmpgt
- .text          0x08001c88      0x21c d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_addsubsf3.o)
-                0x08001c88                __aeabi_frsub
-                0x08001c90                __subsf3
-                0x08001c90                __aeabi_fsub
-                0x08001c94                __aeabi_fadd
-                0x08001c94                __addsf3
-                0x08001df4                __aeabi_ui2f
-                0x08001df4                __floatunsisf
-                0x08001dfc                __aeabi_i2f
-                0x08001dfc                __floatsisf
-                0x08001e18                __aeabi_ul2f
-                0x08001e18                __floatundisf
-                0x08001e28                __aeabi_l2f
-                0x08001e28                __floatdisf
- .text          0x08001ea4      0x2a0 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_muldivsf3.o)
-                0x08001ea4                __mulsf3
-                0x08001ea4                __aeabi_fmul
-                0x0800200c                __aeabi_fdiv
-                0x0800200c                __divsf3
- .text          0x08002144       0x4c d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_fixsfsi.o)
-                0x08002144                __aeabi_f2iz
-                0x08002144                __fixsfsi
+                0x0800193c       0x48 ..\obj\stm32f4xx_tim.o
+                0x0800193c                TIM_DMACmd
+ .text          0x08001984      0x370 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_addsubdf3.o)
+                0x08001984                __aeabi_drsub
+                0x0800198c                __aeabi_dsub
+                0x0800198c                __subdf3
+                0x08001990                __aeabi_dadd
+                0x08001990                __adddf3
+                0x08001c08                __floatunsidf
+                0x08001c08                __aeabi_ui2d
+                0x08001c28                __floatsidf
+                0x08001c28                __aeabi_i2d
+                0x08001c4c                __aeabi_f2d
+                0x08001c4c                __extendsfdf2
+                0x08001c88                __floatundidf
+                0x08001c88                __aeabi_ul2d
+                0x08001c98                __floatdidf
+                0x08001c98                __aeabi_l2d
+ .text          0x08001cf4      0x110 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_cmpdf2.o)
+                0x08001cf4                __gtdf2
+                0x08001cf4                __gedf2
+                0x08001cfc                __ltdf2
+                0x08001cfc                __ledf2
+                0x08001d04                __nedf2
+                0x08001d04                __eqdf2
+                0x08001d04                __cmpdf2
+                0x08001d80                __aeabi_cdrcmple
+                0x08001d90                __aeabi_cdcmpeq
+                0x08001d90                __aeabi_cdcmple
+                0x08001da0                __aeabi_dcmpeq
+                0x08001db4                __aeabi_dcmplt
+                0x08001dc8                __aeabi_dcmple
+                0x08001ddc                __aeabi_dcmpge
+                0x08001df0                __aeabi_dcmpgt
+ .text          0x08001e04      0x21c d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_addsubsf3.o)
+                0x08001e04                __aeabi_frsub
+                0x08001e0c                __subsf3
+                0x08001e0c                __aeabi_fsub
+                0x08001e10                __aeabi_fadd
+                0x08001e10                __addsf3
+                0x08001f70                __aeabi_ui2f
+                0x08001f70                __floatunsisf
+                0x08001f78                __aeabi_i2f
+                0x08001f78                __floatsisf
+                0x08001f94                __aeabi_ul2f
+                0x08001f94                __floatundisf
+                0x08001fa4                __aeabi_l2f
+                0x08001fa4                __floatdisf
+ .text          0x08002020      0x2a0 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_muldivsf3.o)
+                0x08002020                __mulsf3
+                0x08002020                __aeabi_fmul
+                0x08002188                __aeabi_fdiv
+                0x08002188                __divsf3
+ .text          0x080022c0       0xec d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_cmpsf2.o)
+                0x080022c0                __gesf2
+                0x080022c0                __gtsf2
+                0x080022c8                __lesf2
+                0x080022c8                __ltsf2
+                0x080022d0                __nesf2
+                0x080022d0                __eqsf2
+                0x080022d0                __cmpsf2
+                0x08002330                __aeabi_cfrcmple
+                0x08002338                __aeabi_cfcmpeq
+                0x08002338                __aeabi_cfcmple
+                0x08002348                __aeabi_fcmpeq
+                0x0800235c                __aeabi_fcmplt
+                0x08002370                __aeabi_fcmple
+                0x08002384                __aeabi_fcmpge
+                0x08002398                __aeabi_fcmpgt
+ .text          0x080023ac       0x4c d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_fixsfsi.o)
+                0x080023ac                __aeabi_f2iz
+                0x080023ac                __fixsfsi
+ .text          0x080023f8      0x134 d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-memcpy.o)
+                0x080023f8                memcpy
  *(.init)
  *(.fini)
  *crtbegin.o(.ctors)
@@ -810,39 +832,38 @@ Linker script and memory map
  *(SORT(.dtors.*))
  *(.dtors)
  *(.rodata*)
- .rodata        0x08002190        0x8 ..\obj\shapes_data.o
- .rodata        0x08002198       0x40 ..\obj\main.o
+ .rodata        0x0800252c       0x60 ..\obj\main.o
  *(.eh_fram e*)
 
-.glue_7         0x080021d8        0x0
+.glue_7         0x0800258c        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x080021d8        0x0
+.glue_7t        0x0800258c        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x080021d8        0x0
+.vfp11_veneer   0x0800258c        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x080021d8        0x0
+.v4_bx          0x0800258c        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x080021d8        0x0
+.iplt           0x0800258c        0x0
  .iplt          0x00000000        0x0 ..\obj\shapes_data.o
 
-.rel.dyn        0x080021d8        0x0
+.rel.dyn        0x0800258c        0x0
  .rel.iplt      0x00000000        0x0 ..\obj\shapes_data.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x080021d8                __exidx_start = .
+                0x0800258c                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x080021d8                __exidx_end = .
-                0x080021d8                __etext = .
-                0x080021d8                _sidata = __etext
+                0x0800258c                __exidx_end = .
+                0x0800258c                __etext = .
+                0x0800258c                _sidata = __etext
 
-.data           0x20000000        0x0 load address 0x080021d8
+.data           0x20000000        0x0 load address 0x0800258c
                 0x20000000                __data_start__ = .
                 0x20000000                _sdata = __data_start__
  *(vtable)
@@ -919,104 +940,104 @@ LOAD d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi
 END GROUP
 OUTPUT(VGA_Core.elf elf32-littlearm)
 
-.debug_info     0x00000000     0x58e0
- .debug_info    0x00000000      0x756 ..\obj\shapes_data.o
- .debug_info    0x00000756       0xed ..\obj\startup_stm32f4xx.o
- .debug_info    0x00000843      0x26a ..\obj\main.o
- .debug_info    0x00000aad      0xc4d ..\obj\stm32f4xx_rcc.o
- .debug_info    0x000016fa      0x602 ..\obj\stm32f4xx_gpio.o
- .debug_info    0x00001cfc      0x592 ..\obj\system_stm32f4xx.o
- .debug_info    0x0000228e      0x739 ..\obj\stm32f4xx_dma.o
- .debug_info    0x000029c7      0x2a8 ..\obj\pixel_data.o
- .debug_info    0x00002c6f      0xad3 ..\obj\stm32_ub_vga_screen.o
- .debug_info    0x00003742      0x53d ..\obj\misc.o
- .debug_info    0x00003c7f     0x1c61 ..\obj\stm32f4xx_tim.o
+.debug_info     0x00000000     0x59a4
+ .debug_info    0x00000000      0x819 ..\obj\shapes_data.o
+ .debug_info    0x00000819       0xed ..\obj\startup_stm32f4xx.o
+ .debug_info    0x00000906      0x26b ..\obj\main.o
+ .debug_info    0x00000b71      0xc4d ..\obj\stm32f4xx_rcc.o
+ .debug_info    0x000017be      0x602 ..\obj\stm32f4xx_gpio.o
+ .debug_info    0x00001dc0      0x592 ..\obj\system_stm32f4xx.o
+ .debug_info    0x00002352      0x739 ..\obj\stm32f4xx_dma.o
+ .debug_info    0x00002a8b      0x2a8 ..\obj\pixel_data.o
+ .debug_info    0x00002d33      0xad3 ..\obj\stm32_ub_vga_screen.o
+ .debug_info    0x00003806      0x53d ..\obj\misc.o
+ .debug_info    0x00003d43     0x1c61 ..\obj\stm32f4xx_tim.o
 
-.debug_abbrev   0x00000000      0xf17
- .debug_abbrev  0x00000000      0x17c ..\obj\shapes_data.o
- .debug_abbrev  0x0000017c       0xb0 ..\obj\startup_stm32f4xx.o
- .debug_abbrev  0x0000022c      0x11d ..\obj\main.o
- .debug_abbrev  0x00000349      0x1e3 ..\obj\stm32f4xx_rcc.o
- .debug_abbrev  0x0000052c      0x1a3 ..\obj\stm32f4xx_gpio.o
- .debug_abbrev  0x000006cf      0x136 ..\obj\system_stm32f4xx.o
- .debug_abbrev  0x00000805      0x155 ..\obj\stm32f4xx_dma.o
- .debug_abbrev  0x0000095a      0x130 ..\obj\pixel_data.o
- .debug_abbrev  0x00000a8a      0x1c1 ..\obj\stm32_ub_vga_screen.o
- .debug_abbrev  0x00000c4b      0x145 ..\obj\misc.o
- .debug_abbrev  0x00000d90      0x187 ..\obj\stm32f4xx_tim.o
+.debug_abbrev   0x00000000      0xefb
+ .debug_abbrev  0x00000000      0x160 ..\obj\shapes_data.o
+ .debug_abbrev  0x00000160       0xb0 ..\obj\startup_stm32f4xx.o
+ .debug_abbrev  0x00000210      0x11d ..\obj\main.o
+ .debug_abbrev  0x0000032d      0x1e3 ..\obj\stm32f4xx_rcc.o
+ .debug_abbrev  0x00000510      0x1a3 ..\obj\stm32f4xx_gpio.o
+ .debug_abbrev  0x000006b3      0x136 ..\obj\system_stm32f4xx.o
+ .debug_abbrev  0x000007e9      0x155 ..\obj\stm32f4xx_dma.o
+ .debug_abbrev  0x0000093e      0x130 ..\obj\pixel_data.o
+ .debug_abbrev  0x00000a6e      0x1c1 ..\obj\stm32_ub_vga_screen.o
+ .debug_abbrev  0x00000c2f      0x145 ..\obj\misc.o
+ .debug_abbrev  0x00000d74      0x187 ..\obj\stm32f4xx_tim.o
 
-.debug_aranges  0x00000000      0x750
+.debug_aranges  0x00000000      0x758
  .debug_aranges
-                0x00000000       0x58 ..\obj\shapes_data.o
+                0x00000000       0x60 ..\obj\shapes_data.o
  .debug_aranges
-                0x00000058       0x28 ..\obj\startup_stm32f4xx.o
+                0x00000060       0x28 ..\obj\startup_stm32f4xx.o
  .debug_aranges
-                0x00000080       0x28 ..\obj\main.o
+                0x00000088       0x28 ..\obj\main.o
  .debug_aranges
-                0x000000a8      0x178 ..\obj\stm32f4xx_rcc.o
+                0x000000b0      0x178 ..\obj\stm32f4xx_rcc.o
  .debug_aranges
-                0x00000220       0x88 ..\obj\stm32f4xx_gpio.o
+                0x00000228       0x88 ..\obj\stm32f4xx_gpio.o
  .debug_aranges
-                0x000002a8       0x30 ..\obj\system_stm32f4xx.o
+                0x000002b0       0x30 ..\obj\system_stm32f4xx.o
  .debug_aranges
-                0x000002d8       0xb0 ..\obj\stm32f4xx_dma.o
+                0x000002e0       0xb0 ..\obj\stm32f4xx_dma.o
  .debug_aranges
-                0x00000388       0x30 ..\obj\pixel_data.o
+                0x00000390       0x30 ..\obj\pixel_data.o
  .debug_aranges
-                0x000003b8       0x60 ..\obj\stm32_ub_vga_screen.o
+                0x000003c0       0x60 ..\obj\stm32_ub_vga_screen.o
  .debug_aranges
-                0x00000418       0x40 ..\obj\misc.o
+                0x00000420       0x40 ..\obj\misc.o
  .debug_aranges
-                0x00000458      0x2f8 ..\obj\stm32f4xx_tim.o
+                0x00000460      0x2f8 ..\obj\stm32f4xx_tim.o
 
-.debug_ranges   0x00000000      0x6a0
- .debug_ranges  0x00000000       0x48 ..\obj\shapes_data.o
- .debug_ranges  0x00000048       0x18 ..\obj\startup_stm32f4xx.o
- .debug_ranges  0x00000060       0x18 ..\obj\main.o
- .debug_ranges  0x00000078      0x168 ..\obj\stm32f4xx_rcc.o
- .debug_ranges  0x000001e0       0x78 ..\obj\stm32f4xx_gpio.o
- .debug_ranges  0x00000258       0x20 ..\obj\system_stm32f4xx.o
- .debug_ranges  0x00000278       0xa0 ..\obj\stm32f4xx_dma.o
- .debug_ranges  0x00000318       0x20 ..\obj\pixel_data.o
- .debug_ranges  0x00000338       0x50 ..\obj\stm32_ub_vga_screen.o
- .debug_ranges  0x00000388       0x30 ..\obj\misc.o
- .debug_ranges  0x000003b8      0x2e8 ..\obj\stm32f4xx_tim.o
+.debug_ranges   0x00000000      0x6a8
+ .debug_ranges  0x00000000       0x50 ..\obj\shapes_data.o
+ .debug_ranges  0x00000050       0x18 ..\obj\startup_stm32f4xx.o
+ .debug_ranges  0x00000068       0x18 ..\obj\main.o
+ .debug_ranges  0x00000080      0x168 ..\obj\stm32f4xx_rcc.o
+ .debug_ranges  0x000001e8       0x78 ..\obj\stm32f4xx_gpio.o
+ .debug_ranges  0x00000260       0x20 ..\obj\system_stm32f4xx.o
+ .debug_ranges  0x00000280       0xa0 ..\obj\stm32f4xx_dma.o
+ .debug_ranges  0x00000320       0x20 ..\obj\pixel_data.o
+ .debug_ranges  0x00000340       0x50 ..\obj\stm32_ub_vga_screen.o
+ .debug_ranges  0x00000390       0x30 ..\obj\misc.o
+ .debug_ranges  0x000003c0      0x2e8 ..\obj\stm32f4xx_tim.o
 
-.debug_line     0x00000000     0x295e
- .debug_line    0x00000000      0x387 ..\obj\shapes_data.o
- .debug_line    0x00000387       0xc0 ..\obj\startup_stm32f4xx.o
- .debug_line    0x00000447      0x262 ..\obj\main.o
- .debug_line    0x000006a9      0x5dd ..\obj\stm32f4xx_rcc.o
- .debug_line    0x00000c86      0x37f ..\obj\stm32f4xx_gpio.o
- .debug_line    0x00001005      0x1ec ..\obj\system_stm32f4xx.o
- .debug_line    0x000011f1      0x418 ..\obj\stm32f4xx_dma.o
- .debug_line    0x00001609      0x246 ..\obj\pixel_data.o
- .debug_line    0x0000184f      0x3e8 ..\obj\stm32_ub_vga_screen.o
- .debug_line    0x00001c37      0x281 ..\obj\misc.o
- .debug_line    0x00001eb8      0xaa6 ..\obj\stm32f4xx_tim.o
+.debug_line     0x00000000     0x2998
+ .debug_line    0x00000000      0x3c1 ..\obj\shapes_data.o
+ .debug_line    0x000003c1       0xc0 ..\obj\startup_stm32f4xx.o
+ .debug_line    0x00000481      0x262 ..\obj\main.o
+ .debug_line    0x000006e3      0x5dd ..\obj\stm32f4xx_rcc.o
+ .debug_line    0x00000cc0      0x37f ..\obj\stm32f4xx_gpio.o
+ .debug_line    0x0000103f      0x1ec ..\obj\system_stm32f4xx.o
+ .debug_line    0x0000122b      0x418 ..\obj\stm32f4xx_dma.o
+ .debug_line    0x00001643      0x246 ..\obj\pixel_data.o
+ .debug_line    0x00001889      0x3e8 ..\obj\stm32_ub_vga_screen.o
+ .debug_line    0x00001c71      0x281 ..\obj\misc.o
+ .debug_line    0x00001ef2      0xaa6 ..\obj\stm32f4xx_tim.o
 
-.debug_str      0x00000000     0x294a
- .debug_str     0x00000000      0x460 ..\obj\shapes_data.o
-                                0x4c9 (size before relaxing)
- .debug_str     0x00000460       0xcf ..\obj\startup_stm32f4xx.o
+.debug_str      0x00000000     0x2966
+ .debug_str     0x00000000      0x47c ..\obj\shapes_data.o
+                                0x4e5 (size before relaxing)
+ .debug_str     0x0000047c       0xcf ..\obj\startup_stm32f4xx.o
                                 0x166 (size before relaxing)
- .debug_str     0x0000052f       0x75 ..\obj\main.o
+ .debug_str     0x0000054b       0x75 ..\obj\main.o
                                 0x2c2 (size before relaxing)
- .debug_str     0x000005a4      0x6cb ..\obj\stm32f4xx_rcc.o
+ .debug_str     0x000005c0      0x6cb ..\obj\stm32f4xx_rcc.o
                                 0x86f (size before relaxing)
- .debug_str     0x00000c6f      0x347 ..\obj\stm32f4xx_gpio.o
+ .debug_str     0x00000c8b      0x347 ..\obj\stm32f4xx_gpio.o
                                 0x4c2 (size before relaxing)
- .debug_str     0x00000fb6      0x137 ..\obj\system_stm32f4xx.o
+ .debug_str     0x00000fd2      0x137 ..\obj\system_stm32f4xx.o
                                 0x3c9 (size before relaxing)
- .debug_str     0x000010ed      0x3b6 ..\obj\stm32f4xx_dma.o
+ .debug_str     0x00001109      0x3b6 ..\obj\stm32f4xx_dma.o
                                 0x561 (size before relaxing)
- .debug_str     0x000014a3       0xa9 ..\obj\pixel_data.o
+ .debug_str     0x000014bf       0xa9 ..\obj\pixel_data.o
                                 0x32c (size before relaxing)
- .debug_str     0x0000154c      0x861 ..\obj\stm32_ub_vga_screen.o
+ .debug_str     0x00001568      0x861 ..\obj\stm32_ub_vga_screen.o
                                 0xd0a (size before relaxing)
- .debug_str     0x00001dad      0x180 ..\obj\misc.o
+ .debug_str     0x00001dc9      0x180 ..\obj\misc.o
                                 0x3ed (size before relaxing)
- .debug_str     0x00001f2d      0xa1d ..\obj\stm32f4xx_tim.o
+ .debug_str     0x00001f49      0xa1d ..\obj\stm32f4xx_tim.o
                                 0xdef (size before relaxing)
 
 .comment        0x00000000       0x70
@@ -1034,7 +1055,7 @@ OUTPUT(VGA_Core.elf elf32-littlearm)
  .comment       0x00000000       0x71 ..\obj\stm32f4xx_tim.o
 
 .ARM.attributes
-                0x00000000       0x33
+                0x00000000       0x31
  .ARM.attributes
                 0x00000000       0x33 ..\obj\shapes_data.o
  .ARM.attributes
@@ -1066,17 +1087,21 @@ OUTPUT(VGA_Core.elf elf32-littlearm)
  .ARM.attributes
                 0x0000028b       0x1e d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_muldivsf3.o)
  .ARM.attributes
-                0x000002a9       0x1e d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_fixsfsi.o)
+                0x000002a9       0x1e d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_cmpsf2.o)
+ .ARM.attributes
+                0x000002c7       0x1e d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m\libgcc.a(_arm_fixsfsi.o)
+ .ARM.attributes
+                0x000002e5       0x1c d:/ide/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m\libg.a(lib_a-memcpy.o)
 
-.debug_frame    0x00000000     0x1f84
- .debug_frame   0x00000000      0x158 ..\obj\shapes_data.o
- .debug_frame   0x00000158       0x4c ..\obj\startup_stm32f4xx.o
- .debug_frame   0x000001a4       0x58 ..\obj\main.o
- .debug_frame   0x000001fc      0x6d4 ..\obj\stm32f4xx_rcc.o
- .debug_frame   0x000008d0      0x23c ..\obj\stm32f4xx_gpio.o
- .debug_frame   0x00000b0c       0x7c ..\obj\system_stm32f4xx.o
- .debug_frame   0x00000b88      0x308 ..\obj\stm32f4xx_dma.o
- .debug_frame   0x00000e90       0x80 ..\obj\pixel_data.o
- .debug_frame   0x00000f10      0x148 ..\obj\stm32_ub_vga_screen.o
- .debug_frame   0x00001058       0xd8 ..\obj\misc.o
- .debug_frame   0x00001130      0xe54 ..\obj\stm32f4xx_tim.o
+.debug_frame    0x00000000     0x1fa4
+ .debug_frame   0x00000000      0x17c ..\obj\shapes_data.o
+ .debug_frame   0x0000017c       0x4c ..\obj\startup_stm32f4xx.o
+ .debug_frame   0x000001c8       0x54 ..\obj\main.o
+ .debug_frame   0x0000021c      0x6d4 ..\obj\stm32f4xx_rcc.o
+ .debug_frame   0x000008f0      0x23c ..\obj\stm32f4xx_gpio.o
+ .debug_frame   0x00000b2c       0x7c ..\obj\system_stm32f4xx.o
+ .debug_frame   0x00000ba8      0x308 ..\obj\stm32f4xx_dma.o
+ .debug_frame   0x00000eb0       0x80 ..\obj\pixel_data.o
+ .debug_frame   0x00000f30      0x148 ..\obj\stm32_ub_vga_screen.o
+ .debug_frame   0x00001078       0xd8 ..\obj\misc.o
+ .debug_frame   0x00001150      0xe54 ..\obj\stm32f4xx_tim.o

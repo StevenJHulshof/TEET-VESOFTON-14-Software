@@ -58,16 +58,20 @@ int main(void) {
 //	ellipsePos.x = 240;
 //	VGA_processEllipseData(&ellipsePos, &radii, 45, VGA_COL_MAGENTA, VGA_COL_TRANSPARENT, 1);
 
-	sPosition_t primitive[6] = {
+	sPosition_t primitive[10] = {
 			{100, 100},
-			{150, 100},
+			{120, 150},
+			{150, 99},
 			{170, 170},
 			{170, 100},
 			{190, 130},
-			{190, 80}
+			{240, 100},
+			{190, 80},
+			{233, 50},
+			{100, 190}
 	};
 
-	VGA_processPrimitiveData(primitive, 6, VGA_COL_BLACK, VGA_COL_REDS, 1);
+	VGA_processPrimitiveData(primitive, 10, VGA_COL_BLACK, VGA_COL_RED, 1);
 
 	while(1){
 	//	int p;
