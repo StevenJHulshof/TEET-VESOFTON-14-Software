@@ -41,9 +41,24 @@ typedef struct {
   * @brief	Get bitmapdata from gememory for ASCII character
   *
   * @param size	Select font size as defined in enumerated type charSize_t
-  * @param styleSelect font style as defined in enumerated type charStyle_t
+  * @param style Select font style as defined in enumerated type charStyle_t
   * @return	Structure with chardata according to enumerated type sBitmap_t
   */
 sBitmap_t getBitmap(char ascii_char, charSize_t size, charStyle_t style);
+
+/**
+ * @brief	Get bitmapdata from gememory for ASCII character
+ *
+ * @param size	Select font size as defined in enumerated type charSize_t
+ * @param style Select font style as defined in enumerated type charStyle_t
+ * @param sPos  Start position of upperleft corner of char
+ * @parm color color of the char
+ * @return	Structure with chardata according to enumerated type sBitmap_t
+ */
+sBitmap_t processCharData(	char ascii_char,
+							charSize_t size,
+							charStyle_t style,
+							sPosition_t sPos,
+							color_t color);
 
  /* End of file fonts_display.h */

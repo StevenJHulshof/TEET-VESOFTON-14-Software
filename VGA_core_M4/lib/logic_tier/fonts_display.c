@@ -50,4 +50,21 @@
 	return sBitmapdata;
  }
 
+ sBitmap_t processCharData(	char ascii_char, charSize_t size,
+ 							charStyle_t style,
+ 							sPosition_t sStartPos,
+ 							color_t color){
+
+	 sBitmap_t sChardata;
+	 int newPosX;
+
+	 sChardata = getBitmap(ascii_char, size, style);
+
+//	 for (sStartPos.x; (sStartPos.x+sChardata.CharWidth) < max; ++var) {
+//
+//	}
+	 //VGA_setPixelData(sPosition_t* position, color_t color);
+
+ }
+
  /* End of file fonts_display.c */
