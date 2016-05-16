@@ -14,6 +14,7 @@
  * Includes
  ******************************************************************************/
 #include "system.h"
+#include "fonts_display.h"
 
 /*******************************************************************************
  * Functions
@@ -56,15 +57,23 @@
  							color_t color){
 
 	 sBitmap_t sChardata;
-	 int newPosX;
+	 sPosition_t sNextPos;
+	 int i;
+	 int j;
 
 	 sChardata = getBitmap(ascii_char, size, style);
 
-//	 for (sStartPos.x; (sStartPos.x+sChardata.CharWidth) < max; ++var) {
-//
-//	}
-	 //VGA_setPixelData(sPosition_t* position, color_t color);
-
+	 for (i = sStartPos.y; (sNextPos.y-sStartPos.y) < sChardata.CharHeight; ++i)
+	 {
+		 for (j = sStartPos.x; (sStartPos.x-sNextPos.x) < (sChardata.CharWidth*8); ++j)
+		 {
+			 if(0x80 & *sChardata.FirstByte<<j)
+			 {
+				 VGA_setPixelData(sNextPos, color);
+			 }
+		 }
+		 sNextPos.x = sStartPos.x;
+	 }
  }
 
  /* End of file fonts_display.c */

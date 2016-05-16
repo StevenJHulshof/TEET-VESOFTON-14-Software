@@ -17,6 +17,7 @@
 #include "main.h"
 #include "system.h"
 #include "pixel_data.h"
+#include "fonts_display.h"
 #include <math.h>
 
 /*******************************************************************************

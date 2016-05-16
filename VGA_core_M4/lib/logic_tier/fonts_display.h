@@ -10,6 +10,15 @@
  * on the screen.
  ******************************************************************************/
 
+#ifndef FONT_DISPLAY_H_
+#define FONT_DISPLAY_H_
+
+/*******************************************************************************
+ * Includes
+ ******************************************************************************/
+#include "system.h"
+#include "fontlibrary.h"
+
  /*******************************************************************************
   * Data structures
   ******************************************************************************/
@@ -58,7 +67,8 @@ sBitmap_t getBitmap(char ascii_char, charSize_t size, charStyle_t style);
 sBitmap_t processCharData(	char ascii_char,
 							charSize_t size,
 							charStyle_t style,
-							sPosition_t sPos,
+							sPosition_t pos,
 							color_t color);
 
+#endif /* FONT_DISPLAY_H_ */
  /* End of file fonts_display.h */

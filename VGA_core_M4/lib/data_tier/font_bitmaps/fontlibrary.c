@@ -15,6 +15,7 @@
  * Includes
  ******************************************************************************/
 #include "system.h"
+#include "fontlibrary.h"
 
 static uint8_t const Roboto18_Bitmaps[2730] =
 {
