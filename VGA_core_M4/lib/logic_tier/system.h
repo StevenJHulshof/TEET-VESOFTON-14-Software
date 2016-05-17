@@ -19,6 +19,9 @@
 /** @brief Determines ellipse draw resolution. */
 #define ELLIPSE_RESOLUTION	0.005
 
+/** @brief Macro defining infinity. */
+#define INF	9999
+
 /*******************************************************************************
  * Includes
  ******************************************************************************/

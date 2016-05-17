@@ -24,17 +24,23 @@ uint8_t VGA_pixelInPrimitive(	sPosition_t 	verticePos[],
 
 	uint8_t inPrimitive = 0;
 	int   	i;
-	int 	j = numberOfVertices-1 ;
+	int 	j = numberOfVertices - 1 ;
 
 	for(i = 0; i < numberOfVertices; i++) {
 
-		if(((verticePos[i].y < pixelPos->y && verticePos[j].y >= pixelPos->y) ||
-		    (verticePos[j].y < pixelPos->y && verticePos[i].y >= pixelPos->y)) &&
-		    (verticePos[i].x <= pixelPos->x || verticePos[j].x <= pixelPos->x )) {
 
-			inPrimitive ^= (verticePos[i].x + (pixelPos->y - verticePos[i].y) /
-						   (verticePos[j].y + verticePos[i].y) *
-						   (verticePos[j].x - verticePos[i].x) < pixelPos->x);
+		if ((((float) verticePos[i].y > (float) pixelPos->y) !=
+			((float) verticePos[j].y > (float) pixelPos->y)) &&
+		    ((float) pixelPos->x < ((float) verticePos[j].x -
+		    (float) verticePos[i].x) * ((float) pixelPos->y -
+		    (float) verticePos[i].y) / ((float) verticePos[j].y -
+		    (float) verticePos[i].y) + (float) verticePos[i].x) ) {
+
+			if(inPrimitive == 1) {
+				inPrimitive = 0;
+			} else {
+				inPrimitive = 1;
+			}
 		}
 
 		j = i;
@@ -43,16 +49,12 @@ uint8_t VGA_pixelInPrimitive(	sPosition_t 	verticePos[],
 	return inPrimitive;
 }
 
-status_t VGA_processPrimitiveData(	sPosition_t verticePos[],
-									uint16_t	numberOfVertices,
-									color_t		lineColor,
-									color_t		fillColor,
-									uint8_t		lineWeight	) {
+status_t setPrimitiveFrame(	sPosition_t verticePos[],
+							uint16_t 	numberOfVertices,
+							color_t 	lineColor	) {
 
 	status_t status = VGA_SUCCESS;
 	uint16_t vertice;
-
-
 
 	for(vertice = 0; vertice < numberOfVertices; vertice++) {
 
@@ -65,18 +67,61 @@ status_t VGA_processPrimitiveData(	sPosition_t verticePos[],
 			line[1] = verticePos[vertice+1];
 		}
 
-		VGA_setSingleLine(line, lineColor);
+		status = VGA_setSingleLine(line, lineColor);
+
+		if(status != VGA_SUCCESS) {
+			return status;
+		}
 	}
 
+	return status;
+}
 
-	sPosition_t testPixel = {160, 100};
-	if(VGA_pixelInPrimitive(verticePos, &testPixel, numberOfVertices) != 0) {
-		VGA_setPixelData(&testPixel, fillColor);
+status_t VGA_processPrimitiveData(	sPosition_t verticePos[],
+									uint16_t	numberOfVertices,
+									color_t		lineColor,
+									color_t		fillColor,
+									uint8_t		lineWeight	) {
+
+	status_t status = VGA_SUCCESS;
+	uint16_t i, x, y;
+	uint16_t minY = INF;
+	uint16_t minX = INF;
+	uint16_t maxY = 0;
+	uint16_t maxX = 0;
+
+	for(i = 0; i < numberOfVertices; i++) {
+
+		if(verticePos[i].x < minX) {
+			minX = verticePos[i].x;
+		}
+		if(verticePos[i].y < minY) {
+			minY = verticePos[i].y;
+		}
+		if(verticePos[i].x > maxX) {
+			maxX = verticePos[i].x;
+		}
+		if(verticePos[i].y > maxY) {
+			maxY = verticePos[i].y;
+		}
 	}
 
+	for(y = minY; y < maxY; y++) {
+		for(x = minX; x < maxX; x++) {
 
+			sPosition_t pixelPos = {x, y};
 
+			if(VGA_pixelInPrimitive(verticePos, &pixelPos, numberOfVertices) != 0) {
 
+				status = VGA_setPixelData(&pixelPos, fillColor);
+				if(status != VGA_SUCCESS) {
+					return status;
+				}
+			}
+		}
+	}
+
+	status = setPrimitiveFrame(verticePos, numberOfVertices, lineColor);
 
 	return status;
 }
