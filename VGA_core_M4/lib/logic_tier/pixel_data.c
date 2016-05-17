@@ -25,7 +25,7 @@ status_t VGA_setPixelData(	sPosition_t* 	position,
 		position->y >= 0 && position->y < VGA_DISPLAY_Y		) {
 
 		// Set color to frame buffer
-		VGA_RAM1[position->y*(VGA_DISPLAY_X+1)+position->x] = color;
+		VGA_RAM1[(int) position->y*(VGA_DISPLAY_X+1)+ (int) position->x] = color;
 
 		// Report status
 		if(VGA_getPixelData(position) != color) {
@@ -39,7 +39,7 @@ status_t VGA_setPixelData(	sPosition_t* 	position,
 color_t VGA_getPixelData(	sPosition_t* position	) {
 
 	// Get pixel data
-	return VGA_RAM1[(position->y*(VGA_DISPLAY_X+1))+position->x];
+	return VGA_RAM1[(int) (position->y*(VGA_DISPLAY_X+1))+ (int) position->x];
 }
 
 status_t VGA_processScreenData(	color_t color	) {
