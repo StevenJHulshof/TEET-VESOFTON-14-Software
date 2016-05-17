@@ -15,6 +15,7 @@
  ******************************************************************************/
 #include "system.h"
 #include "fonts_display.h"
+#include "pixel_data.h"
 
 /*******************************************************************************
  * Functions
@@ -44,37 +45,58 @@
 
 	//get address of first byte by incrementing pointer with shift times size of char bitmap
 	sBitmapdata.FirstByte = bitmapArray+(shift*sFontstyle.GlyphHeight*sFontstyle.GlyphBytesWidth);
-
+	sBitmapdata.ByteWidth = sFontstyle.GlyphBytesWidth;
 	sBitmapdata.CharHeight = sFontstyle.GlyphHeight;
 	sBitmapdata.CharWidth = *(sFontstyle.GlyphWidth+shift);
 
 	return sBitmapdata;
  }
 
- sBitmap_t processCharData(	char ascii_char, charSize_t size,
+ void processCharData(	char ascii_char, charSize_t size,
  							charStyle_t style,
  							sPosition_t sStartPos,
  							color_t color){
 
 	 sBitmap_t sChardata;
 	 sPosition_t sNextPos = sStartPos;
+	 uint8_t shift = 0;
 	 int i;
 	 int j;
 
 	 sChardata = getBitmap(ascii_char, size, style);
 
-	 for (i = sStartPos.y; (sNextPos.y-sStartPos.y) < sChardata.CharHeight; ++i)
+	 uint8_t* pX = sChardata.FirstByte;
+	 uint8_t* pY = sChardata.FirstByte;
+
+	 //for loop for y-axis
+	 for (i = 0; i < sChardata.CharHeight; i++,  sNextPos.y++)
 	 {
-		 for (j = sStartPos.x; (sNextPos.x-sStartPos.x) < (sChardata.CharWidth*8); ++j)
+		 //for loop for x-axis
+		 for (j = 0; j < sChardata.CharWidth; j++, sNextPos.x++)
 		 {
-			 if(0x80 & *sChardata.FirstByte<<j)
+			 //bitwise compare MSB with bitmap, shift for each pixel
+			 if(0x80 & *pX<<(j-shift))
 			 {
-				 VGA_setPixelData(sNextPos, color);
+				 VGA_setPixelData(&sNextPos, color);
 			 }
-			 if (j+1 % 8 == 0) sChardata.FirstByte++;
+			 //need to increment pointer for wide chars
+			 if (j == 7)
+			 {
+				 pX++;
+				 shift = 8;
+			 }
+			 //prepare for 3-byte wide chars
+			 if (j == 15)
+			 {
+				 pX++;
+				 shift = 16;
+			 }
 		 }
+		 //skip bytes according to bytewidth
+		 pY = pY+sChardata.ByteWidth;
+		 pX = pY;
 		 sNextPos.x = sStartPos.x;
-		 sNextPos.y = sStartPos.y+i;
+		 shift = 0;
 	 }
  }
 
