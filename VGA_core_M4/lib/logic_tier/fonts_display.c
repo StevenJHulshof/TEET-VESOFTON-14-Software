@@ -57,7 +57,7 @@
  							color_t color){
 
 	 sBitmap_t sChardata;
-	 sPosition_t sNextPos;
+	 sPosition_t sNextPos = sStartPos;
 	 int i;
 	 int j;
 
@@ -65,14 +65,16 @@
 
 	 for (i = sStartPos.y; (sNextPos.y-sStartPos.y) < sChardata.CharHeight; ++i)
 	 {
-		 for (j = sStartPos.x; (sStartPos.x-sNextPos.x) < (sChardata.CharWidth*8); ++j)
+		 for (j = sStartPos.x; (sNextPos.x-sStartPos.x) < (sChardata.CharWidth*8); ++j)
 		 {
 			 if(0x80 & *sChardata.FirstByte<<j)
 			 {
 				 VGA_setPixelData(sNextPos, color);
 			 }
+			 if (j+1 % 8 == 0) sChardata.FirstByte++;
 		 }
 		 sNextPos.x = sStartPos.x;
+		 sNextPos.y = sStartPos.y+i;
 	 }
  }
 
