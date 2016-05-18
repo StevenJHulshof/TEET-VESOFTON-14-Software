@@ -23,6 +23,15 @@
  * Function prototypes
  ******************************************************************************/
 /**
+ * @brief	Constrain any value between 0->2*PI
+ *
+ * @param thetaRad	angle theta in radians.
+ * @return	mapped theta value.
+ */
+
+float mapToUnitCircle(float thetaRad);
+
+/**
  * @brief	Get sin value for given theta in radians.
  *
  * @param thetaRad	angle theta in radians.

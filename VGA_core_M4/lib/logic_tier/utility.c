@@ -18,8 +18,22 @@
 /*******************************************************************************
  * Functions
  ******************************************************************************/
+float mapToUnitCircle(float thetaRad){
+	while (thetaRad < 0){
+		thetaRad += (2*M_PI);
+	};
+
+	while (thetaRad > (2*M_PI)){
+		thetaRad -= (2*M_PI);
+	};
+
+	return thetaRad;
+}
+
 float getSinLut(float thetaRad){
-	int index = (int) (thetaRad/M_PI*180) % 360;
+	float corrThetaRad = mapToUnitCircle(thetaRad);
+
+	int index = (int) ((corrThetaRad/M_PI)*180);
 
 	float result = sin_LUT[index];
 
@@ -27,7 +41,7 @@ float getSinLut(float thetaRad){
 }
 
 float getCosLut(float thetaRad){
-	float result = getSinLut(0.5 * M_PI - thetaRad);
+	float result = getSinLut(thetaRad + M_PI_2);
 
 	return result;
 }
