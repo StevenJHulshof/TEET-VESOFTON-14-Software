@@ -19,6 +19,7 @@
 #include "pixel_data.h"
 #include "fonts_display.h"
 #include <math.h>
+#include "utility.h"
 
 /*******************************************************************************
  * Main
@@ -54,6 +55,7 @@ int main(void) {
 
 	sPosition_t charPos = {100,100};
 	processCharData('@', Size_18, Regular,charPos,VGA_COL_BLUE);
+
 
 	while(1) {
 
