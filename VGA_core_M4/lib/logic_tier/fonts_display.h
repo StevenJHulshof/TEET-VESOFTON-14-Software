@@ -9,6 +9,7 @@
  * @brief Functions for retrieving bitmap data from memory and displaying them
  * on the screen.
  ******************************************************************************/
+#include "system.h"
 
  /*******************************************************************************
   * Data structures
@@ -55,10 +56,10 @@ sBitmap_t getBitmap(char ascii_char, charSize_t size, charStyle_t style);
  * @parm color color of the char
  * @return	Structure with chardata according to enumerated type sBitmap_t
  */
-sBitmap_t processCharData(	char ascii_char,
+/*sBitmap_t processCharData(	char ascii_char,
 							charSize_t size,
 							charStyle_t style,
 							sPosition_t sPos,
-							color_t color);
+							color_t color);*/
 
  /* End of file fonts_display.h */

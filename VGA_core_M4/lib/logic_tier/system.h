@@ -16,8 +16,20 @@
 /*******************************************************************************
  * Defines
  ******************************************************************************/
+/**	@brief Number of samples used to plot the ellipse. */
+#define MAX_SAMPLES			50
+
+#define LINE_WEIGHT_SAMPLES	20
+#define LINE_WEIGHT_RESOLUTION	2 * M_PI / LINE_WEIGHT_SAMPLES
+
+/**	@brief Number of samples used to plot the ellipse. */
+#define ELLIPSE_SAMPLES		20
+
 /** @brief Determines ellipse draw resolution. */
-#define ELLIPSE_RESOLUTION	0.005
+#define ELLIPSE_RESOLUTION	2 * M_PI / ELLIPSE_SAMPLES
+
+/** @brief Macro defining infinity. */
+#define INF	9999
 
 /*******************************************************************************
  * Includes
@@ -42,11 +54,11 @@ typedef struct {
 /**	@brief Radii structure. */
 typedef struct {
 
-	/** @brief Radius a length. */
-	float a;
+	/** @brief Radius x length. */
+	float x;
 
-	/** @brief Radius b length. */
-	float b;
+	/** @brief Radius y length. */
+	float y;
 } sRadii_t;
 
 /*******************************************************************************
@@ -73,6 +85,19 @@ typedef enum {
 	VGA_COL_YELLOW = 0xFC,
 	VGA_COL_TRANSPARENT = -0x01
 } color_t;
+
+typedef enum {
+
+	VGA_TRIANGLE = 0x03,
+	VGA_SQUARE,
+	VGA_PENTAGON,
+	VGA_HEXAGON,
+	VGA_HEPTAGON,
+	VGA_OCTAGON,
+	VGA_NONAGON,
+	VGA_DECAGON,
+	VGA_ELLIPSE = 0x25
+} sampleSize_t;
 
 #endif /* SYSTEM_H_ */
 /* End of file system.h */
