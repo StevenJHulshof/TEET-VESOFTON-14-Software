@@ -78,6 +78,7 @@ Temporary Items
 # Debug files
 *.dSYM/
 history.xml
+dependencies.xml
 *.bin
 *.map
 
