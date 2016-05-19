@@ -18,6 +18,7 @@
  ******************************************************************************/
 #include "system.h"
 #include "pixel_data.h"
+#include "utility.h"
 #include <stdint.h>
 #include <math.h>
 #include <string.h>
@@ -25,14 +26,6 @@
 /*******************************************************************************
  * Function prototypes
  ******************************************************************************/
-/**
- * @brief	Checks whether parameter is positive or negative. Returns respectively 1 or -1.
- *
- * @param	i		Input parameter.
- * @return	sign	Positive or negative increment based on input parameter.
- */
-int VGA_sign(int i);
-
 /**
  * @brief	Processes line weight data to pixel position.
  *

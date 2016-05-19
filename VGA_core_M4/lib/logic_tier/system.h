@@ -16,7 +16,7 @@
 /*******************************************************************************
  * Defines
  ******************************************************************************/
-/**	@brief Number of samples used to plot the ellipse. */
+/**	@brief Number of samples used to plot the primitive. */
 #define MAX_SAMPLES			50
 
 /** @brief Macro defining infinity. */

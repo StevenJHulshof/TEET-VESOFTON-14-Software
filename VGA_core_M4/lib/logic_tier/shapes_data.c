@@ -19,26 +19,6 @@
  * Functions
  ******************************************************************************/
 /**
- * @brief	Checks whether parameter is positive or negative. Returns respectively 1 or -1.
- *
- * @param	i		Input parameter.
- * @return	sign	Positive or negative increment based on input parameter.
- */
-int VGA_sign(int i) {
-
-	int sign;
-
-	// Check whether input parameter is positive or negative
-    if (i < 0) {
-    	sign = -1;
-    } else {
-    	sign = 1;
-    }
-
-    return sign;
-}
-
-/**
  * @brief	Processes line weight data to pixel position.
  *
  * @param	centerPointPos	Pixel position around which the line weight should be calculated.
@@ -169,6 +149,86 @@ uint8_t VGA_pixelInPolygon(	sPosition_t 	verticePos[],
 	return inPolygon;
 }
 
+status_t VGA_setPolygonFill(sPosition_t vertices[],
+							uint16_t numberOfVertices,
+							int IMAGE_BOT,
+							int IMAGE_TOP,
+							int IMAGE_LEFT,
+							int IMAGE_RIGHT,
+							color_t fillColor) {
+
+	int  		nodes, i, j, swap;
+	int 		nodeX[MAX_SAMPLES];
+	sPosition_t pixelPos;
+	status_t	status = VGA_SUCCESS;
+
+	// Loop through the rows of the image
+	for(pixelPos.y = IMAGE_TOP; pixelPos.y < IMAGE_BOT; pixelPos.y++) {
+
+		// Build a list of nodes
+		nodes = 0;
+		j = numberOfVertices-1;
+
+		for (i = 0; i < numberOfVertices; i++) {
+
+			if ((	(float) vertices[i].y <  (double) pixelPos.y 	&&
+					(float) vertices[j].y >= (double) pixelPos.y) 	||
+				(	(float) vertices[j].y <  (double) pixelPos.y 	&&
+					(float) vertices[i].y >= (double) pixelPos.y)	) {
+
+				nodeX[nodes++] = (int) 	((float) vertices[i].x +
+										((float) pixelPos.y -
+										(float) vertices[i].y) /
+										((float) vertices[j].y -
+										(float) vertices[i].y) *
+										((float) vertices[j].x -
+										(float) vertices[i].x));
+			}
+
+			j = i;
+		}
+
+		// Sort the nodes, via bubble sort
+	  	i=0;
+	  	while (i<nodes-1) {
+
+	  		if (nodeX[i] > nodeX[i+1]) {
+	  			swap = nodeX[i];
+	  			nodeX[i] = nodeX[i+1];
+	  			nodeX[i+1] = swap;
+	  			if (i) {
+	  				i--;
+	  			}
+	  		}
+	  		else {
+	  			i++;
+	  		}
+	  	}
+
+	  	// Fill the pixels between node pairs
+	  	for(i = 0; i < nodes; i += 2) {
+	  		if(nodeX[i] >= IMAGE_RIGHT) {
+	  			break;
+	  		}
+	  		if(nodeX[i+1] > IMAGE_LEFT ) {
+	  			if(nodeX[i] < IMAGE_LEFT ) {
+	  				nodeX[i] = IMAGE_LEFT;
+	  			}
+	  			if(nodeX[i+1] > IMAGE_RIGHT) {
+	  				nodeX[i+1] = IMAGE_RIGHT;
+	  			}
+	  			for(pixelPos.x = nodeX[i]+1;
+	  				pixelPos.x < nodeX[i+1]+1;
+	  				pixelPos.x++) {
+	  				status = VGA_setPixelData(&pixelPos, fillColor);
+	  			}
+	  		}
+	  	}
+	}
+
+	return status;
+}
+
 /**
  * @brief	Set polygon frame line.
  *
@@ -254,24 +314,11 @@ status_t VGA_setPolygonData(	sPosition_t verticePos[],
 			}
 		}
 
-		// Loop trough polygon image
-		for(y = minY; y < maxY; y++) {
-			for(x = minX; x < maxX; x++) {
+		status = VGA_setPolygonFill(verticePos, numberOfVertices, maxY, minY, minX, maxX, fillColor);
 
-				sPosition_t pixelPos = {x, y};
-
-				// Check whether pixel position is located inside the polygon
-				if(VGA_pixelInPolygon(verticePos, &pixelPos, numberOfVertices) != 0) {
-
-					// Set pixel data
-					status = VGA_setPixelData(&pixelPos, fillColor);
-
-					// Report status
-					if(status != VGA_SUCCESS) {
-						return status;
-					}
-				}
-			}
+		// Report status
+		if(status != VGA_SUCCESS) {
+			return status;
 		}
 	}
 
@@ -305,8 +352,8 @@ status_t VGA_setPrimitiveData(	sPosition_t* 		centerPointPos,
 	float 		theta;
 	uint16_t 	sample;
 	float 		rotationRadian = rotationDegrees * M_PI / 180;
-	float 		cosAngle = cosf(rotationRadian);
-	float 		sinAngle = sinf(rotationRadian);
+	float 		cosAngle = getCosLut(rotationRadian);
+	float 		sinAngle = getSinLut(rotationRadian);
 
 	// Make sure unused index will not be processed in setPixelData
 	memset(pixelPos, -1, MAX_SAMPLES);
@@ -316,8 +363,8 @@ status_t VGA_setPrimitiveData(	sPosition_t* 		centerPointPos,
 		theta += (2 * M_PI / primitiveShape), sample++) {
 
 		// Set ellipse pixel relative to origin
-		pixelPos[sample].x = radii->x * cosf(theta);
-		pixelPos[sample].y = radii->y * sinf(theta);
+		pixelPos[sample].x = radii->x * getCosLut(theta);
+		pixelPos[sample].y = radii->y * getSinLut(theta);
 
 		// Buffer prevents skewing
 		sPosition_t pixelPosBuf	= pixelPos[sample];

@@ -18,6 +18,26 @@
 /*******************************************************************************
  * Functions
  ******************************************************************************/
+/**
+ * @brief	Checks whether parameter is positive or negative. Returns respectively 1 or -1.
+ *
+ * @param	i		Input parameter.
+ * @return	sign	Positive or negative increment based on input parameter.
+ */
+int VGA_sign(int i) {
+
+	int sign;
+
+	// Check whether input parameter is positive or negative
+    if (i < 0) {
+    	sign = -1;
+    } else {
+    	sign = 1;
+    }
+
+    return sign;
+}
+
 float mapToUnitCircle(float thetaRad){
 	while (thetaRad < 0){
 		thetaRad += (2*M_PI);
