@@ -11,6 +11,15 @@
  ******************************************************************************/
 #include "system.h"
 
+#ifndef FONT_DISPLAY_H_
+#define FONT_DISPLAY_H_
+
+/*******************************************************************************
+ * Includes
+ ******************************************************************************/
+#include "system.h"
+#include "fontlibrary.h"
+
  /*******************************************************************************
   * Data structures
   ******************************************************************************/
@@ -18,6 +27,7 @@
 /** @brief Character structure */
 typedef struct {
 	uint8_t* FirstByte;
+	uint8_t ByteWidth;
 	uint8_t CharWidth;
 	uint8_t CharHeight;
 } sBitmap_t;
@@ -56,10 +66,19 @@ sBitmap_t getBitmap(char ascii_char, charSize_t size, charStyle_t style);
  * @parm color color of the char
  * @return	Structure with chardata according to enumerated type sBitmap_t
  */
+<<<<<<< HEAD
 /*sBitmap_t processCharData(	char ascii_char,
 							charSize_t size,
 							charStyle_t style,
 							sPosition_t sPos,
 							color_t color);*/
+=======
+void processCharData(	char ascii_char,
+							charSize_t size,
+							charStyle_t style,
+							sPosition_t sStartPos,
+							color_t color);
+>>>>>>> bcce6223d3aa0458612b76adaf3b645d80ca2319
 
+#endif /* FONT_DISPLAY_H_ */
  /* End of file fonts_display.h */

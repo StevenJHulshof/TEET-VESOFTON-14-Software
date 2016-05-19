@@ -78,6 +78,7 @@ Temporary Items
 # Debug files
 *.dSYM/
 history.xml
+dependencies.xml
 *.bin
 *.map
 
@@ -85,9 +86,17 @@ history.xml
 .tags1
 
 # Coide project files
+<<<<<<< HEAD
 VGA_core.cogui
 VGA_core.comarker
 VGA_core.coproj
 project.pbxproj
 VGA_core_M4/main.c
 VGA_core_M4/main.c
+=======
+*.cogui
+*.comarker
+*.coproj
+*.pbxproj
+*.log
+>>>>>>> bcce6223d3aa0458612b76adaf3b645d80ca2319
