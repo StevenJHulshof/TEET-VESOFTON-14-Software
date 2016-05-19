@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Begin of file shapes_data.h
  *
- * @author: Steven Hulshof
+ * @author: Steven Hulshof, Lukas ten Hove
  * Created: 12/05/2016
  *
  *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~**/
@@ -20,113 +20,104 @@
 #include "pixel_data.h"
 #include <stdint.h>
 #include <math.h>
-
+#include <string.h>
 
 /*******************************************************************************
  * Function prototypes
  ******************************************************************************/
-status_t VGA_processPrimitiveData(	sPosition_t verticePos[],
-									uint16_t	numberOfVertices,
-									color_t		lineColor,
-									color_t		fillColor,
-									uint8_t		lineWeight	);
-
+/**
+ * @brief	Checks whether parameter is positive or negative. Returns respectively 1 or -1.
+ *
+ * @param	i		Input parameter.
+ * @return	sign	Positive or negative increment based on input parameter.
+ */
+int VGA_sign(int i);
 
 /**
- * @brief Draws single line without weight.
+ * @brief	Processes line weight data to pixel position.
  *
- * @param endPointPos[2]	End point positions of the line.
- * @param lineColor			Line color.
+ * @param	centerPointPos	Pixel position around which the line weight should be calculated.
+ * @param	lineColor		Color of the line.
+ * @param	lineWeight		Weight of the line.
+ * @return 	Status of operation.
+ */
+status_t VGA_setLineWeight( sPosition_t*	centerPointPos,
+							color_t			lineColor,
+							uint8_t			lineWeight	);
+/**
+ * @brief	Processes line data to pixel positions.
+ *
+ * @param 	endPointPos[2]	End point positions of the line.
+ * @param 	lineColor		Color of the line.
+ * @param	lineWeight		Weight of the line.
  * @return	Status of operation.
  */
-status_t VGA_setSingleLine(	sPosition_t endPointPos[2],
-							color_t 	lineColor);
+status_t VGA_setLineData(	sPosition_t endPointPos[2],
+							color_t 	lineColor,
+							uint8_t		lineWeight	);
 
 /**
- * @brief Translates pixel position based on rotation.
+ * @brief	Checks whether a pixel is inside the polygon using the
+ * 			Point-In-Polygon algorithm.
  *
- * @param centerPointPos	Center position of the ellipse.
- * @param radii				Radii a and b are used for determining the shape of the ellipse.
- * @param cosAngle			Cosine of the rotation angle.
- * @param sinAngle			Sine of the rotation angle.
- * @param theta				Radial variable (0, 2PI).
- * @return pixelPos			Position of the translated pixel.
+ * @param 	verticePos[]		Positions of the polygon vertices.
+ * @param 	pixelPos			Pointer to the pixel position that will be checked.
+ * @param 	numberOfVertices	Total number of polygon vertices.
+ * @return 	inPolygon			Returns 1 when pixel is inside the polygon, otherwise 0.
  */
-sPosition_t VGA_translateEllipsePixelPos(	sPosition_t* 	centerPointPos,
-							  				sRadii_t* 		radii,
-							  				float 			cosAngle,
-							  				float 			sinAngle,
-							  				float 			theta	);
+uint8_t VGA_pixelInPolygon(	sPosition_t 	verticePos[],
+							sPosition_t* 	pixelPos,
+							uint16_t 		numberOfVertices	);
 
 /**
- * @brief Draw ellipse pixel frame.
+ * @brief	Set polygon frame line.
  *
- * @param centerPointPos	Center position of the ellipse.
- * @param radii				Radii a and b are used for determining the shape of the ellipse.
- * @param lineColor			Line color of the ellipse.
- * @param cosAngle			Cosine of the rotation angle.
- * @param sinAngle			Sine of the rotation angle.
+ * @param	verticePos[]		Positions of the polygon vertices.
+ * @param	numberOfVertices	Total number of polygon vertices.
+ * @param	lineColor			Line color of the polygon.
+ * @param	lineWeight			Weight of the line.
  * @return	Status of operation.
  */
-status_t VGA_setEllipseFrame(	sPosition_t*	centerPointPos,
-			   					sRadii_t* 		radii,
-			   					color_t			lineColor,
-			   					float 			cosAngle,
-			   					float 			sinAngle	);
+status_t VGA_setPolygonFrame(	sPosition_t verticePos[],
+								uint16_t 	numberOfVertices,
+								color_t 	lineColor,
+								uint8_t		lineWeight	);
 
 /**
- * @brief Draw ellipse fill.
+ * @brief	Process polygon data to pixel position.
  *
- * @param centerPointPos	Center position of the ellipse.
- * @param radii				Radii a and b are used for determining the shape of the ellipse.
- * @param color				Color of the ellipse fill.
- * @param cosAngle			Cosine of the rotation angle.
- * @param sinAngle			Sine of the rotation angle.
+ * @param	verticePos[]		Positions of the polygon vertices.
+ * @param 	numberOfVertices	Total number of polygon vertices.
+ * @param 	lineColor			Line color of the polygon.
+ * @param	fillColor 			Fill color of the polygon.
+ * @param	lineWeight			Weight of the line.
  * @return	Status of operation.
  */
-status_t VGA_setEllipseFill(	sPosition_t*	centerPointPos,
-								sRadii_t* 		radii,
-								color_t			color,
-								float 			cosAngle,
-								float 			sinAngle	);
+status_t VGA_setPolygonData(	sPosition_t	verticePos[],
+								uint16_t	numberOfVertices,
+								color_t		lineColor,
+								color_t		fillColor,
+								uint8_t		lineWeight	);
 
 /**
- * @brief Draw ellipse fill.
+ * @brief	Process primitive data to pixel position.
  *
- * @param centerPointPos	Center position of the ellipse.
- * @param radii				Radii a and b are used for determining the shape of the ellipse.
- * @param lineColor			Line color of the ellipse.
- * @param cosAngle			Cosine of the rotation angle.
- * @param sinAngle			Sine of the rotation angle.
- * @param halfWeight		Half the line weight of the ellipse.
+ * @param	centerPointPos	Center point position of the primitive.
+ * @param	radii			Radii of the primitive. This will be calculated through a circle algorithm.
+ * @param	rotationDegrees	Rotation in degrees.
+ * @param	lineColor		Color of the frame line.
+ * @param	fillColor		Color of the primitive fill.
+ * @param 	lineWeight		Weight of the frame line.
+ * @param	primitiveShape	Default shape of the primitive.
  * @return	Status of operation.
  */
-status_t VGA_setEllipseLineFill(	sPosition_t*	centerPointPos,
-									sRadii_t* 		radii,
-									color_t			lineColor,
-									float 			cosAngle,
-									float 			sinAngle,
-									float			halfWeight	);
-
-/**
- * @brief	Calculates pixel positions of the ellipse.
- *
- * @note	Function will not work of lineColor = VGA_COL_TRANSPARANT.
- *
- * @param centerPointPos	Center position of the ellipse.
- * @param radii	Radii 		a and b are used for determining the shape of the ellipse.
- * @param rotationDegrees	Rotation of the ellipse in degrees.
- * @param lineColor			Line color of the ellipse.
- * @param fillColor 		Fill color of the ellipse.
- * @param lineWeight		Line weight of the ellipse.
- * @return	Status of operation.
- */
-status_t VGA_processEllipseData(	sPosition_t*	centerPointPos,
-								  	sRadii_t* 		radii,
-								  	int 			rotationDegrees,
-								  	color_t 		lineColor,
-								  	color_t 		fillColor,
-								  	uint8_t 		lineWeight	);
+status_t VGA_setPrimitiveData(	sPosition_t* 		centerPointPos,
+								sRadii_t* 			radii,
+								uint16_t 			rotationDegrees,
+								color_t				lineColor,
+								color_t				fillColor,
+								uint16_t			lineWeight,
+								primitiveShape_t	primitiveShape	);
 
 #endif /* SHAPES_DATA_H_ */
 /* End of file shapes_data.h */
