@@ -6,7 +6,7 @@
  *
  *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~**/
  /** @file
- * @brief Defines and enumerations for the VGA-lib.
+ * @brief Defines, data structures and enumerations for the VGA-lib.
  *
  ******************************************************************************/
 
@@ -16,8 +16,8 @@
 /*******************************************************************************
  * Defines
  ******************************************************************************/
-/** @brief Determines ellipse draw resolution. */
-#define ELLIPSE_RESOLUTION	0.005
+/**	@brief Number of samples used to plot the ellipse. */
+#define MAX_SAMPLES			50
 
 /** @brief Macro defining infinity. */
 #define INF	9999
@@ -26,6 +26,8 @@
  * Includes
  ******************************************************************************/
 #include "stm32_ub_vga_screen.h"
+#include "fontlibrary.h"
+#include "fonts_display.h"
 
 /*******************************************************************************
  * Data structures
@@ -43,11 +45,11 @@ typedef struct {
 /**	@brief Radii structure. */
 typedef struct {
 
-	/** @brief Radius a length. */
-	float a;
+	/** @brief Radius x length. */
+	float x;
 
-	/** @brief Radius b length. */
-	float b;
+	/** @brief Radius y length. */
+	float y;
 } sRadii_t;
 
 /*******************************************************************************
@@ -56,24 +58,39 @@ typedef struct {
 /** @brief Status codes. */
 typedef enum {
 
-	VGA_SUCCESS,
-	VGA_PIXEL_NOT_SET,
-	VGA_ERROR_ARGUMENT_OUT_OF_BOUNDS
+	VGA_SUCCESS							= 0x00,
+	VGA_PIXEL_NOT_SET					= 0x01,
+	VGA_ERROR_ARGUMENT_OUT_OF_BOUNDS	= 0x02,
+	VGA_ERROR_PIXEL_OUTSIDE_SCREEN		= 0x03
 } status_t;
 
 /** @brief Default color scheme. */
 typedef enum {
 
-	VGA_COL_BLACK = 0x00,
-	VGA_COL_BLUE = 0x03,
-	VGA_COL_GREEN = 0x1C,
-	VGA_COL_RED = 0xE0,
-	VGA_COL_WHITE = 0xFF,
-	VGA_COL_CYAN = 0x1F,
-	VGA_COL_MAGENTA = 0xE3,
-	VGA_COL_YELLOW = 0xFC,
+	VGA_COL_BLACK 		= 0x00,
+	VGA_COL_BLUE 		= 0x03,
+	VGA_COL_GREEN 		= 0x1C,
+	VGA_COL_RED 		= 0xE0,
+	VGA_COL_WHITE 		= 0xFF,
+	VGA_COL_CYAN 		= 0x1F,
+	VGA_COL_MAGENTA 	= 0xE3,
+	VGA_COL_YELLOW 		= 0xFC,
 	VGA_COL_TRANSPARENT = -0x01
 } color_t;
+
+/** @brief Default primitive shapes */
+typedef enum {
+
+	VGA_TRIANGLE 	= 0x03,
+	VGA_SQUARE		= 0x04,
+	VGA_PENTAGON	= 0x05,
+	VGA_HEXAGON		= 0x06,
+	VGA_HEPTAGON	= 0x07,
+	VGA_OCTAGON		= 0x08,
+	VGA_NONAGON		= 0x09,
+	VGA_DECAGON		= 0xA0,
+	VGA_ELLIPSE 	= 0x19
+} primitiveShape_t;
 
 #endif /* SYSTEM_H_ */
 /* End of file system.h */
