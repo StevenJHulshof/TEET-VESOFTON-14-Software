@@ -17,15 +17,62 @@
  * Defines
  ******************************************************************************/
 /**	@brief Number of samples used to plot the primitive. */
-#define MAX_SAMPLES			50
+#define MAX_SAMPLES	50
 
 /** @brief Macro defining infinity. */
 #define INF	9999
 
+/** @brief VGA display width. */
+#define VGA_DISPLAY_X 320
+
+/** @brief VGA display height. */
+#define VGA_DISPLAY_Y 240
+
+/** @brief VGA Timer 1 periode. */
+#define VGA_TIM1_PERIODE 11
+
+/** @brief VGA Timer 1 prescaler. */
+#define VGA_TIM1_PRESCALE 0
+
+/** @brief VGA Timer 2 HSync periode. */
+#define VGA_TIM2_HSYNC_PERIODE 2667
+
+/** @brief VGA Timer 2 HSync prescaler. */
+#define VGA_TIM2_HSYNC_PRESCALE	0
+
+/** @brief VGA Timer 2 HSync - length (3.81 us). */
+#define VGA_TIM2_HSYNC_IMP 320
+
+/** @brief VGA Timer 2 HSync + Backporch (5.71 us). */
+#define VGA_TIM2_HTRIGGER_START 480
+
+/** @brief VGA Timer 2 DMA delay. */
+#define VGA_TIM2_DMA_DELAY 60
+
+/** @brief VGA VSync periode. */
+#define VGA_VSYNC_PERIODE 525
+
+/** @brief VGA VSync IMP. */
+#define VGA_VSYNC_IMP 2
+#define VGA_VSYNC_BILD_START 36
+#define VGA_VSYNC_BILD_STOP 514   // (16,38ms)
+
+#define VGA_GPIOE_BASE_ADR ((uint32_t)0x40021000) // ADR from Port-E
+#define VGA_GPIO_ODR_OFFSET ((uint32_t)0x00000014) // ADR from Register ODR
+#define VGA_GPIO_BYTE_OFFSET ((uint32_t)0x00000001) // Data for 8bit
+#define VGA_GPIOE_ODR_ADDRESS (VGA_GPIOE_BASE_ADR | VGA_GPIO_ODR_OFFSET | VGA_GPIO_BYTE_OFFSET)
+
+#define VGA_GPIO_HINIBBLE ((uint16_t)0xFF00) // GPIO_Pin_8 to GPIO_Pin_15
+
 /*******************************************************************************
  * Includes
  ******************************************************************************/
-#include "stm32_ub_vga_screen.h"
+#include "stm32f4xx.h"
+#include "stm32f4xx_gpio.h"
+#include "stm32f4xx_rcc.h"
+#include "stm32f4xx_tim.h"
+#include "misc.h"
+#include "stm32f4xx_dma.h"
 
 /*******************************************************************************
  * Data structures
@@ -53,6 +100,12 @@ typedef struct {
 /*******************************************************************************
  * Enumerators
  ******************************************************************************/
+/** @brief Image border minimum and maximum. */
+enum {
+	MIN,
+	MAX
+};
+
 /** @brief Status codes. */
 typedef enum {
 
