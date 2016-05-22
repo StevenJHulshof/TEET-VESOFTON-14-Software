@@ -53,7 +53,9 @@ status_t VGA_setPixelData(	sPosition_t* 	position,
 color_t VGA_getPixelData(	sPosition_t* position	) {
 
 	// Get pixel data
-	return VGA_RAM1[(int) (position->y*(VGA_DISPLAY_X+1))+ (int) position->x];
+	color_t color = VGA_RAM1[(int) (position->y*(VGA_DISPLAY_X+1))+ (int) position->x];
+
+	return color;
 }
 
 /**
