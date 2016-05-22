@@ -172,15 +172,15 @@ status_t VGA_setPolygonFill(sPosition_t vertices[],
 
 	  	// Fill the pixels between node pairs
 	  	for(i = 0; i < nodes; i += 2) {
-	  		if(nodeX[i] >= imageBorder[MIN].x) {
+	  		if(nodeX[i] >= imageBorder[MAX].x) {
 	  			break;
 	  		}
-	  		if(nodeX[i+1] > imageBorder[MAX].x ) {
-	  			if(nodeX[i] < imageBorder[MAX].x ) {
-	  				nodeX[i] = imageBorder[MAX].x;
+	  		if(nodeX[i+1] > imageBorder[MIN].x ) {
+	  			if(nodeX[i] < imageBorder[MIN].x ) {
+	  				nodeX[i] = imageBorder[MIN].x;
 	  			}
-	  			if(nodeX[i+1] > imageBorder[MIN].x) {
-	  				nodeX[i+1] = imageBorder[MIN].x;
+	  			if(nodeX[i+1] > imageBorder[MAX].x) {
+	  				nodeX[i+1] = imageBorder[MAX].x;
 	  			}
 	  			for(pixelPos.x = nodeX[i]+1;
 	  				pixelPos.x < nodeX[i+1]+1;

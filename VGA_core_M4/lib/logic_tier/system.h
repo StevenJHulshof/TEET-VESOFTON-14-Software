@@ -54,15 +54,27 @@
 
 /** @brief VGA VSync IMP. */
 #define VGA_VSYNC_IMP 2
-#define VGA_VSYNC_BILD_START 36
-#define VGA_VSYNC_BILD_STOP 514   // (16,38ms)
 
-#define VGA_GPIOE_BASE_ADR ((uint32_t)0x40021000) // ADR from Port-E
-#define VGA_GPIO_ODR_OFFSET ((uint32_t)0x00000014) // ADR from Register ODR
-#define VGA_GPIO_BYTE_OFFSET ((uint32_t)0x00000001) // Data for 8bit
+/** @brief VGA VSync BILD start. */
+#define VGA_VSYNC_BILD_START 36
+
+/** @brief VGA VSync BILD stop (16.38 ms). */
+#define VGA_VSYNC_BILD_STOP 514
+
+/** @brief VGA GPIO E address. */
+#define VGA_GPIOE_BASE_ADR ((uint32_t)0x40021000)
+
+/** @brief VGA GPIO ODR address. */
+#define VGA_GPIO_ODR_OFFSET ((uint32_t)0x00000014)
+
+/** @brief VGA GPIO data byte. */
+#define VGA_GPIO_BYTE_OFFSET ((uint32_t)0x00000001)
+
+/** @brief VGA GPIO E ODR address. */
 #define VGA_GPIOE_ODR_ADDRESS (VGA_GPIOE_BASE_ADR | VGA_GPIO_ODR_OFFSET | VGA_GPIO_BYTE_OFFSET)
 
-#define VGA_GPIO_HINIBBLE ((uint16_t)0xFF00) // GPIO_Pin_8 to GPIO_Pin_15
+/** @brief VGA GPIO high nibble (GP8 to GP15). */
+#define VGA_GPIO_HINIBBLE ((uint16_t)0xFF00)
 
 /*******************************************************************************
  * Includes
@@ -96,6 +108,19 @@ typedef struct {
 	/** @brief Radius y length. */
 	float y;
 } sRadii_t;
+
+/** @brief VGA data structure. */
+typedef struct {
+
+	/** @brief HSync counter. */
+	uint16_t hsync_cnt;
+
+	/** @brief Starting address. */
+	uint32_t start_adr;
+
+	/** @brief Register constant CR-Register. */
+	uint32_t dma2_cr_reg;
+} VGA_t;
 
 /*******************************************************************************
  * Enumerators
