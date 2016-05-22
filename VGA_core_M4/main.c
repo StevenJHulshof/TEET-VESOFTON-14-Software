@@ -28,14 +28,17 @@
 int main(void) {
 
 	SystemInit();
-	UB_VGA_Screen_Init();
+	VGA_screenInit();
 
 	long int i = 10000000;
 
 		while(1) {
 
-//			while(TIM_GetITStatus(TIM2, TIM_IT_CC3));
-//			DMA_Cmd(DMA2_Stream5, DISABLE);
+
+			while(VGA_lockFlag == 1);
+			DMA_Cmd(DMA2_Stream5, DISABLE);
+
+
 			VGA_processScreenData(rand() % 256);
 
 			sPosition_t cPos = {160, 120};
@@ -59,10 +62,7 @@ int main(void) {
 					VGA_setPrimitiveData(&cPos, &radii2, rand() % 360, rand() % 256, fillColor, (rand() % 10) + 1, sample);
 				}
 			}
-//			DMA_Cmd(DMA2_Stream5, ENABLE);
-
-
-			while(i--); i = 10000000;
+			DMA_Cmd(DMA2_Stream5, ENABLE);
 	}
 }
 /* End of file main.c */

@@ -50,17 +50,19 @@ status_t VGA_setLineData(	sPosition_t endPointPos[2],
 							uint8_t		lineWeight	);
 
 /**
- * @brief	Checks whether a pixel is inside the polygon using the
- * 			Point-In-Polygon algorithm.
+ * @brief	Fills polygon with fillColor parameter using
+ * 			efficient version of the Point-In-Polygon algorithm.
  *
- * @param 	verticePos[]		Positions of the polygon vertices.
- * @param 	pixelPos			Pointer to the pixel position that will be checked.
- * @param 	numberOfVertices	Total number of polygon vertices.
- * @return 	inPolygon			Returns 1 when pixel is inside the polygon, otherwise 0.
+ * @param	vertices			Vertices of the polygon to fill.
+ * @param	numberOfVertices	Total number of vertices.
+ * @param	imageBorder			Image border constraints.
+ * @param	fillColor			Color to fill.
+ * @return	Status of operation.
  */
-uint8_t VGA_pixelInPolygon(	sPosition_t 	verticePos[],
-							sPosition_t* 	pixelPos,
-							uint16_t 		numberOfVertices	);
+status_t VGA_setPolygonFill(sPosition_t vertices[],
+							uint16_t 	numberOfVertices,
+							sPosition_t imageBorder[2],
+							color_t 	fillColor);
 
 /**
  * @brief	Set polygon frame line.

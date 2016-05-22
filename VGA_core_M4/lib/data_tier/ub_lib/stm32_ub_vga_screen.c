@@ -21,8 +21,6 @@
 //--------------------------------------------------------------
 #include "stm32_ub_vga_screen.h"
 
-
-
 //--------------------------------------------------------------
 // internal Functions
 //--------------------------------------------------------------
@@ -30,7 +28,6 @@ void P_VGA_InitIO(void);
 void P_VGA_InitTIM(void);
 void P_VGA_InitINT(void);
 void P_VGA_InitDMA(void);
-
 
 //--------------------------------------------------------------
 // Init VGA-Module
@@ -66,36 +63,6 @@ void UB_VGA_Screen_Init(void)
   VGA.dma2_cr_reg=DMA2_Stream5->CR;
 }
 
-
-//--------------------------------------------------------------
-// fill the DMA RAM buffer with one color
-//--------------------------------------------------------------
-void UB_VGA_FillScreen(uint8_t color)
-{
-  uint16_t xp,yp;
-
-  for(yp=0;yp<VGA_DISPLAY_Y;yp++) {
-    for(xp=0;xp<VGA_DISPLAY_X;xp++) {
-      UB_VGA_SetPixel(xp,yp,color);
-    }
-  }
-}
-
-
-//--------------------------------------------------------------
-// put one Pixel on the screen with one color
-// Important : the last Pixel+1 from every line must be black (don't know why??)
-//--------------------------------------------------------------
-void UB_VGA_SetPixel(uint16_t xp, uint16_t yp, uint8_t color)
-{
-  if(xp>=VGA_DISPLAY_X) xp=0;
-  if(yp>=VGA_DISPLAY_Y) yp=0;
-
-  // Write pixel to ram
-  VGA_RAM1[(yp*(VGA_DISPLAY_X+1))+xp]=color;
-}
-
-
 //--------------------------------------------------------------
 // interne Funktionen
 // init aller IO-Pins
@@ -103,7 +70,6 @@ void UB_VGA_SetPixel(uint16_t xp, uint16_t yp, uint8_t color)
 void P_VGA_InitIO(void)
 {
   GPIO_InitTypeDef  GPIO_InitStructure;
-
 
   //---------------------------------------------
   // init RGB-Pins (PE8 - PE15)
@@ -115,7 +81,7 @@ void P_VGA_InitIO(void)
 
   // Config as Digital output
   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10 | GPIO_Pin_11 |
-        GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+		  	  	  	  	  	  	  GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;

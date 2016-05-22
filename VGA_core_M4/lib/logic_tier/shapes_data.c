@@ -108,54 +108,19 @@ status_t VGA_setLineData(    sPosition_t 	endPointPos[2],
 }
 
 /**
- * @brief	Checks whether a pixel is inside the polygon using the
- * 			Point-In-Polygon algorithm.
+ * @brief	Fills polygon with fillColor parameter using
+ * 			efficient version of the Point-In-Polygon algorithm.
  *
- * @param 	verticePos[]		Positions of the polygon vertices.
- * @param 	pixelPos			Pointer to the pixel position that will be checked.
- * @param 	numberOfVertices	Total number of polygon vertices.
- * @return 	inPolygon			Returns 1 when pixel is inside the polygon, otherwise 0.
+ * @param	vertices			Vertices of the polygon to fill.
+ * @param	numberOfVertices	Total number of vertices.
+ * @param	imageBorder			Image border constraints.
+ * @param	fillColor			Color to fill.
+ * @return	Status of operation.
  */
-uint8_t VGA_pixelInPolygon(	sPosition_t 	verticePos[],
-							sPosition_t* 	pixelPos,
-							uint16_t 		numberOfVertices	) {
-
-	uint8_t inPolygon = 0;
-	int   	i;
-	int 	j = numberOfVertices - 1 ;
-
-	// Check whether pixel is in or outside the polygon
-	for(i = 0; i < numberOfVertices; i++) {
-
-		// Check pixel placement per vertice
-		if (((	(float) verticePos[i].y 	> 	(float) pixelPos->y) 		!=
-			(	(float) verticePos[j].y 	> 	(float) pixelPos->y)	) 	&&
-		    (	(float) pixelPos->x 		< (	(float) verticePos[j].x 	-
-		    	(float) verticePos[i].x) 	* (	(float) pixelPos->y 		-
-		    	(float) verticePos[i].y) 	/ (	(float) verticePos[j].y 	-
-		    	(float) verticePos[i].y) 	+ 	(float) verticePos[i].x	) 	) {
-
-			// Enable/disable pixel placement
-			if(inPolygon == 1) {
-				inPolygon = 0;
-			} else {
-				inPolygon = 1;
-			}
-		}
-
-		j = i;
-	}
-
-	return inPolygon;
-}
-
 status_t VGA_setPolygonFill(sPosition_t vertices[],
-							uint16_t numberOfVertices,
-							int IMAGE_BOT,
-							int IMAGE_TOP,
-							int IMAGE_LEFT,
-							int IMAGE_RIGHT,
-							color_t fillColor) {
+							uint16_t 	numberOfVertices,
+							sPosition_t imageBorder[2],
+							color_t 	fillColor) {
 
 	int  		nodes, i, j, swap;
 	int 		nodeX[MAX_SAMPLES];
@@ -163,7 +128,7 @@ status_t VGA_setPolygonFill(sPosition_t vertices[],
 	status_t	status = VGA_SUCCESS;
 
 	// Loop through the rows of the image
-	for(pixelPos.y = IMAGE_TOP; pixelPos.y < IMAGE_BOT; pixelPos.y++) {
+	for(pixelPos.y = imageBorder[MIN].y; pixelPos.y < imageBorder[MAX].y; pixelPos.y++) {
 
 		// Build a list of nodes
 		nodes = 0;
@@ -207,15 +172,15 @@ status_t VGA_setPolygonFill(sPosition_t vertices[],
 
 	  	// Fill the pixels between node pairs
 	  	for(i = 0; i < nodes; i += 2) {
-	  		if(nodeX[i] >= IMAGE_RIGHT) {
+	  		if(nodeX[i] >= imageBorder[MAX].x) {
 	  			break;
 	  		}
-	  		if(nodeX[i+1] > IMAGE_LEFT ) {
-	  			if(nodeX[i] < IMAGE_LEFT ) {
-	  				nodeX[i] = IMAGE_LEFT;
+	  		if(nodeX[i+1] > imageBorder[MIN].x ) {
+	  			if(nodeX[i] < imageBorder[MIN].x ) {
+	  				nodeX[i] = imageBorder[MIN].x;
 	  			}
-	  			if(nodeX[i+1] > IMAGE_RIGHT) {
-	  				nodeX[i+1] = IMAGE_RIGHT;
+	  			if(nodeX[i+1] > imageBorder[MAX].x) {
+	  				nodeX[i+1] = imageBorder[MAX].x;
 	  			}
 	  			for(pixelPos.x = nodeX[i]+1;
 	  				pixelPos.x < nodeX[i+1]+1;
@@ -287,12 +252,11 @@ status_t VGA_setPolygonData(	sPosition_t verticePos[],
 								uint8_t		lineWeight) {
 
 	status_t 	status = VGA_SUCCESS;
-	int 		x, y;
 	uint8_t		i;
-	int 		minY = INF;
-	int 		minX = INF;
-	uint16_t 	maxY = 0;
-	uint16_t 	maxX = 0;
+	sPosition_t	imageBorder[2] = {
+			{INF, INF},
+			{0, 0}
+	};
 
 	// Use algorithm only when fill is needed
 	if(fillColor != VGA_COL_TRANSPARENT) {
@@ -300,21 +264,21 @@ status_t VGA_setPolygonData(	sPosition_t verticePos[],
 		// Set boundaries of the polygon image
 		for(i = 0; i < numberOfVertices; i++) {
 
-			if(verticePos[i].x < minX) {
-				minX = verticePos[i].x;
+			if(verticePos[i].x < imageBorder[MIN].x) {
+				imageBorder[MIN].x = verticePos[i].x;
 			}
-			if(verticePos[i].y < minY) {
-				minY = verticePos[i].y;
+			if(verticePos[i].y < imageBorder[MIN].y) {
+				imageBorder[MIN].y = verticePos[i].y;
 			}
-			if(verticePos[i].x > maxX) {
-				maxX = verticePos[i].x;
+			if(verticePos[i].x > imageBorder[MAX].x) {
+				imageBorder[MAX].x = verticePos[i].x;
 			}
-			if(verticePos[i].y > maxY) {
-				maxY = verticePos[i].y;
+			if(verticePos[i].y > imageBorder[MAX].y) {
+				imageBorder[MAX].y = verticePos[i].y;
 			}
 		}
 
-		status = VGA_setPolygonFill(verticePos, numberOfVertices, maxY, minY, minX, maxX, fillColor);
+		status = VGA_setPolygonFill(verticePos, numberOfVertices, imageBorder, fillColor);
 
 		// Report status
 		if(status != VGA_SUCCESS) {
