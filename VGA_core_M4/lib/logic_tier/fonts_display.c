@@ -52,7 +52,7 @@
 	return sBitmapdata;
  }
 
- void processCharData(	char ascii_char, charSize_t size,
+ sBitmap_t processCharData(	char ascii_char, charSize_t size,
  							charStyle_t style,
  							sPosition_t sStartPos,
  							color_t color){
@@ -98,6 +98,24 @@
 		 sNextPos.x = sStartPos.x;
 		 shift = 0;
 	 }
+
+	 return sChardata;
  }
+
+// void processStringData(	char* ascii_string,
+// 							uint8_t strLength,
+// 							charSize_t size,
+// 							charStyle_t style,
+// 							sPosition_t sStartPos,
+// 							color_t color){
+//
+//
+//	 for(i = 0; i < strLength; i++)
+//	 {
+//		 if(ascii_string[i] < 32)
+//			 if
+//	 }
+//
+// }
 
  /* End of file fonts_display.c */
