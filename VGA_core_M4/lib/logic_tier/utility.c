@@ -19,18 +19,18 @@
  * Functions
  ******************************************************************************/
 /**
- * @brief	Checks argument boundaries of primitives.
+ * @brief	Checks argument boundaries of shapes.
  *
- * @param	radii		Radius x and y of the primitive.
- * @param	lineColor	Primitive frame line color.
- * @param	fillColor	Primitive fill color.
- * @param	lineWeight	Primitive frame line weight.
+ * @param	radii		Radius x and y of the shape.
+ * @param	lineColor	Shape frame line color.
+ * @param	fillColor	Shape fill color.
+ * @param	lineWeight	Shape frame line weight.
  * @return	Status of operation.
  */
-status_t UTIL_checkPrimitiveBoundaries(	sRadii_t* 	radii,
-										color_t 	lineColor,
-										color_t 	fillColor,
-										uint8_t 	lineWeight	) {
+status_t UTIL_checkBoundaries(	sRadii_t* 	radii,
+								color_t 	lineColor,
+								color_t 	fillColor,
+								uint8_t 	lineWeight	) {
 
 	status_t status = VGA_SUCCESS;
 
@@ -72,6 +72,7 @@ int UTIL_sign(int i) {
 }
 
 float mapToUnitCircle(float thetaRad){
+
 	while (thetaRad < 0){
 		thetaRad += (2*M_PI);
 	};
@@ -84,6 +85,7 @@ float mapToUnitCircle(float thetaRad){
 }
 
 float getSinLut(float thetaRad){
+
 	float corrThetaRad = mapToUnitCircle(thetaRad);
 
 	int index = (int) ((corrThetaRad/M_PI)*180);
@@ -94,6 +96,7 @@ float getSinLut(float thetaRad){
 }
 
 float getCosLut(float thetaRad){
+
 	float result = getSinLut(thetaRad + M_PI_2);
 
 	return result;

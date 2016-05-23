@@ -32,10 +32,10 @@
  * @param	lineWeight	Primitive frame line weight.
  * @return	Status of operation.
  */
-status_t UTIL_checkPrimitiveBoundaries(	sRadii_t* 	radii,
-										color_t 	lineColor,
-										color_t 	fillColor,
-										uint8_t 	lineWeight	);
+status_t UTIL_checkBoundaries(	sRadii_t* 	radii,
+								color_t 	lineColor,
+								color_t 	fillColor,
+								uint8_t 	lineWeight	);
 
 /**
  * @brief	Checks whether parameter is positive or negative. Returns respectively 1 or -1.
