@@ -30,7 +30,7 @@ int main(void) {
 	SystemInit();
 	VGA_screenInit();
 
-	long int i = 10000000;
+	//long int i = 10000000;
 
 		while(1) {
 

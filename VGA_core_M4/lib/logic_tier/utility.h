@@ -16,12 +16,18 @@
 /*******************************************************************************
  * Includes
  ******************************************************************************/
-#include "sin_LUT.h"
+#include "sin_lut.h"
 #include "math.h"
+#include "system.h"
 
 /*******************************************************************************
  * Function prototypes
  ******************************************************************************/
+status_t UTIL_checkPrimitiveBoundaries(	sRadii_t* 	radii,
+										color_t		lineColor,
+										color_t		fillColor,
+										uint8_t		lineWeight	);
+
 /**
  * @brief	Checks whether parameter is positive or negative. Returns respectively 1 or -1.
  *
