@@ -23,12 +23,26 @@
  * Function prototypes
  ******************************************************************************/
 /**
+ * @brief	Checks argument boundaries of primitives.
+ *
+ * @param	radii		Radius x and y of the primitive.
+ * @param	lineColor	Primitive frame line color.
+ * @param	fillColor	Primitive fill color.
+ * @param	lineWeight	Primitive frame line weight.
+ * @return	Status of operation.
+ */
+status_t UTIL_checkPrimitiveBoundaries(	sRadii_t* 	radii,
+										color_t 	lineColor,
+										color_t 	fillColor,
+										uint8_t 	lineWeight	);
+
+/**
  * @brief	Checks whether parameter is positive or negative. Returns respectively 1 or -1.
  *
  * @param	i		Input parameter.
  * @return	sign	Positive or negative increment based on input parameter.
  */
-int VGA_sign(int i);
+int UTIL_sign(int i);
 
 /**
  * @brief	Constrain any value between 0->2*PI
