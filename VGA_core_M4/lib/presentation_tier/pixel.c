@@ -25,7 +25,8 @@
  * @param	color		Color of the pixel.
  * @return	Status of operation.
  */
-status_t VGA_drawPixel(sPosition_t* pixelPos, color_t color) {
+status_t VGA_drawPixel(	sPosition_t* pixelPos,
+						color_t color	) {
 
 	status_t status = VGA_SUCCESS;
 
@@ -41,6 +42,36 @@ status_t VGA_drawPixel(sPosition_t* pixelPos, color_t color) {
 
 	// Set pixel data
 	status = VGA_setPixelData(pixelPos, color);
+
+	return status;
+}
+
+/**
+ * @brief	Get pixel color from pixel position.
+ *
+ * @param	pixelPos	Position of the pixel.
+ * @return	color		Color of the pixel.
+ */
+color_t VGA_getPixelColor(	sPosition_t* pixelPos	) {
+
+	// Get pixel data
+	color_t color = VGA_getPixelData(pixelPos);
+
+	return color;
+}
+
+/**
+ * @brief	Fills screen with input color.
+ *
+ * @param	color	Color of the screen fill.
+ * @return	Status of operation.
+ */
+status_t VGA_fillScreen(color_t color) {
+
+	status_t status = VGA_SUCCESS;
+
+	// Process screen data
+	status = VGA_processScreenData(color);
 
 	return status;
 }
