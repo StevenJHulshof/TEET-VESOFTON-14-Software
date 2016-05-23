@@ -30,12 +30,18 @@ int main(void) {
 	SystemInit();
 	VGA_screenInit();
 
+<<<<<<< HEAD
 	//long int i = 10000000;
+=======
+//	sPosition pixelPos = {100, 100};
+//	color_t pixelColor = VGA_getPixelData(&pixelPos);
+>>>>>>> refs/remotes/origin/master
 
-		while(1) {
+	while(1) {
+//}
 
 
-			while(VGA_lockFlag == 1);
+			while(VGA_lockFlag);
 			DMA_Cmd(DMA2_Stream5, DISABLE);
 
 

@@ -19,9 +19,6 @@
 #include "system.h"
 #include "pixel_data.h"
 #include "utility.h"
-#include <stdint.h>
-#include <math.h>
-#include <string.h>
 
 /*******************************************************************************
  * Function prototypes
@@ -111,7 +108,7 @@ status_t VGA_setPrimitiveData(	sPosition_t* 		centerPointPos,
 								uint16_t 			rotationDegrees,
 								color_t				lineColor,
 								color_t				fillColor,
-								uint16_t			lineWeight,
+								uint8_t				lineWeight,
 								primitiveShape_t	primitiveShape	);
 
 #endif /* SHAPES_DATA_H_ */
