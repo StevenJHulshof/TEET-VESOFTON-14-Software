@@ -135,7 +135,7 @@ typedef struct
     uint8_t FixedWidth;
     uint8_t const *GlyphWidth;
     uint8_t const *GlyphBitmaps;
-} sChardata_t;
+} fontStyle_t;
 
 /*******************************************************************************
  * Enumerators

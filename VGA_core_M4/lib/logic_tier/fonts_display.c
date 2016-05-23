@@ -22,32 +22,32 @@
  ******************************************************************************/
  sBitmap_t getBitmap(char ascii_char, charSize_t size, charStyle_t style){
 
-	fontStyle_t sFontstyle;
+	fontStyle_t* sFontstyle;
 	uint8_t* bitmapArray;
 	sBitmap_t sBitmapdata;
 	uint8_t shift;
 
 	if (style == Regular)
 	{
-		if (size == Size_18) sFontstyle = FontStyle_Roboto18;
-		if (size == Size_12) sFontstyle = FontStyle_Roboto12;
+		if (size == Size_18) sFontstyle = &FontStyle_Roboto18;
+		if (size == Size_12) sFontstyle = &FontStyle_Roboto12;
 	}
 	if (style == Bold)
 	{
-		if (size == Size_18) sFontstyle = FontStyle_Roboto18Bold;
-		if (size == Size_12) sFontstyle = FontStyle_Roboto12;
+		if (size == Size_18) sFontstyle = &FontStyle_Roboto18Bold;
+		if (size == Size_12) sFontstyle = &FontStyle_Roboto12;
 	}
 
 	//get address from bitmap in sram
-	bitmapArray = sFontstyle.GlyphBitmaps;
+	bitmapArray = (uint8_t*) sFontstyle->GlyphBitmaps;
 	//increment pointer to asked ascii char
-	shift = ascii_char-sFontstyle.FirstAsciiCode;
+	shift = ascii_char-(uint8_t)sFontstyle->FirstAsciiCode;
 
 	//get address of first byte by incrementing pointer with shift times size of char bitmap
-	sBitmapdata.FirstByte = bitmapArray+(shift*sFontstyle.GlyphHeight*sFontstyle.GlyphBytesWidth);
-	sBitmapdata.ByteWidth = sFontstyle.GlyphBytesWidth;
-	sBitmapdata.CharHeight = sFontstyle.GlyphHeight;
-	sBitmapdata.CharWidth = *(sFontstyle.GlyphWidth+shift);
+	sBitmapdata.FirstByte = bitmapArray+(shift*(uint8_t)sFontstyle->GlyphHeight*(uint8_t)sFontstyle->GlyphBytesWidth);
+	sBitmapdata.ByteWidth = (uint8_t)sFontstyle->GlyphBytesWidth;
+	sBitmapdata.CharHeight = (uint8_t)sFontstyle->GlyphHeight;
+	sBitmapdata.CharWidth = *((uint8_t*)sFontstyle->GlyphWidth+shift);
 
 	return sBitmapdata;
  }
@@ -102,29 +102,33 @@
 	 return sChardata;
  }
 
-// void processStringData(	char* ascii_string,
-// 							uint8_t strLength,
-// 							charSize_t size,
-// 							charStyle_t style,
-// 							sPosition_t sStartPos,
-// 							color_t color){
-//	 /* 1) read string length and iterate for each character.
-//	  * 2) place the first character at startpos.
-//	  * 3) check for newline. if it's a newline, next charpos is original startposx and y = startposy + charlength + whitespace. else:
-//	  * 4) read character width and set the position for the next character to x = previous startpos + char width + white space
-//	  */
-//	 int lineNumber = 0;
-//	 int oldXPos, newXpos;
-//
-//	 for(i = 0; i < strLength; i++)
-//	 {
-//			 if (nextchar == "/n"){
-//				 lineNumber ++;
-//			 } else {
-//				 newXpos = oldXpos + charWidth + whiteSpaceX * size;
-//				 newYpos = sStartPos.y + (charData.height + whiteSpaceY * size) * lineNumber;
-//			 }
-//	 }
-// }
+ void processStringData(	char* ascii_string,
+ 							charSize_t size,
+ 							charStyle_t style,
+ 							sPosition_t sPos,
+ 							color_t color){
+	 /* 1) read string length and iterate for each character.
+	  * 2) place the first character at startpos.
+	  * 3) check for newline. if it's a newline, next charpos is original startposx and y = startposy + charlength + whitespace. else:
+	  * 4) read character width and set the position for the next character to x = previous startpos + char width + white space
+	  */
+	 uint8_t i;
+	 int orgX = sPos.x;
+	 sBitmap_t  charInfo;
+
+	 charInfo = getBitmap(ascii_string[0], size, style);
+
+	 for(i = 0; i < strlen(ascii_string); i++)
+	 {
+			 if (ascii_string[i] == '\n'){
+				 sPos.y += charInfo.CharHeight;
+				 sPos.x = orgX;
+				 } else {
+				 charInfo = processCharData(ascii_string[i], size, style, sPos, (i+1)*2);
+				 sPos.x += charInfo.CharWidth;
+//				 sPos.y += (charInfo.CharHeight + lineSpace)*lineNumber;
+			 }
+	 }
+ }
 
  /* End of file fonts_display.c */

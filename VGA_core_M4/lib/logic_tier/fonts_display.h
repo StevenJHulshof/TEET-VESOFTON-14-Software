@@ -81,7 +81,6 @@ sBitmap_t processCharData(	char ascii_char,
  * @return	Structure with chardata according to enumerated type sBitmap_t
  */
 void processStringData(	char* ascii_string,
-							uint8_t strLength,
 							charSize_t size,
 							charStyle_t style,
 							sPosition_t sStartPos,
