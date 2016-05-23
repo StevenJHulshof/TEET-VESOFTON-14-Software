@@ -18,6 +18,7 @@
 #include "system.h"
 #include "pixel_data.h"
 #include "shapes_data.h"
+#include "fonts_display.h"
 #include <math.h>
 #include <stdlib.h>
 #include "utility.h"
@@ -29,6 +30,7 @@ int main(void) {
 
 	SystemInit();
 	VGA_screenInit();
+	sPosition_t charPos ={100,100};
 
 //<<<<<<< HEAD
 //	//long int i = 10000000;
@@ -44,6 +46,7 @@ int main(void) {
 			while(VGA_lockFlag);
 			DMA_Cmd(DMA2_Stream5, DISABLE);
 
+			processCharData('@',Size_18,Regular, charPos, VGA_COL_BLUE);
 
 			VGA_processScreenData(rand() % 256);
 

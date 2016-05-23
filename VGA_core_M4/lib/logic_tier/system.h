@@ -133,9 +133,9 @@ typedef struct
     uint8_t GlyphBytesWidth;
     uint8_t GlyphHeight;
     uint8_t FixedWidth;
-    uint8_t const *GlyphWidth;
-    uint8_t const *GlyphBitmaps;
-} sChardata_t;
+    uint8_t *GlyphWidth;
+    uint8_t *GlyphBitmaps;
+} sFontdata_t;
 
 /*******************************************************************************
  * Enumerators
