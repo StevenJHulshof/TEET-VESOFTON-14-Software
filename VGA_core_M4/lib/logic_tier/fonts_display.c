@@ -126,7 +126,6 @@
 				 } else {
 				 charInfo = processCharData(ascii_string[i], size, style, sPos, (i+1)*2);
 				 sPos.x += charInfo.CharWidth;
-//				 sPos.y += (charInfo.CharHeight + lineSpace)*lineNumber;
 			 }
 	 }
  }
