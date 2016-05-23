@@ -71,7 +71,10 @@ status_t VGA_drawPrimitive(	sPosition_t* 		centerPointPos,
 	status_t status = VGA_SUCCESS;
 
 	// Check whether arguments are inside bounds
-	status = UTIL_checkPrimitiveBoundaries(radii, lineColor, fillColor, lineWeight);
+	status = UTIL_checkBoundaries(	radii,
+									lineColor,
+									fillColor,
+									lineWeight	);
 
 	// Report status
 	if(status != VGA_SUCCESS) {
@@ -86,6 +89,46 @@ status_t VGA_drawPrimitive(	sPosition_t* 		centerPointPos,
 									fillColor,
 									lineWeight,
 									primitiveShape	);
+
+	return status;
+}
+
+/**
+ * @brief	Draws polygon on the VGA screen.
+ *
+ * @param	verticePos[]		Positions of the polygon vertices.
+ * @param 	numberOfVertices	Total number of polygon vertices.
+ * @param 	lineColor			Line color of the polygon.
+ * @param	fillColor 			Fill color of the polygon.
+ * @param	lineWeight			Weight of the line.
+ * @return	Status of operation.
+ */
+status_t VGA_drawPolygon(	sPosition_t verticePos[],
+							uint16_t	numberOfVertices,
+							color_t		lineColor,
+							color_t		fillColor,
+							uint8_t		lineWeight) {
+
+	status_t status = VGA_SUCCESS;
+	sRadii_t radiiDummy = {0, 0};
+
+	// Check whether arguments are inside bounds
+	status = UTIL_checkBoundaries(	&radiiDummy,
+									lineColor,
+									fillColor,
+									lineWeight	);
+
+	// Report status
+	if(status != VGA_SUCCESS) {
+		return status;
+	}
+
+	// Process polygon data
+	status = VGA_setPolygonData(verticePos,
+								numberOfVertices,
+								lineColor,
+								fillColor,
+								lineWeight);
 
 	return status;
 }
