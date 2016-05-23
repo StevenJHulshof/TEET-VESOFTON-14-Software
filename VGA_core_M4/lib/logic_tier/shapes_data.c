@@ -64,7 +64,7 @@ status_t VGA_setLineData(    sPosition_t 	endPointPos[2],
 		// Loop through line pixel data
 		for(pixelPos.y = endPointPos[0].y;
 			pixelPos.y != endPointPos[1].y;
-			pixelPos.y += VGA_sign(deltaPos.y)) {
+			pixelPos.y += UTIL_sign(deltaPos.y)) {
 
 			// Calculate x pixel position
 			pixelPos.x = endPointPos[0].x + (pixelPos.y - endPointPos[0].y) * deltaPos.x / deltaPos.y;
@@ -86,7 +86,7 @@ status_t VGA_setLineData(    sPosition_t 	endPointPos[2],
 		// Loop through line pixel data
 		for(pixelPos.x = endPointPos[0].x;
 			pixelPos.x != endPointPos[1].x;
-			pixelPos.x += VGA_sign(deltaPos.x)) {
+			pixelPos.x += UTIL_sign(deltaPos.x)) {
 
 			// Calculate y pixel position
 			pixelPos.y = endPointPos[0].y + (pixelPos.x - endPointPos[0].x) * deltaPos.y / deltaPos.x;
