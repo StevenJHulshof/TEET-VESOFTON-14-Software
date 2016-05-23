@@ -154,7 +154,8 @@ typedef enum {
 	VGA_LINE_COL_OUT_OF_BOUNDS		= 0x02,
 	VGA_FILL_COL_OUT_OF_BOUNDS		= 0x03,
 	VGA_LINE_WEIGHT_OUT_OF_BOUNDS	= 0x04,
-	VGA_RADII_OUT_OF_BOUNDS			= 0x05
+	VGA_RADII_OUT_OF_BOUNDS			= 0x05,
+	VGA_PIXEL_OUT_OF_SCREEN			= 0x06
 } status_t;
 
 /** @brief Default color scheme. */
