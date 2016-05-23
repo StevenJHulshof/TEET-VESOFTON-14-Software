@@ -38,27 +38,27 @@ VGA_t VGA;
 /**
  * @brief	Initialize VGA screen.
  */
-void VGA_screenInit(void);
+void VGA_D_screenInit(void);
 
 /**
  * @brief	Initializes GPIO used for VGA output.
  */
-void VGA_initGpio(void);
+void VGA_D_initGpio(void);
 
 /**
  * @brief	Initializes VGA timers.
  */
-void VGA_initTimers(void);
+void VGA_D_initTimers(void);
 
 /**
  * @brief	Initializes VGA interrupts.
  */
-void VGA_initInterrupts(void);
+void VGA_D_initInterrupts(void);
 
 /**
  * @brief	Initializes VGA DMA.
  */
-void VGA_initDma(void);
+void VGA_D_initDma(void);
 
 /**
  * @brief 	Timer 2 Interrupt. CC3-Interrupt -> starts from DMA.

@@ -25,7 +25,7 @@
  * @param	color		Color of the pixel.
  * @return	Status of operation.
  */
-status_t VGA_setPixelData(	sPosition_t* 	position,
+status_t VGA_L_setPixelData(	sPosition_t* 	position,
 							color_t 		color	) {
 
 	// Do not draw pixel when outside of screen
@@ -36,7 +36,7 @@ status_t VGA_setPixelData(	sPosition_t* 	position,
 		VGA_RAM1[(int) position->y*(VGA_DISPLAY_X+1)+ (int) position->x] = color;
 
 		// Report status
-		if(VGA_getPixelData(position) != color) {
+		if(VGA_L_getPixelData(position) != color) {
 			return VGA_PIXEL_NOT_SET;
 		}
 	}
@@ -50,7 +50,7 @@ status_t VGA_setPixelData(	sPosition_t* 	position,
  * @param	position	Position structure containing X and Y coordinates.
  * @return	color		Color of the pixel.
  */
-color_t VGA_getPixelData(	sPosition_t* position	) {
+color_t VGA_L_getPixelData(	sPosition_t* position	) {
 
 	// Get pixel data
 	color_t color = VGA_RAM1[(int) (position->y*(VGA_DISPLAY_X+1))+ (int) position->x];
@@ -64,7 +64,7 @@ color_t VGA_getPixelData(	sPosition_t* position	) {
  * @param 	color	Color of the pixel.
  * @return	Status of operation.
  */
-status_t VGA_processScreenData(	color_t color	) {
+status_t VGA_L_processScreenData(	color_t color	) {
 
 	status_t 	status;
 	uint8_t 	y;
@@ -78,7 +78,7 @@ status_t VGA_processScreenData(	color_t color	) {
 			sPosition_t sPos = {x, y};
 
 			// Set pixel
-			status = VGA_setPixelData(&sPos, color);
+			status = VGA_L_setPixelData(&sPos, color);
 
 			// Report status
 			if(status != VGA_SUCCESS) {

@@ -23,7 +23,7 @@
 /**
  * @brief	Initialize VGA screen.
  */
-void VGA_screenInit(void) {
+void VGA_D_screenInit(void) {
 
 	uint16_t xp,yp;
 
@@ -39,13 +39,13 @@ void VGA_screenInit(void) {
 	}
 
 	// init IO-Pins
-	VGA_initGpio();
+	VGA_D_initGpio();
 	// init Timer
-	VGA_initTimers();
+	VGA_D_initTimers();
 	// init DMA
-	VGA_initDma();
+	VGA_D_initDma();
 	// init Interrupts
-	VGA_initInterrupts();
+	VGA_D_initInterrupts();
 
 	//-----------------------
 	// Register swap and safe
@@ -57,7 +57,7 @@ void VGA_screenInit(void) {
 /**
  * @brief	Initializes GPIO used for VGA output.
  */
-void VGA_initGpio(void) {
+void VGA_D_initGpio(void) {
 
 	GPIO_InitTypeDef  GPIO_InitStructure;
 
@@ -121,7 +121,7 @@ void VGA_initGpio(void) {
 /**
  * @brief	Initializes VGA timers.
  */
-void VGA_initTimers(void) {
+void VGA_D_initTimers(void) {
 
 	TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
 	TIM_OCInitTypeDef  TIM_OCInitStructure;
@@ -189,7 +189,7 @@ void VGA_initTimers(void) {
 /**
  * @brief	Initializes VGA interrupts.
  */
-void VGA_initInterrupts(void) {
+void VGA_D_initInterrupts(void) {
 
 	NVIC_InitTypeDef NVIC_InitStructure;
 
@@ -227,7 +227,7 @@ void VGA_initInterrupts(void) {
 /**
  * @brief	Initializes VGA DMA.
  */
-void VGA_initDma(void) {
+void VGA_D_initDma(void) {
 
 	DMA_InitTypeDef DMA_InitStructure;
 

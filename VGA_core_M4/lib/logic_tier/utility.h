@@ -51,7 +51,7 @@ int UTIL_sign(int i);
  * @param 	thetaRad	angle theta in radians.
  * @return	mapped theta value.
  */
-float mapToUnitCircle(float thetaRad);
+float UTIL_mapToUnitCircle(float thetaRad);
 
 /**
  * @brief	Get sin value for given theta in radians.
@@ -59,7 +59,7 @@ float mapToUnitCircle(float thetaRad);
  * @param 	thetaRad	angle theta in radians.
  * @return	sin of given theta.
  */
-float getSinLut(float thetaRad);
+float UTIL_getSinLut(float thetaRad);
 
 /**
  * @brief	Get cos value for given theta in radians.
@@ -67,7 +67,7 @@ float getSinLut(float thetaRad);
  * @param 	thetaRad	angle theta in radians.
  * @return	cos of given theta.
  */
-float getCosLut(float thetaRad);
+float UTIL_getCosLut(float thetaRad);
 
 #endif /* UTILITY_H */
 /* End of file utility.h */

@@ -43,7 +43,7 @@ status_t VGA_drawLine(	sPosition_t endPointPos[2],
 	}
 
 	// Process line data
-	status = VGA_setLineData(endPointPos, lineColor, lineWeight);
+	status = VGA_L_setLineData(endPointPos, lineColor, lineWeight);
 
 	return status;
 }
@@ -82,7 +82,7 @@ status_t VGA_drawPrimitive(	sPosition_t* 		centerPointPos,
 	}
 
 	// Process primitive data
-	status = VGA_setPrimitiveData(	centerPointPos,
+	status = VGA_L_setPrimitiveData(	centerPointPos,
 									radii,
 									rotationDegrees,
 									lineColor,
@@ -124,7 +124,7 @@ status_t VGA_drawPolygon(	sPosition_t verticePos[],
 	}
 
 	// Process polygon data
-	status = VGA_setPolygonData(verticePos,
+	status = VGA_L_setPolygonData(verticePos,
 								numberOfVertices,
 								lineColor,
 								fillColor,

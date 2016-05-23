@@ -1,6 +1,6 @@
 /******************************************************************************
  * Begin of file fonts_display.c
- * @author: Niek Klaverstijn.
+ * @author: Niek Klaverstijn, Lukas ten Hove.
  * @version: 1.0
  * Created: 14-05-2016
  *
@@ -20,7 +20,7 @@
 /*******************************************************************************
  * Functions
  ******************************************************************************/
- sBitmap_t* getBitmap(char ascii_char, charSize_t size, charStyle_t style){
+ sBitmap_t* VGA_L_getBitmap(char ascii_char, charSize_t size, charStyle_t style){
 
 	fontStyle_t* sFontstyle;
 	uint8_t* bitmapArray;
@@ -52,7 +52,7 @@
 	return &sBitmapdata;
  }
 
- sBitmap_t* processCharData(	char ascii_char, charSize_t size,
+ sBitmap_t* VGA_L_processCharData(	char ascii_char, charSize_t size,
  							charStyle_t style,
  							sPosition_t sStartPos,
  							color_t color){
@@ -63,7 +63,7 @@
 	 int i;
 	 int j;
 
-	 sChardata = getBitmap(ascii_char, size, style);
+	 sChardata = VGA_L_getBitmap(ascii_char, size, style);
 
 	 uint8_t* pX = sChardata->FirstByte;
 	 uint8_t* pY = sChardata->FirstByte;
@@ -77,7 +77,7 @@
 			 //bitwise compare MSB with bitmap, shift for each pixel
 			 if(0x80 & *pX<<(j-shift))
 			 {
-				 VGA_setPixelData(&sNextPos, color);
+				 VGA_L_setPixelData(&sNextPos, color);
 			 }
 			 //need to increment pointer for wide chars
 			 if (j == 7)
@@ -102,21 +102,17 @@
 	 return sChardata;
  }
 
- void processStringData(	char* ascii_string,
+ void VGA_L_processStringData(	char* ascii_string,
  							charSize_t size,
  							charStyle_t style,
  							sPosition_t sPos,
  							color_t color){
-	 /* 1) read string length and iterate for each character.
-	  * 2) place the first character at startpos.
-	  * 3) check for newline. if it's a newline, next charpos is original startposx and y = startposy + charlength + whitespace. else:
-	  * 4) read character width and set the position for the next character to x = previous startpos + char width + white space
-	  */
+
 	 uint8_t i;
 	 int orgX = sPos.x;
 	 sBitmap_t*  charInfo;
 
-	 charInfo = getBitmap(ascii_string[0], size, style);
+	 charInfo = VGA_L_getBitmap(ascii_string[0], size, style);
 
 	 for(i = 0; i < strlen(ascii_string); i++)
 	 {
@@ -124,7 +120,7 @@
 			 sPos.y += charInfo->CharHeight;
 			 sPos.x = orgX;
 			 } else {
-			 charInfo = processCharData(ascii_string[i], size, style, sPos, (i+1)*2);
+			 charInfo = VGA_L_processCharData(ascii_string[i], size, style, sPos, (i+1)*2);
 			 sPos.x += charInfo->CharWidth;
 		 }
 	 }

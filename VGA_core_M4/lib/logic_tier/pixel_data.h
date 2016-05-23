@@ -29,7 +29,7 @@
  * @param color		Color of the pixel.
  * @return	Status of operation.
  */
-status_t VGA_setPixelData(	sPosition_t* position,
+status_t VGA_L_setPixelData(	sPosition_t* position,
 							color_t color	);
 
 /**
@@ -38,7 +38,7 @@ status_t VGA_setPixelData(	sPosition_t* position,
  * @param position	Position structure containing X and Y coordinates.
  * @return color	Color of the pixel.
  */
-color_t VGA_getPixelData(	sPosition_t* position	);
+color_t VGA_L_getPixelData(	sPosition_t* position	);
 
 /**
  * @brief	Fills screen with the input color.
@@ -46,7 +46,7 @@ color_t VGA_getPixelData(	sPosition_t* position	);
  * @param color	Color of the pixel.
  * @return	Status of operation.
  */
-status_t VGA_processScreenData(	color_t color	);
+status_t VGA_L_processScreenData(	color_t color	);
 
 #endif /* PIXEL_DATA_H */
 /* End of file pixel_data.h */

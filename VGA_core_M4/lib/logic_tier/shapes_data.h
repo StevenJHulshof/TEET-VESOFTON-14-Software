@@ -31,7 +31,7 @@
  * @param	lineWeight		Weight of the line.
  * @return 	Status of operation.
  */
-status_t VGA_setLineWeight( sPosition_t*	centerPointPos,
+status_t VGA_L_setLineWeight( sPosition_t*	centerPointPos,
 							color_t			lineColor,
 							uint8_t			lineWeight	);
 /**
@@ -42,7 +42,7 @@ status_t VGA_setLineWeight( sPosition_t*	centerPointPos,
  * @param	lineWeight		Weight of the line.
  * @return	Status of operation.
  */
-status_t VGA_setLineData(	sPosition_t endPointPos[2],
+status_t VGA_L_setLineData(	sPosition_t endPointPos[2],
 							color_t 	lineColor,
 							uint8_t		lineWeight	);
 
@@ -56,7 +56,7 @@ status_t VGA_setLineData(	sPosition_t endPointPos[2],
  * @param	fillColor			Color to fill.
  * @return	Status of operation.
  */
-status_t VGA_setPolygonFill(sPosition_t vertices[],
+status_t VGA_L_setPolygonFill(sPosition_t vertices[],
 							uint16_t 	numberOfVertices,
 							sPosition_t imageBorder[2],
 							color_t 	fillColor);
@@ -70,7 +70,7 @@ status_t VGA_setPolygonFill(sPosition_t vertices[],
  * @param	lineWeight			Weight of the line.
  * @return	Status of operation.
  */
-status_t VGA_setPolygonFrame(	sPosition_t verticePos[],
+status_t VGA_L_setPolygonFrame(	sPosition_t verticePos[],
 								uint16_t 	numberOfVertices,
 								color_t 	lineColor,
 								uint8_t		lineWeight	);
@@ -85,7 +85,7 @@ status_t VGA_setPolygonFrame(	sPosition_t verticePos[],
  * @param	lineWeight			Weight of the line.
  * @return	Status of operation.
  */
-status_t VGA_setPolygonData(	sPosition_t	verticePos[],
+status_t VGA_L_setPolygonData(	sPosition_t	verticePos[],
 								uint16_t	numberOfVertices,
 								color_t		lineColor,
 								color_t		fillColor,
@@ -103,7 +103,7 @@ status_t VGA_setPolygonData(	sPosition_t	verticePos[],
  * @param	primitiveShape	Default shape of the primitive.
  * @return	Status of operation.
  */
-status_t VGA_setPrimitiveData(	sPosition_t* 		centerPointPos,
+status_t VGA_L_setPrimitiveData(	sPosition_t* 		centerPointPos,
 								sRadii_t* 			radii,
 								uint16_t 			rotationDegrees,
 								color_t				lineColor,

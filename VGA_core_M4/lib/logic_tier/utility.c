@@ -71,7 +71,7 @@ int UTIL_sign(int i) {
     return sign;
 }
 
-float mapToUnitCircle(float thetaRad){
+float UTIL_mapToUnitCircle(float thetaRad){
 
 	while (thetaRad < 0){
 		thetaRad += (2*M_PI);
@@ -84,9 +84,9 @@ float mapToUnitCircle(float thetaRad){
 	return thetaRad;
 }
 
-float getSinLut(float thetaRad){
+float UTIL_getSinLut(float thetaRad){
 
-	float corrThetaRad = mapToUnitCircle(thetaRad);
+	float corrThetaRad = UTIL_mapToUnitCircle(thetaRad);
 
 	int index = (int) ((corrThetaRad/M_PI)*180);
 
@@ -95,9 +95,9 @@ float getSinLut(float thetaRad){
 	return result;
 }
 
-float getCosLut(float thetaRad){
+float UTIL_getCosLut(float thetaRad){
 
-	float result = getSinLut(thetaRad + M_PI_2);
+	float result = UTIL_getSinLut(thetaRad + M_PI_2);
 
 	return result;
 }
