@@ -19,9 +19,6 @@
 #include "system.h"
 #include "pixel_data.h"
 #include "utility.h"
-#include <stdint.h>
-#include <math.h>
-#include <string.h>
 
 /*******************************************************************************
  * Function prototypes

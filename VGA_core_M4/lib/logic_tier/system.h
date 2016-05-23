@@ -79,6 +79,10 @@
 /*******************************************************************************
  * Includes
  ******************************************************************************/
+#include <math.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <string.h>
 #include "stm32f4xx.h"
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_rcc.h"
@@ -134,10 +138,10 @@ enum {
 /** @brief Status codes. */
 typedef enum {
 
-	VGA_SUCCESS							= 0x00,
-	VGA_PIXEL_NOT_SET					= 0x01,
-	VGA_ERROR_ARGUMENT_OUT_OF_BOUNDS	= 0x02,
-	VGA_ERROR_PIXEL_OUTSIDE_SCREEN		= 0x03
+	VGA_SUCCESS					= 0x00,
+	VGA_PIXEL_NOT_SET			= 0x01,
+	VGA_ARGUMENT_OUT_OF_BOUNDS	= 0x02,
+	VGA_PIXEL_OUTSIDE_SCREEN	= 0x03
 } status_t;
 
 /** @brief Default color scheme. */
