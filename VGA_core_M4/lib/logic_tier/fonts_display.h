@@ -54,7 +54,7 @@ typedef struct {
   * @param style Select font style as defined in enumerated type charStyle_t
   * @return	Structure with chardata according to enumerated type sBitmap_t
   */
-sBitmap_t getBitmap(char ascii_char, charSize_t size, charStyle_t style);
+sBitmap_t* getBitmap(char ascii_char, charSize_t size, charStyle_t style);
 
 /**
  * @brief	Get bitmapdata from gememory for ASCII character
@@ -65,7 +65,7 @@ sBitmap_t getBitmap(char ascii_char, charSize_t size, charStyle_t style);
  * @parm color color of the char
  * @return	Structure with chardata according to enumerated type sBitmap_t
  */
-sBitmap_t processCharData(	char ascii_char,
+sBitmap_t* processCharData(	char ascii_char,
 							charSize_t size,
 							charStyle_t style,
 							sPosition_t sStartPos,

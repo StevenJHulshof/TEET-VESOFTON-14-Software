@@ -20,11 +20,11 @@
 /*******************************************************************************
  * Functions
  ******************************************************************************/
- sBitmap_t getBitmap(char ascii_char, charSize_t size, charStyle_t style){
+ sBitmap_t* getBitmap(char ascii_char, charSize_t size, charStyle_t style){
 
 	fontStyle_t* sFontstyle;
 	uint8_t* bitmapArray;
-	sBitmap_t sBitmapdata;
+	static sBitmap_t sBitmapdata;
 	uint8_t shift;
 
 	if (style == Regular)
@@ -49,15 +49,15 @@
 	sBitmapdata.CharHeight = (uint8_t)sFontstyle->GlyphHeight;
 	sBitmapdata.CharWidth = *((uint8_t*)sFontstyle->GlyphWidth+shift);
 
-	return sBitmapdata;
+	return &sBitmapdata;
  }
 
- sBitmap_t processCharData(	char ascii_char, charSize_t size,
+ sBitmap_t* processCharData(	char ascii_char, charSize_t size,
  							charStyle_t style,
  							sPosition_t sStartPos,
  							color_t color){
 
-	 sBitmap_t sChardata;
+	 sBitmap_t* sChardata;
 	 sPosition_t sNextPos = sStartPos;
 	 uint8_t shift = 0;
 	 int i;
@@ -65,14 +65,14 @@
 
 	 sChardata = getBitmap(ascii_char, size, style);
 
-	 uint8_t* pX = sChardata.FirstByte;
-	 uint8_t* pY = sChardata.FirstByte;
+	 uint8_t* pX = sChardata->FirstByte;
+	 uint8_t* pY = sChardata->FirstByte;
 
 	 //for loop for y-axis
-	 for (i = 0; i < sChardata.CharHeight; i++,  sNextPos.y++)
+	 for (i = 0; i < sChardata->CharHeight; i++,  sNextPos.y++)
 	 {
 		 //for loop for x-axis
-		 for (j = 0; j < sChardata.CharWidth; j++, sNextPos.x++)
+		 for (j = 0; j < sChardata->CharWidth; j++, sNextPos.x++)
 		 {
 			 //bitwise compare MSB with bitmap, shift for each pixel
 			 if(0x80 & *pX<<(j-shift))
@@ -93,7 +93,7 @@
 			 }
 		 }
 		 //skip bytes according to bytewidth
-		 pY = pY+sChardata.ByteWidth;
+		 pY = pY+sChardata->ByteWidth;
 		 pX = pY;
 		 sNextPos.x = sStartPos.x;
 		 shift = 0;
@@ -114,19 +114,19 @@
 	  */
 	 uint8_t i;
 	 int orgX = sPos.x;
-	 sBitmap_t  charInfo;
+	 sBitmap_t*  charInfo;
 
 	 charInfo = getBitmap(ascii_string[0], size, style);
 
 	 for(i = 0; i < strlen(ascii_string); i++)
 	 {
-			 if (ascii_string[i] == '\n'){
-				 sPos.y += charInfo.CharHeight;
-				 sPos.x = orgX;
-				 } else {
-				 charInfo = processCharData(ascii_string[i], size, style, sPos, (i+1)*2);
-				 sPos.x += charInfo.CharWidth;
-			 }
+		 if (ascii_string[i] == '\n'){
+			 sPos.y += charInfo->CharHeight;
+			 sPos.x = orgX;
+			 } else {
+			 charInfo = processCharData(ascii_string[i], size, style, sPos, (i+1)*2);
+			 sPos.x += charInfo->CharWidth;
+		 }
 	 }
  }
 

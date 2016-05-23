@@ -128,7 +128,7 @@ typedef struct {
 
 typedef struct
 {
-    uint8_t GlyphCount;
+	uint8_t GlyphCount;
     uint8_t FirstAsciiCode;
     uint8_t GlyphBytesWidth;
     uint8_t GlyphHeight;
