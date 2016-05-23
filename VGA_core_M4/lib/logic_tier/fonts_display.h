@@ -19,9 +19,9 @@
 #include "system.h"
 #include "fontlibrary.h"
 
- /*******************************************************************************
-  * Data structures
-  ******************************************************************************/
+/*******************************************************************************
+ * Data structures
+ ******************************************************************************/
 
 /** @brief Character structure */
 typedef struct {
@@ -65,7 +65,7 @@ sBitmap_t getBitmap(char ascii_char, charSize_t size, charStyle_t style);
  * @parm color color of the char
  * @return	Structure with chardata according to enumerated type sBitmap_t
  */
-void processCharData(	char ascii_char,
+sBitmap_t processCharData(	char ascii_char,
 							charSize_t size,
 							charStyle_t style,
 							sPosition_t sStartPos,
