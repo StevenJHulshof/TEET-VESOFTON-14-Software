@@ -14,14 +14,8 @@
 /*******************************************************************************
  * Includes
  ******************************************************************************/
-#include "main.h"
-#include "system.h"
-#include "pixel_data.h"
-#include "shapes_data.h"
+#include "vga_lib.h"
 #include "fonts_display.h"
-#include <math.h>
-#include <stdlib.h>
-#include "utility.h"
 
 /*******************************************************************************
  * Main
