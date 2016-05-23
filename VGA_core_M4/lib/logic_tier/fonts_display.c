@@ -108,14 +108,23 @@
 // 							charStyle_t style,
 // 							sPosition_t sStartPos,
 // 							color_t color){
-//
+//	 /* 1) read string length and iterate for each character.
+//	  * 2) place the first character at startpos.
+//	  * 3) check for newline. if it's a newline, next charpos is original startposx and y = startposy + charlength + whitespace. else:
+//	  * 4) read character width and set the position for the next character to x = previous startpos + char width + white space
+//	  */
+//	 int lineNumber = 0;
+//	 int oldXPos, newXpos;
 //
 //	 for(i = 0; i < strLength; i++)
 //	 {
-//		 if(ascii_string[i] < 32)
-//			 if
+//			 if (nextchar == "/n"){
+//				 lineNumber ++;
+//			 } else {
+//				 newXpos = oldXpos + charWidth + whiteSpaceX * size;
+//				 newYpos = sStartPos.y + (charData.height + whiteSpaceY * size) * lineNumber;
+//			 }
 //	 }
-//
 // }
 
  /* End of file fonts_display.c */
