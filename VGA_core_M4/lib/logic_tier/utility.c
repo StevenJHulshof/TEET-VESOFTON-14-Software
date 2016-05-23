@@ -18,29 +18,6 @@
 /*******************************************************************************
  * Functions
  ******************************************************************************/
-status_t UTIL_checkPrimitiveBoundaries(	sRadii_t* 	radii,
-										color_t		lineColor,
-										color_t		fillColor,
-										uint8_t		lineWeight	) {
-
-	status_t status = VGA_SUCCESS;
-	// Check whether arguments are inside bounds
-	if(radii->x < 0 || radii->y < 0) {
-		status = VGA_RADII_OUT_OF_BOUNDS;
-	}
-	if(lineColor < 0 || lineColor > 0xFF) {
-		status = VGA_LINE_COL_OUT_OF_BOUNDS;
-	}
-	if(fillColor < -1 || fillColor > 0xFF) {
-		status = VGA_FILL_COL_OUT_OF_BOUNDS;
-	}
-	if(lineWeight < 1) {
-		status = VGA_LINE_WEIGHT_OUT_OF_BOUNDS;
-	}
-
-	return status;
-}
-
 /**
  * @brief	Checks argument boundaries of primitives.
  *

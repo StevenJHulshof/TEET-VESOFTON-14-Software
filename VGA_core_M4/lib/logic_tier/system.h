@@ -141,15 +141,9 @@ typedef enum {
 	VGA_SUCCESS						= 0x00,
 	VGA_PIXEL_NOT_SET				= 0x01,
 	VGA_LINE_COL_OUT_OF_BOUNDS		= 0x02,
-<<<<<<< HEAD
 	VGA_FILL_COL_OUT_OF_BOUNDS		= 0x03,
 	VGA_LINE_WEIGHT_OUT_OF_BOUNDS	= 0x04,
 	VGA_RADII_OUT_OF_BOUNDS			= 0x05
-=======
-	VGA_LINE_WEIGHT_OUT_OF_BOUNDS	= 0x03,
-	VGA_RADII_OUT_OF_BOUNDS			= 0x04,
-	VGA_FILL_COL_OUT_OF_BOUNDS		= 0x05
->>>>>>> refs/remotes/origin/master
 } status_t;
 
 /** @brief Default color scheme. */

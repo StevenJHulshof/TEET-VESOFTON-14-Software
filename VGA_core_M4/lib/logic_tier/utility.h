@@ -23,11 +23,6 @@
 /*******************************************************************************
  * Function prototypes
  ******************************************************************************/
-status_t UTIL_checkPrimitiveBoundaries(	sRadii_t* 	radii,
-										color_t		lineColor,
-										color_t		fillColor,
-										uint8_t		lineWeight	);
-
 /**
  * @brief	Checks argument boundaries of primitives.
  *
