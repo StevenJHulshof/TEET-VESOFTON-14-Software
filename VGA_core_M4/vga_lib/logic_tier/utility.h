@@ -69,5 +69,15 @@ float UTIL_getSinLut(float thetaRad);
  */
 float UTIL_getCosLut(float thetaRad);
 
+/**
+ * @brief	convert rgb values to the color byte used by the vga library.
+ *
+ * @param 	red			red value (0-255).
+ * @param 	green		green value (0-255).
+ * @param 	blue		blue value (0-255).
+ * @return	color byte.
+ */
+color_t UTIL_convertColor(int red, int green, int blue);
+
 #endif /* UTILITY_H */
 /* End of file utility.h */
