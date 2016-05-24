@@ -103,7 +103,6 @@ float UTIL_getCosLut(float thetaRad){
 }
 
 color_t UTIL_convertColor(int red, int green, int blue){
-	//7 tm 5 is rood, dan groen dan 2 bits blauw
 	color_t color = 0;
 	int newr = (red>>5);
 	int newg = (green>>5);
