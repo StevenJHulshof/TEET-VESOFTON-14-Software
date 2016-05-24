@@ -31,9 +31,9 @@
  * @param	lineWeight		Weight of the line.
  * @return	Status of operation.
  */
-status_t VGA_drawLine(	sPosition_t endPointPos[2],
-						color_t lineColor,
-						uint8_t lineWeight	);
+status_t VGA_P_drawLine(	sPosition_t endPointPos[2],
+							color_t lineColor,
+							uint8_t lineWeight	);
 
 /**
  *	@brief	Draws primitive on VGA screen.
@@ -47,13 +47,13 @@ status_t VGA_drawLine(	sPosition_t endPointPos[2],
  *	@param	primitiveShape	Primitive default shape.
  *	@return	Status of operation.
  */
-status_t VGA_drawPrimitive(	sPosition_t* 		centerPointPos,
-							sRadii_t*			radii,
-							uint16_t			rotationDegrees,
-							color_t				lineColor,
-							color_t				fillColor,
-							uint8_t				lineWeight,
-							primitiveShape_t	primitiveShape);
+status_t VGA_P_drawPrimitive(	sPosition_t* 		centerPointPos,
+								sRadii_t*			radii,
+								uint16_t			rotationDegrees,
+								color_t				lineColor,
+								color_t				fillColor,
+								uint8_t				lineWeight,
+								primitiveShape_t	primitiveShape);
 
 /**
  * @brief	Draws polygon on the VGA screen.
@@ -65,7 +65,7 @@ status_t VGA_drawPrimitive(	sPosition_t* 		centerPointPos,
  * @param	lineWeight			Weight of the line.
  * @return	Status of operation.
  */
-status_t VGA_drawPolygon(	sPosition_t verticePos[],
+status_t VGA_P_drawPolygon(	sPosition_t verticePos[],
 							uint16_t	numberOfVertices,
 							color_t		lineColor,
 							color_t		fillColor,

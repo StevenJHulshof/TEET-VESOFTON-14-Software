@@ -15,7 +15,6 @@
  * Includes
  ******************************************************************************/
 #include "vga_lib.h"
-#include "fonts_display.h"
 
 /*******************************************************************************
  * Main
@@ -23,12 +22,11 @@
 int main(void) {
 
 	SystemInit();
+
+
+
 	VGA_D_screenInit();
-	sPosition_t charPos ={100,100};
-
-	VGA_L_processStringData("Koffie?@NU!!!$#@!$#@jajajaja$",Size_18,Regular, charPos, VGA_COL_BLUE);
-
-	while(1) {
-	}
+	while(1);
+	return VGA_SUCCESS;
 }
 /* End of file main.c */

@@ -26,9 +26,6 @@
 /** @brief Contains VGA screen data. */
 uint8_t VGA_RAM1[(VGA_DISPLAY_X+1)*VGA_DISPLAY_Y];
 
-/** @brief Flag letting DMA update only when calculations are complete. */
-volatile uint8_t VGA_lockFlag;
-
 /** @brief VGA data structure. */
 VGA_t VGA;
 

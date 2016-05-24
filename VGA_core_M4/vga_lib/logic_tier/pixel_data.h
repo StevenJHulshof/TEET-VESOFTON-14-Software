@@ -48,5 +48,5 @@ color_t VGA_L_getPixelData(	sPosition_t* position	);
  */
 status_t VGA_L_processScreenData(	color_t color	);
 
-#endif /* PIXEL_DATA_H */
+#endif /* PIXEL_DATA_H_ */
 /* End of file pixel_data.h */
