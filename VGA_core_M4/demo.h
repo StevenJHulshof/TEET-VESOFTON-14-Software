@@ -1,32 +1,27 @@
- /*******************************************************************************
- * Begin of file main.c
+/*******************************************************************************
+ * Begin of file demo.h
  *
- * @author: Lukas ten Hove, Steven Hulshof, Niek Klaverstijn.
- * @version: 1.0
- * Created: 19/04/2016
+ * @author: Steven Hulshof
+ * Created: 24/05/2016
  *
  *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~**/
 /** @file
- * @brief Main file of VGA_core project.
+ * @brief Functions for the demo software.
  *
  ******************************************************************************/
+
+#ifndef DEMO_H_
+#define DEMO_H_
 
 /*******************************************************************************
  * Includes
  ******************************************************************************/
 #include "vga_lib.h"
-#include "demo.h"
 
 /*******************************************************************************
- * Main
+ * Function prototypes
  ******************************************************************************/
-int main(void) {
+status_t setDemoBackground(void);
 
-	SystemInit();
-
-	VGA_D_screenInit();
-
-	while(1);
-	return VGA_SUCCESS;
-}
-/* End of file main.c */
+#endif /* DEMO_H_ */
+/* End of file demo.h */
