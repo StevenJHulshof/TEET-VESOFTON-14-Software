@@ -24,6 +24,14 @@ int main(void) {
 
 	SystemInit();
 
+	status_t status = setDemoBackground();
+	if(status != VGA_SUCCESS) {
+		return status;
+	}
+
+
+
+
 	VGA_D_screenInit();
 
 	while(1);
