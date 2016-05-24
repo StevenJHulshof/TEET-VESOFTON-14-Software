@@ -26,7 +26,7 @@
  * @return	Status of operation.
  */
 status_t VGA_P_drawPixel(	sPosition_t* pixelPos,
-						color_t color	) {
+                            color_t color	) {
 
 	status_t status = VGA_SUCCESS;
 
