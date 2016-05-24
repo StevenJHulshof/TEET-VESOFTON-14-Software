@@ -78,4 +78,30 @@ status_t setDemoBackground(void) {
 	return status;
 }
 
+status_t setDemoTitle(){
+	status_t status = VGA_SUCCESS;
+
+	char text[] = "Demo software ontwikkeling!";
+	sPosition_t sPos = {100,100};
+
+	status = VGA_P_printString(sPos, text, Size_24, Regular, VGA_COL_RED);
+
+	return status;
+}
+
+status_t setDemoShapes(){
+	status_t status = VGA_SUCCESS;
+
+	sPosition_t sPos[4] = {
+						  {100,100}
+						, {125,100}
+						, {100,200}
+						, {125,200}
+						};
+
+	status = VGA_P_drawPolygon(sPos, 4, VGA_COL_CYAN, VGA_COL_MAGENTA, 4);
+
+	return status;
+}
+
 /* End of file fx_data.c */
