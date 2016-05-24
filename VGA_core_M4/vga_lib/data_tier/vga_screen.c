@@ -25,18 +25,18 @@
  */
 void VGA_D_screenInit(void) {
 
-	uint16_t xp,yp;
+//	uint16_t xp,yp;
 
 	VGA.hsync_cnt=0;
 	VGA.start_adr=0;
 	VGA.dma2_cr_reg=0;
 
-	// RAM init total black
-	for(yp=0;yp<VGA_DISPLAY_Y;yp++) {
-		for(xp=0;xp<(VGA_DISPLAY_X+1);xp++) {
-			VGA_RAM1[(yp*(VGA_DISPLAY_X+1))+xp]=0;
-		}
-	}
+//	// RAM init total black
+//	for(yp=0;yp<VGA_DISPLAY_Y;yp++) {
+//		for(xp=0;xp<(VGA_DISPLAY_X+1);xp++) {
+//			VGA_RAM1[(yp*(VGA_DISPLAY_X+1))+xp]=0;
+//		}
+//	}
 
 	// init IO-Pins
 	VGA_D_initGpio();
@@ -271,7 +271,6 @@ void VGA_D_initDma(void) {
  */
 void TIM2_IRQHandler(void) {
 
-
   	// Interrupt of Timer2 CH3 occurred (for Trigger start)
 	TIM_ClearITPendingBit(TIM2, TIM_IT_CC3);
 
@@ -324,11 +323,7 @@ void TIM2_IRQHandler(void) {
  */
 void DMA2_Stream5_IRQHandler(void) {
 
-	//VGA_lockFlag = 1;
 	if(DMA_GetITStatus(DMA2_Stream5, DMA_IT_TCIF5)) {
-
-		// Disable function calculations
-		//VGA_lockFlag = 1;
 
 		// TransferInterruptComplete Interrupt from DMA2
 		DMA_ClearITPendingBit(DMA2_Stream5, DMA_IT_TCIF5);
@@ -340,10 +335,6 @@ void DMA2_Stream5_IRQHandler(void) {
 		DMA2_Stream5->CR=0;
 		// switch on black
 		GPIOE->BSRRH = VGA_GPIO_HINIBBLE;
-
-
-		// Enable function calculations
 	}
-	//VGA_lockFlag = 0;
 }
 /* End of file vga_screen.c */

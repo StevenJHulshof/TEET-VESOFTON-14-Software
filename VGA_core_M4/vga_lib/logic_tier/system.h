@@ -185,9 +185,21 @@ typedef enum {
 	VGA_HEPTAGON	= 0x07,
 	VGA_OCTAGON		= 0x08,
 	VGA_NONAGON		= 0x09,
-	VGA_DECAGON		= 0xA0,
+	VGA_DECAGON		= 0x0A,
 	VGA_ELLIPSE 	= 0x19
 } primitiveShape_t;
+
+/** @brief Usable bloom intensities. */
+typedef enum {
+
+	VGA_BLOOM_INT_1 = 0x01,
+	VGA_BLOOM_INT_2 = 0x02,
+	VGA_BLOOM_INT_3 = 0x03,
+	VGA_BLOOM_INT_4 = 0x04,
+	VGA_BLOOM_INT_5 = 0x05,
+	VGA_BLOOM_INT_6 = 0x06,
+	VGA_BLOOM_INT_7 = 0x07,
+} bloomIntensity_t;
 
 #endif /* SYSTEM_H_ */
 /* End of file system.h */

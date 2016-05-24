@@ -19,6 +19,8 @@
  ******************************************************************************/
 #include "pixel.h"
 #include "shapes.h"
+#include "text.h"
+#include "fx_data.h"
 
 #endif /* VGA_LIB_H_ */
 /* End of file vga_lib.h */
