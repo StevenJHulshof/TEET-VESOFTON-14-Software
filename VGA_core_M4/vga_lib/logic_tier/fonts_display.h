@@ -36,12 +36,14 @@ typedef struct {
  ******************************************************************************/
  typedef enum {
 	Size_18,
-	Size_12
+	Size_12,
+	Size_24
 }charSize_t;
 
  typedef enum {
 	Regular,
-	Bold
+	Bold,
+	Emoji
 }charStyle_t;
 
 /*******************************************************************************

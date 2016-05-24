@@ -17,6 +17,9 @@ extern fontStyle_t FontStyle_Roboto18;
 extern fontStyle_t FontStyle_Roboto18Bold;
 extern fontStyle_t FontStyle_Roboto12;
 extern fontStyle_t FontStyle_Roboto12Bold;
+extern fontStyle_t FontStyle_NotoEmoji24;
+extern fontStyle_t FontStyle_RobotoSlab24;
+extern fontStyle_t FontStyle_RobotoSlab24Bold;
 
 #endif /* FONTLIBRARY_H_ */
 /* End of file fontlibrary.h */

@@ -31,12 +31,19 @@
 	{
 		if (size == Size_18) sFontstyle = &FontStyle_Roboto18;
 		if (size == Size_12) sFontstyle = &FontStyle_Roboto12;
+		if (size == Size_24) sFontstyle = &FontStyle_RobotoSlab24;
 	}
 	if (style == Bold)
 	{
 		if (size == Size_18) sFontstyle = &FontStyle_Roboto18Bold;
 		if (size == Size_12) sFontstyle = &FontStyle_Roboto12;
+		if (size == Size_24) sFontstyle = &FontStyle_RobotoSlab24Bold;
+
 	}
+	if (style == Emoji)
+		{
+			if (size == Size_24) sFontstyle = &FontStyle_NotoEmoji24;
+		}
 
 	//get address from bitmap in sram
 	bitmapArray = (uint8_t*) sFontstyle->GlyphBitmaps;
@@ -120,8 +127,8 @@
 			 sPos.y += charInfo->CharHeight;
 			 sPos.x = orgX;
 			 } else {
-			 charInfo = VGA_L_processCharData(ascii_string[i], size, style, sPos, (i+1)*2);
-			 sPos.x += charInfo->CharWidth;
+			 charInfo = VGA_L_processCharData(ascii_string[i], size, style, sPos, color);
+			 sPos.x += (charInfo->CharWidth);
 		 }
 	 }
  }
