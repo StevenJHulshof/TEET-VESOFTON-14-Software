@@ -126,16 +126,36 @@ typedef struct {
 	uint32_t dma2_cr_reg;
 } VGA_t;
 
+/** @brief Struct for fontstyle in sram*/
 typedef struct
 {
+	/**@brief Number of glyphs in style. **/
 	uint8_t GlyphCount;
+	/**@brief Decimal value of first ASCII char **/
     uint8_t FirstAsciiCode;
+    /**@brief Horizontal number of bytes. **/
     uint8_t GlyphBytesWidth;
+    /**@brief Vertical number of bytes (also pixel height). **/
     uint8_t GlyphHeight;
+    /**@brief Fixed width, 0 if variable. **/
     uint8_t FixedWidth;
+    /**@brief Array with pixelwidth per glyph. **/
     uint8_t const *GlyphWidth;
+    /**@brief Array with bitmaps for style.**/
     uint8_t const *GlyphBitmaps;
 } fontStyle_t;
+
+/** @brief Retreived character structure. */
+typedef struct {
+	/** @brief Pointer to the first byte with pixels. */
+	uint8_t* FirstByte;
+	/** @brief Total width of bytes for bitmap. */
+	uint8_t ByteWidth;
+	/** @brief Pixel width of retreived char. */
+	uint8_t CharWidth;
+	/** @brief Pixel height of retrieved char. */
+	uint8_t CharHeight;
+} sBitmap_t;
 
 /*******************************************************************************
  * Enumerators
@@ -200,6 +220,20 @@ typedef enum {
 	VGA_BLOOM_INT_6 = 0x06,
 	VGA_BLOOM_INT_7 = 0x07,
 } bloomIntensity_t;
+
+/** @brief Enum for sizes. */
+ typedef enum {
+	Size_18,
+	Size_12,
+	Size_24
+}charSize_t;
+
+/** @brief Enum for styles. */
+ typedef enum {
+	Regular,
+	Bold,
+	Emoji
+}charStyle_t;
 
 #endif /* SYSTEM_H_ */
 /* End of file system.h */
