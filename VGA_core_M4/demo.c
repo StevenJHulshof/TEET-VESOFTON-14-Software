@@ -78,7 +78,7 @@ status_t setDemoBackground(void) {
 	return status;
 }
 
-status_t setDemoTitle(){
+status_t setDemoText(){
 	status_t status = VGA_SUCCESS;
 
 	char text[] = "Demo software ontwikkeling!";
@@ -86,20 +86,49 @@ status_t setDemoTitle(){
 
 	status = VGA_P_printString(sPos, text, Size_24, Regular, VGA_COL_RED);
 
+	char text2[] = "Demo software ontwikkeling!";
+	sPosition_t sPos2 = {100,100};
+
+	status = VGA_P_printString(sPos2, text2, Size_12, Bold, VGA_COL_WHITE);
+
 	return status;
 }
 
 status_t setDemoShapes(){
 	status_t status = VGA_SUCCESS;
 
-	sPosition_t sPos[4] = {
+	sPosition_t sPos1[4] = {
 						  {100,100}
 						, {125,100}
 						, {100,200}
 						, {125,200}
 						};
 
-	status = VGA_P_drawPolygon(sPos, 4, VGA_COL_CYAN, VGA_COL_MAGENTA, 4);
+	status = VGA_P_drawPolygon(sPos1, 4, VGA_COL_CYAN, VGA_COL_MAGENTA, 4);
+
+	sPosition_t sPos2[8] = {
+							  {100,100}
+							, {125,100}
+							, {100,200}
+							, {125,200}
+							, {125,100}
+							, {100,200}
+							, {125,200}
+							, {124,200}
+							};
+
+	status = VGA_P_drawPolygon(sPos2, 8, VGA_COL_CYAN, VGA_COL_MAGENTA, 4);
+
+	int i;
+	sRadii_t rot = {40, 20};
+	sPosition_t sPos3 = {150, 150};
+
+	for(i=0;i<360;i+=60){
+		VGA_P_drawPrimitive(&sPos3, &rot, i, VGA_COL_YELLOW, VGA_COL_BLACK, 4, VGA_ELLIPSE);
+	}
+
+
+
 
 	return status;
 }
