@@ -29,8 +29,11 @@ int main(void) {
 		return status;
 	}
 
+	//setDemoBackground();
 
+	setDemoShapes();
 
+	setDemoText();
 
 	VGA_D_screenInit();
 

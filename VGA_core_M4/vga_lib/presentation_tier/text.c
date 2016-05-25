@@ -35,16 +35,16 @@ status_t VGA_P_printString(	sPosition_t stringPos,
 
 	status_t status = VGA_SUCCESS;
 
-	// Check whether arguments are inside bounds
-	if(	size != Size_12 || size!= Size_18) {
-		return VGA_STRING_INVALID_FONTSIZE;
-	}
-	if( style != Bold || style != Regular) {
-		return VGA_STRING_INVALID_FONTSTYLE;
-	}
-	if(color < 0 || color > 0xFF) {
-		return VGA_STRING_COL_OUT_OF_BOUNDS;
-	}
+//	// Check whether arguments are inside bounds
+//	if(	size != Size_12 || size!= Size_18) {
+//		return VGA_STRING_INVALID_FONTSIZE;
+//	}
+//	if( style != Bold || style != Regular) {
+//		return VGA_STRING_INVALID_FONTSTYLE;
+//	}
+//	if(color < 0 || color > 0xFF) {
+//		return VGA_STRING_COL_OUT_OF_BOUNDS;
+//	}
 
 	// call string processing function
 	VGA_L_processStringData(string, size, style, stringPos, color);
