@@ -1,0 +1,127 @@
+\section{V\+G\+A\+\_\+core\+\_\+\+M4/vga\+\_\+lib/logic\+\_\+tier/fonts\+\_\+display.h File Reference}
+\label{fonts__display_8h}\index{V\+G\+A\+\_\+core\+\_\+\+M4/vga\+\_\+lib/logic\+\_\+tier/fonts\+\_\+display.\+h@{V\+G\+A\+\_\+core\+\_\+\+M4/vga\+\_\+lib/logic\+\_\+tier/fonts\+\_\+display.\+h}}
+
+
+Functions for retrieving bitmap data from memory and displaying them on the screen.  
+
+
+{\ttfamily \#include \char`\"{}system.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fontlibrary.\+h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf s\+Bitmap\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Character structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries char\+Size\+\_\+t} \{ {\bfseries Size\+\_\+18}, 
+{\bfseries Size\+\_\+12}, 
+{\bfseries Size\+\_\+24}
+ \}\label{fonts__display_8h_ad01c432ff53ae7a7a9a113344b79078d}
+
+\item 
+enum {\bfseries char\+Style\+\_\+t} \{ {\bfseries Regular}, 
+{\bfseries Bold}, 
+{\bfseries Emoji}
+ \}\label{fonts__display_8h_a2ae96251ed081fd7638040c156950691}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf s\+Bitmap\+\_\+t} $\ast$ {\bf V\+G\+A\+\_\+\+L\+\_\+get\+Bitmap} (char ascii\+\_\+char, char\+Size\+\_\+t size, char\+Style\+\_\+t style)
+\begin{DoxyCompactList}\small\item\em Get bitmapdata from gememory for A\+S\+C\+II character. \end{DoxyCompactList}\item 
+{\bf s\+Bitmap\+\_\+t} $\ast$ {\bf V\+G\+A\+\_\+\+L\+\_\+process\+Char\+Data} (char ascii\+\_\+char, char\+Size\+\_\+t size, char\+Style\+\_\+t style, {\bf s\+Position\+\_\+t} s\+Start\+Pos, {\bf color\+\_\+t} color)
+\begin{DoxyCompactList}\small\item\em Get bitmapdata from gememory for A\+S\+C\+II character. \end{DoxyCompactList}\item 
+void {\bf V\+G\+A\+\_\+\+L\+\_\+process\+String\+Data} (char $\ast$ascii\+\_\+string, char\+Size\+\_\+t size, char\+Style\+\_\+t style, {\bf s\+Position\+\_\+t} s\+Start\+Pos, {\bf color\+\_\+t} color)
+\begin{DoxyCompactList}\small\item\em Create string with processchardata. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Functions for retrieving bitmap data from memory and displaying them on the screen. 
+
+
+
+\subsection{Function Documentation}
+\index{fonts\+\_\+display.\+h@{fonts\+\_\+display.\+h}!V\+G\+A\+\_\+\+L\+\_\+get\+Bitmap@{V\+G\+A\+\_\+\+L\+\_\+get\+Bitmap}}
+\index{V\+G\+A\+\_\+\+L\+\_\+get\+Bitmap@{V\+G\+A\+\_\+\+L\+\_\+get\+Bitmap}!fonts\+\_\+display.\+h@{fonts\+\_\+display.\+h}}
+\subsubsection[{V\+G\+A\+\_\+\+L\+\_\+get\+Bitmap(char ascii\+\_\+char, char\+Size\+\_\+t size, char\+Style\+\_\+t style)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf s\+Bitmap\+\_\+t}$\ast$ V\+G\+A\+\_\+\+L\+\_\+get\+Bitmap (
+\begin{DoxyParamCaption}
+\item[{char}]{ascii\+\_\+char, }
+\item[{char\+Size\+\_\+t}]{size, }
+\item[{char\+Style\+\_\+t}]{style}
+\end{DoxyParamCaption}
+)}\label{fonts__display_8h_ace7ee4fc7f89fa1eda6537196405a9b9}
+
+
+Get bitmapdata from gememory for A\+S\+C\+II character. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & Select font size as defined in enumerated type char\+Size\+\_\+t \\
+\hline
+{\em style} & Select font style as defined in enumerated type char\+Style\+\_\+t \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Structure with chardata according to enumerated type \doxyref{s\+Bitmap\+\_\+t}{p.}{structs_bitmap__t} 
+\end{DoxyReturn}
+\index{fonts\+\_\+display.\+h@{fonts\+\_\+display.\+h}!V\+G\+A\+\_\+\+L\+\_\+process\+Char\+Data@{V\+G\+A\+\_\+\+L\+\_\+process\+Char\+Data}}
+\index{V\+G\+A\+\_\+\+L\+\_\+process\+Char\+Data@{V\+G\+A\+\_\+\+L\+\_\+process\+Char\+Data}!fonts\+\_\+display.\+h@{fonts\+\_\+display.\+h}}
+\subsubsection[{V\+G\+A\+\_\+\+L\+\_\+process\+Char\+Data(char ascii\+\_\+char, char\+Size\+\_\+t size, char\+Style\+\_\+t style, s\+Position\+\_\+t s\+Start\+Pos, color\+\_\+t color)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf s\+Bitmap\+\_\+t}$\ast$ V\+G\+A\+\_\+\+L\+\_\+process\+Char\+Data (
+\begin{DoxyParamCaption}
+\item[{char}]{ascii\+\_\+char, }
+\item[{char\+Size\+\_\+t}]{size, }
+\item[{char\+Style\+\_\+t}]{style, }
+\item[{{\bf s\+Position\+\_\+t}}]{s\+Start\+Pos, }
+\item[{{\bf color\+\_\+t}}]{color}
+\end{DoxyParamCaption}
+)}\label{fonts__display_8h_a534e04bb3c58cfc67cc84104ad1bb5f5}
+
+
+Get bitmapdata from gememory for A\+S\+C\+II character. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & Select font size as defined in enumerated type char\+Size\+\_\+t \\
+\hline
+{\em style} & Select font style as defined in enumerated type char\+Style\+\_\+t \\
+\hline
+{\em s\+Pos} & Start position of upperleft corner of char \\
+\hline
+{\em color} & color of the char \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Structure with chardata according to enumerated type \doxyref{s\+Bitmap\+\_\+t}{p.}{structs_bitmap__t} 
+\end{DoxyReturn}
+\index{fonts\+\_\+display.\+h@{fonts\+\_\+display.\+h}!V\+G\+A\+\_\+\+L\+\_\+process\+String\+Data@{V\+G\+A\+\_\+\+L\+\_\+process\+String\+Data}}
+\index{V\+G\+A\+\_\+\+L\+\_\+process\+String\+Data@{V\+G\+A\+\_\+\+L\+\_\+process\+String\+Data}!fonts\+\_\+display.\+h@{fonts\+\_\+display.\+h}}
+\subsubsection[{V\+G\+A\+\_\+\+L\+\_\+process\+String\+Data(char $\ast$ascii\+\_\+string, char\+Size\+\_\+t size, char\+Style\+\_\+t style, s\+Position\+\_\+t s\+Start\+Pos, color\+\_\+t color)}]{\setlength{\rightskip}{0pt plus 5cm}void V\+G\+A\+\_\+\+L\+\_\+process\+String\+Data (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{ascii\+\_\+string, }
+\item[{char\+Size\+\_\+t}]{size, }
+\item[{char\+Style\+\_\+t}]{style, }
+\item[{{\bf s\+Position\+\_\+t}}]{s\+Start\+Pos, }
+\item[{{\bf color\+\_\+t}}]{color}
+\end{DoxyParamCaption}
+)}\label{fonts__display_8h_ae598bedb0e2247cafdd4f520787d6d19}
+
+
+Create string with processchardata. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & Select font size as defined in enumerated type char\+Size\+\_\+t \\
+\hline
+{\em style} & Select font style as defined in enumerated type char\+Style\+\_\+t \\
+\hline
+{\em s\+Pos} & Start position of upperleft corner of char \\
+\hline
+{\em color} & color of the char \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Structure with chardata according to enumerated type \doxyref{s\+Bitmap\+\_\+t}{p.}{structs_bitmap__t} 
+\end{DoxyReturn}

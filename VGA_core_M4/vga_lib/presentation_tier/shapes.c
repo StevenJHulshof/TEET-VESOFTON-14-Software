@@ -23,7 +23,7 @@
 /**
  * @brief	Draws line on VGA screen.
  *
- * @param 	endPointPos[2]	End point positions of the line.
+ * @param 	endPointPos		End point positions of the line.
  * @param 	lineColor		Color of the line.
  * @param	lineWeight		Weight of the line.
  * @return	Status of operation.

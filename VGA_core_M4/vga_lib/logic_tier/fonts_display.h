@@ -37,7 +37,7 @@ sBitmap_t* VGA_L_getBitmap(char ascii_char, charSize_t size, charStyle_t style);
  * @param size	Select font size as defined in enumerated type charSize_t
  * @param style Select font style as defined in enumerated type charStyle_t
  * @param sPos  Start position of upperleft corner of char
- * @parm color color of the char
+ * @param color color of the char
  * @return	Structure with chardata according to enumerated type sBitmap_t
  */
 sBitmap_t* VGA_L_processCharData(	char ascii_char,
@@ -52,7 +52,7 @@ sBitmap_t* VGA_L_processCharData(	char ascii_char,
  * @param size	Select font size as defined in enumerated type charSize_t
  * @param style Select font style as defined in enumerated type charStyle_t
  * @param sPos  Start position of upperleft corner of char
- * @parm color color of the char
+ * @param color color of the char
  * @return	Structure with chardata according to enumerated type sBitmap_t
  */
 void VGA_L_processStringData(	char* ascii_string,

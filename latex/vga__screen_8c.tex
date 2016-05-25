@@ -1,0 +1,66 @@
+\section{V\+G\+A\+\_\+core\+\_\+\+M4/vga\+\_\+lib/data\+\_\+tier/vga\+\_\+screen.c File Reference}
+\label{vga__screen_8c}\index{V\+G\+A\+\_\+core\+\_\+\+M4/vga\+\_\+lib/data\+\_\+tier/vga\+\_\+screen.\+c@{V\+G\+A\+\_\+core\+\_\+\+M4/vga\+\_\+lib/data\+\_\+tier/vga\+\_\+screen.\+c}}
+
+
+V\+G\+A-\/out through G\+P\+IO. P\+B11 (H\+S\+Y\+NC), P\+B12 (V\+S\+Y\+NC), P\+E8+\+P\+E9 (B\+L\+UE), P\+E10-\/\+P\+E12 (G\+R\+E\+EN), P\+E13-\/\+P\+E15 (R\+ED).  
+
+
+{\ttfamily \#include \char`\"{}vga\+\_\+screen.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf V\+G\+A\+\_\+\+D\+\_\+screen\+Init} (void)\label{vga__screen_8c_a54818b513bc50721e3414724e81d63dc}
+
+\begin{DoxyCompactList}\small\item\em Initialize V\+GA screen. \end{DoxyCompactList}\item 
+void {\bf V\+G\+A\+\_\+\+D\+\_\+init\+Gpio} (void)\label{vga__screen_8c_ab19664a6f56c7b194d96c9efbe9fdb0d}
+
+\begin{DoxyCompactList}\small\item\em Initializes G\+P\+IO used for V\+GA output. \end{DoxyCompactList}\item 
+void {\bf V\+G\+A\+\_\+\+D\+\_\+init\+Timers} (void)\label{vga__screen_8c_a7f81e81736a511dc5962d38b6932f172}
+
+\begin{DoxyCompactList}\small\item\em Initializes V\+GA timers. \end{DoxyCompactList}\item 
+void {\bf V\+G\+A\+\_\+\+D\+\_\+init\+Interrupts} (void)\label{vga__screen_8c_ae0c623841b4a18c412d175c13941c090}
+
+\begin{DoxyCompactList}\small\item\em Initializes V\+GA interrupts. \end{DoxyCompactList}\item 
+void {\bf V\+G\+A\+\_\+\+D\+\_\+init\+Dma} (void)\label{vga__screen_8c_a759d1d311be7995699a6550ee2329d15}
+
+\begin{DoxyCompactList}\small\item\em Initializes V\+GA D\+MA. \end{DoxyCompactList}\item 
+void {\bf T\+I\+M2\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Timer 2 Interrupt. C\+C3-\/\+Interrupt -\/$>$ starts from D\+MA. \end{DoxyCompactList}\item 
+void {\bf D\+M\+A2\+\_\+\+Stream5\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em D\+MA interrupt I\+SR. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+V\+G\+A-\/out through G\+P\+IO. P\+B11 (H\+S\+Y\+NC), P\+B12 (V\+S\+Y\+NC), P\+E8+\+P\+E9 (B\+L\+UE), P\+E10-\/\+P\+E12 (G\+R\+E\+EN), P\+E13-\/\+P\+E15 (R\+ED). 
+
+
+
+\subsection{Function Documentation}
+\index{vga\+\_\+screen.\+c@{vga\+\_\+screen.\+c}!D\+M\+A2\+\_\+\+Stream5\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A2\+\_\+\+Stream5\+\_\+\+I\+R\+Q\+Handler}}
+\index{D\+M\+A2\+\_\+\+Stream5\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A2\+\_\+\+Stream5\+\_\+\+I\+R\+Q\+Handler}!vga\+\_\+screen.\+c@{vga\+\_\+screen.\+c}}
+\subsubsection[{D\+M\+A2\+\_\+\+Stream5\+\_\+\+I\+R\+Q\+Handler(void)}]{\setlength{\rightskip}{0pt plus 5cm}void D\+M\+A2\+\_\+\+Stream5\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{vga__screen_8c_aef190d87febc0414eb7a39bd4c2d2169}
+
+
+D\+MA interrupt I\+SR. 
+
+\begin{DoxyNote}{Note}
+After Transfer\+Complete\+Interrupt -\/$>$ stop D\+MA. Still a bit buggy. 
+\end{DoxyNote}
+\index{vga\+\_\+screen.\+c@{vga\+\_\+screen.\+c}!T\+I\+M2\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M2\+\_\+\+I\+R\+Q\+Handler}}
+\index{T\+I\+M2\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M2\+\_\+\+I\+R\+Q\+Handler}!vga\+\_\+screen.\+c@{vga\+\_\+screen.\+c}}
+\subsubsection[{T\+I\+M2\+\_\+\+I\+R\+Q\+Handler(void)}]{\setlength{\rightskip}{0pt plus 5cm}void T\+I\+M2\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{vga__screen_8c_a38ad4725462bdc5e86c4ead4f04b9fc2}
+
+
+Timer 2 Interrupt. C\+C3-\/\+Interrupt -\/$>$ starts from D\+MA. 
+
+\begin{DoxyNote}{Note}
+Higher trough put when interrupt flag is left alone 
+\end{DoxyNote}

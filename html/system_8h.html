@@ -4,10 +4,18 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>VGA_Lib: VGA_core_M4/lib/logic_tier/system.h File Reference</title>
+<title>VGA_lib: VGA_core_M4/vga_lib/logic_tier/system.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -23,7 +31,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">VGA_Lib
+   <div id="projectname">VGA_lib
+   &#160;<span id="projectnumber">1.0</span>
    </div>
   </td>
  </tr>
@@ -64,6 +73,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('system_8h.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -78,23 +102,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_032edb87c1122e3e937a79b7cc5729c3.html">VGA_core_M4</a></li><li class="navelem"><a class="el" href="dir_f1d2be9783e66995ad0459ba8d5db7b0.html">lib</a></li><li class="navelem"><a class="el" href="dir_54a01c21fd82559f46a45e5cf07136a3.html">logic_tier</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">system.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Defines and enumerations for the VGA-lib.  
+<p>Defines, data structures and enumerations for the VGA-lib.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;stm32_ub_vga_screen.h&quot;</code><br />
+<div class="textblock"><code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;stm32f4xx.h&quot;</code><br />
+<code>#include &quot;stm32f4xx_gpio.h&quot;</code><br />
+<code>#include &quot;stm32f4xx_rcc.h&quot;</code><br />
+<code>#include &quot;stm32f4xx_tim.h&quot;</code><br />
+<code>#include &quot;misc.h&quot;</code><br />
+<code>#include &quot;stm32f4xx_dma.h&quot;</code><br />
 </div>
 <p><a href="system_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -106,12 +135,116 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs_radii__t.html">sRadii_t</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Radii structure.  <a href="structs_radii__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_v_g_a__t.html">VGA_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">VGA data structure.  <a href="struct_v_g_a__t.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfont_style__t.html">fontStyle_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a78f316da3a87bf72cb1647786b64bf0e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78f316da3a87bf72cb1647786b64bf0e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#a78f316da3a87bf72cb1647786b64bf0e">MAX_SAMPLES</a>&#160;&#160;&#160;50</td></tr>
+<tr class="memdesc:a78f316da3a87bf72cb1647786b64bf0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of samples used to plot the primitive. <br /></td></tr>
+<tr class="separator:a78f316da3a87bf72cb1647786b64bf0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12c2040f25d8e3a7b9e1c2024c618cb6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a12c2040f25d8e3a7b9e1c2024c618cb6"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#a12c2040f25d8e3a7b9e1c2024c618cb6">INF</a>&#160;&#160;&#160;9999</td></tr>
+<tr class="memdesc:a12c2040f25d8e3a7b9e1c2024c618cb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro defining infinity. <br /></td></tr>
+<tr class="separator:a12c2040f25d8e3a7b9e1c2024c618cb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace7f348dc91111917772d3e19f8821d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ace7f348dc91111917772d3e19f8821d3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#ace7f348dc91111917772d3e19f8821d3">VGA_DISPLAY_X</a>&#160;&#160;&#160;320</td></tr>
+<tr class="memdesc:ace7f348dc91111917772d3e19f8821d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">VGA display width. <br /></td></tr>
+<tr class="separator:ace7f348dc91111917772d3e19f8821d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c3e46882b624fe1887d0ec6171d771b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c3e46882b624fe1887d0ec6171d771b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#a9c3e46882b624fe1887d0ec6171d771b">VGA_DISPLAY_Y</a>&#160;&#160;&#160;240</td></tr>
+<tr class="memdesc:a9c3e46882b624fe1887d0ec6171d771b"><td class="mdescLeft">&#160;</td><td class="mdescRight">VGA display height. <br /></td></tr>
+<tr class="separator:a9c3e46882b624fe1887d0ec6171d771b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9934465d996215f7e3a39f574116cd16"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9934465d996215f7e3a39f574116cd16"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#a9934465d996215f7e3a39f574116cd16">VGA_TIM1_PERIODE</a>&#160;&#160;&#160;11</td></tr>
+<tr class="memdesc:a9934465d996215f7e3a39f574116cd16"><td class="mdescLeft">&#160;</td><td class="mdescRight">VGA Timer 1 periode. <br /></td></tr>
+<tr class="separator:a9934465d996215f7e3a39f574116cd16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab20ff576649ab2c78f0f87b758c2705b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab20ff576649ab2c78f0f87b758c2705b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#ab20ff576649ab2c78f0f87b758c2705b">VGA_TIM1_PRESCALE</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:ab20ff576649ab2c78f0f87b758c2705b"><td class="mdescLeft">&#160;</td><td class="mdescRight">VGA Timer 1 prescaler. <br /></td></tr>
+<tr class="separator:ab20ff576649ab2c78f0f87b758c2705b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6781ff356015bb423813eb349582faa3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6781ff356015bb423813eb349582faa3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#a6781ff356015bb423813eb349582faa3">VGA_TIM2_HSYNC_PERIODE</a>&#160;&#160;&#160;2667</td></tr>
+<tr class="memdesc:a6781ff356015bb423813eb349582faa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">VGA Timer 2 HSync periode. <br /></td></tr>
+<tr class="separator:a6781ff356015bb423813eb349582faa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0124ad9d53b4c2af5902820421aea02"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0124ad9d53b4c2af5902820421aea02"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#ae0124ad9d53b4c2af5902820421aea02">VGA_TIM2_HSYNC_PRESCALE</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:ae0124ad9d53b4c2af5902820421aea02"><td class="mdescLeft">&#160;</td><td class="mdescRight">VGA Timer 2 HSync prescaler. <br /></td></tr>
+<tr class="separator:ae0124ad9d53b4c2af5902820421aea02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3ef518a75a4d574f2a36ce343157676"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad3ef518a75a4d574f2a36ce343157676"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#ad3ef518a75a4d574f2a36ce343157676">VGA_TIM2_HSYNC_IMP</a>&#160;&#160;&#160;320</td></tr>
+<tr class="memdesc:ad3ef518a75a4d574f2a36ce343157676"><td class="mdescLeft">&#160;</td><td class="mdescRight">VGA Timer 2 HSync - length (3.81 us). <br /></td></tr>
+<tr class="separator:ad3ef518a75a4d574f2a36ce343157676"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dabd74236cb9b42d94ccc7435176d40"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5dabd74236cb9b42d94ccc7435176d40"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#a5dabd74236cb9b42d94ccc7435176d40">VGA_TIM2_HTRIGGER_START</a>&#160;&#160;&#160;480</td></tr>
+<tr class="memdesc:a5dabd74236cb9b42d94ccc7435176d40"><td class="mdescLeft">&#160;</td><td class="mdescRight">VGA Timer 2 HSync + Backporch (5.71 us). <br /></td></tr>
+<tr class="separator:a5dabd74236cb9b42d94ccc7435176d40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0447f6b6430a8c09536288b2b01abb4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0447f6b6430a8c09536288b2b01abb4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#ae0447f6b6430a8c09536288b2b01abb4">VGA_TIM2_DMA_DELAY</a>&#160;&#160;&#160;60</td></tr>
+<tr class="memdesc:ae0447f6b6430a8c09536288b2b01abb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">VGA Timer 2 DMA delay. <br /></td></tr>
+<tr class="separator:ae0447f6b6430a8c09536288b2b01abb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73e729af6a6a2eb20ef3804cf794e4bd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73e729af6a6a2eb20ef3804cf794e4bd"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#a73e729af6a6a2eb20ef3804cf794e4bd">VGA_VSYNC_PERIODE</a>&#160;&#160;&#160;525</td></tr>
+<tr class="memdesc:a73e729af6a6a2eb20ef3804cf794e4bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">VGA VSync periode. <br /></td></tr>
+<tr class="separator:a73e729af6a6a2eb20ef3804cf794e4bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3c951f66600690235db2c93e74bc82f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad3c951f66600690235db2c93e74bc82f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#ad3c951f66600690235db2c93e74bc82f">VGA_VSYNC_IMP</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memdesc:ad3c951f66600690235db2c93e74bc82f"><td class="mdescLeft">&#160;</td><td class="mdescRight">VGA VSync IMP. <br /></td></tr>
+<tr class="separator:ad3c951f66600690235db2c93e74bc82f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bf220647b6ad6187cc358cbffbb74fc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1bf220647b6ad6187cc358cbffbb74fc"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#a1bf220647b6ad6187cc358cbffbb74fc">VGA_VSYNC_BILD_START</a>&#160;&#160;&#160;36</td></tr>
+<tr class="memdesc:a1bf220647b6ad6187cc358cbffbb74fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">VGA VSync BILD start. <br /></td></tr>
+<tr class="separator:a1bf220647b6ad6187cc358cbffbb74fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf14fb3313d4de9367100e2dcddcd39f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abf14fb3313d4de9367100e2dcddcd39f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#abf14fb3313d4de9367100e2dcddcd39f">VGA_VSYNC_BILD_STOP</a>&#160;&#160;&#160;514</td></tr>
+<tr class="memdesc:abf14fb3313d4de9367100e2dcddcd39f"><td class="mdescLeft">&#160;</td><td class="mdescRight">VGA VSync BILD stop (16.38 ms). <br /></td></tr>
+<tr class="separator:abf14fb3313d4de9367100e2dcddcd39f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a758dadcf25d5a3b26f4791e9a332f1bb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a758dadcf25d5a3b26f4791e9a332f1bb"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#a758dadcf25d5a3b26f4791e9a332f1bb">VGA_GPIOE_BASE_ADR</a>&#160;&#160;&#160;((uint32_t)0x40021000)</td></tr>
+<tr class="memdesc:a758dadcf25d5a3b26f4791e9a332f1bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">VGA GPIO E address. <br /></td></tr>
+<tr class="separator:a758dadcf25d5a3b26f4791e9a332f1bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af70daf7e1e57589c259536efc1187d6c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af70daf7e1e57589c259536efc1187d6c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#af70daf7e1e57589c259536efc1187d6c">VGA_GPIO_ODR_OFFSET</a>&#160;&#160;&#160;((uint32_t)0x00000014)</td></tr>
+<tr class="memdesc:af70daf7e1e57589c259536efc1187d6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">VGA GPIO ODR address. <br /></td></tr>
+<tr class="separator:af70daf7e1e57589c259536efc1187d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3336e31bfbbd8199e506f39164a19eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3336e31bfbbd8199e506f39164a19eb"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#ac3336e31bfbbd8199e506f39164a19eb">VGA_GPIO_BYTE_OFFSET</a>&#160;&#160;&#160;((uint32_t)0x00000001)</td></tr>
+<tr class="memdesc:ac3336e31bfbbd8199e506f39164a19eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">VGA GPIO data byte. <br /></td></tr>
+<tr class="separator:ac3336e31bfbbd8199e506f39164a19eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fb72da69dd330b1ebbff2b8550d1db2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2fb72da69dd330b1ebbff2b8550d1db2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#a2fb72da69dd330b1ebbff2b8550d1db2">VGA_GPIOE_ODR_ADDRESS</a>&#160;&#160;&#160;(<a class="el" href="system_8h.html#a758dadcf25d5a3b26f4791e9a332f1bb">VGA_GPIOE_BASE_ADR</a> | <a class="el" href="system_8h.html#af70daf7e1e57589c259536efc1187d6c">VGA_GPIO_ODR_OFFSET</a> | <a class="el" href="system_8h.html#ac3336e31bfbbd8199e506f39164a19eb">VGA_GPIO_BYTE_OFFSET</a>)</td></tr>
+<tr class="memdesc:a2fb72da69dd330b1ebbff2b8550d1db2"><td class="mdescLeft">&#160;</td><td class="mdescRight">VGA GPIO E ODR address. <br /></td></tr>
+<tr class="separator:a2fb72da69dd330b1ebbff2b8550d1db2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a114dc879235023dc8e6f360a6f487a6b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a114dc879235023dc8e6f360a6f487a6b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#a114dc879235023dc8e6f360a6f487a6b">VGA_GPIO_HINIBBLE</a>&#160;&#160;&#160;((uint16_t)0xFF00)</td></tr>
+<tr class="memdesc:a114dc879235023dc8e6f360a6f487a6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">VGA GPIO high nibble (GP8 to GP15). <br /></td></tr>
+<tr class="separator:a114dc879235023dc8e6f360a6f487a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:af9bff8ff1154a04a899276af806b8586"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af9bff8ff1154a04a899276af806b8586"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a> { <b>VGA_SUCCESS</b>, 
-<b>VGA_PIXEL_NOT_SET</b>, 
-<b>VGA_ERROR_ARGUMENT_OUT_OF_BOUNDS</b>
+<tr class="memitem:a06fc87d81c62e9abb8790b6e5713c55b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06fc87d81c62e9abb8790b6e5713c55b"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>MIN</b>, 
+<b>MAX</b>
+ }<tr class="memdesc:a06fc87d81c62e9abb8790b6e5713c55b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Image border minimum and maximum. <br /></td></tr>
+</td></tr>
+<tr class="separator:a06fc87d81c62e9abb8790b6e5713c55b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9bff8ff1154a04a899276af806b8586"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af9bff8ff1154a04a899276af806b8586"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a> { <br />
+&#160;&#160;<b>VGA_SUCCESS</b> = 0x00, 
+<b>VGA_PIXEL_NOT_SET</b> = 0x01, 
+<b>VGA_LINE_COL_OUT_OF_BOUNDS</b> = 0x02, 
+<b>VGA_FILL_COL_OUT_OF_BOUNDS</b> = 0x03, 
+<br />
+&#160;&#160;<b>VGA_LINE_WEIGHT_OUT_OF_BOUNDS</b> = 0x04, 
+<b>VGA_RADII_OUT_OF_BOUNDS</b> = 0x05, 
+<b>VGA_PIXEL_OUT_OF_SCREEN</b> = 0x06, 
+<b>VGA_STRING_INVALID_FONTSTYLE</b> = 0x07, 
+<br />
+&#160;&#160;<b>VGA_STRING_INVALID_FONTSIZE</b> = 0x08, 
+<b>VGA_STRING_COL_OUT_OF_BOUNDS</b> = 0x09
+<br />
  }<tr class="memdesc:af9bff8ff1154a04a899276af806b8586"><td class="mdescLeft">&#160;</td><td class="mdescRight">Status codes. <br /></td></tr>
 </td></tr>
 <tr class="separator:af9bff8ff1154a04a899276af806b8586"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,20 +259,53 @@ Enumerations</h2></td></tr>
 <b>VGA_COL_MAGENTA</b> = 0xE3, 
 <b>VGA_COL_YELLOW</b> = 0xFC, 
 <br />
-&#160;&#160;<b>VGA_COL_TRANSPARANT</b> = -0x01
+&#160;&#160;<b>VGA_COL_TRANSPARENT</b> = -0x01
 <br />
  }<tr class="memdesc:a0a8ef1b5e1941b7257e545cc33405ff1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default color scheme. <br /></td></tr>
 </td></tr>
 <tr class="separator:a0a8ef1b5e1941b7257e545cc33405ff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad01c256642a27f55a733384a49a8b3d7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad01c256642a27f55a733384a49a8b3d7"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#ad01c256642a27f55a733384a49a8b3d7">primitiveShape_t</a> { <br />
+&#160;&#160;<b>VGA_TRIANGLE</b> = 0x03, 
+<b>VGA_SQUARE</b> = 0x04, 
+<b>VGA_PENTAGON</b> = 0x05, 
+<b>VGA_HEXAGON</b> = 0x06, 
+<br />
+&#160;&#160;<b>VGA_HEPTAGON</b> = 0x07, 
+<b>VGA_OCTAGON</b> = 0x08, 
+<b>VGA_NONAGON</b> = 0x09, 
+<b>VGA_DECAGON</b> = 0x0A, 
+<br />
+&#160;&#160;<b>VGA_ELLIPSE</b> = 0x19
+<br />
+ }<tr class="memdesc:ad01c256642a27f55a733384a49a8b3d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default primitive shapes. <br /></td></tr>
+</td></tr>
+<tr class="separator:ad01c256642a27f55a733384a49a8b3d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62197901e3d9af649431aae28f33723b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a62197901e3d9af649431aae28f33723b"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#a62197901e3d9af649431aae28f33723b">bloomIntensity_t</a> { <br />
+&#160;&#160;<b>VGA_BLOOM_INT_1</b> = 0x01, 
+<b>VGA_BLOOM_INT_2</b> = 0x02, 
+<b>VGA_BLOOM_INT_3</b> = 0x03, 
+<b>VGA_BLOOM_INT_4</b> = 0x04, 
+<br />
+&#160;&#160;<b>VGA_BLOOM_INT_5</b> = 0x05, 
+<b>VGA_BLOOM_INT_6</b> = 0x06, 
+<b>VGA_BLOOM_INT_7</b> = 0x07
+<br />
+ }<tr class="memdesc:a62197901e3d9af649431aae28f33723b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Usable bloom intensities. <br /></td></tr>
+</td></tr>
+<tr class="separator:a62197901e3d9af649431aae28f33723b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Defines and enumerations for the VGA-lib. </p>
+<div class="textblock"><p>Defines, data structures and enumerations for the VGA-lib. </p>
 </div></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.11
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_032edb87c1122e3e937a79b7cc5729c3.html">VGA_core_M4</a></li><li class="navelem"><a class="el" href="dir_2391b2017ee43478c60ba9104ef297cc.html">vga_lib</a></li><li class="navelem"><a class="el" href="dir_469e405c7c15154e6556047791a4ab3f.html">logic_tier</a></li><li class="navelem"><a class="el" href="system_8h.html">system.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+  </ul>
+</div>
 </body>
 </html>

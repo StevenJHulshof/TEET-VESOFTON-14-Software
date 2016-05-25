@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['y',['y',['../structs_position__t.html#a0a2f84ed7838f07779ae24c5a9086d33',1,'sPosition_t']]]
+  ['vga',['VGA',['../vga__screen_8h.html#a0642526bfd4eb59d888572150ee3032a',1,'vga_screen.h']]],
+  ['vga_5fram1',['VGA_RAM1',['../vga__screen_8h.html#a1540c5b767f19e426885709d6aa34e35',1,'vga_screen.h']]]
 ];
