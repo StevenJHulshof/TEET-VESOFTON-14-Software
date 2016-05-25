@@ -1,5 +1,5 @@
-\hypertarget{pixel__data_8c}{}\section{V\+G\+A\+\_\+core\+\_\+\+M4/lib/logic\+\_\+tier/pixel\+\_\+data.c File Reference}
-\label{pixel__data_8c}\index{V\+G\+A\+\_\+core\+\_\+\+M4/lib/logic\+\_\+tier/pixel\+\_\+data.\+c@{V\+G\+A\+\_\+core\+\_\+\+M4/lib/logic\+\_\+tier/pixel\+\_\+data.\+c}}
+\section{V\+G\+A\+\_\+core\+\_\+\+M4/vga\+\_\+lib/logic\+\_\+tier/pixel\+\_\+data.c File Reference}
+\label{pixel__data_8c}\index{V\+G\+A\+\_\+core\+\_\+\+M4/vga\+\_\+lib/logic\+\_\+tier/pixel\+\_\+data.\+c@{V\+G\+A\+\_\+core\+\_\+\+M4/vga\+\_\+lib/logic\+\_\+tier/pixel\+\_\+data.\+c}}
 
 
 Functions for manipulating the V\+G\+A\+\_\+\+R\+AM.  
@@ -9,11 +9,11 @@ Functions for manipulating the V\+G\+A\+\_\+\+R\+AM.
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{system_8h_af9bff8ff1154a04a899276af806b8586}{status\+\_\+t} \hyperlink{pixel__data_8c_ac6f8d6b5c836239ed791eb3211151226}{V\+G\+A\+\_\+set\+Pixel\+Data} (\hyperlink{structs_position__t}{s\+Position\+\_\+t} $\ast$position, \hyperlink{system_8h_a0a8ef1b5e1941b7257e545cc33405ff1}{color\+\_\+t} color)
+{\bf status\+\_\+t} {\bf V\+G\+A\+\_\+\+L\+\_\+set\+Pixel\+Data} ({\bf s\+Position\+\_\+t} $\ast$position, {\bf color\+\_\+t} color)
 \begin{DoxyCompactList}\small\item\em Set pixel color into frame buffer. \end{DoxyCompactList}\item 
-\hyperlink{system_8h_a0a8ef1b5e1941b7257e545cc33405ff1}{color\+\_\+t} \hyperlink{pixel__data_8c_a53814a7a52c74cf8d15462adac549a35}{V\+G\+A\+\_\+get\+Pixel\+Data} (\hyperlink{structs_position__t}{s\+Position\+\_\+t} $\ast$position)
+{\bf color\+\_\+t} {\bf V\+G\+A\+\_\+\+L\+\_\+get\+Pixel\+Data} ({\bf s\+Position\+\_\+t} $\ast$position)
 \begin{DoxyCompactList}\small\item\em Get pixel data from frame buffer. \end{DoxyCompactList}\item 
-\hyperlink{system_8h_af9bff8ff1154a04a899276af806b8586}{status\+\_\+t} \hyperlink{pixel__data_8c_ad8c4a6dae36d42489b11332985e01baa}{V\+G\+A\+\_\+process\+Screen\+Data} (\hyperlink{system_8h_a0a8ef1b5e1941b7257e545cc33405ff1}{color\+\_\+t} color)
+{\bf status\+\_\+t} {\bf V\+G\+A\+\_\+\+L\+\_\+process\+Screen\+Data} ({\bf color\+\_\+t} color)
 \begin{DoxyCompactList}\small\item\em Fills screen with the input color. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -23,13 +23,13 @@ Functions for manipulating the V\+G\+A\+\_\+\+R\+AM.
 
 
 \subsection{Function Documentation}
-\index{pixel\+\_\+data.\+c@{pixel\+\_\+data.\+c}!V\+G\+A\+\_\+get\+Pixel\+Data@{V\+G\+A\+\_\+get\+Pixel\+Data}}
-\index{V\+G\+A\+\_\+get\+Pixel\+Data@{V\+G\+A\+\_\+get\+Pixel\+Data}!pixel\+\_\+data.\+c@{pixel\+\_\+data.\+c}}
-\subsubsection[{\texorpdfstring{V\+G\+A\+\_\+get\+Pixel\+Data(s\+Position\+\_\+t $\ast$position)}{VGA_getPixelData(sPosition_t *position)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf color\+\_\+t} V\+G\+A\+\_\+get\+Pixel\+Data (
+\index{pixel\+\_\+data.\+c@{pixel\+\_\+data.\+c}!V\+G\+A\+\_\+\+L\+\_\+get\+Pixel\+Data@{V\+G\+A\+\_\+\+L\+\_\+get\+Pixel\+Data}}
+\index{V\+G\+A\+\_\+\+L\+\_\+get\+Pixel\+Data@{V\+G\+A\+\_\+\+L\+\_\+get\+Pixel\+Data}!pixel\+\_\+data.\+c@{pixel\+\_\+data.\+c}}
+\subsubsection[{V\+G\+A\+\_\+\+L\+\_\+get\+Pixel\+Data(s\+Position\+\_\+t $\ast$position)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf color\+\_\+t} V\+G\+A\+\_\+\+L\+\_\+get\+Pixel\+Data (
 \begin{DoxyParamCaption}
 \item[{{\bf s\+Position\+\_\+t} $\ast$}]{position}
 \end{DoxyParamCaption}
-)}\hypertarget{pixel__data_8c_a53814a7a52c74cf8d15462adac549a35}{}\label{pixel__data_8c_a53814a7a52c74cf8d15462adac549a35}
+)}\label{pixel__data_8c_afd1e6a2128186dd1c18f6c99c0a302ba}
 
 
 Get pixel data from frame buffer. 
@@ -42,13 +42,13 @@ Get pixel data from frame buffer.
 \begin{DoxyReturn}{Returns}
 color Color of the pixel. 
 \end{DoxyReturn}
-\index{pixel\+\_\+data.\+c@{pixel\+\_\+data.\+c}!V\+G\+A\+\_\+process\+Screen\+Data@{V\+G\+A\+\_\+process\+Screen\+Data}}
-\index{V\+G\+A\+\_\+process\+Screen\+Data@{V\+G\+A\+\_\+process\+Screen\+Data}!pixel\+\_\+data.\+c@{pixel\+\_\+data.\+c}}
-\subsubsection[{\texorpdfstring{V\+G\+A\+\_\+process\+Screen\+Data(color\+\_\+t color)}{VGA_processScreenData(color_t color)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf status\+\_\+t} V\+G\+A\+\_\+process\+Screen\+Data (
+\index{pixel\+\_\+data.\+c@{pixel\+\_\+data.\+c}!V\+G\+A\+\_\+\+L\+\_\+process\+Screen\+Data@{V\+G\+A\+\_\+\+L\+\_\+process\+Screen\+Data}}
+\index{V\+G\+A\+\_\+\+L\+\_\+process\+Screen\+Data@{V\+G\+A\+\_\+\+L\+\_\+process\+Screen\+Data}!pixel\+\_\+data.\+c@{pixel\+\_\+data.\+c}}
+\subsubsection[{V\+G\+A\+\_\+\+L\+\_\+process\+Screen\+Data(color\+\_\+t color)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf status\+\_\+t} V\+G\+A\+\_\+\+L\+\_\+process\+Screen\+Data (
 \begin{DoxyParamCaption}
 \item[{{\bf color\+\_\+t}}]{color}
 \end{DoxyParamCaption}
-)}\hypertarget{pixel__data_8c_ad8c4a6dae36d42489b11332985e01baa}{}\label{pixel__data_8c_ad8c4a6dae36d42489b11332985e01baa}
+)}\label{pixel__data_8c_affdd593bdf459df30306e3d579f2bde5}
 
 
 Fills screen with the input color. 
@@ -61,14 +61,14 @@ Fills screen with the input color.
 \begin{DoxyReturn}{Returns}
 Status of operation. 
 \end{DoxyReturn}
-\index{pixel\+\_\+data.\+c@{pixel\+\_\+data.\+c}!V\+G\+A\+\_\+set\+Pixel\+Data@{V\+G\+A\+\_\+set\+Pixel\+Data}}
-\index{V\+G\+A\+\_\+set\+Pixel\+Data@{V\+G\+A\+\_\+set\+Pixel\+Data}!pixel\+\_\+data.\+c@{pixel\+\_\+data.\+c}}
-\subsubsection[{\texorpdfstring{V\+G\+A\+\_\+set\+Pixel\+Data(s\+Position\+\_\+t $\ast$position, color\+\_\+t color)}{VGA_setPixelData(sPosition_t *position, color_t color)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf status\+\_\+t} V\+G\+A\+\_\+set\+Pixel\+Data (
+\index{pixel\+\_\+data.\+c@{pixel\+\_\+data.\+c}!V\+G\+A\+\_\+\+L\+\_\+set\+Pixel\+Data@{V\+G\+A\+\_\+\+L\+\_\+set\+Pixel\+Data}}
+\index{V\+G\+A\+\_\+\+L\+\_\+set\+Pixel\+Data@{V\+G\+A\+\_\+\+L\+\_\+set\+Pixel\+Data}!pixel\+\_\+data.\+c@{pixel\+\_\+data.\+c}}
+\subsubsection[{V\+G\+A\+\_\+\+L\+\_\+set\+Pixel\+Data(s\+Position\+\_\+t $\ast$position, color\+\_\+t color)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf status\+\_\+t} V\+G\+A\+\_\+\+L\+\_\+set\+Pixel\+Data (
 \begin{DoxyParamCaption}
 \item[{{\bf s\+Position\+\_\+t} $\ast$}]{position, }
 \item[{{\bf color\+\_\+t}}]{color}
 \end{DoxyParamCaption}
-)}\hypertarget{pixel__data_8c_ac6f8d6b5c836239ed791eb3211151226}{}\label{pixel__data_8c_ac6f8d6b5c836239ed791eb3211151226}
+)}\label{pixel__data_8c_a9c7f392b51af95ef6706765da53ffcfc}
 
 
 Set pixel color into frame buffer. 

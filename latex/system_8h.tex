@@ -1,28 +1,119 @@
-\hypertarget{system_8h}{}\section{V\+G\+A\+\_\+core\+\_\+\+M4/lib/logic\+\_\+tier/system.h File Reference}
-\label{system_8h}\index{V\+G\+A\+\_\+core\+\_\+\+M4/lib/logic\+\_\+tier/system.\+h@{V\+G\+A\+\_\+core\+\_\+\+M4/lib/logic\+\_\+tier/system.\+h}}
+\section{V\+G\+A\+\_\+core\+\_\+\+M4/vga\+\_\+lib/logic\+\_\+tier/system.h File Reference}
+\label{system_8h}\index{V\+G\+A\+\_\+core\+\_\+\+M4/vga\+\_\+lib/logic\+\_\+tier/system.\+h@{V\+G\+A\+\_\+core\+\_\+\+M4/vga\+\_\+lib/logic\+\_\+tier/system.\+h}}
 
 
-Defines and enumerations for the V\+G\+A-\/lib.  
+Defines, data structures and enumerations for the V\+G\+A-\/lib.  
 
 
-{\ttfamily \#include \char`\"{}stm32\+\_\+ub\+\_\+vga\+\_\+screen.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}stm32f4xx.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stm32f4xx\+\_\+gpio.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stm32f4xx\+\_\+rcc.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stm32f4xx\+\_\+tim.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}misc.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stm32f4xx\+\_\+dma.\+h\char`\"{}}\\*
 \subsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
-struct \hyperlink{structs_position__t}{s\+Position\+\_\+t}
+struct {\bf s\+Position\+\_\+t}
 \begin{DoxyCompactList}\small\item\em Position structure. \end{DoxyCompactList}\item 
-struct \hyperlink{structs_radii__t}{s\+Radii\+\_\+t}
-\begin{DoxyCompactList}\small\item\em Radii structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+struct {\bf s\+Radii\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Radii structure. \end{DoxyCompactList}\item 
+struct {\bf V\+G\+A\+\_\+t}
+\begin{DoxyCompactList}\small\item\em V\+GA data structure. \end{DoxyCompactList}\item 
+struct {\bf font\+Style\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf M\+A\+X\+\_\+\+S\+A\+M\+P\+L\+ES}~50\label{system_8h_a78f316da3a87bf72cb1647786b64bf0e}
+
+\begin{DoxyCompactList}\small\item\em Number of samples used to plot the primitive. \end{DoxyCompactList}\item 
+\#define {\bf I\+NF}~9999\label{system_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}
+
+\begin{DoxyCompactList}\small\item\em Macro defining infinity. \end{DoxyCompactList}\item 
+\#define {\bf V\+G\+A\+\_\+\+D\+I\+S\+P\+L\+A\+Y\+\_\+X}~320\label{system_8h_ace7f348dc91111917772d3e19f8821d3}
+
+\begin{DoxyCompactList}\small\item\em V\+GA display width. \end{DoxyCompactList}\item 
+\#define {\bf V\+G\+A\+\_\+\+D\+I\+S\+P\+L\+A\+Y\+\_\+Y}~240\label{system_8h_a9c3e46882b624fe1887d0ec6171d771b}
+
+\begin{DoxyCompactList}\small\item\em V\+GA display height. \end{DoxyCompactList}\item 
+\#define {\bf V\+G\+A\+\_\+\+T\+I\+M1\+\_\+\+P\+E\+R\+I\+O\+DE}~11\label{system_8h_a9934465d996215f7e3a39f574116cd16}
+
+\begin{DoxyCompactList}\small\item\em V\+GA Timer 1 periode. \end{DoxyCompactList}\item 
+\#define {\bf V\+G\+A\+\_\+\+T\+I\+M1\+\_\+\+P\+R\+E\+S\+C\+A\+LE}~0\label{system_8h_ab20ff576649ab2c78f0f87b758c2705b}
+
+\begin{DoxyCompactList}\small\item\em V\+GA Timer 1 prescaler. \end{DoxyCompactList}\item 
+\#define {\bf V\+G\+A\+\_\+\+T\+I\+M2\+\_\+\+H\+S\+Y\+N\+C\+\_\+\+P\+E\+R\+I\+O\+DE}~2667\label{system_8h_a6781ff356015bb423813eb349582faa3}
+
+\begin{DoxyCompactList}\small\item\em V\+GA Timer 2 H\+Sync periode. \end{DoxyCompactList}\item 
+\#define {\bf V\+G\+A\+\_\+\+T\+I\+M2\+\_\+\+H\+S\+Y\+N\+C\+\_\+\+P\+R\+E\+S\+C\+A\+LE}~0\label{system_8h_ae0124ad9d53b4c2af5902820421aea02}
+
+\begin{DoxyCompactList}\small\item\em V\+GA Timer 2 H\+Sync prescaler. \end{DoxyCompactList}\item 
+\#define {\bf V\+G\+A\+\_\+\+T\+I\+M2\+\_\+\+H\+S\+Y\+N\+C\+\_\+\+I\+MP}~320\label{system_8h_ad3ef518a75a4d574f2a36ce343157676}
+
+\begin{DoxyCompactList}\small\item\em V\+GA Timer 2 H\+Sync -\/ length (3.\+81 us). \end{DoxyCompactList}\item 
+\#define {\bf V\+G\+A\+\_\+\+T\+I\+M2\+\_\+\+H\+T\+R\+I\+G\+G\+E\+R\+\_\+\+S\+T\+A\+RT}~480\label{system_8h_a5dabd74236cb9b42d94ccc7435176d40}
+
+\begin{DoxyCompactList}\small\item\em V\+GA Timer 2 H\+Sync + Backporch (5.\+71 us). \end{DoxyCompactList}\item 
+\#define {\bf V\+G\+A\+\_\+\+T\+I\+M2\+\_\+\+D\+M\+A\+\_\+\+D\+E\+L\+AY}~60\label{system_8h_ae0447f6b6430a8c09536288b2b01abb4}
+
+\begin{DoxyCompactList}\small\item\em V\+GA Timer 2 D\+MA delay. \end{DoxyCompactList}\item 
+\#define {\bf V\+G\+A\+\_\+\+V\+S\+Y\+N\+C\+\_\+\+P\+E\+R\+I\+O\+DE}~525\label{system_8h_a73e729af6a6a2eb20ef3804cf794e4bd}
+
+\begin{DoxyCompactList}\small\item\em V\+GA V\+Sync periode. \end{DoxyCompactList}\item 
+\#define {\bf V\+G\+A\+\_\+\+V\+S\+Y\+N\+C\+\_\+\+I\+MP}~2\label{system_8h_ad3c951f66600690235db2c93e74bc82f}
+
+\begin{DoxyCompactList}\small\item\em V\+GA V\+Sync I\+MP. \end{DoxyCompactList}\item 
+\#define {\bf V\+G\+A\+\_\+\+V\+S\+Y\+N\+C\+\_\+\+B\+I\+L\+D\+\_\+\+S\+T\+A\+RT}~36\label{system_8h_a1bf220647b6ad6187cc358cbffbb74fc}
+
+\begin{DoxyCompactList}\small\item\em V\+GA V\+Sync B\+I\+LD start. \end{DoxyCompactList}\item 
+\#define {\bf V\+G\+A\+\_\+\+V\+S\+Y\+N\+C\+\_\+\+B\+I\+L\+D\+\_\+\+S\+T\+OP}~514\label{system_8h_abf14fb3313d4de9367100e2dcddcd39f}
+
+\begin{DoxyCompactList}\small\item\em V\+GA V\+Sync B\+I\+LD stop (16.\+38 ms). \end{DoxyCompactList}\item 
+\#define {\bf V\+G\+A\+\_\+\+G\+P\+I\+O\+E\+\_\+\+B\+A\+S\+E\+\_\+\+A\+DR}~((uint32\+\_\+t)0x40021000)\label{system_8h_a758dadcf25d5a3b26f4791e9a332f1bb}
+
+\begin{DoxyCompactList}\small\item\em V\+GA G\+P\+IO E address. \end{DoxyCompactList}\item 
+\#define {\bf V\+G\+A\+\_\+\+G\+P\+I\+O\+\_\+\+O\+D\+R\+\_\+\+O\+F\+F\+S\+ET}~((uint32\+\_\+t)0x00000014)\label{system_8h_af70daf7e1e57589c259536efc1187d6c}
+
+\begin{DoxyCompactList}\small\item\em V\+GA G\+P\+IO O\+DR address. \end{DoxyCompactList}\item 
+\#define {\bf V\+G\+A\+\_\+\+G\+P\+I\+O\+\_\+\+B\+Y\+T\+E\+\_\+\+O\+F\+F\+S\+ET}~((uint32\+\_\+t)0x00000001)\label{system_8h_ac3336e31bfbbd8199e506f39164a19eb}
+
+\begin{DoxyCompactList}\small\item\em V\+GA G\+P\+IO data byte. \end{DoxyCompactList}\item 
+\#define {\bf V\+G\+A\+\_\+\+G\+P\+I\+O\+E\+\_\+\+O\+D\+R\+\_\+\+A\+D\+D\+R\+E\+SS}~({\bf V\+G\+A\+\_\+\+G\+P\+I\+O\+E\+\_\+\+B\+A\+S\+E\+\_\+\+A\+DR} $\vert$ {\bf V\+G\+A\+\_\+\+G\+P\+I\+O\+\_\+\+O\+D\+R\+\_\+\+O\+F\+F\+S\+ET} $\vert$ {\bf V\+G\+A\+\_\+\+G\+P\+I\+O\+\_\+\+B\+Y\+T\+E\+\_\+\+O\+F\+F\+S\+ET})\label{system_8h_a2fb72da69dd330b1ebbff2b8550d1db2}
+
+\begin{DoxyCompactList}\small\item\em V\+GA G\+P\+IO E O\+DR address. \end{DoxyCompactList}\item 
+\#define {\bf V\+G\+A\+\_\+\+G\+P\+I\+O\+\_\+\+H\+I\+N\+I\+B\+B\+LE}~((uint16\+\_\+t)0x\+F\+F00)\label{system_8h_a114dc879235023dc8e6f360a6f487a6b}
+
+\begin{DoxyCompactList}\small\item\em V\+GA G\+P\+IO high nibble (G\+P8 to G\+P15). \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum \hyperlink{system_8h_af9bff8ff1154a04a899276af806b8586}{status\+\_\+t} \{ {\bfseries V\+G\+A\+\_\+\+S\+U\+C\+C\+E\+SS}, 
-{\bfseries V\+G\+A\+\_\+\+P\+I\+X\+E\+L\+\_\+\+N\+O\+T\+\_\+\+S\+ET}, 
-{\bfseries V\+G\+A\+\_\+\+E\+R\+R\+O\+R\+\_\+\+A\+R\+G\+U\+M\+E\+N\+T\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+B\+O\+U\+N\+DS}
- \}\hypertarget{system_8h_af9bff8ff1154a04a899276af806b8586}{}\label{system_8h_af9bff8ff1154a04a899276af806b8586}
+enum \{ {\bfseries M\+IN}, 
+{\bfseries M\+AX}
+ \}\label{system_8h_a06fc87d81c62e9abb8790b6e5713c55b}
+\begin{DoxyCompactList}\small\item\em Image border minimum and maximum. \end{DoxyCompactList}
+\item 
+enum {\bf status\+\_\+t} \{ \\*
+{\bfseries V\+G\+A\+\_\+\+S\+U\+C\+C\+E\+SS} = 0x00, 
+{\bfseries V\+G\+A\+\_\+\+P\+I\+X\+E\+L\+\_\+\+N\+O\+T\+\_\+\+S\+ET} = 0x01, 
+{\bfseries V\+G\+A\+\_\+\+L\+I\+N\+E\+\_\+\+C\+O\+L\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+B\+O\+U\+N\+DS} = 0x02, 
+{\bfseries V\+G\+A\+\_\+\+F\+I\+L\+L\+\_\+\+C\+O\+L\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+B\+O\+U\+N\+DS} = 0x03, 
+\\*
+{\bfseries V\+G\+A\+\_\+\+L\+I\+N\+E\+\_\+\+W\+E\+I\+G\+H\+T\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+B\+O\+U\+N\+DS} = 0x04, 
+{\bfseries V\+G\+A\+\_\+\+R\+A\+D\+I\+I\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+B\+O\+U\+N\+DS} = 0x05, 
+{\bfseries V\+G\+A\+\_\+\+P\+I\+X\+E\+L\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+S\+C\+R\+E\+EN} = 0x06, 
+{\bfseries V\+G\+A\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+F\+O\+N\+T\+S\+T\+Y\+LE} = 0x07, 
+\\*
+{\bfseries V\+G\+A\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+F\+O\+N\+T\+S\+I\+ZE} = 0x08, 
+{\bfseries V\+G\+A\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+C\+O\+L\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+B\+O\+U\+N\+DS} = 0x09
+ \}\label{system_8h_af9bff8ff1154a04a899276af806b8586}
 \begin{DoxyCompactList}\small\item\em Status codes. \end{DoxyCompactList}
 \item 
-enum \hyperlink{system_8h_a0a8ef1b5e1941b7257e545cc33405ff1}{color\+\_\+t} \{ \\*
+enum {\bf color\+\_\+t} \{ \\*
 {\bfseries V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+B\+L\+A\+CK} = 0x00, 
 {\bfseries V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+B\+L\+UE} = 0x03, 
 {\bfseries V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+G\+R\+E\+EN} = 0x1C, 
@@ -33,12 +124,39 @@ enum \hyperlink{system_8h_a0a8ef1b5e1941b7257e545cc33405ff1}{color\+\_\+t} \{ \\
 {\bfseries V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+M\+A\+G\+E\+N\+TA} = 0x\+E3, 
 {\bfseries V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+Y\+E\+L\+L\+OW} = 0x\+FC, 
 \\*
-{\bfseries V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+T\+R\+A\+N\+S\+P\+A\+R\+A\+NT} = -\/0x01
- \}\hypertarget{system_8h_a0a8ef1b5e1941b7257e545cc33405ff1}{}\label{system_8h_a0a8ef1b5e1941b7257e545cc33405ff1}
+{\bfseries V\+G\+A\+\_\+\+C\+O\+L\+\_\+\+T\+R\+A\+N\+S\+P\+A\+R\+E\+NT} = -\/0x01
+ \}\label{system_8h_a0a8ef1b5e1941b7257e545cc33405ff1}
 \begin{DoxyCompactList}\small\item\em Default color scheme. \end{DoxyCompactList}
+\item 
+enum {\bf primitive\+Shape\+\_\+t} \{ \\*
+{\bfseries V\+G\+A\+\_\+\+T\+R\+I\+A\+N\+G\+LE} = 0x03, 
+{\bfseries V\+G\+A\+\_\+\+S\+Q\+U\+A\+RE} = 0x04, 
+{\bfseries V\+G\+A\+\_\+\+P\+E\+N\+T\+A\+G\+ON} = 0x05, 
+{\bfseries V\+G\+A\+\_\+\+H\+E\+X\+A\+G\+ON} = 0x06, 
+\\*
+{\bfseries V\+G\+A\+\_\+\+H\+E\+P\+T\+A\+G\+ON} = 0x07, 
+{\bfseries V\+G\+A\+\_\+\+O\+C\+T\+A\+G\+ON} = 0x08, 
+{\bfseries V\+G\+A\+\_\+\+N\+O\+N\+A\+G\+ON} = 0x09, 
+{\bfseries V\+G\+A\+\_\+\+D\+E\+C\+A\+G\+ON} = 0x0A, 
+\\*
+{\bfseries V\+G\+A\+\_\+\+E\+L\+L\+I\+P\+SE} = 0x19
+ \}\label{system_8h_ad01c256642a27f55a733384a49a8b3d7}
+\begin{DoxyCompactList}\small\item\em Default primitive shapes. \end{DoxyCompactList}
+\item 
+enum {\bf bloom\+Intensity\+\_\+t} \{ \\*
+{\bfseries V\+G\+A\+\_\+\+B\+L\+O\+O\+M\+\_\+\+I\+N\+T\+\_\+1} = 0x01, 
+{\bfseries V\+G\+A\+\_\+\+B\+L\+O\+O\+M\+\_\+\+I\+N\+T\+\_\+2} = 0x02, 
+{\bfseries V\+G\+A\+\_\+\+B\+L\+O\+O\+M\+\_\+\+I\+N\+T\+\_\+3} = 0x03, 
+{\bfseries V\+G\+A\+\_\+\+B\+L\+O\+O\+M\+\_\+\+I\+N\+T\+\_\+4} = 0x04, 
+\\*
+{\bfseries V\+G\+A\+\_\+\+B\+L\+O\+O\+M\+\_\+\+I\+N\+T\+\_\+5} = 0x05, 
+{\bfseries V\+G\+A\+\_\+\+B\+L\+O\+O\+M\+\_\+\+I\+N\+T\+\_\+6} = 0x06, 
+{\bfseries V\+G\+A\+\_\+\+B\+L\+O\+O\+M\+\_\+\+I\+N\+T\+\_\+7} = 0x07
+ \}\label{system_8h_a62197901e3d9af649431aae28f33723b}
+\begin{DoxyCompactList}\small\item\em Usable bloom intensities. \end{DoxyCompactList}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Defines and enumerations for the V\+G\+A-\/lib. 
+Defines, data structures and enumerations for the V\+G\+A-\/lib. 
 

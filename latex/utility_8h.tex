@@ -1,0 +1,178 @@
+\section{V\+G\+A\+\_\+core\+\_\+\+M4/vga\+\_\+lib/logic\+\_\+tier/utility.h File Reference}
+\label{utility_8h}\index{V\+G\+A\+\_\+core\+\_\+\+M4/vga\+\_\+lib/logic\+\_\+tier/utility.\+h@{V\+G\+A\+\_\+core\+\_\+\+M4/vga\+\_\+lib/logic\+\_\+tier/utility.\+h}}
+
+
+General utility library for use in other functions.  
+
+
+{\ttfamily \#include \char`\"{}sin\+\_\+lut.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}math.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}system.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf status\+\_\+t} {\bf U\+T\+I\+L\+\_\+check\+Boundaries} ({\bf s\+Radii\+\_\+t} $\ast$radii, {\bf color\+\_\+t} line\+Color, {\bf color\+\_\+t} fill\+Color, uint8\+\_\+t line\+Weight)
+\begin{DoxyCompactList}\small\item\em Checks argument boundaries of primitives. \end{DoxyCompactList}\item 
+int {\bf U\+T\+I\+L\+\_\+sign} (int i)
+\begin{DoxyCompactList}\small\item\em Checks whether parameter is positive or negative. Returns respectively 1 or -\/1. \end{DoxyCompactList}\item 
+float {\bf U\+T\+I\+L\+\_\+map\+To\+Unit\+Circle} (float theta\+Rad)
+\begin{DoxyCompactList}\small\item\em Constrain any value between 0-\/$>$2$\ast$\+PI. \end{DoxyCompactList}\item 
+float {\bf U\+T\+I\+L\+\_\+get\+Sin\+Lut} (float theta\+Rad)
+\begin{DoxyCompactList}\small\item\em Get sin value for given theta in radians. \end{DoxyCompactList}\item 
+float {\bf U\+T\+I\+L\+\_\+get\+Cos\+Lut} (float theta\+Rad)
+\begin{DoxyCompactList}\small\item\em Get cos value for given theta in radians. \end{DoxyCompactList}\item 
+{\bf color\+\_\+t} {\bf U\+T\+I\+L\+\_\+convert\+Color} (int red, int green, int blue)
+\begin{DoxyCompactList}\small\item\em convert rgb values to the color byte used by the vga library. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+General utility library for use in other functions. 
+
+
+
+\subsection{Function Documentation}
+\index{utility.\+h@{utility.\+h}!U\+T\+I\+L\+\_\+check\+Boundaries@{U\+T\+I\+L\+\_\+check\+Boundaries}}
+\index{U\+T\+I\+L\+\_\+check\+Boundaries@{U\+T\+I\+L\+\_\+check\+Boundaries}!utility.\+h@{utility.\+h}}
+\subsubsection[{U\+T\+I\+L\+\_\+check\+Boundaries(s\+Radii\+\_\+t $\ast$radii, color\+\_\+t line\+Color, color\+\_\+t fill\+Color, uint8\+\_\+t line\+Weight)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf status\+\_\+t} U\+T\+I\+L\+\_\+check\+Boundaries (
+\begin{DoxyParamCaption}
+\item[{{\bf s\+Radii\+\_\+t} $\ast$}]{radii, }
+\item[{{\bf color\+\_\+t}}]{line\+Color, }
+\item[{{\bf color\+\_\+t}}]{fill\+Color, }
+\item[{uint8\+\_\+t}]{line\+Weight}
+\end{DoxyParamCaption}
+)}\label{utility_8h_a625dc6c62c8553ac4408fca51e8b4af6}
+
+
+Checks argument boundaries of primitives. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em radii} & Radius x and y of the primitive. \\
+\hline
+{\em line\+Color} & Primitive frame line color. \\
+\hline
+{\em fill\+Color} & Primitive fill color. \\
+\hline
+{\em line\+Weight} & Primitive frame line weight. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status of operation.
+\end{DoxyReturn}
+Checks argument boundaries of primitives.
+
+
+\begin{DoxyParams}{Parameters}
+{\em radii} & Radius x and y of the shape. \\
+\hline
+{\em line\+Color} & Shape frame line color. \\
+\hline
+{\em fill\+Color} & Shape fill color. \\
+\hline
+{\em line\+Weight} & Shape frame line weight. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status of operation. 
+\end{DoxyReturn}
+\index{utility.\+h@{utility.\+h}!U\+T\+I\+L\+\_\+convert\+Color@{U\+T\+I\+L\+\_\+convert\+Color}}
+\index{U\+T\+I\+L\+\_\+convert\+Color@{U\+T\+I\+L\+\_\+convert\+Color}!utility.\+h@{utility.\+h}}
+\subsubsection[{U\+T\+I\+L\+\_\+convert\+Color(int red, int green, int blue)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf color\+\_\+t} U\+T\+I\+L\+\_\+convert\+Color (
+\begin{DoxyParamCaption}
+\item[{int}]{red, }
+\item[{int}]{green, }
+\item[{int}]{blue}
+\end{DoxyParamCaption}
+)}\label{utility_8h_a36b4cf477aa693a878222505615efe60}
+
+
+convert rgb values to the color byte used by the vga library. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em red} & red value (0-\/255). \\
+\hline
+{\em green} & green value (0-\/255). \\
+\hline
+{\em blue} & blue value (0-\/255). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+color byte. 
+\end{DoxyReturn}
+\index{utility.\+h@{utility.\+h}!U\+T\+I\+L\+\_\+get\+Cos\+Lut@{U\+T\+I\+L\+\_\+get\+Cos\+Lut}}
+\index{U\+T\+I\+L\+\_\+get\+Cos\+Lut@{U\+T\+I\+L\+\_\+get\+Cos\+Lut}!utility.\+h@{utility.\+h}}
+\subsubsection[{U\+T\+I\+L\+\_\+get\+Cos\+Lut(float theta\+Rad)}]{\setlength{\rightskip}{0pt plus 5cm}float U\+T\+I\+L\+\_\+get\+Cos\+Lut (
+\begin{DoxyParamCaption}
+\item[{float}]{theta\+Rad}
+\end{DoxyParamCaption}
+)}\label{utility_8h_a3b6ceddc179a399a010f1647dba179f2}
+
+
+Get cos value for given theta in radians. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em theta\+Rad} & angle theta in radians. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cos of given theta. 
+\end{DoxyReturn}
+\index{utility.\+h@{utility.\+h}!U\+T\+I\+L\+\_\+get\+Sin\+Lut@{U\+T\+I\+L\+\_\+get\+Sin\+Lut}}
+\index{U\+T\+I\+L\+\_\+get\+Sin\+Lut@{U\+T\+I\+L\+\_\+get\+Sin\+Lut}!utility.\+h@{utility.\+h}}
+\subsubsection[{U\+T\+I\+L\+\_\+get\+Sin\+Lut(float theta\+Rad)}]{\setlength{\rightskip}{0pt plus 5cm}float U\+T\+I\+L\+\_\+get\+Sin\+Lut (
+\begin{DoxyParamCaption}
+\item[{float}]{theta\+Rad}
+\end{DoxyParamCaption}
+)}\label{utility_8h_afb17845cf015fcf79530f4705345c6f6}
+
+
+Get sin value for given theta in radians. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em theta\+Rad} & angle theta in radians. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sin of given theta. 
+\end{DoxyReturn}
+\index{utility.\+h@{utility.\+h}!U\+T\+I\+L\+\_\+map\+To\+Unit\+Circle@{U\+T\+I\+L\+\_\+map\+To\+Unit\+Circle}}
+\index{U\+T\+I\+L\+\_\+map\+To\+Unit\+Circle@{U\+T\+I\+L\+\_\+map\+To\+Unit\+Circle}!utility.\+h@{utility.\+h}}
+\subsubsection[{U\+T\+I\+L\+\_\+map\+To\+Unit\+Circle(float theta\+Rad)}]{\setlength{\rightskip}{0pt plus 5cm}float U\+T\+I\+L\+\_\+map\+To\+Unit\+Circle (
+\begin{DoxyParamCaption}
+\item[{float}]{theta\+Rad}
+\end{DoxyParamCaption}
+)}\label{utility_8h_a25594e3a04f6d9f561c5f0c2437133ef}
+
+
+Constrain any value between 0-\/$>$2$\ast$\+PI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em theta\+Rad} & angle theta in radians. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mapped theta value. 
+\end{DoxyReturn}
+\index{utility.\+h@{utility.\+h}!U\+T\+I\+L\+\_\+sign@{U\+T\+I\+L\+\_\+sign}}
+\index{U\+T\+I\+L\+\_\+sign@{U\+T\+I\+L\+\_\+sign}!utility.\+h@{utility.\+h}}
+\subsubsection[{U\+T\+I\+L\+\_\+sign(int i)}]{\setlength{\rightskip}{0pt plus 5cm}int U\+T\+I\+L\+\_\+sign (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\label{utility_8h_a0c30df5c906371c956ce3e2cbd4ad58c}
+
+
+Checks whether parameter is positive or negative. Returns respectively 1 or -\/1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Input parameter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sign Positive or negative increment based on input parameter. 
+\end{DoxyReturn}

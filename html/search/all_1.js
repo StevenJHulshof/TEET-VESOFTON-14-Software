@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['b',['b',['../structs_radii__t.html#a83fc1af92e29717b4513d121b0c72c7d',1,'sRadii_t']]]
+  ['color_5ft',['color_t',['../system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1',1,'system.h']]]
 ];

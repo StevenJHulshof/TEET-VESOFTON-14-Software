@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['color_5ft',['color_t',['../system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1',1,'system.h']]]
+  ['bloomintensity_5ft',['bloomIntensity_t',['../system_8h.html#a62197901e3d9af649431aae28f33723b',1,'system.h']]]
 ];

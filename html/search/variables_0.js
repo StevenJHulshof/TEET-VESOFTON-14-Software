@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['a',['a',['../structs_radii__t.html#a4aec1a5be9d9a4a394a2e49e9744286e',1,'sRadii_t']]]
+  ['dma2_5fcr_5freg',['dma2_cr_reg',['../struct_v_g_a__t.html#a1fc3c1405cc22f5d4fc21eb58c47c06a',1,'VGA_t']]]
 ];

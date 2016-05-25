@@ -4,10 +4,18 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>VGA_Lib: VGA_core_M4/lib/logic_tier/shapes_data.h File Reference</title>
+<title>VGA_lib: VGA_core_M4/vga_lib/logic_tier/shapes_data.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -23,7 +31,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">VGA_Lib
+   <div id="projectname">VGA_lib
+   &#160;<span id="projectnumber">1.0</span>
    </div>
   </td>
  </tr>
@@ -64,6 +73,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('shapes__data_8h.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -78,14 +102,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_032edb87c1122e3e937a79b7cc5729c3.html">VGA_core_M4</a></li><li class="navelem"><a class="el" href="dir_f1d2be9783e66995ad0459ba8d5db7b0.html">lib</a></li><li class="navelem"><a class="el" href="dir_54a01c21fd82559f46a45e5cf07136a3.html">logic_tier</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">shapes_data.h File Reference</div>  </div>
@@ -96,45 +114,83 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="system_8h_source.html">system.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="pixel__data_8h_source.html">pixel_data.h</a>&quot;</code><br />
-<code>#include &lt;stdint.h&gt;</code><br />
-<code>#include &lt;math.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="utility_8h_source.html">utility.h</a>&quot;</code><br />
 </div>
 <p><a href="shapes__data_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ab92749f1521a9edcb8d21fa41bcaea5d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab92749f1521a9edcb8d21fa41bcaea5d"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shapes__data_8h.html#ab92749f1521a9edcb8d21fa41bcaea5d">ELLIPSE_RESOLUTION</a>&#160;&#160;&#160;0.01</td></tr>
-<tr class="memdesc:ab92749f1521a9edcb8d21fa41bcaea5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines ellipse draw resolution. <br /></td></tr>
-<tr class="separator:ab92749f1521a9edcb8d21fa41bcaea5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aec1db8abcbbb0727f705b9abd59c8c33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structs_position__t.html">sPosition_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shapes__data_8h.html#aec1db8abcbbb0727f705b9abd59c8c33">VGA_translateEllipsePixelPos</a> (<a class="el" href="structs_position__t.html">sPosition_t</a> *centerPointPos, <a class="el" href="structs_radii__t.html">sRadii_t</a> *radii, float cosAngle, float sinAngle, float theta)</td></tr>
-<tr class="memdesc:aec1db8abcbbb0727f705b9abd59c8c33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translates pixel position based on rotation.  <a href="#aec1db8abcbbb0727f705b9abd59c8c33">More...</a><br /></td></tr>
-<tr class="separator:aec1db8abcbbb0727f705b9abd59c8c33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a441b7c855a2fb008de171ec43f427249"><td class="memItemLeft" align="right" valign="top"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shapes__data_8h.html#a441b7c855a2fb008de171ec43f427249">VGA_drawEllipseFrame</a> (<a class="el" href="structs_position__t.html">sPosition_t</a> *centerPointPos, <a class="el" href="structs_radii__t.html">sRadii_t</a> *radii, <a class="el" href="system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1">color_t</a> lineColor, float cosAngle, float sinAngle)</td></tr>
-<tr class="memdesc:a441b7c855a2fb008de171ec43f427249"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw ellipse pixel frame.  <a href="#a441b7c855a2fb008de171ec43f427249">More...</a><br /></td></tr>
-<tr class="separator:a441b7c855a2fb008de171ec43f427249"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13cb04e8907bf146d6760608bb3fc687"><td class="memItemLeft" align="right" valign="top"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shapes__data_8h.html#a13cb04e8907bf146d6760608bb3fc687">VGA_drawEllipseFill</a> (<a class="el" href="structs_position__t.html">sPosition_t</a> *centerPointPos, <a class="el" href="structs_radii__t.html">sRadii_t</a> *radii, <a class="el" href="system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1">color_t</a> lineColor, float cosAngle, float sinAngle)</td></tr>
-<tr class="memdesc:a13cb04e8907bf146d6760608bb3fc687"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw ellipse fill.  <a href="#a13cb04e8907bf146d6760608bb3fc687">More...</a><br /></td></tr>
-<tr class="separator:a13cb04e8907bf146d6760608bb3fc687"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd0273a64796ee510eb9ffdfbc36f2fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shapes__data_8h.html#afd0273a64796ee510eb9ffdfbc36f2fc">VGA_drawEllipseLineFill</a> (<a class="el" href="structs_position__t.html">sPosition_t</a> *centerPointPos, <a class="el" href="structs_radii__t.html">sRadii_t</a> *radii, <a class="el" href="system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1">color_t</a> lineColor, float cosAngle, float sinAngle, float halfWeight)</td></tr>
-<tr class="memdesc:afd0273a64796ee510eb9ffdfbc36f2fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw ellipse fill.  <a href="#afd0273a64796ee510eb9ffdfbc36f2fc">More...</a><br /></td></tr>
-<tr class="separator:afd0273a64796ee510eb9ffdfbc36f2fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7336280ce200e2e8064a11907559398"><td class="memItemLeft" align="right" valign="top"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shapes__data_8h.html#af7336280ce200e2e8064a11907559398">VGA_calculateEllipseData</a> (<a class="el" href="structs_position__t.html">sPosition_t</a> *centerPointPos, <a class="el" href="structs_radii__t.html">sRadii_t</a> *radii, int rotationDegrees, <a class="el" href="system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1">color_t</a> lineColor, <a class="el" href="system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1">color_t</a> fillColor, uint8_t lineWeight)</td></tr>
-<tr class="memdesc:af7336280ce200e2e8064a11907559398"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates pixel positions of the ellipse.  <a href="#af7336280ce200e2e8064a11907559398">More...</a><br /></td></tr>
-<tr class="separator:af7336280ce200e2e8064a11907559398"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af96e6840c66b5e34a72929ee1b5e0b00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shapes__data_8h.html#af96e6840c66b5e34a72929ee1b5e0b00">VGA_L_setLineWeight</a> (<a class="el" href="structs_position__t.html">sPosition_t</a> *centerPointPos, <a class="el" href="system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1">color_t</a> lineColor, uint8_t lineWeight)</td></tr>
+<tr class="memdesc:af96e6840c66b5e34a72929ee1b5e0b00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes line weight data to pixel position.  <a href="#af96e6840c66b5e34a72929ee1b5e0b00">More...</a><br /></td></tr>
+<tr class="separator:af96e6840c66b5e34a72929ee1b5e0b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf5cec883273b15d2d4baa0fc376dfa1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shapes__data_8h.html#acf5cec883273b15d2d4baa0fc376dfa1">VGA_L_setLineData</a> (<a class="el" href="structs_position__t.html">sPosition_t</a> endPointPos[2], <a class="el" href="system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1">color_t</a> lineColor, uint8_t lineWeight)</td></tr>
+<tr class="memdesc:acf5cec883273b15d2d4baa0fc376dfa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes line data to pixel positions.  <a href="#acf5cec883273b15d2d4baa0fc376dfa1">More...</a><br /></td></tr>
+<tr class="separator:acf5cec883273b15d2d4baa0fc376dfa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a239568211c92393d7edd099daf5eec52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shapes__data_8h.html#a239568211c92393d7edd099daf5eec52">VGA_L_setPolygonFill</a> (<a class="el" href="structs_position__t.html">sPosition_t</a> vertices[], uint16_t numberOfVertices, <a class="el" href="structs_position__t.html">sPosition_t</a> imageBorder[2], <a class="el" href="system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1">color_t</a> fillColor)</td></tr>
+<tr class="memdesc:a239568211c92393d7edd099daf5eec52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills polygon with fillColor parameter using efficient version of the Point-In-Polygon algorithm.  <a href="#a239568211c92393d7edd099daf5eec52">More...</a><br /></td></tr>
+<tr class="separator:a239568211c92393d7edd099daf5eec52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6cdcdb39879546f914c41aa52888930"><td class="memItemLeft" align="right" valign="top"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shapes__data_8h.html#ac6cdcdb39879546f914c41aa52888930">VGA_L_setPolygonFrame</a> (<a class="el" href="structs_position__t.html">sPosition_t</a> verticePos[], uint16_t numberOfVertices, <a class="el" href="system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1">color_t</a> lineColor, uint8_t lineWeight)</td></tr>
+<tr class="memdesc:ac6cdcdb39879546f914c41aa52888930"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set polygon frame line.  <a href="#ac6cdcdb39879546f914c41aa52888930">More...</a><br /></td></tr>
+<tr class="separator:ac6cdcdb39879546f914c41aa52888930"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17fc585d85b6b9d577dbc4790d8d2db8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shapes__data_8h.html#a17fc585d85b6b9d577dbc4790d8d2db8">VGA_L_setPolygonData</a> (<a class="el" href="structs_position__t.html">sPosition_t</a> verticePos[], uint16_t numberOfVertices, <a class="el" href="system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1">color_t</a> lineColor, <a class="el" href="system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1">color_t</a> fillColor, uint8_t lineWeight)</td></tr>
+<tr class="memdesc:a17fc585d85b6b9d577dbc4790d8d2db8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process polygon data to pixel position.  <a href="#a17fc585d85b6b9d577dbc4790d8d2db8">More...</a><br /></td></tr>
+<tr class="separator:a17fc585d85b6b9d577dbc4790d8d2db8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61a1da22a1b00a7d2448d9aa18315949"><td class="memItemLeft" align="right" valign="top"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shapes__data_8h.html#a61a1da22a1b00a7d2448d9aa18315949">VGA_L_setPrimitiveData</a> (<a class="el" href="structs_position__t.html">sPosition_t</a> *centerPointPos, <a class="el" href="structs_radii__t.html">sRadii_t</a> *radii, uint16_t rotationDegrees, <a class="el" href="system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1">color_t</a> lineColor, <a class="el" href="system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1">color_t</a> fillColor, uint8_t lineWeight, <a class="el" href="system_8h.html#ad01c256642a27f55a733384a49a8b3d7">primitiveShape_t</a> primitiveShape)</td></tr>
+<tr class="memdesc:a61a1da22a1b00a7d2448d9aa18315949"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process primitive data to pixel position.  <a href="#a61a1da22a1b00a7d2448d9aa18315949">More...</a><br /></td></tr>
+<tr class="separator:a61a1da22a1b00a7d2448d9aa18315949"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Functions for processing the shapes [primitive, line, ellipse]. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="af7336280ce200e2e8064a11907559398"></a>
+<a class="anchor" id="acf5cec883273b15d2d4baa0fc376dfa1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a> VGA_calculateEllipseData </td>
+          <td class="memname"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a> VGA_L_setLineData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structs_position__t.html">sPosition_t</a>&#160;</td>
+          <td class="paramname"><em>endPointPos</em>[2], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1">color_t</a>&#160;</td>
+          <td class="paramname"><em>lineColor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>lineWeight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Processes line data to pixel positions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">endPointPos</td><td>End point positions of the line. </td></tr>
+    <tr><td class="paramname">lineColor</td><td>Color of the line. </td></tr>
+    <tr><td class="paramname">lineWeight</td><td>Weight of the line. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of operation. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af96e6840c66b5e34a72929ee1b5e0b00"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a> VGA_L_setLineWeight </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structs_position__t.html">sPosition_t</a> *&#160;</td>
           <td class="paramname"><em>centerPointPos</em>, </td>
@@ -142,14 +198,51 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structs_radii__t.html">sRadii_t</a> *&#160;</td>
-          <td class="paramname"><em>radii</em>, </td>
+          <td class="paramtype"><a class="el" href="system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1">color_t</a>&#160;</td>
+          <td class="paramname"><em>lineColor</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>rotationDegrees</em>, </td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>lineWeight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Processes line weight data to pixel position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">centerPointPos</td><td>Pixel position around which the line weight should be calculated. </td></tr>
+    <tr><td class="paramname">lineColor</td><td>Color of the line. </td></tr>
+    <tr><td class="paramname">lineWeight</td><td>Weight of the line. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of operation. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a17fc585d85b6b9d577dbc4790d8d2db8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a> VGA_L_setPolygonData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structs_position__t.html">sPosition_t</a>&#160;</td>
+          <td class="paramname"><em>verticePos</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>numberOfVertices</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -177,15 +270,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Calculates pixel positions of the ellipse. </p>
+<p>Process polygon data to pixel position. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">centerPointPos</td><td>Center position of the ellipse. </td></tr>
-    <tr><td class="paramname">radii</td><td>Radii a and b are used for determining the shape of the ellipse. </td></tr>
-    <tr><td class="paramname">rotationDegrees</td><td>Rotation of the ellipse in degrees. </td></tr>
-    <tr><td class="paramname">lineColor</td><td>Line color of the ellipse. </td></tr>
-    <tr><td class="paramname">fillColor</td><td>Fill color of the ellipse. </td></tr>
-    <tr><td class="paramname">lineWeight</td><td>Line weight of the ellipse. </td></tr>
+    <tr><td class="paramname">verticePos[]</td><td>Positions of the polygon vertices. </td></tr>
+    <tr><td class="paramname">numberOfVertices</td><td>Total number of polygon vertices. </td></tr>
+    <tr><td class="paramname">lineColor</td><td>Line color of the polygon. </td></tr>
+    <tr><td class="paramname">fillColor</td><td>Fill color of the polygon. </td></tr>
+    <tr><td class="paramname">lineWeight</td><td>Weight of the line. </td></tr>
   </table>
   </dd>
 </dl>
@@ -193,21 +285,71 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a13cb04e8907bf146d6760608bb3fc687"></a>
+<a class="anchor" id="a239568211c92393d7edd099daf5eec52"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a> VGA_drawEllipseFill </td>
+          <td class="memname"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a> VGA_L_setPolygonFill </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structs_position__t.html">sPosition_t</a> *&#160;</td>
-          <td class="paramname"><em>centerPointPos</em>, </td>
+          <td class="paramtype"><a class="el" href="structs_position__t.html">sPosition_t</a>&#160;</td>
+          <td class="paramname"><em>vertices</em>[], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structs_radii__t.html">sRadii_t</a> *&#160;</td>
-          <td class="paramname"><em>radii</em>, </td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>numberOfVertices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structs_position__t.html">sPosition_t</a>&#160;</td>
+          <td class="paramname"><em>imageBorder</em>[2], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1">color_t</a>&#160;</td>
+          <td class="paramname"><em>fillColor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fills polygon with fillColor parameter using efficient version of the Point-In-Polygon algorithm. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vertices</td><td>Vertices of the polygon to fill. </td></tr>
+    <tr><td class="paramname">numberOfVertices</td><td>Total number of vertices. </td></tr>
+    <tr><td class="paramname">imageBorder</td><td>Image border constraints. </td></tr>
+    <tr><td class="paramname">fillColor</td><td>Color to fill. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of operation. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac6cdcdb39879546f914c41aa52888930"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a> VGA_L_setPolygonFrame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structs_position__t.html">sPosition_t</a>&#160;</td>
+          <td class="paramname"><em>verticePos</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>numberOfVertices</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -218,14 +360,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>cosAngle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>sinAngle</em>&#160;</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>lineWeight</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -235,27 +371,26 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Draw ellipse fill. </p>
+<p>Set polygon frame line. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">centerPointPos</td><td>Center position of the ellipse. </td></tr>
-    <tr><td class="paramname">radii</td><td>Radii a and b are used for determining the shape of the ellipse. </td></tr>
-    <tr><td class="paramname">lineColor</td><td>Line color of the ellipse. </td></tr>
-    <tr><td class="paramname">cosAngle</td><td>Cosine of the rotation angle. </td></tr>
-    <tr><td class="paramname">sinAngle</td><td>Sine of the rotation angle. </td></tr>
+    <tr><td class="paramname">verticePos[]</td><td>Positions of the polygon vertices. </td></tr>
+    <tr><td class="paramname">numberOfVertices</td><td>Total number of polygon vertices. </td></tr>
+    <tr><td class="paramname">lineColor</td><td>Line color of the polygon. </td></tr>
+    <tr><td class="paramname">lineWeight</td><td>Weight of the line. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Status of operation </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of operation. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a441b7c855a2fb008de171ec43f427249"></a>
+<a class="anchor" id="a61a1da22a1b00a7d2448d9aa18315949"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a> VGA_drawEllipseFrame </td>
+          <td class="memname"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a> VGA_L_setPrimitiveData </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structs_position__t.html">sPosition_t</a> *&#160;</td>
           <td class="paramname"><em>centerPointPos</em>, </td>
@@ -265,6 +400,12 @@ Functions</h2></td></tr>
           <td></td>
           <td class="paramtype"><a class="el" href="structs_radii__t.html">sRadii_t</a> *&#160;</td>
           <td class="paramname"><em>radii</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>rotationDegrees</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -275,77 +416,20 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>cosAngle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>sinAngle</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Draw ellipse pixel frame. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">centerPointPos</td><td>Center position of the ellipse. </td></tr>
-    <tr><td class="paramname">radii</td><td>Radii a and b are used for determining the shape of the ellipse. </td></tr>
-    <tr><td class="paramname">lineColor</td><td>Line color of the ellipse. </td></tr>
-    <tr><td class="paramname">cosAngle</td><td>Cosine of the rotation angle. </td></tr>
-    <tr><td class="paramname">sinAngle</td><td>Sine of the rotation angle. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Status of operation </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="afd0273a64796ee510eb9ffdfbc36f2fc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a> VGA_drawEllipseLineFill </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structs_position__t.html">sPosition_t</a> *&#160;</td>
-          <td class="paramname"><em>centerPointPos</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structs_radii__t.html">sRadii_t</a> *&#160;</td>
-          <td class="paramname"><em>radii</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype"><a class="el" href="system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1">color_t</a>&#160;</td>
-          <td class="paramname"><em>lineColor</em>, </td>
+          <td class="paramname"><em>fillColor</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>cosAngle</em>, </td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>lineWeight</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>sinAngle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>halfWeight</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="system_8h.html#ad01c256642a27f55a733384a49a8b3d7">primitiveShape_t</a>&#160;</td>
+          <td class="paramname"><em>primitiveShape</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -355,85 +439,33 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Draw ellipse fill. </p>
+<p>Process primitive data to pixel position. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">centerPointPos</td><td>Center position of the ellipse. </td></tr>
-    <tr><td class="paramname">radii</td><td>Radii a and b are used for determining the shape of the ellipse. </td></tr>
-    <tr><td class="paramname">lineColor</td><td>Line color of the ellipse. </td></tr>
-    <tr><td class="paramname">cosAngle</td><td>Cosine of the rotation angle. </td></tr>
-    <tr><td class="paramname">sinAngle</td><td>Sine of the rotation angle. </td></tr>
-    <tr><td class="paramname">halfWeight</td><td>Half the line weight of the ellipse. </td></tr>
+    <tr><td class="paramname">centerPointPos</td><td>Center point position of the primitive. </td></tr>
+    <tr><td class="paramname">radii</td><td>Radii of the primitive. This will be calculated through a circle algorithm. </td></tr>
+    <tr><td class="paramname">rotationDegrees</td><td>Rotation in degrees. </td></tr>
+    <tr><td class="paramname">lineColor</td><td>Color of the frame line. </td></tr>
+    <tr><td class="paramname">fillColor</td><td>Color of the primitive fill. </td></tr>
+    <tr><td class="paramname">lineWeight</td><td>Weight of the frame line. </td></tr>
+    <tr><td class="paramname">primitiveShape</td><td>Default shape of the primitive. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Status of operation </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="aec1db8abcbbb0727f705b9abd59c8c33"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structs_position__t.html">sPosition_t</a> VGA_translateEllipsePixelPos </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structs_position__t.html">sPosition_t</a> *&#160;</td>
-          <td class="paramname"><em>centerPointPos</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structs_radii__t.html">sRadii_t</a> *&#160;</td>
-          <td class="paramname"><em>radii</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>cosAngle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>sinAngle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>theta</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Translates pixel position based on rotation. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">centerPointPos</td><td>Center position of the ellipse. </td></tr>
-    <tr><td class="paramname">radii</td><td>Radii a and b are used for determining the shape of the ellipse. </td></tr>
-    <tr><td class="paramname">cosAngle</td><td>Cosine of the rotation angle. </td></tr>
-    <tr><td class="paramname">sinAngle</td><td>Sine of the rotation angle. </td></tr>
-    <tr><td class="paramname">theta</td><td>Radial variable (0, 2PI). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>pixelPos Position of the translated pixel. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of operation. </dd></dl>
 
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.11
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_032edb87c1122e3e937a79b7cc5729c3.html">VGA_core_M4</a></li><li class="navelem"><a class="el" href="dir_2391b2017ee43478c60ba9104ef297cc.html">vga_lib</a></li><li class="navelem"><a class="el" href="dir_469e405c7c15154e6556047791a4ab3f.html">logic_tier</a></li><li class="navelem"><a class="el" href="shapes__data_8h.html">shapes_data.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+  </ul>
+</div>
 </body>
 </html>

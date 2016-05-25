@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['status_5ft',['status_t',['../system_8h.html#af9bff8ff1154a04a899276af806b8586',1,'system.h']]]
+  ['color_5ft',['color_t',['../system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1',1,'system.h']]]
 ];
