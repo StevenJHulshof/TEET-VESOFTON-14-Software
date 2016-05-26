@@ -7,9 +7,10 @@
  *
  *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~**/
 /** @file
- * @brief 	VGA-out through GPIO. PB11 (HSYNC), PB12 (VSYNC), PE8+PE9 (BLUE),
- * 			PE10-PE12 (GREEN), PE13-PE15 (RED).
+ * @brief 	VGA-out through GPIO.
  *
+ * PB11 (HSYNC), PB12 (VSYNC), PE8+PE9 (BLUE), PE10-PE12 (GREEN),
+ * PE13-PE15 (RED).
  ******************************************************************************/
 
 /*******************************************************************************
@@ -20,23 +21,11 @@
 /*******************************************************************************
  * Functions
  ******************************************************************************/
-/**
- * @brief	Initialize VGA screen.
- */
 void VGA_D_screenInit(void) {
-
-//	uint16_t xp,yp;
 
 	VGA.hsync_cnt=0;
 	VGA.start_adr=0;
 	VGA.dma2_cr_reg=0;
-
-//	// RAM init total black
-//	for(yp=0;yp<VGA_DISPLAY_Y;yp++) {
-//		for(xp=0;xp<(VGA_DISPLAY_X+1);xp++) {
-//			VGA_RAM1[(yp*(VGA_DISPLAY_X+1))+xp]=0;
-//		}
-//	}
 
 	// init IO-Pins
 	VGA_D_initGpio();
@@ -54,9 +43,6 @@ void VGA_D_screenInit(void) {
 	VGA.dma2_cr_reg=DMA2_Stream5->CR;
 }
 
-/**
- * @brief	Initializes GPIO used for VGA output.
- */
 void VGA_D_initGpio(void) {
 
 	GPIO_InitTypeDef  GPIO_InitStructure;
@@ -118,9 +104,6 @@ void VGA_D_initGpio(void) {
 	GPIOB->BSRRL = GPIO_Pin_12;
 }
 
-/**
- * @brief	Initializes VGA timers.
- */
 void VGA_D_initTimers(void) {
 
 	TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
@@ -186,9 +169,6 @@ void VGA_D_initTimers(void) {
 
 }
 
-/**
- * @brief	Initializes VGA interrupts.
- */
 void VGA_D_initInterrupts(void) {
 
 	NVIC_InitTypeDef NVIC_InitStructure;
@@ -224,9 +204,6 @@ void VGA_D_initInterrupts(void) {
 	NVIC_Init(&NVIC_InitStructure);
 }
 
-/**
- * @brief	Initializes VGA DMA.
- */
 void VGA_D_initDma(void) {
 
 	DMA_InitTypeDef DMA_InitStructure;
@@ -264,11 +241,6 @@ void VGA_D_initDma(void) {
 	TIM_DMACmd(TIM1,TIM_DMA_Update,ENABLE);
 }
 
-/**
- * @brief 	Timer 2 Interrupt. CC3-Interrupt -> starts from DMA.
- *
- * @note	Higher trough put when interrupt flag is left alone
- */
 void TIM2_IRQHandler(void) {
 
   	// Interrupt of Timer2 CH3 occurred (for Trigger start)
@@ -318,11 +290,6 @@ void TIM2_IRQHandler(void) {
 
 }
 
-/**
- * @brief 	DMA interrupt ISR.
- *
- * @note	After TransferCompleteInterrupt -> stop DMA. Still a bit buggy.
- */
 void DMA2_Stream5_IRQHandler(void) {
 
 	if(DMA_GetITStatus(DMA2_Stream5, DMA_IT_TCIF5)) {
