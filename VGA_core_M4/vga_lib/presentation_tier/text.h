@@ -24,11 +24,29 @@
 /**
  * @brief	Print a string at given pixel coordinates
  *
- * @param size	Select font size as defined in enumerated type charSize_t
- * @param style Select font style as defined in enumerated type charStyle_t
- * @param sPos  Start position of upperleft corner of char
- * @parm color color of the char
- * @return	Structure with chardata according to enumerated type sBitmap_t
+ * This function will call the VGA_L_processStringData() function to print a string
+ * of text onto the screen.
+ *
+ * @param stringPos	Select start position using the sPosition_t structure.
+ * @param string	String to print onto the screen.
+ * @param size		Select font style as defined in enumerated type charSize_t.
+ * @param style 	Select font style as defined in enumerated type charStyle_t.
+ * @param color		Select font style as defined in enumerated type color_t or by entering an 8-bit value.
+ *
+ * @return	Status of operation. Possible return values:
+ * @return	VGA_SUCCESS 					- 	Operation is success.
+ * @return	VGA_STRING_INVALID_FONTSTYLE	- 	Given font style does not exist.
+ * @return	VGA_STRING_INVALID_FONTSIZE		- 	Given font size does not exist.
+ * @return	GA_STRING_COL_OUT_OF_BOUNDS		-	Input font color is out of bounds.
+ * 											(0 to 255).
+ *
+ * 											 * @code{.c}
+ * sPosition_t pixelPos = {100, 100};
+ * status_t status = VGA_P_printString(&pixelPos, "Example string.\n", Size_24, Regular, VGA_COL_GREEN);
+ * if(status != VGA_SUCCESS) {
+ * 	return status;
+ * }
+ * @endcode
  */
 status_t VGA_P_printString(	sPosition_t stringPos,
 						char* string,
