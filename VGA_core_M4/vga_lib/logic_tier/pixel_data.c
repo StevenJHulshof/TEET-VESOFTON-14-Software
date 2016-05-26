@@ -8,6 +8,8 @@
 /** @file
  * @brief Functions for manipulating the VGA_RAM.
  *
+ * These functions are present in the logic layer of the VGA library. They will
+ * process the data input in the presentation layer.
  ******************************************************************************/
 
 /*******************************************************************************
@@ -18,15 +20,8 @@
 /*******************************************************************************
  * Functions
  ******************************************************************************/
-/**
- * @brief	Set pixel color into frame buffer.
- *
- * @param	position	Position structure containing X and Y coordinates.
- * @param	color		Color of the pixel.
- * @return	Status of operation.
- */
 status_t VGA_L_setPixelData(	sPosition_t* 	position,
-							color_t 		color	) {
+								color_t 		color	) {
 
 	// Do not draw pixel when outside of screen
 	if(	position->x >= 0 && position->x < VGA_DISPLAY_X &&
@@ -44,12 +39,6 @@ status_t VGA_L_setPixelData(	sPosition_t* 	position,
 	return VGA_SUCCESS;
 }
 
-/**
- * @brief	Get pixel data from frame buffer.
- *
- * @param	position	Position structure containing X and Y coordinates.
- * @return	color		Color of the pixel.
- */
 color_t VGA_L_getPixelData(	sPosition_t* position	) {
 
 	// Get pixel data

@@ -6,8 +6,10 @@
  *
  *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~**/
 /** @file
- * @brief Functions for processing the shapes [primitive, line, ellipse].
+ * @brief Functions for processing the shapes data.
  *
+ * These functions are present in the logic layer of the VGA library. They will
+ * process the data input in the presentation layer.
  ******************************************************************************/
 
 /*******************************************************************************
@@ -18,14 +20,6 @@
 /*******************************************************************************
  * Functions
  ******************************************************************************/
-/**
- * @brief	Processes line weight data to pixel position.
- *
- * @param	centerPointPos	Pixel position around which the line weight should be calculated.
- * @param	lineColor		Color of the line.
- * @param	lineWeight		Weight of the line.
- * @return 	Status of operation.
- */
 status_t VGA_L_setLineWeight( sPosition_t*	centerPointPos,
 							color_t			lineColor,
 							uint8_t			lineWeight) {
@@ -37,14 +31,6 @@ status_t VGA_L_setLineWeight( sPosition_t*	centerPointPos,
 	return VGA_L_setPrimitiveData(centerPointPos, &radii, 0, lineColor, lineColor, 1, VGA_HEXAGON);
 }
 
-/**
- * @brief	Processes line data to pixel positions.
- *
- * @param 	endPointPos		End point positions of the line.
- * @param 	lineColor		Color of the line.
- * @param	lineWeight		Weight of the line.
- * @return	Status of operation.
- */
 status_t VGA_L_setLineData(    sPosition_t 	endPointPos[2],
                          	 color_t     	lineColor,
                          	 uint8_t		lineWeight	) {
@@ -107,16 +93,6 @@ status_t VGA_L_setLineData(    sPosition_t 	endPointPos[2],
 	return status;
 }
 
-/**
- * @brief	Fills polygon with fillColor parameter using
- * 			efficient version of the Point-In-Polygon algorithm.
- *
- * @param	vertices			Vertices of the polygon to fill.
- * @param	numberOfVertices	Total number of vertices.
- * @param	imageBorder			Image border constraints.
- * @param	fillColor			Color to fill.
- * @return	Status of operation.
- */
 status_t VGA_L_setPolygonFill(sPosition_t vertices[],
 							uint16_t 	numberOfVertices,
 							sPosition_t imageBorder[2],
@@ -194,15 +170,6 @@ status_t VGA_L_setPolygonFill(sPosition_t vertices[],
 	return status;
 }
 
-/**
- * @brief	Set polygon frame line.
- *
- * @param	verticePos[]		Positions of the polygon vertices.
- * @param	numberOfVertices	Total number of polygon vertices.
- * @param	lineColor			Line color of the polygon.
- * @param	lineWeight			Weight of the line.
- * @return	Status of operation.
- */
 status_t VGA_L_setPolygonFrame(	sPosition_t verticePos[],
 								uint16_t 	numberOfVertices,
 								color_t 	lineColor,
@@ -235,16 +202,6 @@ status_t VGA_L_setPolygonFrame(	sPosition_t verticePos[],
 	return status;
 }
 
-/**
- * @brief	Process polygon data to pixel position.
- *
- * @param	verticePos[]		Positions of the polygon vertices.
- * @param 	numberOfVertices	Total number of polygon vertices.
- * @param 	lineColor			Line color of the polygon.
- * @param	fillColor 			Fill color of the polygon.
- * @param	lineWeight			Weight of the line.
- * @return	Status of operation.
- */
 status_t VGA_L_setPolygonData(	sPosition_t verticePos[],
 								uint16_t	numberOfVertices,
 								color_t		lineColor,
@@ -292,18 +249,6 @@ status_t VGA_L_setPolygonData(	sPosition_t verticePos[],
 	return status;
 }
 
-/**
- * @brief	Process primitive data to pixel position.
- *
- * @param	centerPointPos	Center point position of the primitive.
- * @param	radii			Radii of the primitive. This will be calculated through a circle algorithm.
- * @param	rotationDegrees	Rotation in degrees.
- * @param	lineColor		Color of the frame line.
- * @param	fillColor		Color of the primitive fill.
- * @param 	lineWeight		Weight of the frame line.
- * @param	primitiveShape	Default shape of the primitive.
- * @return	Status of operation.
- */
 status_t VGA_L_setPrimitiveData(	sPosition_t* 		centerPointPos,
 								sRadii_t* 			radii,
 								uint16_t 			rotationDegrees,

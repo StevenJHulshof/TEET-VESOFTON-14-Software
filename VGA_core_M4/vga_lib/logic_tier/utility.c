@@ -6,8 +6,7 @@
  *
  *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~**/
 /** @file
- * @brief General utility library for use in other functions.
- *
+ * @brief	General utility library for use in other functions.
  ******************************************************************************/
 
 /*******************************************************************************
@@ -18,15 +17,6 @@
 /*******************************************************************************
  * Functions
  ******************************************************************************/
-/**
- * @brief	Checks argument boundaries of shapes.
- *
- * @param	radii		Radius x and y of the shape.
- * @param	lineColor	Shape frame line color.
- * @param	fillColor	Shape fill color.
- * @param	lineWeight	Shape frame line weight.
- * @return	Status of operation.
- */
 status_t UTIL_checkBoundaries(	sRadii_t* 	radii,
 								color_t 	lineColor,
 								color_t 	fillColor,
@@ -51,12 +41,6 @@ status_t UTIL_checkBoundaries(	sRadii_t* 	radii,
 	return status;
 }
 
-/**
- * @brief	Checks whether parameter is positive or negative. Returns respectively 1 or -1.
- *
- * @param	i		Input parameter.
- * @return	sign	Positive or negative increment based on input parameter.
- */
 int UTIL_sign(int i) {
 
 	int sign;

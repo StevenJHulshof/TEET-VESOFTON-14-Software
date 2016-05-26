@@ -10,7 +10,6 @@
  *
  * The following shapes can be created using this file: Line, triangle, square,
  * pentagon, hexagon, heptagon, octagon, nonagon, decagon, ellipse and polygon.
- *
  ******************************************************************************/
 
 #ifndef SHAPES_H_
@@ -33,6 +32,7 @@
  * @param 	endPointPos		End point positions of the line.
  * @param 	lineColor		Color of the line. Ranging 0 to 255.
  * @param	lineWeight		Weight of the line in pixels. Ranging 1 to 255.
+ *
  * @return	Status of operation. Possible return values:
  * @return	VGA_SUCCESS 					- 	Operation is success.
  * @return	VGA_PIXEL_NOT_SET 				- 	Set pixel operation has failed.
@@ -68,6 +68,7 @@ status_t VGA_P_drawLine(	sPosition_t endPointPos[2],
  * @param	lineWeight		Primitive frame line weight. Ranging 1 to 255.
  * @param	primitiveShape	Primitive default shape as the primitiveShape_t
  *							enum defines.
+ *
  * @return	Status of operation. Possible return values:
  * @return	VGA_SUCCESS 					- 	Operation is success.
  * @return	VGA_PIXEL_NOT_SET 				- 	Set pixel operation has failed.
@@ -115,6 +116,7 @@ status_t VGA_P_drawPrimitive(	sPosition_t* 		centerPointPos,
  * @param 	lineColor			Line color of the polygon. Ranging 0 to 255.
  * @param	fillColor 			Fill color of the polygon. Ranging -1 to 255.
  * @param	lineWeight			Weight of the line. Ranging 1 to 255.
+ *
  * @return	Status of operation. Possible return values:
  * @return	VGA_SUCCESS 					- 	Operation is success.
  * @return	VGA_PIXEL_NOT_SET 				- 	Set pixel operation has failed.
