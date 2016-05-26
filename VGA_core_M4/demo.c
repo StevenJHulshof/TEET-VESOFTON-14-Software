@@ -82,14 +82,26 @@ status_t setDemoText(){
 	status_t status = VGA_SUCCESS;
 
 	char text[] = "Demo software ontwikkeling!";
-	sPosition_t sPos = {100,100};
+	sPosition_t sPos = {50,20};
 
-	status = VGA_P_printString(sPos, text, Size_24, Regular, VGA_COL_RED);
+//	status = VGA_P_printString(sPos, text, Size_24, Regular, VGA_COL_RED);
 
-	char text2[] = "Demo software ontwikkeling!";
-	sPosition_t sPos2 = {100,100};
+	VGA_L_processStringData(text, Size_24, Bold, sPos, VGA_COL_WHITE);
 
-	status = VGA_P_printString(sPos2, text2, Size_12, Bold, VGA_COL_WHITE);
+	char text3[] = "HJC@6'&% ";
+	sPos.x = 60;
+	sPos.y = 44;
+	VGA_L_processStringData(text3, Size_24, Emoji, sPos, VGA_COL_WHITE);
+
+	char text2[] = "Welkom Franc en Michiel!";
+	sPosition_t sPos2 = {80,80};
+
+	status = VGA_P_printString(sPos2, text2, Size_18, Bold, VGA_COL_YELLOW);
+
+	char text4[] = "Door: Niek, Lukas en Steven";
+		sPos.x = 105;
+		sPos.y = 66;
+		VGA_L_processStringData(text4, Size_12, Regular, sPos, VGA_COL_MAGENTA);
 
 	return status;
 }
@@ -98,36 +110,43 @@ status_t setDemoShapes(){
 	status_t status = VGA_SUCCESS;
 
 	sPosition_t sPos1[4] = {
-						  {100,100}
-						, {125,100}
-						, {100,200}
-						, {125,200}
+						  {35,15}
+						, {310,15}
+						, {310,100}
+						, {35,100}
 						};
 
-	status = VGA_P_drawPolygon(sPos1, 4, VGA_COL_CYAN, VGA_COL_MAGENTA, 4);
+	status = VGA_P_drawPolygon(sPos1, 4, VGA_COL_CYAN, VGA_COL_BLUE, 4);
 
 	sPosition_t sPos2[8] = {
-							  {100,100}
-							, {125,100}
-							, {100,200}
-							, {125,200}
-							, {125,100}
-							, {100,200}
-							, {125,200}
-							, {124,200}
+							  {20,200}
+							, {30,170}
+							, {50,220}
+							, {25,190}
+							, {10,170}
+							, {60,200}
+							, {75,165}
+							, {5,190}
 							};
 
-	status = VGA_P_drawPolygon(sPos2, 8, VGA_COL_CYAN, VGA_COL_MAGENTA, 4);
+	status = VGA_P_drawPolygon(sPos2, 8, VGA_COL_CYAN, VGA_COL_MAGENTA, 1);
 
-	int i;
-	sRadii_t rot = {40, 20};
-	sPosition_t sPos3 = {150, 150};
+//	int i;
+	sRadii_t rot = {60, 20};
+	sPosition_t sPos3 = {160, 200};
 
-	for(i=0;i<360;i+=60){
-		VGA_P_drawPrimitive(&sPos3, &rot, i, VGA_COL_YELLOW, VGA_COL_BLACK, 4, VGA_ELLIPSE);
-	}
+	//for(i=0;i<360;i+=20){
+		VGA_P_drawPrimitive(&sPos3, &rot, 0, VGA_COL_YELLOW, VGA_COL_GREEN, 5, VGA_ELLIPSE);
+//	}
+	sPosition_t endPos[2] = {
+			{20, 110},
+			{300, 220},
+	};
+	VGA_P_drawLine(endPos, VGA_COL_RED, 5);
 
-
+	sPosition_t sPos4 = {300, 150};
+	sRadii_t radii = {100, 30};
+	VGA_P_drawPrimitive(&sPos4, &radii, 10, VGA_COL_GREEN, VGA_COL_TRANSPARENT, 10, VGA_PENTAGON);
 
 
 	return status;

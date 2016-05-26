@@ -274,9 +274,11 @@ void TIM2_IRQHandler(void) {
   	// Interrupt of Timer2 CH3 occurred (for Trigger start)
 	TIM_ClearITPendingBit(TIM2, TIM_IT_CC3);
 
+	 V_SYNC_FLAG = 0;
 
 	VGA.hsync_cnt++;
 	if(VGA.hsync_cnt>=VGA_VSYNC_PERIODE) {
+		V_SYNC_FLAG = 1;
 		// -----------
 		VGA.hsync_cnt=0;
 		// Adresspointer first dot

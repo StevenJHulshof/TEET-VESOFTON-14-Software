@@ -1,0 +1,85 @@
+\section{V\+G\+A\+\_\+core\+\_\+\+M4/vga\+\_\+lib/presentation\+\_\+tier/pixel.c File Reference}
+\label{pixel_8c}\index{V\+G\+A\+\_\+core\+\_\+\+M4/vga\+\_\+lib/presentation\+\_\+tier/pixel.\+c@{V\+G\+A\+\_\+core\+\_\+\+M4/vga\+\_\+lib/presentation\+\_\+tier/pixel.\+c}}
+
+
+This file contains the draw functions of the V\+GA lib pixels.  
+
+
+{\ttfamily \#include \char`\"{}pixel.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+status\+\_\+t {\bf V\+G\+A\+\_\+\+P\+\_\+draw\+Pixel} (s\+Position\+\_\+t $\ast$pixel\+Pos, color\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws pixel on V\+GA screen. \end{DoxyCompactList}\item 
+color\+\_\+t {\bf V\+G\+A\+\_\+\+P\+\_\+get\+Pixel\+Color} (s\+Position\+\_\+t $\ast$pixel\+Pos)
+\begin{DoxyCompactList}\small\item\em Get pixel color from pixel position. \end{DoxyCompactList}\item 
+status\+\_\+t {\bf V\+G\+A\+\_\+\+P\+\_\+fill\+Screen} (color\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Fills screen with input color. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains the draw functions of the V\+GA lib pixels. 
+
+
+
+\subsection{Function Documentation}
+\index{pixel.\+c@{pixel.\+c}!V\+G\+A\+\_\+\+P\+\_\+draw\+Pixel@{V\+G\+A\+\_\+\+P\+\_\+draw\+Pixel}}
+\index{V\+G\+A\+\_\+\+P\+\_\+draw\+Pixel@{V\+G\+A\+\_\+\+P\+\_\+draw\+Pixel}!pixel.\+c@{pixel.\+c}}
+\subsubsection[{V\+G\+A\+\_\+\+P\+\_\+draw\+Pixel(s\+Position\+\_\+t $\ast$pixel\+Pos, color\+\_\+t color)}]{\setlength{\rightskip}{0pt plus 5cm}status\+\_\+t V\+G\+A\+\_\+\+P\+\_\+draw\+Pixel (
+\begin{DoxyParamCaption}
+\item[{s\+Position\+\_\+t $\ast$}]{pixel\+Pos, }
+\item[{color\+\_\+t}]{color}
+\end{DoxyParamCaption}
+)}\label{pixel_8c_a7578f90c617c47e961eda7936a6ae42a}
+
+
+Draws pixel on V\+GA screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pixel\+Pos} & Position of the pixel, contains x and y coordinates. \\
+\hline
+{\em color} & Color of the pixel. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status of operation. 
+\end{DoxyReturn}
+\index{pixel.\+c@{pixel.\+c}!V\+G\+A\+\_\+\+P\+\_\+fill\+Screen@{V\+G\+A\+\_\+\+P\+\_\+fill\+Screen}}
+\index{V\+G\+A\+\_\+\+P\+\_\+fill\+Screen@{V\+G\+A\+\_\+\+P\+\_\+fill\+Screen}!pixel.\+c@{pixel.\+c}}
+\subsubsection[{V\+G\+A\+\_\+\+P\+\_\+fill\+Screen(color\+\_\+t color)}]{\setlength{\rightskip}{0pt plus 5cm}status\+\_\+t V\+G\+A\+\_\+\+P\+\_\+fill\+Screen (
+\begin{DoxyParamCaption}
+\item[{color\+\_\+t}]{color}
+\end{DoxyParamCaption}
+)}\label{pixel_8c_a666e7c51e3ee300430af7c4252712dc6}
+
+
+Fills screen with input color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Color of the screen fill. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status of operation. 
+\end{DoxyReturn}
+\index{pixel.\+c@{pixel.\+c}!V\+G\+A\+\_\+\+P\+\_\+get\+Pixel\+Color@{V\+G\+A\+\_\+\+P\+\_\+get\+Pixel\+Color}}
+\index{V\+G\+A\+\_\+\+P\+\_\+get\+Pixel\+Color@{V\+G\+A\+\_\+\+P\+\_\+get\+Pixel\+Color}!pixel.\+c@{pixel.\+c}}
+\subsubsection[{V\+G\+A\+\_\+\+P\+\_\+get\+Pixel\+Color(s\+Position\+\_\+t $\ast$pixel\+Pos)}]{\setlength{\rightskip}{0pt plus 5cm}color\+\_\+t V\+G\+A\+\_\+\+P\+\_\+get\+Pixel\+Color (
+\begin{DoxyParamCaption}
+\item[{s\+Position\+\_\+t $\ast$}]{pixel\+Pos}
+\end{DoxyParamCaption}
+)}\label{pixel_8c_a1d2b957648c43500aec4fbb0ef2dafca}
+
+
+Get pixel color from pixel position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pixel\+Pos} & Position of the pixel. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+color Color of the pixel. 
+\end{DoxyReturn}

@@ -22,6 +22,8 @@
  * Function prototypes
  ******************************************************************************/
 status_t setDemoBackground(void);
+status_t setDemoShapes();
+status_t setDemoText();
 
 #endif /* DEMO_H_ */
 /* End of file demo.h */
