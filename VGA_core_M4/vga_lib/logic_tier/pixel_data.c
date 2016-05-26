@@ -58,12 +58,6 @@ color_t VGA_L_getPixelData(	sPosition_t* position	) {
 	return color;
 }
 
-/**
- * @brief	Fills screen with the input color.
- *
- * @param 	color	Color of the pixel.
- * @return	Status of operation.
- */
 status_t VGA_L_processScreenData(	color_t color	) {
 
 	status_t 	status;

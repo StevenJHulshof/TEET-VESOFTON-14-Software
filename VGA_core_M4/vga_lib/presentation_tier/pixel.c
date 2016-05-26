@@ -8,6 +8,9 @@
 /** @file
  * @brief 	This file contains the draw functions of the VGA lib pixels.
  *
+ * The functionalities range from drawing a single a pixel on the screen to
+ * filling the entire screen with a color and reading a single pixel color.
+ *
  ******************************************************************************/
 
 /*******************************************************************************
@@ -18,13 +21,6 @@
 /*******************************************************************************
  * Functions
  ******************************************************************************/
-/**
- * @brief	Draws pixel on VGA screen.
- *
- * @param	pixelPos	Position of the pixel, contains x and y coordinates.
- * @param	color		Color of the pixel.
- * @return	Status of operation.
- */
 status_t VGA_P_drawPixel(	sPosition_t* pixelPos,
                             color_t color	) {
 
@@ -46,12 +42,6 @@ status_t VGA_P_drawPixel(	sPosition_t* pixelPos,
 	return status;
 }
 
-/**
- * @brief	Get pixel color from pixel position.
- *
- * @param	pixelPos	Position of the pixel.
- * @return	color		Color of the pixel.
- */
 color_t VGA_P_getPixelColor(	sPosition_t* pixelPos	) {
 
 	// Get pixel data
@@ -60,12 +50,6 @@ color_t VGA_P_getPixelColor(	sPosition_t* pixelPos	) {
 	return color;
 }
 
-/**
- * @brief	Fills screen with input color.
- *
- * @param	color	Color of the screen fill.
- * @return	Status of operation.
- */
 status_t VGA_P_fillScreen(color_t color) {
 
 	status_t status = VGA_SUCCESS;
