@@ -107,7 +107,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a534e04bb3c58cfc67cc84104ad1bb5f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get bitmapdata from gememory for ASCII character.  <a href="#a534e04bb3c58cfc67cc84104ad1bb5f5">More...</a><br /></td></tr>
 <tr class="separator:a534e04bb3c58cfc67cc84104ad1bb5f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4007f8782db5ca089436acc19efd0852"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonts__display_8c.html#a4007f8782db5ca089436acc19efd0852">VGA_L_processStringData</a> (char *ascii_string, <a class="el" href="system_8h.html#ad01c432ff53ae7a7a9a113344b79078d">charSize_t</a> size, <a class="el" href="system_8h.html#a2ae96251ed081fd7638040c156950691">charStyle_t</a> style, <a class="el" href="structs_position__t.html">sPosition_t</a> sPos, <a class="el" href="system_8h.html#a0a8ef1b5e1941b7257e545cc33405ff1">color_t</a> color)</td></tr>
-<tr class="memdesc:a4007f8782db5ca089436acc19efd0852"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create string with processchardata.  <a href="#a4007f8782db5ca089436acc19efd0852">More...</a><br /></td></tr>
+<tr class="memdesc:a4007f8782db5ca089436acc19efd0852"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates string from input parameters.  <a href="#a4007f8782db5ca089436acc19efd0852">More...</a><br /></td></tr>
 <tr class="separator:a4007f8782db5ca089436acc19efd0852"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -144,10 +144,12 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get bitmapdata from gememory for ASCII character. </p>
+<p>This function is called by <a class="el" href="fonts__display_8h.html#a534e04bb3c58cfc67cc84104ad1bb5f5" title="Get bitmapdata from gememory for ASCII character. ">VGA_L_processCharData()</a> to get the bitmap of the character needed.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">ascii_char</td><td>Character represented in ASCII. </td></tr>
     <tr><td class="paramname">size</td><td>Select font size as defined in enumerated type charSize_t </td></tr>
-    <tr><td class="paramname">style</td><td>Select font style as defined in enumerated type charStyle_t </td></tr>
+    <tr><td class="paramname">style</td><td>Select font style as defined in enumerated type charStyle_t</td></tr>
   </table>
   </dd>
 </dl>
@@ -198,12 +200,14 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get bitmapdata from gememory for ASCII character. </p>
+<p>This function is called by VGA_L_processStringData for processing individual characters. This function will call the <a class="el" href="pixel__data_8c.html#a9c7f392b51af95ef6706765da53ffcfc" title="Set pixel color into frame buffer. ">VGA_L_setPixelData()</a> to set the characters in VGA_RAM1 DMA buffer.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">ascii_char</td><td>Character represented in ASCII. </td></tr>
     <tr><td class="paramname">size</td><td>Select font size as defined in enumerated type charSize_t </td></tr>
     <tr><td class="paramname">style</td><td>Select font style as defined in enumerated type charStyle_t </td></tr>
-    <tr><td class="paramname">sPos</td><td>Start position of upperleft corner of char </td></tr>
-    <tr><td class="paramname">color</td><td>color of the char </td></tr>
+    <tr><td class="paramname">sStartPos</td><td>Start position of upperleft corner of char </td></tr>
+    <tr><td class="paramname">color</td><td>Color of the character. Ranging 0 to 255.</td></tr>
   </table>
   </dd>
 </dl>
@@ -253,13 +257,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Create string with processchardata. </p>
+<p>Creates string from input parameters. </p>
+<p>This function is called by <a class="el" href="text_8c.html#a9a46cfc6b59c02e926c70aec53091191" title="Print a string at given pixel coordinates. ">VGA_P_printString()</a> for processing the input string. It will call VGA_L_processCharData for processing individual characters.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">size</td><td>Select font size as defined in enumerated type charSize_t </td></tr>
-    <tr><td class="paramname">style</td><td>Select font style as defined in enumerated type charStyle_t </td></tr>
-    <tr><td class="paramname">sPos</td><td>Start position of upperleft corner of char </td></tr>
-    <tr><td class="paramname">color</td><td>color of the char </td></tr>
+    <tr><td class="paramname">ascii_string</td><td>String represented in ASCII. </td></tr>
+    <tr><td class="paramname">size</td><td>Select font size as defined in enumerated type charSize_t. </td></tr>
+    <tr><td class="paramname">style</td><td>Select font style as defined in enumerated type charStyle_t. </td></tr>
+    <tr><td class="paramname">sStartPos</td><td>Start position of upper left corner of the string. </td></tr>
+    <tr><td class="paramname">color</td><td>Color of the string.</td></tr>
   </table>
   </dd>
 </dl>

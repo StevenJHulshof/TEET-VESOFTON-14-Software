@@ -27,9 +27,6 @@
 /** @brief Contains VGA screen data. */
 uint8_t VGA_RAM1[(VGA_DISPLAY_X+1)*VGA_DISPLAY_Y];
 
-/** @brief Flag for checking whether VSync has occurred. */
-volatile uint8_t V_SYNC_FLAG;
-
 /** @brief VGA data structure. */
 VGA_t VGA;
 

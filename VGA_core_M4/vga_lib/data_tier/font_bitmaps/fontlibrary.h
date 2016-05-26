@@ -13,12 +13,25 @@
 #ifndef FONTLIBRARY_H_
 #define FONTLIBRARY_H_
 
+/** @brief Roboto size 18 font. */
 extern fontStyle_t FontStyle_Roboto18;
+
+/** @brief Roboto size 18 bold font. */
 extern fontStyle_t FontStyle_Roboto18Bold;
+
+/** @brief Roboto size 12 font. */
 extern fontStyle_t FontStyle_Roboto12;
+
+/** @brief Roboto size 12 bold font. */
 extern fontStyle_t FontStyle_Roboto12Bold;
+
+/** @brief Emoji size 24 font. */
 extern fontStyle_t FontStyle_NotoEmoji24;
+
+/** @brief Roboto size 24 slab font. */
 extern fontStyle_t FontStyle_RobotoSlab24;
+
+/** @brief Roboto size 24 slab bold font. */
 extern fontStyle_t FontStyle_RobotoSlab24Bold;
 
 #endif /* FONTLIBRARY_H_ */
