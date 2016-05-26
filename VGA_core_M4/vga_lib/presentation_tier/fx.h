@@ -7,6 +7,8 @@
  *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~**/
 /** @file
  * @brief 	Functions for processing screen effects.
+ *
+ * Contains function to add bloom effect to the VGA screen.
  ******************************************************************************/
 
 #ifndef FX_DATA_H_
@@ -15,20 +17,16 @@
 /*******************************************************************************
  * Includes
  ******************************************************************************/
-#include "system.h"
-#include "pixel_data.h"
+#include "fx_data.h"
 
 /*******************************************************************************
  * Function prototypes
  ******************************************************************************/
 /**
- * @brief	Processes blooming effect.
+ * @brief	Adds a blooming effect to the VGA screen.
  *
- * This function is called by VGA_P_bloomScreen(). It will add a bloom effect
- * to the entire VGA_RAM1 DMA Buffer. This function will call
- * VGA_L_getPixelData() to check the surrounding pixels. After averaging
- * the RGB components of the color, it will call the VGA_L_setPixelData()
- * for processing.
+ * This function adds, based on the input intensity, a bloom effect to the
+ * screen. It will call VGA_L_setBloomScreenData() for processing the effect.
  *
  * @note	This function slows application drastically per bloom
  * 			intensity level.
@@ -37,10 +35,19 @@
  * 						bloomIntensity_t. Ranging 0 to 7.
  *
  * @return	Status of operation. Possible return values:
- * @return	VGA_SUCCESS 		- 	Operation is success.
- * @return	VGA_PIXEL_NOT_SET 	- 	Set pixel operation has failed.
+ * @return	VGA_SUCCESS 				- 	Operation is success.
+ * @return	VGA_PIXEL_NOT_SET 			- 	Set pixel operation has failed.
+ * @return	VGA_BLOOM_INT_OUT_OF_BOUNDS	-	Input bloom intensity out of bounds.
+ * 											(0 to 7).
+ *
+ * @code{.c}
+ * status_t status = VGA_P_bloomScreen(VGA_BLOOM_INT_4);
+ * if(status != VGA_SUCCESS) {
+ * 	return status;
+ * }
+ * @endcode
  */
-status_t VGA_L_setBloomScreenData(bloomIntensity_t bloomInt);
+status_t VGA_P_bloomScreen(bloomIntensity_t bloomInt);
 
 #endif /* FX_DATA_H_ */
 /* End of file fx_data.h */

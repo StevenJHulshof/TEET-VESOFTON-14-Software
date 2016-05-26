@@ -6,7 +6,7 @@
  *
  *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~**/
 /** @file
- * @brief Functions for adding screen effects to the VGA screen.
+ * @brief 	Functions for processing screen effects.
  ******************************************************************************/
 
 /*******************************************************************************
@@ -17,7 +17,7 @@
 /*******************************************************************************
  * Functions
  ******************************************************************************/
-status_t VGA_FX_bloomScreen(bloomIntensity_t bloomInt) {
+status_t VGA_L_setBloomScreenData(bloomIntensity_t bloomInt) {
 
 	status_t status = VGA_SUCCESS;
 	color_t avg;
