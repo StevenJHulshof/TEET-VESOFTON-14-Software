@@ -6,10 +6,10 @@
  *
  *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~**/
 /** @file
- * @brief 	This file contains the draw functions of the VGA lib shapes. Triangle,
- * 			square, pentagon, hexagon, heptagon, octagon, nonagon, decagon, ellipse,
- * 			polygon.
+ * @brief 	This file contains the draw functions of the VGA lib shapes.
  *
+ * The following shapes can be created using this file: Line, triangle, square,
+ * pentagon, hexagon, heptagon, octagon, nonagon, decagon, ellipse and polygon.
  ******************************************************************************/
 
 /*******************************************************************************
@@ -46,7 +46,7 @@ status_t VGA_P_drawPrimitive(	sPosition_t* 		centerPointPos,
 								color_t				lineColor,
 								color_t				fillColor,
 								uint8_t				lineWeight,
-								primitiveShape_t	primitiveShape) {
+								primitiveShape_t	primitiveShape	) {
 
 	status_t status = VGA_SUCCESS;
 
@@ -63,12 +63,12 @@ status_t VGA_P_drawPrimitive(	sPosition_t* 		centerPointPos,
 
 	// Process primitive data
 	status = VGA_L_setPrimitiveData(	centerPointPos,
-									radii,
-									rotationDegrees,
-									lineColor,
-									fillColor,
-									lineWeight,
-									primitiveShape	);
+										radii,
+										rotationDegrees,
+										lineColor,
+										fillColor,
+										lineWeight,
+										primitiveShape	);
 
 	return status;
 }
@@ -77,7 +77,7 @@ status_t VGA_P_drawPolygon(	sPosition_t verticePos[],
 							uint16_t	numberOfVertices,
 							color_t		lineColor,
 							color_t		fillColor,
-							uint8_t		lineWeight) {
+							uint8_t		lineWeight	) {
 
 	status_t status = VGA_SUCCESS;
 	sRadii_t radiiDummy = {0, 0};
@@ -94,11 +94,11 @@ status_t VGA_P_drawPolygon(	sPosition_t verticePos[],
 	}
 
 	// Process polygon data
-	status = VGA_L_setPolygonData(verticePos,
-								numberOfVertices,
-								lineColor,
-								fillColor,
-								lineWeight);
+	status = VGA_L_setPolygonData(	verticePos,
+									numberOfVertices,
+									lineColor,
+									fillColor,
+									lineWeight	);
 
 	return status;
 }

@@ -10,7 +10,6 @@
  *
  * The functionalities range from drawing a single a pixel on the screen to
  * filling the entire screen with a color and reading a single pixel color.
- *
  ******************************************************************************/
 
 /*******************************************************************************

@@ -9,8 +9,7 @@
  * @brief Functions for manipulating the VGA_RAM.
  *
  * These functions are present in the logic layer of the VGA library. They will
- * process the data input in the presentation layer.
- *
+ * process the pixel data input in the presentation layer.
  ******************************************************************************/
 
 #ifndef PIXEL_DATA_H_
@@ -33,12 +32,13 @@
  *
  * @param position	Position structure containing x and y coordinates.
  * @param color		Color of the pixel. Ranging 0 to 255.
+ *
  * @return	Status of operation. Possible return values:
- * @return	VGA_SUCCESS - Operation is success.
- * @return	VGA_PIXEL_NOT_SET - Set pixel operation has failed.
+ * @return	VGA_SUCCESS 		-	Operation is success.
+ * @return	VGA_PIXEL_NOT_SET 	-	Set pixel operation has failed.
  */
-status_t VGA_L_setPixelData(	sPosition_t* position,
-								color_t color	);
+status_t VGA_L_setPixelData(	sPosition_t*	position,
+								color_t 		color	);
 
 /**
  * @brief	Get pixel data from frame buffer.
@@ -48,6 +48,7 @@ status_t VGA_L_setPixelData(	sPosition_t* position,
  * for checking whether the pixel has been set correctly.
  *
  * @param 	position	Position structure containing x and y coordinates.
+ *
  * @return 	Color of the pixel. Ranging 0 to 255.
  */
 color_t VGA_L_getPixelData(	sPosition_t* position	);
@@ -60,9 +61,10 @@ color_t VGA_L_getPixelData(	sPosition_t* position	);
  *
  * @param 	color	Color of the screen fill. Accepts value ranging
  * 					0 to 255.
+ *
  * @return	Status of operation. Possible return values:
- * @return	VGA_SUCCESS - Operation is success.
- * @return	VGA_PIXEL_NOT_SET - Set pixel operation has failed.
+ * @return	VGA_SUCCESS 		- 	Operation is success.
+ * @return	VGA_PIXEL_NOT_SET 	- 	Set pixel operation has failed.
  */
 status_t VGA_L_processScreenData(	color_t color	);
 

@@ -10,7 +10,6 @@
  *
  * The functionalities range from drawing a single a pixel on the screen to
  * filling the entire screen with a color and reading a single pixel color.
- *
  ******************************************************************************/
 
 #ifndef PIXEL_H_
@@ -32,6 +31,7 @@
  *
  * @param	pixelPos	Position of the pixel. Contains x and y coordinates.
  * @param	color		Color of the pixel. Ranging 0 to 255.
+ *
  * @return	Status of operation. Possible return values:
  * @return	VGA_SUCCESS 				- 	Operation is success.
  * @return	VGA_PIXEL_NOT_SET 			- 	Set pixel operation has failed.
@@ -48,8 +48,8 @@
  * }
  * @endcode
  */
-status_t VGA_P_drawPixel(	sPosition_t* pixelPos,
-							color_t color	);
+status_t VGA_P_drawPixel(	sPosition_t* 	pixelPos,
+							color_t 		color	);
 
 /**
  * @brief	Get pixel color from pixel position.
@@ -58,6 +58,7 @@ status_t VGA_P_drawPixel(	sPosition_t* pixelPos,
  * if the user requires the color of a single pixel.
  *
  * @param	pixelPos	Position of the pixel. Contains x and y coordinates.
+ *
  * @return	color		Color of the pixel. Ranging 0 to 255.
  *
  * @code{.c}
@@ -74,6 +75,7 @@ color_t VGA_P_getPixelColor(	sPosition_t* pixelPos	);
  * if the user requires a filled screen consisting of one color.
  *
  * @param	color	Color of the screen fill. Ranging 0 to 255.
+ *
  * @return	Status of operation. Possible return values:
  * @return	VGA_SUCCESS 		- 	Operation is success.
  * @return	VGA_PIXEL_NOT_SET 	- 	Set pixel operation has failed.
@@ -85,7 +87,7 @@ color_t VGA_P_getPixelColor(	sPosition_t* pixelPos	);
  * }
  * @endcode
  */
-status_t VGA_P_fillScreen(color_t color);
+status_t VGA_P_fillScreen(	color_t color	);
 
 #endif /* PIXEL_H_ */
 /* End of file pixel.h */
