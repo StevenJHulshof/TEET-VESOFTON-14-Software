@@ -14,9 +14,9 @@
 /*******************************************************************************
  * Includes
  ******************************************************************************/
-#include "vga_lib.h"
+
+//file with demo functions
 #include "demo.h"
-#include "vga_screen.h"
 
 /*******************************************************************************
  * Main
@@ -25,21 +25,30 @@ int main(void) {
 
 	SystemInit();
 
+	status_t status;
 
+   /*functions used to demonstrate the functionality of the API.
+	* from file: demo.c
+	*/
+
+	status = setDemoBackground();
+	if (status != VGA_SUCCESS)
+		return status;
+
+	status = setDemoShapes();
+	if (status != VGA_SUCCESS)
+		return status;
+
+	status = setDemoText();
+	if (status != VGA_SUCCESS)
+		return status;
+
+	/*initialize the VGA driver last to prevent the screen from showing frames that
+	are still being processed.*/
 	VGA_D_screenInit();
-	sPosition_t center = {160, 120};
-	sRadii_t radii = {140, 100};
-	int i;
+
 	while(1){
-		if(V_SYNC_FLAG) {
-		VGA_P_fillScreen(VGA_COL_BLUE);
 
-		for(i = 1; i < 50; i++) {
-
-				VGA_P_drawPrimitive(&center, &radii, 0, VGA_COL_RED, VGA_COL_GREEN, i, VGA_ELLIPSE);
-			}
-		}
-		//VGA_FX_bloomScreen(VGA_BLOOM_INT_5);
 	}
 	return VGA_SUCCESS;
 }

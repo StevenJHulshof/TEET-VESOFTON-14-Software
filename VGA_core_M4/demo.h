@@ -8,6 +8,14 @@
 /** @file
  * @brief Functions for the demo software.
  *
+ * this file demonstrates some functionalities of the vga_lib API. The functions
+ * demonstrate:
+ * - printing text
+ * - drawing primitive shapes
+ * - drawing polygon shapes
+ * - using FX
+ * - catching the return status
+ *
  ******************************************************************************/
 
 #ifndef DEMO_H_
@@ -16,6 +24,8 @@
 /*******************************************************************************
  * Includes
  ******************************************************************************/
+
+//include "vga_lib.h" to use the API.
 #include "vga_lib.h"
 
 /*******************************************************************************
