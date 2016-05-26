@@ -29,10 +29,10 @@ status_t VGA_P_printString(	sPosition_t stringPos,
 	status_t status = VGA_SUCCESS;
 
 	// Check whether arguments are inside bounds
-	if(	size != Size_12 && size != Size_18 && size != Size_24) {
+	if(	size != SIZE_12 && size != SIZE_18 && size != SIZE_24) {
 		return VGA_STRING_INVALID_FONTSIZE;
 	}
-	if( style != Bold && style != Regular && style != Emoji) {
+	if( style != BOLD && style != REGULAR && style != EMOJI) {
 		return VGA_STRING_INVALID_FONTSTYLE;
 	}
 	if(color < 0 || color > 0xFF) {

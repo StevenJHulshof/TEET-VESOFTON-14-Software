@@ -11,8 +11,8 @@
  * Contains function to add bloom effect to the VGA screen.
  ******************************************************************************/
 
-#ifndef FX_DATA_H_
-#define FX_DATA_H_
+#ifndef FX_H_
+#define FX_H_
 
 /*******************************************************************************
  * Includes
@@ -49,5 +49,5 @@
  */
 status_t VGA_P_bloomScreen(bloomIntensity_t bloomInt);
 
-#endif /* FX_DATA_H_ */
+#endif /* FX_H_ */
 /* End of file fx_data.h */

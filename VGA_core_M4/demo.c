@@ -73,7 +73,7 @@ status_t setDemoBackground(void) {
 		}
 	}
 
-	status = VGA_FX_bloomScreen(VGA_BLOOM_INT_3);
+	//status = VGA_FX_bloomScreen(VGA_BLOOM_INT_3);
 
 	return status;
 }
@@ -86,22 +86,22 @@ status_t setDemoText(){
 
 //	status = VGA_P_printString(sPos, text, Size_24, Regular, VGA_COL_RED);
 
-	VGA_L_processStringData(text, Size_24, Bold, sPos, VGA_COL_WHITE);
+	VGA_L_processStringData(text, SIZE_24, BOLD, sPos, VGA_COL_WHITE);
 
 	char text3[] = "HJC@6'&% ";
 	sPos.x = 60;
 	sPos.y = 44;
-	VGA_L_processStringData(text3, Size_24, Emoji, sPos, VGA_COL_WHITE);
+	VGA_L_processStringData(text3, SIZE_24, EMOJI, sPos, VGA_COL_WHITE);
 
 	char text2[] = "Welkom Franc en Michiel!";
 	sPosition_t sPos2 = {80,80};
 
-	status = VGA_P_printString(sPos2, text2, Size_18, Bold, VGA_COL_YELLOW);
+	status = VGA_P_printString(sPos2, text2, SIZE_18, BOLD, VGA_COL_YELLOW);
 
 	char text4[] = "Door: Niek, Lukas en Steven";
 		sPos.x = 105;
 		sPos.y = 66;
-		VGA_L_processStringData(text4, Size_12, Regular, sPos, VGA_COL_MAGENTA);
+		VGA_L_processStringData(text4, SIZE_12, REGULAR, sPos, VGA_COL_MAGENTA);
 
 	return status;
 }

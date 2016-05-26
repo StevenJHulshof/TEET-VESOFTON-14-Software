@@ -15,7 +15,7 @@
  * Global variable prototypes
  ******************************************************************************/
 /** @brief Look up table of a sine wave. */
-extern float const sin_LUT[360];
+extern float const sin_lut[360];
 
 #endif /* SIN_LUT_H_ */
 /* End of file sin_LUT.h */

@@ -29,34 +29,34 @@
 	static sBitmap_t sBitmapdata;
 	uint8_t shift;
 
-	if (style == Regular)
+	if (style == REGULAR)
 	{
-		if (size == Size_18) sFontstyle = &FontStyle_Roboto18;
-		if (size == Size_12) sFontstyle = &FontStyle_Roboto12;
-		if (size == Size_24) sFontstyle = &FontStyle_RobotoSlab24;
+		if (size == SIZE_18) sFontstyle = &FontStyle_Roboto18;
+		if (size == SIZE_12) sFontstyle = &FontStyle_Roboto12;
+		if (size == SIZE_24) sFontstyle = &FontStyle_RobotoSlab24;
 	}
-	if (style == Bold)
+	if (style == BOLD)
 	{
-		if (size == Size_18) sFontstyle = &FontStyle_Roboto18Bold;
-		if (size == Size_12) sFontstyle = &FontStyle_Roboto12;
-		if (size == Size_24) sFontstyle = &FontStyle_RobotoSlab24Bold;
+		if (size == SIZE_18) sFontstyle = &FontStyle_Roboto18Bold;
+		if (size == SIZE_12) sFontstyle = &FontStyle_Roboto12;
+		if (size == SIZE_24) sFontstyle = &FontStyle_RobotoSlab24Bold;
 
 	}
-	if (style == Emoji)
+	if (style == EMOJI)
 		{
-			if (size == Size_24) sFontstyle = &FontStyle_NotoEmoji24;
+			if (size == SIZE_24) sFontstyle = &FontStyle_NotoEmoji24;
 		}
 
 	//get address from bitmap in sram
-	bitmapArray = (uint8_t*) sFontstyle->GlyphBitmaps;
+	bitmapArray = (uint8_t*) sFontstyle->glyphBitmaps;
 	//increment pointer to asked ascii char
-	shift = ascii_char-(uint8_t)sFontstyle->FirstAsciiCode;
+	shift = ascii_char-(uint8_t)sFontstyle->firstAsciiCode;
 
 	//get address of first byte by incrementing pointer with shift times size of char bitmap
-	sBitmapdata.FirstByte = bitmapArray+(shift*(uint8_t)sFontstyle->GlyphHeight*(uint8_t)sFontstyle->GlyphBytesWidth);
-	sBitmapdata.ByteWidth = (uint8_t)sFontstyle->GlyphBytesWidth;
-	sBitmapdata.CharHeight = (uint8_t)sFontstyle->GlyphHeight;
-	sBitmapdata.CharWidth = *((uint8_t*)sFontstyle->GlyphWidth+shift);
+	sBitmapdata.firstByte = bitmapArray+(shift*(uint8_t)sFontstyle->glyphHeight*(uint8_t)sFontstyle->glyphBytesWidth);
+	sBitmapdata.byteWidth = (uint8_t)sFontstyle->glyphBytesWidth;
+	sBitmapdata.charHeight = (uint8_t)sFontstyle->glyphHeight;
+	sBitmapdata.charWidth = *((uint8_t*)sFontstyle->glyphWidth+shift);
 
 	return &sBitmapdata;
  }
@@ -75,14 +75,14 @@
 
 	 sChardata = VGA_L_getBitmap(ascii_char, size, style);
 
-	 uint8_t* pX = sChardata->FirstByte;
-	 uint8_t* pY = sChardata->FirstByte;
+	 uint8_t* pX = sChardata->firstByte;
+	 uint8_t* pY = sChardata->firstByte;
 
 	 //for loop for y-axis
-	 for (i = 0; i < sChardata->CharHeight; i++,  sNextPos.y++)
+	 for (i = 0; i < sChardata->charHeight; i++,  sNextPos.y++)
 	 {
 		 //for loop for x-axis
-		 for (j = 0; j < sChardata->CharWidth; j++, sNextPos.x++)
+		 for (j = 0; j < sChardata->charWidth; j++, sNextPos.x++)
 		 {
 			 //bitwise compare MSB with bitmap, shift for each pixel
 			 if(0x80 & *pX<<(j-shift))
@@ -103,7 +103,7 @@
 			 }
 		 }
 		 //skip bytes according to bytewidth
-		 pY = pY+sChardata->ByteWidth;
+		 pY = pY+sChardata->byteWidth;
 		 pX = pY;
 		 sNextPos.x = sStartPos.x;
 		 shift = 0;
@@ -127,11 +127,11 @@
 	 for(i = 0; i < strlen(ascii_string); i++)
 	 {
 		 if (ascii_string[i] == '\n'){
-			 sPos.y += charInfo->CharHeight;
+			 sPos.y += charInfo->charHeight;
 			 sPos.x = orgX;
 			 } else {
 			 charInfo = VGA_L_processCharData(ascii_string[i], size, style, sPos, color);
-			 sPos.x += (charInfo->CharWidth);
+			 sPos.x += (charInfo->charWidth);
 		 }
 	 }
  }

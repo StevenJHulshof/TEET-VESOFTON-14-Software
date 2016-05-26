@@ -117,54 +117,54 @@ typedef struct {
 typedef struct {
 
 	/** @brief HSync counter. */
-	uint16_t hsync_cnt;
+	uint16_t hSyncCnt;
 
 	/** @brief Starting address. */
-	uint32_t start_adr;
+	uint32_t startAdr;
 
 	/** @brief Register constant CR-Register. */
-	uint32_t dma2_cr_reg;
+	uint32_t dma2CrReg;
 } VGA_t;
 
 /** @brief Struct for fontstyle in sram*/
 typedef struct {
 
 	/**@brief Number of glyphs in style. **/
-	uint8_t GlyphCount;
+	uint8_t glyphCount;
 
 	/**@brief Decimal value of first ASCII char **/
-    uint8_t FirstAsciiCode;
+    uint8_t firstAsciiCode;
 
     /**@brief Horizontal number of bytes. **/
-    uint8_t GlyphBytesWidth;
+    uint8_t glyphBytesWidth;
 
     /**@brief Vertical number of bytes (also pixel height). **/
-    uint8_t GlyphHeight;
+    uint8_t glyphHeight;
 
     /**@brief Fixed width, 0 if variable. **/
-    uint8_t FixedWidth;
+    uint8_t fixedWidth;
 
     /**@brief Array with pixelwidth per glyph. **/
-    uint8_t const *GlyphWidth;
+    uint8_t const *glyphWidth;
 
     /**@brief Array with bitmaps for style.**/
-    uint8_t const *GlyphBitmaps;
+    uint8_t const *glyphBitmaps;
 } fontStyle_t;
 
 /** @brief Retreived character structure. */
 typedef struct {
 
 	/** @brief Pointer to the first byte with pixels. */
-	uint8_t* FirstByte;
+	uint8_t* firstByte;
 
 	/** @brief Total width of bytes for bitmap. */
-	uint8_t ByteWidth;
+	uint8_t byteWidth;
 
 	/** @brief Pixel width of retreived char. */
-	uint8_t CharWidth;
+	uint8_t charWidth;
 
 	/** @brief Pixel height of retrieved char. */
-	uint8_t CharHeight;
+	uint8_t charHeight;
 } sBitmap_t;
 
 /*******************************************************************************
@@ -234,16 +234,16 @@ typedef enum {
 
 /** @brief Enum for sizes. */
  typedef enum {
-	Size_18,
-	Size_12,
-	Size_24
+	SIZE_18,
+	SIZE_12,
+	SIZE_24
 } charSize_t;
 
 /** @brief Enum for styles. */
  typedef enum {
-	Regular,
-	Bold,
-	Emoji
+	REGULAR,
+	BOLD,
+	EMOJI
 } charStyle_t;
 
 #endif /* SYSTEM_H_ */

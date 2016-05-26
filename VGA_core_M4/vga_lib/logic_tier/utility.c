@@ -74,7 +74,7 @@ float UTIL_getSinLut(float thetaRad){
 
 	int index = (int) ((corrThetaRad/M_PI)*180);
 
-	float result = sin_LUT[index];
+	float result = sin_lut[index];
 
 	return result;
 }

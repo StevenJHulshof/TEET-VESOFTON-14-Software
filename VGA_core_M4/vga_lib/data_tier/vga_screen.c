@@ -23,9 +23,9 @@
  ******************************************************************************/
 void VGA_D_screenInit(void) {
 
-	VGA.hsync_cnt=0;
-	VGA.start_adr=0;
-	VGA.dma2_cr_reg=0;
+	VGA.hSyncCnt=0;
+	VGA.startAdr=0;
+	VGA.dma2CrReg=0;
 
 	// init IO-Pins
 	VGA_D_initGpio();
@@ -40,7 +40,7 @@ void VGA_D_screenInit(void) {
 	// Register swap and safe
 	//-----------------------
 	// content of CR-Register read and save
-	VGA.dma2_cr_reg=DMA2_Stream5->CR;
+	VGA.dma2CrReg=DMA2_Stream5->CR;
 }
 
 void VGA_D_initGpio(void) {
@@ -246,17 +246,17 @@ void TIM2_IRQHandler(void) {
   	// Interrupt of Timer2 CH3 occurred (for Trigger start)
 	TIM_ClearITPendingBit(TIM2, TIM_IT_CC3);
 
-	VGA.hsync_cnt++;
-	if(VGA.hsync_cnt>=VGA_VSYNC_PERIODE) {
+	VGA.hSyncCnt++;
+	if(VGA.hSyncCnt>=VGA_VSYNC_PERIODE) {
 
 		// -----------
-		VGA.hsync_cnt=0;
+		VGA.hSyncCnt=0;
 		// Adresspointer first dot
-		VGA.start_adr=(uint32_t)(&VGA_RAM1[0]);
+		VGA.startAdr=(uint32_t)(&VGA_RAM1[0]);
 	}
 
 	// HSync-Pixel
-	if(VGA.hsync_cnt<VGA_VSYNC_IMP) {
+	if(VGA.hSyncCnt<VGA_VSYNC_IMP) {
 		// HSync low
 		GPIOB->BSRRH = GPIO_Pin_12;
 	}
@@ -266,22 +266,22 @@ void TIM2_IRQHandler(void) {
 	}
 
 	// Test for DMA start
-	if((VGA.hsync_cnt>=VGA_VSYNC_BILD_START) && (VGA.hsync_cnt<=VGA_VSYNC_BILD_STOP)) {
+	if((VGA.hSyncCnt>=VGA_VSYNC_BILD_START) && (VGA.hSyncCnt<=VGA_VSYNC_BILD_STOP)) {
 		// after FP start => DMA Transfer
 
 		// DMA2 init
-		DMA2_Stream5->CR=VGA.dma2_cr_reg;
+		DMA2_Stream5->CR=VGA.dma2CrReg;
 		// set adress
-		DMA2_Stream5->M0AR=VGA.start_adr;
+		DMA2_Stream5->M0AR=VGA.startAdr;
 		// Timer1 start
 		TIM1->CR1|=TIM_CR1_CEN;
 		// DMA2 enable
 		DMA2_Stream5->CR|=DMA_SxCR_EN;
 
 		// Test Adrespointer for high
-    	if((VGA.hsync_cnt & 0x01)!=0) {
+    	if((VGA.hSyncCnt & 0x01)!=0) {
     		// inc after Hsync
-    		VGA.start_adr+=(VGA_DISPLAY_X+1);
+    		VGA.startAdr+=(VGA_DISPLAY_X+1);
     	}
   	}
 
