@@ -8,6 +8,8 @@
 /** @file
  * @brief 	This file contains functions utilizing the font_display library.
  *
+ * This file contains a print string function, which can be used to print
+ * ASCII strings on the VGA screen.
  ******************************************************************************/
 
 /*******************************************************************************
@@ -18,12 +20,11 @@
 /*******************************************************************************
  * Functions
  ******************************************************************************/
-
 status_t VGA_P_printString(	sPosition_t stringPos,
-						char* string,
-						charSize_t size,
-						charStyle_t style,
-						color_t color	) {
+							char*	 	string,
+							charSize_t 	size,
+							charStyle_t style,
+							color_t 	color	) {
 
 	status_t status = VGA_SUCCESS;
 

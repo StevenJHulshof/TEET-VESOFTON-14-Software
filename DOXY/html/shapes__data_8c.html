@@ -319,7 +319,7 @@ VGA_PIXEL_NOT_SET - Set pixel operation has failed. </dd></dl>
 <p>This function is called by <a class="el" href="shapes__data_8h.html#a17fc585d85b6b9d577dbc4790d8d2db8" title="Process polygon data to pixel position. ">VGA_L_setPolygonData()</a> for processing the polygon fill. It uses the efficient version of the Point-In-Polygon algorithm to calculate the fill pixel positions. After calculations it will call the <a class="el" href="pixel__data_8c.html#a9c7f392b51af95ef6706765da53ffcfc" title="Set pixel color into frame buffer. ">VGA_L_setPixelData()</a> for processing.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">verticePos</td><td>Positions of the polygon vertices. </td></tr>
+    <tr><td class="paramname">vertices</td><td>Positions of the polygon vertices. </td></tr>
     <tr><td class="paramname">numberOfVertices</td><td>Total number of polygon vertices. Must be the same as the array length of verticePos. </td></tr>
     <tr><td class="paramname">imageBorder</td><td>Image border constraints. These consist of the minimum x,y coordinates and the maximum x,y coordinates. </td></tr>
     <tr><td class="paramname">fillColor</td><td>Fill color of the polygon. Ranging 0 to 255.</td></tr>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>VGA_library: Globals</title>
+<title>VGA_library: VGA_core_M4/vga_lib/data_tier/sin_LUT.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,19 +62,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li class="current"><a href="globals.html"><span>Globals</span></a></li>
+      <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
-  <div id="navrow3" class="tabs2">
-    <ul class="tablist">
-      <li><a href="globals.html"><span>All</span></a></li>
-      <li><a href="globals_func.html"><span>Functions</span></a></li>
-      <li class="current"><a href="globals_vars.html"><span>Variables</span></a></li>
-      <li><a href="globals_enum.html"><span>Enumerations</span></a></li>
-      <li><a href="globals_defs.html"><span>Macros</span></a></li>
-    </ul>
-  </div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -89,48 +79,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_032edb87c1122e3e937a79b7cc5729c3.html">VGA_core_M4</a></li><li class="navelem"><a class="el" href="dir_2391b2017ee43478c60ba9104ef297cc.html">vga_lib</a></li><li class="navelem"><a class="el" href="dir_f590540eb3d7ea0602e1ad184daa0ca8.html">data_tier</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">sin_LUT.c File Reference</div>  </div>
+</div><!--header-->
 <div class="contents">
-&#160;<ul>
-<li>FontStyle_NotoEmoji24
-: <a class="el" href="fontlibrary_8c.html#a853cef5f1e749e2a9da6ad440289798d">fontlibrary.c</a>
-, <a class="el" href="fontlibrary_8h.html#a853cef5f1e749e2a9da6ad440289798d">fontlibrary.h</a>
-</li>
-<li>FontStyle_Roboto12
-: <a class="el" href="fontlibrary_8h.html#ae5a0f825b093489511e3fdf3b0cfd78d">fontlibrary.h</a>
-, <a class="el" href="fontlibrary_8c.html#ae5a0f825b093489511e3fdf3b0cfd78d">fontlibrary.c</a>
-</li>
-<li>FontStyle_Roboto12Bold
-: <a class="el" href="fontlibrary_8c.html#a1b17ef6b3590ca92e645558214788096">fontlibrary.c</a>
-, <a class="el" href="fontlibrary_8h.html#a1b17ef6b3590ca92e645558214788096">fontlibrary.h</a>
-</li>
-<li>FontStyle_Roboto18
-: <a class="el" href="fontlibrary_8h.html#ad79a9faec72d4f5e8868205a077cb736">fontlibrary.h</a>
-, <a class="el" href="fontlibrary_8c.html#ad79a9faec72d4f5e8868205a077cb736">fontlibrary.c</a>
-</li>
-<li>FontStyle_Roboto18Bold
-: <a class="el" href="fontlibrary_8c.html#a9e84a3debfed6104fca08b961963fb8d">fontlibrary.c</a>
-, <a class="el" href="fontlibrary_8h.html#a9e84a3debfed6104fca08b961963fb8d">fontlibrary.h</a>
-</li>
-<li>FontStyle_RobotoSlab24
-: <a class="el" href="fontlibrary_8c.html#a1ded0a40c4e30e5c205ba5c1d7157e11">fontlibrary.c</a>
-, <a class="el" href="fontlibrary_8h.html#a1ded0a40c4e30e5c205ba5c1d7157e11">fontlibrary.h</a>
-</li>
-<li>FontStyle_RobotoSlab24Bold
-: <a class="el" href="fontlibrary_8h.html#af06d6a4b7878f7ddcaf37b6f72e2a921">fontlibrary.h</a>
-, <a class="el" href="fontlibrary_8c.html#af06d6a4b7878f7ddcaf37b6f72e2a921">fontlibrary.c</a>
-</li>
-<li>sin_LUT
-: <a class="el" href="sin___l_u_t_8c.html#a9e9478bb798561f9e58ad7ec4d328e31">sin_LUT.c</a>
-, <a class="el" href="sin__lut_8h.html#a9e9478bb798561f9e58ad7ec4d328e31">sin_lut.h</a>
-</li>
-<li>VGA
-: <a class="el" href="vga__screen_8h.html#a0642526bfd4eb59d888572150ee3032a">vga_screen.h</a>
-</li>
-<li>VGA_RAM1
-: <a class="el" href="vga__screen_8h.html#a1540c5b767f19e426885709d6aa34e35">vga_screen.h</a>
-</li>
-</ul>
-</div><!-- contents -->
+
+<p>Lookup table for sin(0-&gt;360).  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="sin__lut_8h_source.html">sin_lut.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a9e9478bb798561f9e58ad7ec4d328e31"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9e9478bb798561f9e58ad7ec4d328e31"></a>
+float const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sin___l_u_t_8c.html#a9e9478bb798561f9e58ad7ec4d328e31">sin_LUT</a> [360]</td></tr>
+<tr class="memdesc:a9e9478bb798561f9e58ad7ec4d328e31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Look up table of a sine wave. <br /></td></tr>
+<tr class="separator:a9e9478bb798561f9e58ad7ec4d328e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Lookup table for sin(0-&gt;360). </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

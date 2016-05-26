@@ -72,7 +72,7 @@ status_t VGA_L_setLineData(	sPosition_t endPointPos[2],
  * algorithm to calculate the fill pixel positions. After calculations it will
  * call the VGA_L_setPixelData() for processing.
  *
- * @param	verticePos			Positions of the polygon vertices.
+ * @param	vertices			Positions of the polygon vertices.
  * @param 	numberOfVertices	Total number of polygon vertices. Must be the
  * 								same as the array length of verticePos.
  * @param	imageBorder			Image border constraints. These consist of the

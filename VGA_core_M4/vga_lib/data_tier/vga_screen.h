@@ -7,9 +7,10 @@
  *
  *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~**/
 /** @file
- * @brief VGA-out through GPIO. PB11 (HSYNC), PB12 (VSYNC), PE8+PE9 (BLUE),
- * 			PE10-PE12 (GREEN), PE13-PE15 (RED).
+ * @brief	VGA-out through GPIO.
  *
+ * PB11 (HSYNC), PB12 (VSYNC), PE8+PE9 (BLUE), PE10-PE12 (GREEN),
+ * PE13-PE15 (RED).
  ******************************************************************************/
 
 #ifndef VGA_SCREEN_H_
@@ -26,37 +27,25 @@
 /** @brief Contains VGA screen data. */
 uint8_t VGA_RAM1[(VGA_DISPLAY_X+1)*VGA_DISPLAY_Y];
 
-volatile uint8_t V_SYNC_FLAG;
-
 /** @brief VGA data structure. */
 VGA_t VGA;
 
 /*******************************************************************************
  * Function prototypes
  ******************************************************************************/
-/**
- * @brief	Initialize VGA screen.
- */
+/** @brief	Initialize VGA screen. */
 void VGA_D_screenInit(void);
 
-/**
- * @brief	Initializes GPIO used for VGA output.
- */
+/** @brief	Initializes GPIO used for VGA output. */
 void VGA_D_initGpio(void);
 
-/**
- * @brief	Initializes VGA timers.
- */
+/** @brief	Initializes VGA timers. */
 void VGA_D_initTimers(void);
 
-/**
- * @brief	Initializes VGA interrupts.
- */
+/** @brief	Initializes VGA interrupts. */
 void VGA_D_initInterrupts(void);
 
-/**
- * @brief	Initializes VGA DMA.
- */
+/** @brief	Initializes VGA DMA. */
 void VGA_D_initDma(void);
 
 /**

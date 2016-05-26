@@ -6,9 +6,8 @@
  *
  *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~**/
 /** @file
- * @brief 	Global include file of the VGA library. Contains pixel, shapes and
- * 			text.
- *
+ * @brief 	Global include file of the VGA library. Contains pixel, shapes,
+ * 			text and fx.
  ******************************************************************************/
 
 #ifndef VGA_LIB_H_

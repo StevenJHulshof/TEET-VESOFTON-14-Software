@@ -20,7 +20,9 @@
 /*******************************************************************************
  * Functions
  ******************************************************************************/
- sBitmap_t* VGA_L_getBitmap(char ascii_char, charSize_t size, charStyle_t style){
+ sBitmap_t* VGA_L_getBitmap(	char 		ascii_char,
+		 	 	 	 	 	 	charSize_t 	size,
+		 	 	 	 	 	 	charStyle_t style	){
 
 	fontStyle_t* sFontstyle;
 	uint8_t* bitmapArray;
@@ -59,10 +61,11 @@
 	return &sBitmapdata;
  }
 
- sBitmap_t* VGA_L_processCharData(	char ascii_char, charSize_t size,
- 							charStyle_t style,
- 							sPosition_t sStartPos,
- 							color_t color){
+ sBitmap_t* VGA_L_processCharData(	char 		ascii_char,
+		 	 	 	 	 	 	 	charSize_t 	size,
+ 									charStyle_t style,
+ 									sPosition_t sStartPos,
+ 									color_t 	color	){
 
 	 sBitmap_t* sChardata;
 	 sPosition_t sNextPos = sStartPos;
@@ -109,11 +112,11 @@
 	 return sChardata;
  }
 
- void VGA_L_processStringData(	char* ascii_string,
- 							charSize_t size,
- 							charStyle_t style,
- 							sPosition_t sPos,
- 							color_t color){
+ void VGA_L_processStringData(	char* 		ascii_string,
+ 								charSize_t 	size,
+ 								charStyle_t style,
+ 								sPosition_t sPos,
+ 								color_t		color	){
 
 	 uint8_t i;
 	 int orgX = sPos.x;

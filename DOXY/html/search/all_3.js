@@ -7,6 +7,13 @@ var searchData=
   ['fontlibrary_2eh',['fontlibrary.h',['../fontlibrary_8h.html',1,'']]],
   ['fonts_5fdisplay_2ec',['fonts_display.c',['../fonts__display_8c.html',1,'']]],
   ['fonts_5fdisplay_2eh',['fonts_display.h',['../fonts__display_8h.html',1,'']]],
+  ['fontstyle_5fnotoemoji24',['FontStyle_NotoEmoji24',['../fontlibrary_8c.html#a853cef5f1e749e2a9da6ad440289798d',1,'FontStyle_NotoEmoji24():&#160;fontlibrary.c'],['../fontlibrary_8h.html#a853cef5f1e749e2a9da6ad440289798d',1,'FontStyle_NotoEmoji24():&#160;fontlibrary.c']]],
+  ['fontstyle_5froboto12',['FontStyle_Roboto12',['../fontlibrary_8c.html#ae5a0f825b093489511e3fdf3b0cfd78d',1,'FontStyle_Roboto12():&#160;fontlibrary.c'],['../fontlibrary_8h.html#ae5a0f825b093489511e3fdf3b0cfd78d',1,'FontStyle_Roboto12():&#160;fontlibrary.c']]],
+  ['fontstyle_5froboto12bold',['FontStyle_Roboto12Bold',['../fontlibrary_8c.html#a1b17ef6b3590ca92e645558214788096',1,'FontStyle_Roboto12Bold():&#160;fontlibrary.c'],['../fontlibrary_8h.html#a1b17ef6b3590ca92e645558214788096',1,'FontStyle_Roboto12Bold():&#160;fontlibrary.c']]],
+  ['fontstyle_5froboto18',['FontStyle_Roboto18',['../fontlibrary_8c.html#ad79a9faec72d4f5e8868205a077cb736',1,'FontStyle_Roboto18():&#160;fontlibrary.c'],['../fontlibrary_8h.html#ad79a9faec72d4f5e8868205a077cb736',1,'FontStyle_Roboto18():&#160;fontlibrary.c']]],
+  ['fontstyle_5froboto18bold',['FontStyle_Roboto18Bold',['../fontlibrary_8c.html#a9e84a3debfed6104fca08b961963fb8d',1,'FontStyle_Roboto18Bold():&#160;fontlibrary.c'],['../fontlibrary_8h.html#a9e84a3debfed6104fca08b961963fb8d',1,'FontStyle_Roboto18Bold():&#160;fontlibrary.c']]],
+  ['fontstyle_5frobotoslab24',['FontStyle_RobotoSlab24',['../fontlibrary_8c.html#a1ded0a40c4e30e5c205ba5c1d7157e11',1,'FontStyle_RobotoSlab24():&#160;fontlibrary.c'],['../fontlibrary_8h.html#a1ded0a40c4e30e5c205ba5c1d7157e11',1,'FontStyle_RobotoSlab24():&#160;fontlibrary.c']]],
+  ['fontstyle_5frobotoslab24bold',['FontStyle_RobotoSlab24Bold',['../fontlibrary_8c.html#af06d6a4b7878f7ddcaf37b6f72e2a921',1,'FontStyle_RobotoSlab24Bold():&#160;fontlibrary.c'],['../fontlibrary_8h.html#af06d6a4b7878f7ddcaf37b6f72e2a921',1,'FontStyle_RobotoSlab24Bold():&#160;fontlibrary.c']]],
   ['fontstyle_5ft',['fontStyle_t',['../structfont_style__t.html',1,'']]],
   ['fx_5fdata_2ec',['fx_data.c',['../fx__data_8c.html',1,'']]],
   ['fx_5fdata_2eh',['fx_data.h',['../fx__data_8h.html',1,'']]]
