@@ -106,6 +106,7 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains functions utilizing the font_display library. </p>
+<p>This file contains a print string function, which can be used to print ASCII strings on the VGA screen. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="a9a46cfc6b59c02e926c70aec53091191"></a>
 <div class="memitem">
@@ -150,16 +151,27 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Print a string at given pixel coordinates. </p>
+<p>This function will call the <a class="el" href="fonts__display_8c.html#a4007f8782db5ca089436acc19efd0852" title="Creates string from input parameters. ">VGA_L_processStringData()</a> function to print a string of text onto the screen.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">size</td><td>Select font size as defined in enumerated type charSize_t </td></tr>
-    <tr><td class="paramname">style</td><td>Select font style as defined in enumerated type charStyle_t </td></tr>
-    <tr><td class="paramname">sPos</td><td>Start position of upperleft corner of char  color color of the char </td></tr>
+    <tr><td class="paramname">stringPos</td><td>Select start position using the <a class="el" href="structs_position__t.html" title="Position structure. ">sPosition_t</a> structure. </td></tr>
+    <tr><td class="paramname">string</td><td>String to print onto the screen. </td></tr>
+    <tr><td class="paramname">size</td><td>Select font style as defined in enumerated type charSize_t. </td></tr>
+    <tr><td class="paramname">style</td><td>Select font style as defined in enumerated type charStyle_t. </td></tr>
+    <tr><td class="paramname">color</td><td>Select font style as defined in enumerated type color_t or by entering an 8-bit value.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Structure with chardata according to enumerated type <a class="el" href="structs_bitmap__t.html" title="Retreived character structure. ">sBitmap_t</a> </dd></dl>
-
+<dl class="section return"><dt>Returns</dt><dd>Status of operation. Possible return values: </dd>
+<dd>
+VGA_SUCCESS - Operation is success. </dd>
+<dd>
+VGA_STRING_INVALID_FONTSTYLE - Given font style does not exist. </dd>
+<dd>
+VGA_STRING_INVALID_FONTSIZE - Given font size does not exist. </dd>
+<dd>
+GA_STRING_COL_OUT_OF_BOUNDS - Input font color is out of bounds. (0 to 255).</dd></dl>
+<div class="fragment"><div class="line"><a class="code" href="structs_position__t.html">sPosition_t</a> pixelPos = {100, 100};</div><div class="line"><a class="code" href="system_8h.html#af9bff8ff1154a04a899276af806b8586">status_t</a> status = <a class="code" href="text_8c.html#a9a46cfc6b59c02e926c70aec53091191">VGA_P_printString</a>(    &amp;pixelPos,</div><div class="line">                                        <span class="stringliteral">&quot;Example string.\n&quot;</span>,</div><div class="line">                                        Size_24,</div><div class="line">                                        Regular,</div><div class="line">                                        VGA_COL_GREEN   );</div><div class="line"><span class="keywordflow">if</span>(status != VGA_SUCCESS) {</div><div class="line">    <span class="keywordflow">return</span> status;</div><div class="line">}</div></div><!-- fragment --> 
 </div>
 </div>
 </div><!-- contents -->
